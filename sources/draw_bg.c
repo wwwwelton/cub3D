@@ -1,24 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.c                                            :+:      :+:    :+:   */
+/*   draw_bg.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/04 01:11:30 by wleite           ###   ########.fr       */
+/*   Updated: 2022/01/04 00:59:18 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int	main(void)
+void	draw_background(t_data *data)
 {
-	t_data	data;
+	int		count_w;
+	int		count_h;
+	t_img	*img;
+	t_mlx	*mlx;
 
-	mlx_start(&data);
-	draw_screen(&data);
-	mlx_hook(data.mlx.win, X_EVENT_KEY_PRESS, 1L << 0, &key_press, &data);
-	mlx_loop(data.mlx.mlx_ptr);
-	return (0);
+	img = &data->img_bg;
+	mlx = &data->mlx;
+	img->img_ptr = mlx_new_image(mlx->mlx_ptr, IMG_WIDTH, IMG_HEIGHT);
+	img->data = (int *)mlx_get_data_addr(img->img_ptr, &img->bpp, &img->size_l, &img->endian);
+	count_h = -1;
+	while (++count_h < IMG_HEIGHT)
+	{
+		count_w = -1;
+		while (++count_w < IMG_WIDTH)
+		{
+			img->data[count_h * IMG_WIDTH + count_w] = 0x484848;
+		}
+	}
+	mlx_put_image_to_window(mlx->mlx_ptr, mlx->win, img->img_ptr, 0, 0);
 }

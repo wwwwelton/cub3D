@@ -4,7 +4,8 @@ LIBFT			=	$(LIBFT_PATH)/libft.a
 MINILIBX_PATH	=	./libraries/minilibx
 MINILIBX		=	$(MINILIBX_PATH)/libmlx.a
 
-SOURCES_FILES	=	cub3d.c
+SOURCES_FILES	=	cub3d.c draw_bg.c init.c draw_player.c draw_screen.c
+SOURCES_FILES	+=	key_press.c draw_map.c
 
 SOURCES_BONUS	=
 

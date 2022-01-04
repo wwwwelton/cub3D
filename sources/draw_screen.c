@@ -1,24 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.c                                            :+:      :+:    :+:   */
+/*   draw_screen.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/04 01:11:30 by wleite           ###   ########.fr       */
+/*   Updated: 2022/01/04 01:42:54 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int	main(void)
+void	draw_screen(t_data *data)
 {
-	t_data	data;
-
-	mlx_start(&data);
-	draw_screen(&data);
-	mlx_hook(data.mlx.win, X_EVENT_KEY_PRESS, 1L << 0, &key_press, &data);
-	mlx_loop(data.mlx.mlx_ptr);
-	return (0);
+	draw_background(data);
+	draw_map(data);
+	draw_player(data);
 }
