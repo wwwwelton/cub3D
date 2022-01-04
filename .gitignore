@@ -1,0 +1,8 @@
+a.out
+*.o
+mlx-test
+*.a
+.vscode
+objects
+so_long
+so_long_bonus
