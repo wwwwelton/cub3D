@@ -70,5 +70,7 @@ void	draw_map(t_data *data);
 void	draw_player(t_data *data);
 void	draw_screen(t_data *data);
 int		key_press(int key, t_data *data);
+void	draw_line(t_data *data, int x0, int y0, int x1, int y1, int line_length, int color);
+void	my_mlx_pixel_put(t_data *data, int sx, int sy, int line_length, int color);
 
 #endif
