@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/04 22:26:43 by wleite           ###   ########.fr       */
+/*   Updated: 2022/01/05 01:36:12 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ int	exit_game(t_data *data)
 	mlx_destroy_image(data->mlx.mlx_ptr, data->img_box2.img_ptr);
 	mlx_destroy_image(data->mlx.mlx_ptr, data->player.img_player.img_ptr);
 	mlx_destroy_image(data->mlx.mlx_ptr, data->img_pixel1.img_ptr);
+	mlx_destroy_image(data->mlx.mlx_ptr, data->img_pixel2.img_ptr);
 	mlx_destroy_window(data->mlx.mlx_ptr, data->mlx.win);
 	mlx_destroy_display(data->mlx.mlx_ptr);
 	free(data->mlx.mlx_ptr);

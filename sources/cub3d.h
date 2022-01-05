@@ -8,6 +8,8 @@
 # include "../libraries/minilibx/mlx.h"
 
 # define PI 3.1415926535
+# define P2 PI / 2
+# define P3 3 * PI / 2
 
 # define WIN_WIDTH 1024
 # define WIN_HEIGHT 512
@@ -67,6 +69,7 @@ typedef struct	s_data
 	t_img		img_box1;
 	t_img		img_box2;
 	t_img		img_pixel1;
+	t_img		img_pixel2;
 	t_player	player;
 }				t_data;
 
@@ -85,5 +88,7 @@ void	init_background(t_data *data);
 void	init_box(t_data *data, t_img *img, int size, int color);
 void	draw_box(t_data *data, t_img *img, int x, int y);
 int		exit_game(t_data *data);
+
+void	draw_rays(t_data *data);
 
 #endif
