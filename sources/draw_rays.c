@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/05 01:55:53 by wleite           ###   ########.fr       */
+/*   Updated: 2022/01/05 20:06:09 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,8 +69,8 @@ void	draw_rays(t_data *data)
 		}
 		while (dof < 8)
 		{
-			mx = (int)(rx)>>6;
-			my = (int)(ry)>>6;
+			mx = (int)(rx) >> 6;
+			my = (int)(ry) >> 6;
 			mp = my * mapX + mx;
 			if (mp < mapX * mapY && map[mp] == 1)
 				dof = 8;
