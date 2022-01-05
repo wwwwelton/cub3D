@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/04 03:55:12 by wleite           ###   ########.fr       */
+/*   Updated: 2022/01/04 22:27:14 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 int	key_press(int key, t_data *data)
 {
+	usleep(100);
 	if (key == KEY_W)
 	{
 		data->player.px += data->player.pdx;
@@ -40,6 +41,8 @@ int	key_press(int key, t_data *data)
 		data->player.pdx = cos(data->player.pa) * 5;
 		data->player.pdy = sin(data->player.pa) * 5;
 	}
+	if (key == KEY_Q || key == KEY_ESC)
+		exit_game(data);
 	draw_screen(data);
 	return (0);
 }

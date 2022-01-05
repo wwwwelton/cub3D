@@ -4,6 +4,7 @@
 # include <stdio.h>
 # include <string.h>
 # include <math.h>
+# include "../libraries/libft/libft.h"
 # include "../libraries/minilibx/mlx.h"
 
 # define PI 3.1415926535
@@ -15,8 +16,11 @@
 # define IMG_HEIGHT 512
 
 # define PLAYER_SIZE 10
+# define PLAYER_CENTER 4
+# define LINE_LENGTH 3
 
 # define X_EVENT_KEY_PRESS 2
+# define X_EVENT_DESTROY_NOTIFY 17
 
 # define KEY_ESC 65307
 # define KEY_Q 113
@@ -60,6 +64,9 @@ typedef struct	s_data
 {
 	t_mlx		mlx;
 	t_img		img_bg;
+	t_img		img_box1;
+	t_img		img_box2;
+	t_img		img_pixel1;
 	t_player	player;
 }				t_data;
 
@@ -70,7 +77,13 @@ void	draw_map(t_data *data);
 void	draw_player(t_data *data);
 void	draw_screen(t_data *data);
 int		key_press(int key, t_data *data);
-void	draw_line(t_data *data, int x0, int y0, int x1, int y1, int line_length, int color);
-void	my_mlx_pixel_put(t_data *data, int sx, int sy, int line_length, int color);
+void	draw_line(t_data *data, t_img *img, int x0, int y0, int x1, int y1);
+void	my_mlx_pixel_put(t_data *data, t_img *img, int x, int y);
+
+void	init_background(t_data *data);
+
+void	init_box(t_data *data, t_img *img, int size, int color);
+void	draw_box(t_data *data, t_img *img, int x, int y);
+int		exit_game(t_data *data);
 
 #endif

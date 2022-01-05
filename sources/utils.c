@@ -6,30 +6,56 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/04 06:08:17 by wleite           ###   ########.fr       */
+/*   Updated: 2022/01/04 22:26:43 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	my_mlx_pixel_put(t_data *data, int sx, int sy, int line_length, int color)
+void	my_mlx_pixel_put(t_data *data, t_img *img, int x, int y)
 {
-	int		x;
-	int		y;
-	t_img	img;
 	t_mlx	*mlx;
 
 	mlx = &data->mlx;
-	img.img_ptr = mlx_new_image(mlx->mlx_ptr, line_length, line_length);
-	img.data = (int *)mlx_get_data_addr(img.img_ptr, &img.bpp, &img.size_l, &img.endian);
+	mlx_put_image_to_window(mlx->mlx_ptr, mlx->win, img->img_ptr, x, y);
+}
+
+void	draw_box(t_data *data, t_img *img, int x, int y)
+{
+	t_mlx	*mlx;
+
+	mlx = &data->mlx;
+	mlx_put_image_to_window(mlx->mlx_ptr, mlx->win, img->img_ptr, x, y);
+}
+
+void	init_box(t_data *data, t_img *img, int size, int color)
+{
+	int		x;
+	int		y;
+	t_mlx	*mlx;
+
+	mlx = &data->mlx;
+	img->img_ptr = mlx_new_image(mlx->mlx_ptr, size, size);
+	img->data = (int *)mlx_get_data_addr(img->img_ptr, &img->bpp, &img->size_l, &img->endian);
 	y = -1;
-	while (++y < line_length)
+	while (++y < size)
 	{
 		x = -1;
-		while (++x < line_length)
-		{
-			img.data[y * line_length + x] = color;
-		}
+		while (++x < size)
+			img->data[y * size + x] = color;
 	}
-	mlx_put_image_to_window(mlx->mlx_ptr, mlx->win, img.img_ptr, sx, sy);
+}
+
+int	exit_game(t_data *data)
+{
+	mlx_destroy_image(data->mlx.mlx_ptr, data->img_bg.img_ptr);
+	mlx_destroy_image(data->mlx.mlx_ptr, data->img_box1.img_ptr);
+	mlx_destroy_image(data->mlx.mlx_ptr, data->img_box2.img_ptr);
+	mlx_destroy_image(data->mlx.mlx_ptr, data->player.img_player.img_ptr);
+	mlx_destroy_image(data->mlx.mlx_ptr, data->img_pixel1.img_ptr);
+	mlx_destroy_window(data->mlx.mlx_ptr, data->mlx.win);
+	mlx_destroy_display(data->mlx.mlx_ptr);
+	free(data->mlx.mlx_ptr);
+	exit(0);
+	return (0);
 }
