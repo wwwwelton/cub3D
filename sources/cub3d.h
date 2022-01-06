@@ -10,6 +10,7 @@
 # define PI 3.1415926535
 # define P2 PI / 2
 # define P3 3 * PI / 2
+# define DR 0.0174533
 
 # define WIN_WIDTH 1024
 # define WIN_HEIGHT 512
@@ -70,6 +71,9 @@ typedef struct	s_data
 	t_img		img_box2;
 	t_img		img_pixel1;
 	t_img		img_pixel2;
+	t_img		img_pixel3;
+	t_img		img_pixel4;
+	t_img		img_pixel5;
 	t_player	player;
 }				t_data;
 

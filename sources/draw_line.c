@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/05 02:00:03 by wleite           ###   ########.fr       */
+/*   Updated: 2022/01/06 01:14:53 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ void	draw_line(t_data *data, t_img *img, int x0, int y0, int x1, int y1)
 
 	if (&data->img_pixel1 == img)
 		center = 4;
-	if (&data->img_pixel2 == img)
-		center = 5;
+	if (&data->img_pixel2 == img || &data->img_pixel3 == img)
+		center = 4;
 	dx =  abs(x1 - x0);
 	sx = x0 < x1 ? 1 : -1;
 	dy = -abs(y1 - y0);
