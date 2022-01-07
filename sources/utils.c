@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/07 01:22:08 by wleite           ###   ########.fr       */
+/*   Updated: 2022/01/07 09:53:02 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,16 @@ void	my_mlx_pixel_put(t_img *img, int x, int y, int color)
 		return ;
 	dst = (char *)img->data + (y * img->size_l + x * (img->bpp / 8));
 	*(unsigned int *)dst = color;
+}
+
+int	get_pixel_color(t_img *img, int x, int y)
+{
+	int	*color;
+
+	if (x < 0 || x > IMG_WIDTH || y < 0 || y > IMG_HEIGHT)
+		return (0xFFFFFF);
+	color = img->data + (y * img->size_l + x * (img->bpp / 8));
+	return (*color);
 }
 
 void	init_box(t_data *data, t_img *img, int size, int color)
@@ -99,6 +109,16 @@ void	put_image_to_screen(t_img *img_src, t_img *img_dst, int color)
 	}
 }
 
+void	img_init(t_data *data, t_img *img, char *image_path)
+{
+	t_mlx	*mlx;
+
+	mlx = &data->mlx;
+	img->img_ptr = mlx_xpm_file_to_image
+		(mlx->mlx_ptr, image_path, &data->img_width, &data->img_height);
+	img->data = (int *)mlx_get_data_addr(img->img_ptr, &img->bpp, &img->size_l, &img->endian);
+}
+
 int	exit_game(t_data *data)
 {
 	mlx_destroy_image(data->mlx.mlx_ptr, data->img_bg.img_ptr);
@@ -106,6 +126,7 @@ int	exit_game(t_data *data)
 	mlx_destroy_image(data->mlx.mlx_ptr, data->img_screen.img_ptr);
 	mlx_destroy_image(data->mlx.mlx_ptr, data->img_map.img_ptr);
 	mlx_destroy_image(data->mlx.mlx_ptr, data->img_rays.img_ptr);
+	mlx_destroy_image(data->mlx.mlx_ptr, data->img_tex.img_ptr);
 	mlx_destroy_window(data->mlx.mlx_ptr, data->mlx.win);
 	mlx_destroy_display(data->mlx.mlx_ptr);
 	free(data->mlx.mlx_ptr);

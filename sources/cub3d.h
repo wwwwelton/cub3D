@@ -47,6 +47,8 @@
 # define KEY_DOWN 65364
 # define KEY_RIGHT 65363
 
+# define TEXTURE "assets/images/texture1.xpm"
+
 typedef struct	s_img
 {
 	void		*img_ptr;
@@ -74,11 +76,14 @@ typedef struct	s_mlx
 
 typedef struct	s_data
 {
+	int			img_width;
+	int			img_height;
 	t_mlx		mlx;
 	t_img		img_bg;
 	t_img		img_map;
 	t_img		img_screen;
 	t_img		img_rays;
+	t_img		img_tex;
 	t_player	player;
 }				t_data;
 
@@ -105,5 +110,8 @@ void	put_image_to_screen(t_img *img_src, t_img *img_dst, int color);
 void	fill_color(t_img *img, int color);
 
 void	draw_vert_line(t_img *img, int x0, int y0, int y1, int thick, int color);
+void	img_init(t_data *data, t_img *img, char *image_path);
+
+int		get_pixel_color(t_img *img, int x, int y);
 
 #endif
