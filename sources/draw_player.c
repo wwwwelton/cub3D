@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/05 01:55:10 by wleite           ###   ########.fr       */
+/*   Updated: 2022/01/07 03:21:20 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,11 @@ void	draw_player(t_data *data)
 	float	py;
 	float	pdx;
 	float	pdy;
-	t_img	*img;
-	t_mlx	*mlx;
 
 	px = data->player.px;
 	py = data->player.py;
 	pdx = data->player.pdx;
 	pdy = data->player.pdy;
-	img = &data->player.img_player;
-	mlx = &data->mlx;
-	mlx_put_image_to_window(mlx->mlx_ptr, mlx->win, img->img_ptr, px, py);
-	draw_line(data, &data->img_pixel1, px, py, px + pdx * 5, py + pdy * 5);
+	draw_box(&data->player.img_player, px, py, 5, YELLOW);
+	draw_line(&data->player.img_player, px, py, px + pdx * 5, py + pdy * 5, YELLOW);
 }

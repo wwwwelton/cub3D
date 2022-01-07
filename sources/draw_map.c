@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/06 01:43:20 by wleite           ###   ########.fr       */
+/*   Updated: 2022/01/07 03:21:08 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,11 @@ void	draw_map(t_data *data)
 		while (++x < mapX)
 		{
 			if (map[y * mapX + x] == 1)
-				draw_box(data, &data->img_box1, x * 66, y * 66);
+				draw_box(&data->img_map, x * 64, y * 64, 64, WHITE);
 			else
-				draw_box(data, &data->img_box2, x * 66, y * 66);
+				draw_box(&data->img_map, x * 64, y * 64, 64, BLACKB);
+			draw_line(&data->img_map, x * 64, 0, x * 64, IMG_HEIGHT, GRAY);
+			draw_line(&data->img_map, 0, y * 64, IMG_WIDTH, y * 64, GRAY);
 		}
 	}
 }

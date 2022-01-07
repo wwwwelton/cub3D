@@ -12,6 +12,15 @@
 # define P3 3 * PI / 2
 # define DR 0.0174533
 
+# define RED 0xff0000
+# define RED_BLACK 0xd20000
+# define YELLOW 0xE3E316
+# define BLACK 0x000000
+# define BLACKB 0x010101
+# define WHITE 0xFFFFFF
+# define GRAY 0x484848
+# define PINK 0xff00fe
+
 # define WIN_WIDTH 1024
 # define WIN_HEIGHT 512
 
@@ -67,32 +76,34 @@ typedef struct	s_data
 {
 	t_mlx		mlx;
 	t_img		img_bg;
-	t_img		img_box1;
-	t_img		img_box2;
-	t_img		img_pixel1;
-	t_img		img_pixel2;
-	t_img		img_pixel3;
-	t_img		img_pixel4;
-	t_img		img_pixel5;
+	t_img		img_map;
+	t_img		img_screen;
+	t_img		img_rays;
 	t_player	player;
 }				t_data;
 
 
 void	mlx_start(t_data *data);
-void	draw_background(t_data *data);
 void	draw_map(t_data *data);
 void	draw_player(t_data *data);
 void	draw_screen(t_data *data);
 int		key_press(int key, t_data *data);
-void	draw_line(t_data *data, t_img *img, int x0, int y0, int x1, int y1);
-void	my_mlx_pixel_put(t_data *data, t_img *img, int x, int y);
+void	draw_line(t_img *img, int x0, int y0, int x1, int y1, int color);
+void	my_mlx_pixel_put(t_img *img, int x, int y, int color);
 
-void	init_background(t_data *data);
+void	draw_background(t_data *data);
 
 void	init_box(t_data *data, t_img *img, int size, int color);
-void	draw_box(t_data *data, t_img *img, int x, int y);
+void	draw_box(t_img *img, int x, int y, int size, int color);
 int		exit_game(t_data *data);
 
 void	draw_rays(t_data *data);
+
+void	init_img(t_data *data, t_img *img, int width, int heigth);
+void	put_image_to_screen(t_img *img_src, t_img *img_dst, int color);
+
+void	fill_color(t_img *img, int color);
+
+void	draw_vert_line(t_img *img, int x0, int y0, int y1, int thick, int color);
 
 #endif

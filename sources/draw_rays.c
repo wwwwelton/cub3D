@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/06 01:49:38 by wleite           ###   ########.fr       */
+/*   Updated: 2022/01/07 03:28:17 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	draw_rays(t_data *data)
 		1, 1, 1, 1, 1, 1, 1, 1,
 	};
 	float	disT;
-	t_img	*img;
+	int		color;
 
 	ra = data->player.pa - DR * 30;
 	if (ra < 0)
@@ -154,16 +154,16 @@ void	draw_rays(t_data *data)
 			rx = vx;
 			ry = vy;
 			disT = disV;
-			img = &data->img_pixel4;
+			color = RED_BLACK;
 		}
 		else
 		{
 			rx = hx;
 			ry = hy;
 			disT = disH;
-			img = &data->img_pixel5;
+			color = RED;
 		}
-		draw_line(data, &data->img_pixel2, px, py, rx, ry);
+		draw_line(&data->img_rays, px, py, rx, ry, RED);
 		//Check Vertical Lines
 		//Draw 3D Walls
 		//Fix fisheye
@@ -174,11 +174,12 @@ void	draw_rays(t_data *data)
 			ca -= 2 * PI;
 		disT = disT * cos(ca);
 		//Fix fisheye
-		float lineH = (mapS * 320) / disT;
-		if (lineH > 320)
-			lineH = 320;
+		float lineH = (mapS * 512) / disT;
+		if (lineH > 512)
+			lineH = 512;
 		float lineO = 160 - lineH / 2;
-		draw_line(data, img, r * 8 + 530, lineO, r * 8 + 530, lineH + lineO);
+		// draw_line(&data->img_rays, r * 8 + 530, lineO, r * 8 + 530, lineH + lineO, color);
+		draw_vert_line(&data->img_rays, r * 8 + 530, lineO, lineH + lineO, 8,color);
 		//Draw 3D Walls
 		ra += DR;
 		if (ra < 0)
