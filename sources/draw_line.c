@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/07 03:27:53 by wleite           ###   ########.fr       */
+/*   Updated: 2022/01/08 00:57:27 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,15 @@ void	draw_vert_line(t_img *img, int x0, int y0, int y1, int thick, int color)
 		}
 		y0++;
 	}
+}
+
+void	draw_vert_pixel(t_img *img, int x0, int y0, int thick, int color)
+{
+	int	i;
+
+	i = -1;
+	while (++i < thick)
+		my_mlx_pixel_put(img, x0 + i, y0, color);
 }
 
 void	draw_line(t_img *img, int x0, int y0, int x1, int y1, int color)

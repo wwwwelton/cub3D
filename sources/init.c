@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/07 09:46:15 by wleite           ###   ########.fr       */
+/*   Updated: 2022/01/08 02:08:09 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,6 @@ void	mlx_start(t_data *data)
 	init_img(data, &data->img_map, IMG_WIDTH, IMG_HEIGHT);
 	init_img(data, &data->img_rays, IMG_WIDTH, IMG_HEIGHT);
 	init_img(data, &data->player.img_player, IMG_WIDTH, IMG_HEIGHT);
-	img_init(data, &data->img_tex, TEXTURE);
+	img_init(data, &data->img_tex1, TEXTURE1);
+	img_init(data, &data->img_tex2, TEXTURE2);
 }

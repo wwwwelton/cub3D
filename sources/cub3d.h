@@ -19,7 +19,10 @@
 # define BLACKB 0x010101
 # define WHITE 0xFFFFFF
 # define GRAY 0x484848
+# define GRAYC 0x383838
+# define GRAYF 0x707070
 # define PINK 0xff00fe
+# define BLUE 0x0171FF
 
 # define WIN_WIDTH 1024
 # define WIN_HEIGHT 512
@@ -47,7 +50,11 @@
 # define KEY_DOWN 65364
 # define KEY_RIGHT 65363
 
-# define TEXTURE "assets/images/texture1.xpm"
+# define TEXTURE1 "assets/images/piston_top_sticky.xpm"
+# define TEXTURE2 "assets/images/acacia_planks.xpm"
+
+# define TEX_SIZE 64
+
 
 typedef struct	s_img
 {
@@ -83,7 +90,8 @@ typedef struct	s_data
 	t_img		img_map;
 	t_img		img_screen;
 	t_img		img_rays;
-	t_img		img_tex;
+	t_img		img_tex1;
+	t_img		img_tex2;
 	t_player	player;
 }				t_data;
 
@@ -110,6 +118,8 @@ void	put_image_to_screen(t_img *img_src, t_img *img_dst, int color);
 void	fill_color(t_img *img, int color);
 
 void	draw_vert_line(t_img *img, int x0, int y0, int y1, int thick, int color);
+void	draw_vert_pixel(t_img *img, int x0, int y0, int thick, int color);
+
 void	img_init(t_data *data, t_img *img, char *image_path);
 
 int		get_pixel_color(t_img *img, int x, int y, int width, int height);
