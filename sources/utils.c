@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/07 09:53:02 by wleite           ###   ########.fr       */
+/*   Updated: 2022/01/08 00:24:57 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,14 @@ void	my_mlx_pixel_put(t_img *img, int x, int y, int color)
 	*(unsigned int *)dst = color;
 }
 
-int	get_pixel_color(t_img *img, int x, int y)
+int	get_pixel_color(t_img *img, int x, int y, int width, int height)
 {
-	int	*color;
+	char	*dst;
 
-	if (x < 0 || x > IMG_WIDTH || y < 0 || y > IMG_HEIGHT)
-		return (0xFFFFFF);
-	color = img->data + (y * img->size_l + x * (img->bpp / 8));
-	return (*color);
+	if (x < 0 || x > width || y < 0 || y > height)
+		return (1);
+	dst = (char *)img->data + (y * img->size_l + x * (img->bpp / 8));
+	return (*(unsigned int *)dst);
 }
 
 void	init_box(t_data *data, t_img *img, int size, int color)

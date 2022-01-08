@@ -112,6 +112,6 @@ void	fill_color(t_img *img, int color);
 void	draw_vert_line(t_img *img, int x0, int y0, int y1, int thick, int color);
 void	img_init(t_data *data, t_img *img, char *image_path);
 
-int		get_pixel_color(t_img *img, int x, int y);
+int		get_pixel_color(t_img *img, int x, int y, int width, int height);
 
 #endif
