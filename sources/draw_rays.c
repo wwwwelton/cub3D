@@ -6,242 +6,128 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/08 03:31:59 by wleite           ###   ########.fr       */
+/*   Updated: 2022/01/12 03:38:27 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-static float	dist(float ax, float ay, float bx, float by, float ang)
+# define mapWidth 24
+# define mapHeight 24
+
+int	worldMap[mapWidth][mapHeight] =
 {
-	(void)ang;
-	return (sqrt((bx - ax) * (bx - ax) + (by - ay) * (by - ay)));
-}
-
-static float degToRad(float a) { return a*M_PI/180.0;}
-static float FixAng(float a){ if(a>359){ a-=360;} if(a<0){ a+=360;} return a;}
-
+	{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,0,0,0,0,0,2,2,2,2,2,0,0,0,0,3,0,3,0,3,0,0,0,1},
+	{1,0,0,0,0,0,2,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,0,0,0,0,0,2,0,0,0,2,0,0,0,0,3,0,0,0,3,0,0,0,1},
+	{1,0,0,0,0,0,2,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,0,0,0,0,0,2,2,0,2,2,0,0,0,0,3,0,3,0,3,0,0,0,1},
+	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,4,4,4,4,4,4,4,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,4,0,4,0,0,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,4,0,0,0,0,5,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,4,0,4,0,0,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,4,0,4,4,4,4,4,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,4,4,4,4,4,4,4,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}
+};
 
 void	draw_rays(t_data *data)
 {
-	int		r;
-	int		mx;
-	int		my;
-	int		mp;
-	int		dof;
-	float	rx = 0;
-	float	ry = 0;
-	float	ra;
-	float	xo = 0;
-	float	yo = 0;
-	float	aTan;
-	float	nTan;
-	float	py;
-	float	px;
-	float	pa;
-	int		mapX = 8, mapY = 8, mapS = 64;
-	int		map[64] =
-	{
-		1, 1, 1, 1, 1, 1, 1, 1,
-		1, 0, 0, 0, 0, 0, 0, 1,
-		1, 0, 1, 0, 2, 2, 2, 1,
-		1, 1, 0, 0, 2, 0, 0, 1,
-		1, 0, 0, 0, 0, 0, 0, 1,
-		1, 0, 0, 0, 0, 0, 0, 1,
-		1, 0, 0, 0, 0, 0, 0, 1,
-		1, 1, 1, 1, 1, 1, 1, 1,
-	};
-	float	disT;
+	int		map_x;
+	int		map_y;
+	int		step_x;
+	int		step_y;
+	int		hit;
+	int		side;
+	int		line_height;
+	int		draw_start;
+	int		draw_end;
 	int		color;
+	int		x;
+	double	cam_x;
+	double	ray_dir_x;
+	double	ray_dir_y;
+	double	side_dist_x;
+	double	side_dist_y;
+	double	delta_dist_x;
+	double	delta_dist_y;
+	double	wall_dist;
 
-	ra = data->player.pa - DR * 30;
-	if (ra < 0)
-		ra += 2 * PI;
-	if (ra > 2 * PI)
-		ra -= 2 * PI;
-	pa = data->player.pa;
-	py = data->player.py;
-	px = data->player.px;
-	for (r = 0; r < 60; r++)
+	x = 0;
+	while (x < WIN_WIDTH)
 	{
-		int	vmt = 0, hmt = 0;
-		// //Check Horizontal Lines
-		dof = 0;
-		float disH = 1000000, hx = px, hy = py;
-		aTan = -1 / tan (ra);
-		if (ra > PI)
+		cam_x = 2 * x / (double)WIN_WIDTH - 1;
+		ray_dir_x = data->dir_x + data->plane_x * cam_x;
+		ray_dir_y = data->dir_y + data->plane_y * cam_x;
+		map_x = (int)data->pos_x;
+		map_y = (int)data->pos_y;
+		delta_dist_x = fabs(1 / ray_dir_x);
+		delta_dist_y = fabs(1 / ray_dir_y);
+		if (ray_dir_x < 0)
 		{
-			ry = (((int)py >> 6) << 6) - 0.0001;
-			rx = (py - ry) * aTan + px;
-			yo = -64;
-			xo = -yo * aTan;
+			step_x = -1;
+			side_dist_x = (data->pos_x - map_x) * delta_dist_x;
 		}
-		if (ra < PI)
+		else
 		{
-			ry = (((int)py >> 6) << 6) + 64;
-			rx = (py - ry) * aTan + px;
-			yo = 64;
-			xo = -yo * aTan;
+			step_x = 1;
+			side_dist_x = (map_x + 1.0 - data->pos_x) * delta_dist_x;
 		}
-		if (ra == 0 || ra == PI)
+		if (ray_dir_y < 0)
 		{
-			rx = px;
-			ry = py;
-			dof = 8;
+			step_y = -1;
+			side_dist_y = (data->pos_y - map_y) * delta_dist_y;
 		}
-		while (dof < 8)
+		else
 		{
-			mx = (int)(rx) >> 6;
-			my = (int)(ry) >> 6;
-			mp = my * mapX + mx;
-			if (mp > 0 && mp < mapX * mapY && map[mp] > 0)
+			step_y = 1;
+			side_dist_y = (map_y + 1.0 - data->pos_y) * delta_dist_y;
+		}
+		hit = 0;
+		while (hit == 0)
+		{
+			if (side_dist_x < side_dist_y)
 			{
-				hmt = map[mp] - 1;
-				hx = rx;
-				hy = ry;
-				disH = dist(px, py, hx, hy, ra);
-				dof = 8;
+				side_dist_x += delta_dist_x;
+				map_x += step_x;
+				side = 0;
 			}
 			else
 			{
-				rx += xo;
-				ry += yo;
-				dof += 1;
+				side_dist_y += delta_dist_y;
+				map_y += step_y;
+				side = 1;
 			}
+			if (worldMap[map_x][map_y] > 0)
+				hit = 1;
 		}
-		// //Check Horizontal Lines
-
-		//Check Vertical Lines
-		dof = 0;
-		float disV = 1000000, vx = px, vy = py;
-		nTan = -tan(ra);
-		if (ra > P2 && ra < P3)
-		{
-			rx = (((int)px >> 6) << 6) - 0.0001;
-			ry = (px - rx) * nTan + py;
-			xo = -64;
-			yo = -xo * nTan;
-		}
-		if (ra < P2 || ra > P3)
-		{
-			rx = (((int)px >> 6) << 6) + 64;
-			ry = (px - rx) * nTan + py;
-			xo = 64;
-			yo = -xo * nTan;
-		}
-		if (ra == 0 || ra == PI)
-		{
-			rx = px;
-			ry = py;
-			dof = 8;
-		}
-		while (dof < 8)
-		{
-			mx = (int)(rx) >> 6;
-			my = (int)(ry) >> 6;
-			mp = my * mapX + mx;
-			if (mp > 0 && mp < mapX * mapY && map[mp] > 0)
-			{
-				vmt = map[mp] - 1;
-				vx = rx;
-				vy = ry;
-				disV = dist(px, py, vx, vy, ra);
-				dof = 8;
-			}
-			else
-			{
-				rx += xo;
-				ry += yo;
-				dof += 1;
-			}
-		}
-		float shade = 1;
-		if (disV < disH)
-		{
-			hmt = vmt;
-			shade = 0.5;
-			rx = vx;
-			ry = vy;
-			disT = disV;
+		if (side == 0)
+			wall_dist = (map_x - data->pos_x + (1 - step_x) / 2) / ray_dir_x;
+		else
+			wall_dist = (map_y - data->pos_y + (1 - step_y) / 2) / ray_dir_y;
+		line_height = (int)(WIN_HEIGHT / wall_dist);
+		draw_start = -line_height / 2 + WIN_HEIGHT / 2;
+		if(draw_start < 0)
+			draw_start = 0;
+		draw_end = line_height / 2 + WIN_HEIGHT / 2;
+		if(draw_end >= WIN_HEIGHT)
+			draw_end = WIN_HEIGHT - 1;
+		color = RED;
+		if (side == 1)
 			color = RED_BLACK;
-		}
-		else
-		{
-			rx = hx;
-			ry = hy;
-			disT = disH;
-			color = RED;
-		}
-		draw_line(&data->img_rays, px, py, rx, ry, RED);
-		//Check Vertical Lines
-
-		//Fix fisheye
-		float ca = pa - ra;
-		if (ca < 0)
-			ca += 2 * PI;
-		if (ca > 2 * PI)
-			ca -= 2 * PI;
-		disT = disT * cos(ca);
-		//Fix fisheye
-
-		float lineH = (mapS * 320) / disT;
-		float ty_step = 32.0 / (float)lineH;
-		float ty_off = 0;
-		if (lineH > 320)
-		{
-			ty_off = (lineH - 320) / 2.0;
-			lineH = 320;
-		}
-		float lineOff = 160 - lineH / 2;
-
-		//draw walls
-		int		y;
-		float	ty = ty_off * ty_step;
-		float	tx;
-		if (shade == 1)
-		{
-			tx = (int) (rx / 2.0) % 32;
-			if (ra > 180)
-				tx = 31 - tx;
-		}
-		else
-		{
-			tx = (int) (ry / 2.0) % 32;
-			if (ra > 90 && ra < 270)
-				tx = 31 - tx;
-		}
-		for (y = 0; y < lineH; y++)
-		{
-			if (hmt)
-				color = get_pixel_color(&data->img_tex1, ty, tx, 32, 32);
-			else
-				color = get_pixel_color(&data->img_tex2, ty, tx, 32, 32);
-			draw_vert_pixel(&data->img_rays, r*8 + 530, y + lineOff, 8, color);
-			ty += ty_step;
-		}
-		//draw walls
-
-		//draw floors
-		//draw ceiling
-		for (y = lineOff + lineH; y < 320; y++)
-		{
-			float dy = y - (320 / 2.0);
-			float deg = degToRad(ra);
-			float raFix = cos(degToRad(FixAng(pa-ra)));
-
-			tx = px / 2 + cos(deg) * 158 * 32 / dy / raFix;
-			ty = py / 2 - sin(deg) * 158 * 32 / dy / raFix;
-			color = get_pixel_color(&data->img_tex2, ty, tx, 32, 32);
-			draw_vert_pixel(&data->img_rays, r*8 + 530, y, 8, GRAYF);
-			draw_vert_pixel(&data->img_rays, r*8 + 530, 320 - y, 8, GRAYC);
-		}
-		//draw floors
-		//draw ceiling
-
-		ra += DR;
-		if (ra < 0)
-			ra += 2 * PI;
-		if (ra > 2 * PI)
-			ra -= 2 * PI;
+		draw_vert_line(&data->img_rays, x, draw_start, draw_end, 1, color);
+		x += 1;
 	}
 }

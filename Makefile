@@ -30,6 +30,7 @@ CC				=	gcc
 RM				=	rm -rf
 
 CFLAGS			=	-O3 -Wall -Wextra -Werror -g3
+# CFLAGS			=
 LDFLAGS			=	-lXext -lX11 -lm
 
 $(OBJ_DIR)/%.o:		$(SOURCES_DIR)/%.c $(HEADER)

@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/07 01:45:03 by wleite           ###   ########.fr       */
+/*   Updated: 2022/01/12 03:53:33 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,14 @@ void	draw_screen(t_data *data)
 	fill_color(&data->img_rays, BLACK);
 	fill_color(&data->player.img_player, BLACK);
 	draw_background(data);
-	draw_map(data);
-	draw_player(data);
+	// draw_map(data);
+	// draw_player(data);
 	draw_rays(data);
-	put_image_to_screen(&data->player.img_player, &data->img_screen, BLACK);
+	// put_image_to_screen(&data->player.img_player, &data->img_screen, BLACK);
 	put_image_to_screen(&data->img_rays, &data->img_screen, BLACK);
-	put_image_to_screen(&data->img_map, &data->img_screen, BLACK);
+	// put_image_to_screen(&data->img_map, &data->img_screen, BLACK);
 	put_image_to_screen(&data->img_bg, &data->img_screen, BLACK);
 	mlx_put_image_to_window(mlx->mlx_ptr, mlx->win, img->img_ptr, 0, 0);
+	printf("x: %f y: %f\n", data->pos_x, data->pos_y);
+	printf("dx: %f dy: %f\n",data->dir_y, data->dir_y);
 }

@@ -25,10 +25,10 @@
 # define BLUE 0x0171FF
 
 # define WIN_WIDTH 1024
-# define WIN_HEIGHT 512
+# define WIN_HEIGHT 768
 
 # define IMG_WIDTH 1024
-# define IMG_HEIGHT 512
+# define IMG_HEIGHT 768
 
 # define PLAYER_SIZE 10
 # define PLAYER_CENTER 4
@@ -67,12 +67,7 @@ typedef struct	s_img
 
 typedef struct	s_player
 {
-	t_img		img_player;
-	float		px;
-	float		py;
-	float		pdx;
-	float		pdy;
-	float		pa;
+	t_img	img_player;
 }				t_player;
 
 typedef struct	s_mlx
@@ -93,6 +88,17 @@ typedef struct	s_data
 	t_img		img_tex1;
 	t_img		img_tex2;
 	t_player	player;
+
+	double	pos_x;
+	double	pos_y;
+	double	dir_x;
+	double	dir_y;
+	double	plane_x;
+	double	plane_y;
+	double	time;
+	double	oldTime;
+	double	move_speed;
+	double	rot_speed;
 }				t_data;
 
 
