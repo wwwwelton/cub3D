@@ -56,8 +56,10 @@
 # define KEY_DOWN 65364
 # define KEY_RIGHT 65363
 
-# define TEXTURE1 "assets/images/stone_bricks.xpm"
-# define TEXTURE2 "assets/images/bricks.xpm"
+# define TEXTURE1 "assets/images/redbrick.xpm"
+# define TEXTURE2 "assets/images/redbrick.xpm"
+# define TEX_WIDTH 64
+# define TEX_HEIGHT 64
 
 # define TEX_SIZE 64
 

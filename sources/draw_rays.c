@@ -6,14 +6,12 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/13 20:31:05 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/13 20:44:50 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-# define texWidth 512
-# define texHeight 512
 # define mapWidth 24
 # define mapHeight 24
 
@@ -148,23 +146,23 @@ void	draw_rays(t_data *data)
 			wall_x = player->pos_x + wall_dist * ray_dir_x;
 		wall_x -= floor(wall_x);
 
-		texture_x = (int)(wall_x * (double)texWidth);
+		texture_x = (int)(wall_x * (double)TEX_WIDTH);
 		if (side == 0 && ray_dir_x > 0)
-			texture_x = texWidth - texture_x - 1;
+			texture_x = TEX_WIDTH - texture_x - 1;
 		if (side == 1 && ray_dir_y < 0)
-			texture_x = texWidth - texture_x - 1;
+			texture_x = TEX_WIDTH - texture_x - 1;
 
-		step = 1.0 * texHeight / line_height;
+		step = 1.0 * TEX_HEIGHT / line_height;
 		texture_pos = (draw_start - WIN_HEIGHT / 2 + line_height / 2) * step;
 
 		for (int y = draw_start; y < draw_end; y++)
 		{
-			texture_y = (int)texture_pos & (texHeight - 1);
+			texture_y = (int)texture_pos & (TEX_HEIGHT - 1);
 			texture_pos += step;
 			if (worldMap[map_x][map_y] == 9)
-				color = get_pixel_color(&data->img[TEX_NO], texture_x, texture_y, texWidth, texHeight);
+				color = get_pixel_color(&data->img[TEX_NO], texture_x, texture_y, TEX_WIDTH, TEX_HEIGHT);
 			else
-				color = get_pixel_color(&data->img[TEX_SO], texture_x, texture_y, texWidth, texHeight);
+				color = get_pixel_color(&data->img[TEX_SO], texture_x, texture_y, TEX_WIDTH, TEX_HEIGHT);
 			if (side == 1)
 				color = (color >> 1) & 0x7F7F7F;
 			my_mlx_pixel_put(&data->img[RAYS], x, y, color);
