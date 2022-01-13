@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/13 20:04:07 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/13 20:07:51 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	my_mlx_pixel_put(t_img *img, int x, int y, int color)
 
 	if (x < 0 || x > IMG_WIDTH || y < 0 || y > IMG_HEIGHT)
 		return ;
-	dst = (char *)img->data + (y * img->size_l + x * (img->bpp / 8));
+	dst = (char *)img->dump + (y * img->size_l + x * (img->bpp / 8));
 	*(unsigned int *)dst = color;
 }
 
@@ -28,7 +28,7 @@ int	get_pixel_color(t_img *img, int x, int y, int width, int height)
 
 	if (x < 0 || x > width || y < 0 || y > height)
 		return (1);
-	dst = (char *)img->data + (y * img->size_l + x * (img->bpp / 8));
+	dst = (char *)img->dump + (y * img->size_l + x * (img->bpp / 8));
 	return (*(unsigned int *)dst);
 }
 
@@ -38,7 +38,7 @@ void	init_img(t_data *data, t_img *img, int width, int heigth)
 
 	mlx = &data->mlx;
 	img->img_ptr = mlx_new_image(mlx->mlx_ptr, width, heigth);
-	img->data = (int *)mlx_get_data_addr(img->img_ptr, &img->bpp, &img->size_l, &img->endian);
+	img->dump = (int *)mlx_get_data_addr(img->img_ptr, &img->bpp, &img->size_l, &img->endian);
 }
 
 void	fill_color(t_img *img, int color)
@@ -51,7 +51,7 @@ void	fill_color(t_img *img, int color)
 	{
 		count_w = -1;
 		while (++count_w < IMG_WIDTH)
-			img->data[count_h * IMG_WIDTH + count_w] = color;
+			img->dump[count_h * IMG_WIDTH + count_w] = color;
 	}
 }
 
@@ -66,9 +66,9 @@ void	put_image_to_screen(t_img *img_src, t_img *img_dst, int color)
 		count_w = -1;
 		while (++count_w < IMG_WIDTH)
 		{
-			if (img_dst->data[count_h * IMG_WIDTH + count_w] == color)
-				img_dst->data[count_h * IMG_WIDTH + count_w]
-					= img_src->data[count_h * IMG_WIDTH + count_w];
+			if (img_dst->dump[count_h * IMG_WIDTH + count_w] == color)
+				img_dst->dump[count_h * IMG_WIDTH + count_w]
+					= img_src->dump[count_h * IMG_WIDTH + count_w];
 		}
 	}
 }
@@ -80,7 +80,7 @@ void	img_init(t_data *data, t_img *img, char *image_path)
 	mlx = &data->mlx;
 	img->img_ptr = mlx_xpm_file_to_image
 		(mlx->mlx_ptr, image_path, &data->img_width, &data->img_height);
-	img->data = (int *)mlx_get_data_addr(img->img_ptr, &img->bpp, &img->size_l, &img->endian);
+	img->dump = (int *)mlx_get_data_addr(img->img_ptr, &img->bpp, &img->size_l, &img->endian);
 }
 
 int	exit_game(t_data *data)

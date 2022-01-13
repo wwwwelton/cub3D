@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_bg.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
+/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/07 01:07:28 by wleite           ###   ########.fr       */
+/*   Updated: 2022/01/13 20:07:34 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,6 @@ void	draw_background(t_data *data)
 	{
 		count_w = -1;
 		while (++count_w < IMG_WIDTH)
-			img->data[count_h * IMG_WIDTH + count_w] = GRAY;
+			img->dump[count_h * IMG_WIDTH + count_w] = GRAY;
 	}
 }

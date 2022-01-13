@@ -61,7 +61,7 @@ typedef struct	s_img
 	int			width;
 	int			height;
 	void		*img_ptr;
-	int			*data;
+	int			*dump;
 }				t_img;
 
 typedef struct	s_player
