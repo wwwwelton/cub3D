@@ -58,15 +58,21 @@
 
 typedef struct	s_img
 {
+	int			bpp;
+	int			size_l;
+	int			endian;
+	int			width;
+	int			height;
 	void		*img_ptr;
 	int			*data;
-	int			size_l;
-	int			bpp;
-	int			endian;
 }				t_img;
 
 typedef struct	s_player
 {
+	double	pos_x;
+	double	pos_y;
+	double	move_speed;
+	double	rot_speed;
 	t_img	img_player;
 }				t_player;
 
@@ -75,6 +81,14 @@ typedef struct	s_mlx
 	void		*mlx_ptr;
 	void		*win;
 }				t_mlx;
+
+typedef struct s_ray
+{
+	double	dir_x;
+	double	dir_y;
+	double	plane_x;
+	double	plane_y;
+}	t_ray;
 
 typedef struct	s_data
 {
@@ -87,24 +101,13 @@ typedef struct	s_data
 	t_img		img_rays;
 	t_img		img_tex1;
 	t_img		img_tex2;
+	t_ray		ray;
 	t_player	player;
-
-	double	pos_x;
-	double	pos_y;
-	double	dir_x;
-	double	dir_y;
-	double	plane_x;
-	double	plane_y;
-	double	time;
-	double	oldTime;
-	double	move_speed;
-	double	rot_speed;
+	t_img		*img;
 }				t_data;
 
 
 void	mlx_start(t_data *data);
-void	draw_map(t_data *data);
-void	draw_player(t_data *data);
 void	draw_screen(t_data *data);
 int		key_press(int key, t_data *data);
 void	draw_line(t_img *img, int x0, int y0, int x1, int y1, int color);

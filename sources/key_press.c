@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   key_press.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
+/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/12 03:42:49 by wleite           ###   ########.fr       */
+/*   Updated: 2022/01/13 17:41:14 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,38 +44,42 @@ int	key_press(int key, t_data *data)
 {
 	double	old_dir_x;
 	double	old_plane_x;
+	t_ray		*ray;
+	t_player	*player;
 
+	player = &data->player;
+	ray = &data->ray;
 	if (key == KEY_W)
 	{
-		if (!worldMappsu[(int)(data->pos_x + data->dir_x * data->move_speed)][(int)(data->pos_y)])
-			data->pos_x += data->dir_x * data->move_speed;
-		if (!worldMappsu[(int)(data->pos_x)][(int)(data->pos_y + data->dir_y * data->move_speed)])
-			data->pos_y += data->dir_y * data->move_speed;
+		if (!worldMappsu[(int)(player->pos_x + ray->dir_x * player->move_speed)][(int)(data->player.pos_y)])
+			player->pos_x += ray->dir_x * player->move_speed;
+		if (!worldMappsu[(int)(player->pos_x)][(int)(player->pos_y + ray->dir_y * player->move_speed)])
+			player->pos_y += ray->dir_y * player->move_speed;
 	}
 	if (key == KEY_S)
 	{
-		if (!worldMappsu[(int)(data->pos_x - data->dir_x * data->move_speed)][(int)(data->pos_y)])
-			data->pos_x -= data->dir_x * data->move_speed;
-		if (!worldMappsu[(int)(data->pos_x)][(int)(data->pos_y - data->dir_y * data->move_speed)])
-			data->pos_y -= data->dir_y * data->move_speed;
+		if (!worldMappsu[(int)(player->pos_x - ray->dir_x * player->move_speed)][(int)(player->pos_y)])
+			player->pos_x -= ray->dir_x * player->move_speed;
+		if (!worldMappsu[(int)(player->pos_x)][(int)(player->pos_y - ray->dir_y * player->move_speed)])
+			player->pos_y -= ray->dir_y * player->move_speed;
 	}
 	if (key == KEY_A)
 	{
-		old_dir_x = data->dir_x;
-		data->dir_x = data->dir_x * cos(data->rot_speed) - data->dir_y * sin(data->rot_speed);
-		data->dir_y = old_dir_x * sin(data->rot_speed) + data->dir_y * cos(data->rot_speed);
-		old_plane_x = data->plane_x;
-		data->plane_x = data->plane_x * cos(data->rot_speed) - data->plane_y * sin(data->rot_speed);
-		data->plane_y = old_plane_x * sin(data->rot_speed) + data->plane_y * cos(data->rot_speed);
+		old_dir_x = ray->dir_x;
+		ray->dir_x = ray->dir_x * cos(player->rot_speed) - ray->dir_y * sin(player->rot_speed);
+		ray->dir_y = old_dir_x * sin(player->rot_speed) + ray->dir_y * cos(player->rot_speed);
+		old_plane_x = ray->plane_x;
+		ray->plane_x = ray->plane_x * cos(player->rot_speed) - ray->plane_y * sin(player->rot_speed);
+		ray->plane_y = old_plane_x * sin(player->rot_speed) + ray->plane_y * cos(player->rot_speed);
 	}
 	if (key == KEY_D)
 	{
-		old_dir_x = data->dir_x;
-		data->dir_x = data->dir_x * cos(-data->rot_speed) - data->dir_y * sin(-data->rot_speed);
-		data->dir_y = old_dir_x * sin(-data->rot_speed) + data->dir_y * cos(-data->rot_speed);
-		old_plane_x = data->plane_x;
-		data->plane_x = data->plane_x * cos(-data->rot_speed) - data->plane_y * sin(-data->rot_speed);
-		data->plane_y = old_plane_x * sin(-data->rot_speed) + data->plane_y * cos(-data->rot_speed);
+		old_dir_x = ray->dir_x;
+		ray->dir_x = ray->dir_x * cos(-player->rot_speed) - ray->dir_y * sin(-player->rot_speed);
+		ray->dir_y = old_dir_x * sin(-player->rot_speed) + ray->dir_y * cos(-player->rot_speed);
+		old_plane_x = ray->plane_x;
+		ray->plane_x = ray->plane_x * cos(-player->rot_speed) - ray->plane_y * sin(-player->rot_speed);
+		ray->plane_y = old_plane_x * sin(-player->rot_speed) + ray->plane_y * cos(-player->rot_speed);
 	}
 	if (key == KEY_Q || key == KEY_ESC)
 		exit_game(data);

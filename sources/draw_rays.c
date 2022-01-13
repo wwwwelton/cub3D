@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_rays.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
+/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/13 17:05:04 by wleite           ###   ########.fr       */
+/*   Updated: 2022/01/13 17:44:14 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,36 +74,41 @@ void	draw_rays(t_data *data)
 	int	texture_x;
 	int	texture_y;
 
+	t_player	*player;
+	t_ray		*ray;
+
+	ray = &data->ray;
+	player = &data->player;
 	x = 0;
 	while (x < WIN_WIDTH)
 	{
 		cam_x = 2 * x / (double)WIN_WIDTH - 1;
-		ray_dir_x = data->dir_x + data->plane_x * cam_x;
-		ray_dir_y = data->dir_y + data->plane_y * cam_x;
-		map_x = (int)data->pos_x;
-		map_y = (int)data->pos_y;
+		ray_dir_x = ray->dir_x + ray->plane_x * cam_x;
+		ray_dir_y = ray->dir_y + ray->plane_y * cam_x;
+		map_x = (int)player->pos_x;
+		map_y = (int)player->pos_y;
 		delta_dist_x = fabs(1 / ray_dir_x);
 		delta_dist_y = fabs(1 / ray_dir_y);
 
 		if (ray_dir_x < 0)
 		{
 			step_x = -1;
-			side_dist_x = (data->pos_x - map_x) * delta_dist_x;
+			side_dist_x = (player->pos_x - map_x) * delta_dist_x;
 		}
 		else
 		{
 			step_x = 1;
-			side_dist_x = (map_x + 1.0 - data->pos_x) * delta_dist_x;
+			side_dist_x = (map_x + 1.0 - player->pos_x) * delta_dist_x;
 		}
 		if (ray_dir_y < 0)
 		{
 			step_y = -1;
-			side_dist_y = (data->pos_y - map_y) * delta_dist_y;
+			side_dist_y = (player->pos_y - map_y) * delta_dist_y;
 		}
 		else
 		{
 			step_y = 1;
-			side_dist_y = (map_y + 1.0 - data->pos_y) * delta_dist_y;
+			side_dist_y = (map_y + 1.0 - player->pos_y) * delta_dist_y;
 		}
 
 		hit = 0;
@@ -125,9 +130,9 @@ void	draw_rays(t_data *data)
 				hit = 1;
 		}
 		if (side == 0)
-			wall_dist = (map_x - data->pos_x + (1 - step_x) / 2) / ray_dir_x;
+			wall_dist = (map_x - player->pos_x + (1 - step_x) / 2) / ray_dir_x;
 		else
-			wall_dist = (map_y - data->pos_y + (1 - step_y) / 2) / ray_dir_y;
+			wall_dist = (map_y - player->pos_y + (1 - step_y) / 2) / ray_dir_y;
 
 		line_height = (int)(WIN_HEIGHT / wall_dist);
 		draw_start = -line_height / 2 + WIN_HEIGHT / 2;
@@ -138,9 +143,9 @@ void	draw_rays(t_data *data)
 			draw_end = WIN_HEIGHT - 1;
 
 		if (side == 0)
-			wall_x = data->pos_y + wall_dist * ray_dir_y;
+			wall_x = player->pos_y + wall_dist * ray_dir_y;
 		else
-			wall_x = data->pos_x + wall_dist * ray_dir_x;
+			wall_x = player->pos_x + wall_dist * ray_dir_x;
 		wall_x -= floor(wall_x);
 
 		texture_x = (int)(wall_x * (double)texWidth);
