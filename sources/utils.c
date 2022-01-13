@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/13 19:28:00 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/13 20:04:07 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,24 +32,6 @@ int	get_pixel_color(t_img *img, int x, int y, int width, int height)
 	return (*(unsigned int *)dst);
 }
 
-void	init_box(t_data *data, t_img *img, int size, int color)
-{
-	int		x;
-	int		y;
-	t_mlx	*mlx;
-
-	mlx = &data->mlx;
-	img->img_ptr = mlx_new_image(mlx->mlx_ptr, size, size);
-	img->data = (int *)mlx_get_data_addr(img->img_ptr, &img->bpp, &img->size_l, &img->endian);
-	y = -1;
-	while (++y < size)
-	{
-		x = -1;
-		while (++x < size)
-			img->data[y * size + x] = color;
-	}
-}
-
 void	init_img(t_data *data, t_img *img, int width, int heigth)
 {
 	t_mlx	*mlx;
@@ -57,24 +39,6 @@ void	init_img(t_data *data, t_img *img, int width, int heigth)
 	mlx = &data->mlx;
 	img->img_ptr = mlx_new_image(mlx->mlx_ptr, width, heigth);
 	img->data = (int *)mlx_get_data_addr(img->img_ptr, &img->bpp, &img->size_l, &img->endian);
-}
-
-void	draw_box(t_img *img, int x, int y, int size, int color)
-{
-	int		count_w;
-	int		count_h;
-
-	count_h = -1;
-	while (++count_h < IMG_HEIGHT)
-	{
-		count_w = -1;
-		while (++count_w < IMG_WIDTH)
-		{
-			if ((count_h >= y && count_h <= y + size)
-				&& (count_w >= x && count_w <= x + size))
-				img->data[count_h * IMG_WIDTH + count_w] = color;
-		}
-	}
 }
 
 void	fill_color(t_img *img, int color)

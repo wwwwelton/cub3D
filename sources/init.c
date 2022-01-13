@@ -6,13 +6,13 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/13 19:31:34 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/13 20:06:04 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	mlx_start(t_data *data)
+void	init_data(t_data *data)
 {
 	data->player.pos_x = 9.326093;
 	data->player.pos_y = 18.390340;

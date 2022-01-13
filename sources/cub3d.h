@@ -103,31 +103,30 @@ typedef struct	s_data
 	t_img		*img;
 }				t_data;
 
-
-void	mlx_start(t_data *data);
-void	draw_screen(t_data *data);
-int		key_press(int key, t_data *data);
-void	draw_line(t_img *img, int x0, int y0, int x1, int y1, int color);
-void	my_mlx_pixel_put(t_img *img, int x, int y, int color);
-
-void	draw_background(t_data *data);
-
-void	init_box(t_data *data, t_img *img, int size, int color);
-void	draw_box(t_img *img, int x, int y, int size, int color);
-int		exit_game(t_data *data);
-
-void	draw_rays(t_data *data);
-
+//init
+void	init_data(t_data *data);
 void	init_img(t_data *data, t_img *img, int width, int heigth);
-void	put_image_to_screen(t_img *img_src, t_img *img_dst, int color);
-
-void	fill_color(t_img *img, int color);
-
-void	draw_vert_line(t_img *img, int x0, int y0, int y1, int thick, int color);
-void	draw_vert_pixel(t_img *img, int x0, int y0, int thick, int color);
-
+int		exit_game(t_data *data);
 void	img_init(t_data *data, t_img *img, char *image_path);
 
+//controller
+int		key_press(int key, t_data *data);
+
+
+//raycasting
+void	draw_rays(t_data *data);
+
+//utils
+void	fill_color(t_img *img, int color);
 int		get_pixel_color(t_img *img, int x, int y, int width, int height);
+void	my_mlx_pixel_put(t_img *img, int x, int y, int color);
+
+
+//render
+void	draw_screen(t_data *data);
+void	draw_background(t_data *data);
+void	put_image_to_screen(t_img *img_src, t_img *img_dst, int color);
+
+
 
 #endif

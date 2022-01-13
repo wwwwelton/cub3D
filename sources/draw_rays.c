@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/13 17:44:14 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/13 20:05:11 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -167,7 +167,7 @@ void	draw_rays(t_data *data)
 				color = get_pixel_color(&data->img_tex2, texture_x, texture_y, texWidth, texHeight);
 			if (side == 1)
 				color = (color >> 1) & 0x7F7F7F;
-			draw_vert_pixel(&data->img_rays, x, y, 1, color);
+			my_mlx_pixel_put(&data->img_rays, x, y, color);
 		}
 		x++;
 	}
