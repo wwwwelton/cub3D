@@ -6,18 +6,20 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/12 03:38:27 by wleite           ###   ########.fr       */
+/*   Updated: 2022/01/13 17:05:04 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
+# define texWidth 512
+# define texHeight 512
 # define mapWidth 24
 # define mapHeight 24
 
 int	worldMap[mapWidth][mapHeight] =
 {
-	{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+	{9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9},
 	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
 	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
 	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
@@ -65,6 +67,13 @@ void	draw_rays(t_data *data)
 	double	delta_dist_y;
 	double	wall_dist;
 
+	double	wall_x;
+	double	step;
+	double	texture_pos;
+
+	int	texture_x;
+	int	texture_y;
+
 	x = 0;
 	while (x < WIN_WIDTH)
 	{
@@ -75,6 +84,7 @@ void	draw_rays(t_data *data)
 		map_y = (int)data->pos_y;
 		delta_dist_x = fabs(1 / ray_dir_x);
 		delta_dist_y = fabs(1 / ray_dir_y);
+
 		if (ray_dir_x < 0)
 		{
 			step_x = -1;
@@ -95,6 +105,7 @@ void	draw_rays(t_data *data)
 			step_y = 1;
 			side_dist_y = (map_y + 1.0 - data->pos_y) * delta_dist_y;
 		}
+
 		hit = 0;
 		while (hit == 0)
 		{
@@ -117,6 +128,7 @@ void	draw_rays(t_data *data)
 			wall_dist = (map_x - data->pos_x + (1 - step_x) / 2) / ray_dir_x;
 		else
 			wall_dist = (map_y - data->pos_y + (1 - step_y) / 2) / ray_dir_y;
+
 		line_height = (int)(WIN_HEIGHT / wall_dist);
 		draw_start = -line_height / 2 + WIN_HEIGHT / 2;
 		if(draw_start < 0)
@@ -124,10 +136,34 @@ void	draw_rays(t_data *data)
 		draw_end = line_height / 2 + WIN_HEIGHT / 2;
 		if(draw_end >= WIN_HEIGHT)
 			draw_end = WIN_HEIGHT - 1;
-		color = RED;
-		if (side == 1)
-			color = RED_BLACK;
-		draw_vert_line(&data->img_rays, x, draw_start, draw_end, 1, color);
-		x += 1;
+
+		if (side == 0)
+			wall_x = data->pos_y + wall_dist * ray_dir_y;
+		else
+			wall_x = data->pos_x + wall_dist * ray_dir_x;
+		wall_x -= floor(wall_x);
+
+		texture_x = (int)(wall_x * (double)texWidth);
+		if (side == 0 && ray_dir_x > 0)
+			texture_x = texWidth - texture_x - 1;
+		if (side == 1 && ray_dir_y < 0)
+			texture_x = texWidth - texture_x - 1;
+
+		step = 1.0 * texHeight / line_height;
+		texture_pos = (draw_start - WIN_HEIGHT / 2 + line_height / 2) * step;
+
+		for (int y = draw_start; y < draw_end; y++)
+		{
+			texture_y = (int)texture_pos & (texHeight - 1);
+			texture_pos += step;
+			if (worldMap[map_x][map_y] == 9)
+				color = get_pixel_color(&data->img_tex1, texture_x, texture_y, texWidth, texHeight);
+			else
+				color = get_pixel_color(&data->img_tex2, texture_x, texture_y, texWidth, texHeight);
+			if (side == 1)
+				color = (color >> 1) & 0x7F7F7F;
+			draw_vert_pixel(&data->img_rays, x, y, 1, color);
+		}
+		x++;
 	}
 }

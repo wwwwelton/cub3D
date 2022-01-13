@@ -50,8 +50,8 @@
 # define KEY_DOWN 65364
 # define KEY_RIGHT 65363
 
-# define TEXTURE1 "assets/images/piston_top_sticky.xpm"
-# define TEXTURE2 "assets/images/acacia_planks.xpm"
+# define TEXTURE1 "assets/images/stone_bricks.xpm"
+# define TEXTURE2 "assets/images/bricks.xpm"
 
 # define TEX_SIZE 64
 
