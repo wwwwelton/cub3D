@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/13 20:07:51 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/13 20:33:41 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,17 @@ void	put_image_to_screen(t_img *img_src, t_img *img_dst, int color)
 	}
 }
 
-void	img_init(t_data *data, t_img *img, char *image_path)
+void	draw_vert_pixel(t_img *img, int x0, int y0, int thick, int color)
+{
+	int	i;
+
+	i = -1;
+	while (++i < thick)
+		my_mlx_pixel_put(img, x0 + i, y0, color);
+}
+
+
+void	init_xpm(t_data *data, t_img *img, char *image_path)
 {
 	t_mlx	*mlx;
 
@@ -85,11 +95,13 @@ void	img_init(t_data *data, t_img *img, char *image_path)
 
 int	exit_game(t_data *data)
 {
-	mlx_destroy_image(data->mlx.mlx_ptr, data->img_bg.img_ptr);
-	mlx_destroy_image(data->mlx.mlx_ptr, data->img_screen.img_ptr);
-	mlx_destroy_image(data->mlx.mlx_ptr, data->img_rays.img_ptr);
-	mlx_destroy_image(data->mlx.mlx_ptr, data->img_tex1.img_ptr);
-	mlx_destroy_image(data->mlx.mlx_ptr, data->img_tex2.img_ptr);
+	mlx_destroy_image(data->mlx.mlx_ptr, data->img[BG].img_ptr);
+	mlx_destroy_image(data->mlx.mlx_ptr, data->img[SCREEN].img_ptr);
+	mlx_destroy_image(data->mlx.mlx_ptr, data->img[RAYS].img_ptr);
+	mlx_destroy_image(data->mlx.mlx_ptr, data->img[TEX_NO].img_ptr);
+	mlx_destroy_image(data->mlx.mlx_ptr, data->img[TEX_EA].img_ptr);
+	mlx_destroy_image(data->mlx.mlx_ptr, data->img[TEX_SO].img_ptr);
+	mlx_destroy_image(data->mlx.mlx_ptr, data->img[TEX_WE].img_ptr);
 	mlx_destroy_window(data->mlx.mlx_ptr, data->mlx.win);
 	mlx_destroy_display(data->mlx.mlx_ptr);
 	free(data->mlx.mlx_ptr);

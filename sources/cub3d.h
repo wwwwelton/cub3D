@@ -7,7 +7,16 @@
 # include "../libraries/libft/libft.h"
 # include "../libraries/minilibx/mlx.h"
 
-# define TEX_NO
+# define TEX_NB 7
+# define SCREEN 0
+# define RAYS 1
+# define BG 2
+# define TEX_NO 3
+# define TEX_WE 4
+# define TEX_SO 5
+# define TEX_EA 6
+
+
 
 # define RED 0xff0000
 # define RED_BLACK 0xd20000
@@ -100,14 +109,14 @@ typedef struct	s_data
 	t_img		img_tex2;
 	t_ray		ray;
 	t_player	player;
-	t_img		*img;
+	t_img		img[TEX_NB];
 }				t_data;
 
 //init
 void	init_data(t_data *data);
 void	init_img(t_data *data, t_img *img, int width, int heigth);
 int		exit_game(t_data *data);
-void	img_init(t_data *data, t_img *img, char *image_path);
+void	init_xpm(t_data *data, t_img *img, char *image_path);
 
 //controller
 int		key_press(int key, t_data *data);

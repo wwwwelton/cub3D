@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/13 20:05:11 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/13 20:31:05 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -162,12 +162,12 @@ void	draw_rays(t_data *data)
 			texture_y = (int)texture_pos & (texHeight - 1);
 			texture_pos += step;
 			if (worldMap[map_x][map_y] == 9)
-				color = get_pixel_color(&data->img_tex1, texture_x, texture_y, texWidth, texHeight);
+				color = get_pixel_color(&data->img[TEX_NO], texture_x, texture_y, texWidth, texHeight);
 			else
-				color = get_pixel_color(&data->img_tex2, texture_x, texture_y, texWidth, texHeight);
+				color = get_pixel_color(&data->img[TEX_SO], texture_x, texture_y, texWidth, texHeight);
 			if (side == 1)
 				color = (color >> 1) & 0x7F7F7F;
-			my_mlx_pixel_put(&data->img_rays, x, y, color);
+			my_mlx_pixel_put(&data->img[RAYS], x, y, color);
 		}
 		x++;
 	}

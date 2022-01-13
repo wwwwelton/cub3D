@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/13 20:07:34 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/13 20:30:04 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	draw_background(t_data *data)
 	int		count_h;
 	t_img	*img;
 
-	img = &data->img_bg;
+	img = &data->img[BG];
 	count_h = -1;
 	while (++count_h < IMG_HEIGHT)
 	{
