@@ -134,7 +134,7 @@ void	my_mlx_pixel_put(t_img *img, int x, int y, int color);
 //render
 void	draw_screen(t_data *data);
 void	draw_background(t_data *data);
-void	put_image_to_screen(t_img *img_src, t_img *img_dst, int color);
+void	copy_layer(t_img *img_src, t_img *img_dst, int color);
 
 
 

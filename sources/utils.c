@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/13 20:33:41 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/13 20:39:19 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	fill_color(t_img *img, int color)
 	}
 }
 
-void	put_image_to_screen(t_img *img_src, t_img *img_dst, int color)
+void	copy_layer(t_img *img_src, t_img *img_dst, int color)
 {
 	int		count_w;
 	int		count_h;
