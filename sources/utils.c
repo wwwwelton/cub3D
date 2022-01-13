@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
+/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/08 02:09:00 by wleite           ###   ########.fr       */
+/*   Updated: 2022/01/13 19:28:00 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,9 +122,7 @@ void	img_init(t_data *data, t_img *img, char *image_path)
 int	exit_game(t_data *data)
 {
 	mlx_destroy_image(data->mlx.mlx_ptr, data->img_bg.img_ptr);
-	mlx_destroy_image(data->mlx.mlx_ptr, data->player.img_player.img_ptr);
 	mlx_destroy_image(data->mlx.mlx_ptr, data->img_screen.img_ptr);
-	mlx_destroy_image(data->mlx.mlx_ptr, data->img_map.img_ptr);
 	mlx_destroy_image(data->mlx.mlx_ptr, data->img_rays.img_ptr);
 	mlx_destroy_image(data->mlx.mlx_ptr, data->img_tex1.img_ptr);
 	mlx_destroy_image(data->mlx.mlx_ptr, data->img_tex2.img_ptr);

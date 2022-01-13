@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/13 17:40:47 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/13 17:57:42 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 int	main(void)
 {
 	t_data	data;
+	// t_img	img[TEX_NO];
 
 	mlx_start(&data);
 	draw_screen(&data);

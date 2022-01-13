@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/13 17:33:19 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/13 19:31:34 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,11 @@ void	mlx_start(t_data *data)
 	data->ray.plane_y = 0.66;
 	data->player.move_speed = 0.15;
 	data->player.rot_speed = 0.05;
-
 	data->mlx.mlx_ptr = mlx_init();
 	data->mlx.win = mlx_new_window(data->mlx.mlx_ptr, WIN_WIDTH, WIN_HEIGHT, "cub3d");
-	init_img(data, &data->img_screen, IMG_WIDTH, IMG_HEIGHT);
-	init_img(data, &data->img_bg, IMG_WIDTH, IMG_HEIGHT);
-	init_img(data, &data->img_map, IMG_WIDTH, IMG_HEIGHT);
-	init_img(data, &data->img_rays, IMG_WIDTH, IMG_HEIGHT);
-	init_img(data, &data->player.img_player, IMG_WIDTH, IMG_HEIGHT);
 	img_init(data, &data->img_tex1, TEXTURE1);
 	img_init(data, &data->img_tex2, TEXTURE2);
+	init_img(data, &data->img_screen, IMG_WIDTH, IMG_HEIGHT);
+	init_img(data, &data->img_bg, IMG_WIDTH, IMG_HEIGHT);
+	init_img(data, &data->img_rays, IMG_WIDTH, IMG_HEIGHT);
 }

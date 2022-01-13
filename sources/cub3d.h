@@ -7,10 +7,7 @@
 # include "../libraries/libft/libft.h"
 # include "../libraries/minilibx/mlx.h"
 
-# define PI 3.1415926535
-# define P2 PI / 2
-# define P3 3 * PI / 2
-# define DR 0.0174533
+# define TEX_NO
 
 # define RED 0xff0000
 # define RED_BLACK 0xd20000
