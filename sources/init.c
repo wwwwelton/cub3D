@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
+/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/14 14:46:04 by wleite           ###   ########.fr       */
+/*   Updated: 2022/01/14 15:58:18 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ void	init_data(t_data *data)
 	data->ray.plane_y = 0.66;
 	data->player.move_speed = 0.15;
 	data->player.rot_speed = 0.05;
+
+
 
 	init_img(data, &data->img[BG], IMG_WIDTH, IMG_HEIGHT);
 	init_img(data, &data->img[SCREEN], IMG_WIDTH, IMG_HEIGHT);

@@ -4,6 +4,7 @@
 # include <stdio.h>
 # include <string.h>
 # include <math.h>
+# include <fcntl.h>
 # include "../libraries/libft/libft.h"
 # include "../libraries/minilibx/mlx.h"
 
@@ -24,8 +25,6 @@
 # define TEX_WE 4
 # define TEX_SO 5
 # define TEX_EA 6
-
-
 
 # define RED 0xff0000
 # define RED_BLACK 0xd20000
@@ -65,7 +64,11 @@
 # define KEY_DOWN 65364
 # define KEY_RIGHT 65363
 
-
+typedef enum e_bool
+{
+	false,
+	true
+}	t_bool;
 
 typedef struct	s_img
 {
@@ -101,17 +104,20 @@ typedef struct s_ray
 	double	plane_y;
 }	t_ray;
 
+typedef struct s_map
+{
+	int		**matrix;
+	char	**charmatrix;
+	int	width;
+	int	height;
+}	t_map;
+
 typedef struct	s_data
 {
 	int			img_width;
 	int			img_height;
+	t_map		map;
 	t_mlx		mlx;
-	t_img		img_bg;
-	t_img		img_map;
-	t_img		img_screen;
-	t_img		img_rays;
-	t_img		img_tex1;
-	t_img		img_tex2;
 	t_ray		ray;
 	t_player	player;
 	t_img		img[TEX_NB];
@@ -119,6 +125,7 @@ typedef struct	s_data
 
 //init
 void	init_data(t_data *data);
+t_bool	validation(t_data *data, int argc, char **argv);
 void	init_img(t_data *data, t_img *img, int width, int heigth);
 int		exit_game(t_data *data);
 void	init_xpm(t_data *data, t_img *img, char *image_path);
@@ -141,6 +148,8 @@ void	draw_screen(t_data *data);
 void	draw_background(t_data *data);
 void	copy_layer(t_img *img_src, t_img *img_dst, int color);
 
+
+int		loop_hook(t_data *data);
 
 
 #endif

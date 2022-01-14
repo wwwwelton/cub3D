@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/14 15:07:28 by wleite           ###   ########.fr       */
+/*   Updated: 2022/01/14 15:49:10 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,5 @@ int	key_press(int key, t_data *data)
 	}
 	if (key == KEY_Q || key == KEY_ESC)
 		exit_game(data);
-	draw_screen(data);
 	return (0);
 }

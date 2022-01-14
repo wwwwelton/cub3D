@@ -5,7 +5,7 @@ MINILIBX_PATH	=	./libraries/minilibx
 MINILIBX		=	$(MINILIBX_PATH)/libmlx.a
 
 SOURCES_FILES	=	cub3d.c draw_bg.c init.c draw_screen.c
-SOURCES_FILES	+=	key_press.c utils.c draw_rays.c
+SOURCES_FILES	+=	key_press.c utils.c draw_rays.c validation.c
 
 SOURCES_BONUS	=
 
