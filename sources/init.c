@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/14 14:46:04 by wleite           ###   ########.fr       */
+/*   Updated: 2022/01/14 19:01:23 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,10 @@ void	init_data(t_data *data)
 	init_img(data, &data->img[SCREEN], IMG_WIDTH, IMG_HEIGHT);
 	init_img(data, &data->img[RAYS], IMG_WIDTH, IMG_HEIGHT);
 
-	init_xpm(data, &data->img[TEX_NO], TEXTURE1);
-	init_xpm(data, &data->img[TEX_EA], TEXTURE3);
-	init_xpm(data, &data->img[TEX_SO], TEXTURE2);
-	init_xpm(data, &data->img[TEX_WE], TEXTURE4);
+	init_xpm(data, &data->img[TEX_NO], TEXTURE3);
+	init_xpm(data, &data->img[TEX_EA], TEXTURE4);
+	init_xpm(data, &data->img[TEX_SO], TEXTURE5);
+	init_xpm(data, &data->img[TEX_WE], TEXTURE6);
+	init_xpm(data, &data->img[TEX_FL], TEXTURE7);
+	init_xpm(data, &data->img[TEX_CE], TEXTURE8);
 }

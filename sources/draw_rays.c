@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/14 15:03:52 by wleite           ###   ########.fr       */
+/*   Updated: 2022/01/14 19:05:57 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ void	draw_rays(t_data *data)
 	int		color;
 	int		x;
 	int		y;
+	int		tex_dir;
 	double	cam_x;
 	double	ray_dir_x;
 	double	ray_dir_y;
@@ -85,8 +86,8 @@ void	draw_rays(t_data *data)
 	float	floor_step_Y;
 	float	floor_x;
 	float	floor_y;
-	int		cell_c;
-	int		cell_y;
+	int		ceil_x;
+	int		ceil_y;
 	//FLOOR / CEIL
 
 	t_player	*player;
@@ -113,16 +114,16 @@ void	draw_rays(t_data *data)
 
 		for (int x = 0; x < WIN_WIDTH; ++x)
 		{
-			cell_c = (int)(floor_x);
-			cell_y = (int)(floor_y);
-			texture_x = (int)(TEX_WIDTH * (floor_x - cell_c)) & (TEX_WIDTH - 1);
-			texture_y = (int)(TEX_HEIGHT * (floor_y - cell_y)) & (TEX_HEIGHT - 1);
+			ceil_x = (int)(floor_x);
+			ceil_y = (int)(floor_y);
+			texture_x = (int)(TEX_WIDTH * (floor_x - ceil_x)) & (TEX_WIDTH - 1);
+			texture_y = (int)(TEX_HEIGHT * (floor_y - ceil_y)) & (TEX_HEIGHT - 1);
 			floor_x += floor_step_x;
 			floor_y += floor_step_Y;
-			color = get_pixel_color(&data->img[TEX_WE], texture_x, texture_y, TEX_WIDTH, TEX_HEIGHT);
-			my_mlx_pixel_put(&data->img[RAYS], x, y, color);
-			color = get_pixel_color(&data->img[TEX_EA], texture_x, texture_y, TEX_WIDTH, TEX_HEIGHT);
+			color = get_pixel_color(&data->img[TEX_CE], texture_x, texture_y, TEX_WIDTH, TEX_HEIGHT);
 			my_mlx_pixel_put(&data->img[RAYS], x, WIN_HEIGHT - y - 1, color);
+			color = get_pixel_color(&data->img[TEX_FL], texture_x, texture_y, TEX_WIDTH, TEX_HEIGHT);
+			my_mlx_pixel_put(&data->img[RAYS], x, y, color);
 		}
 	}
 	//FLOOR CASTING
@@ -138,6 +139,8 @@ void	draw_rays(t_data *data)
 		map_y = (int)player->pos_y;
 		delta_dist_x = fabs(1 / ray_dir_x);
 		delta_dist_y = fabs(1 / ray_dir_y);
+		tex_dir = 0;
+		side = 0;
 
 		if (ray_dir_x < 0)
 		{
@@ -168,6 +171,7 @@ void	draw_rays(t_data *data)
 			{
 				side_dist_x += delta_dist_x;
 				map_x += step_x;
+				if (ray_dir_x)
 				side = 0;
 			}
 			else
@@ -204,6 +208,15 @@ void	draw_rays(t_data *data)
 		if (side == 1 && ray_dir_y < 0)
 			texture_x = TEX_WIDTH - texture_x - 1;
 
+		if (side == 0 && ray_dir_x < 0)
+			tex_dir = TEX_NO;
+		if (side == 0 && ray_dir_x >= 0)
+			tex_dir = TEX_WE;
+		if (side == 1 && ray_dir_y < 0)
+			tex_dir = TEX_SO;
+		if (side == 1 && ray_dir_y >= 0)
+			tex_dir = TEX_EA;
+
 		step = 1.0 * TEX_HEIGHT / line_height;
 		texture_pos = (draw_start - WIN_HEIGHT / 2 + line_height / 2) * step;
 
@@ -211,29 +224,11 @@ void	draw_rays(t_data *data)
 		{
 			texture_y = (int)texture_pos & (TEX_HEIGHT - 1);
 			texture_pos += step;
-			if (side == 1 && ray_dir_y < 0)
-				// color = get_pixel_color(&data->img[TEX_NO], texture_x, texture_y, TEX_WIDTH, TEX_HEIGHT);
-				color = PINK;
-			else if (side == 1 && ray_dir_y >= 0)
-				color = BLUE;
-			else if (side == 0 && ray_dir_x < 0)
-				// color = get_pixel_color(&data->img[TEX_SO], texture_x, texture_y, TEX_WIDTH, TEX_HEIGHT);
-				color = RED;
-			else if (side == 0 && ray_dir_x >= 0)
-				color = YELLOW;
-			// if (side == 1)
-			// 	color = (color >> 1) & 0x7F7F7F;
+			color = get_pixel_color(&data->img[tex_dir], texture_x, texture_y, TEX_WIDTH, TEX_HEIGHT);
+			if (side == 1)
+				color = (color >> 1) & 0x7F7F7F;
 			my_mlx_pixel_put(&data->img[RAYS], x, y, color);
 		}
-		// printf("wall_x: %f\n", wall_x);
-		// printf("side_dist_x: %f\n", side_dist_x);
-		// printf("side_dist_y: %f\n", side_dist_y);
-		// printf("ray_dir_x: %f\n", ray_dir_x);
-		// printf("ray_dir_y: %f\n", ray_dir_y);
-		// printf("pos_x: %f\n", data->player.pos_x);
-		// printf("pos_y: %f\n", data->player.pos_y);
-		// printf("\n");
-		// printf("\e[1;1H\e[2J");
 	}
 	//WALL CASTING
 }

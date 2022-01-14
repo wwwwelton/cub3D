@@ -7,13 +7,15 @@
 # include "../libraries/libft/libft.h"
 # include "../libraries/minilibx/mlx.h"
 
-# define TEXTURE1 "assets/images/stone_bricks.xpm"
-# define TEXTURE2 "assets/images/bricks.xpm"
-# define TEXTURE3 "assets/images/diamond_block.xpm"
-# define TEXTURE4 "assets/images/sandstone_top.xpm"
+# define TEXTURE3 "assets/images/no_redbrick.xpm"
+# define TEXTURE4 "assets/images/we_redbrick.xpm"
+# define TEXTURE5 "assets/images/so_redbrick.xpm"
+# define TEXTURE6 "assets/images/ea_redbrick.xpm"
+# define TEXTURE7 "assets/images/floor_greystone.xpm"
+# define TEXTURE8 "assets/images/ceil_bluestone.xpm"
 
-# define TEX_WIDTH 512
-# define TEX_HEIGHT 512
+# define TEX_WIDTH 64
+# define TEX_HEIGHT 64
 
 
 # define TEX_NB 7
@@ -24,6 +26,8 @@
 # define TEX_WE 4
 # define TEX_SO 5
 # define TEX_EA 6
+# define TEX_FL 7
+# define TEX_CE 8
 
 
 
