@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_rays.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/13 20:44:50 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/14 03:28:25 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ void	draw_rays(t_data *data)
 	int		draw_end;
 	int		color;
 	int		x;
+	int		y;
 	double	cam_x;
 	double	ray_dir_x;
 	double	ray_dir_y;
@@ -72,13 +73,63 @@ void	draw_rays(t_data *data)
 	int	texture_x;
 	int	texture_y;
 
+	//FLOOR / CEIL
+	float	ray_dir_x0;
+	float	ray_diry0;
+	float	ray_dir_x1;
+	float	ray_diry1;
+	int	p;
+	float	pos_z;
+	float	row_distance;
+	float	floor_step_x;
+	float	floor_step_Y;
+	float	floor_x;
+	float	floor_y;
+	int		cell_c;
+	int		cell_y;
+	//FLOOR / CEIL
+
 	t_player	*player;
 	t_ray		*ray;
 
 	ray = &data->ray;
 	player = &data->player;
-	x = 0;
-	while (x < WIN_WIDTH)
+
+	//FLOOR CASTING
+	y = -1;
+	while (++y < WIN_HEIGHT)
+	{
+		ray_dir_x0 = data->ray.dir_x - data->ray.plane_x;
+		ray_diry0 = data->ray.dir_y - data->ray.plane_y;
+		ray_dir_x1 = data->ray.dir_x + data->ray.plane_x;
+		ray_diry1 = data->ray.dir_y + data->ray.plane_y;
+		p = y - WIN_HEIGHT / 2;
+		pos_z = 0.5 * WIN_HEIGHT;
+		row_distance = pos_z / p;
+		floor_step_x = row_distance * (ray_dir_x1 - ray_dir_x0) / WIN_WIDTH;
+		floor_step_Y = row_distance * (ray_diry1 - ray_diry0) / WIN_WIDTH;
+		floor_x = data->player.pos_x + row_distance * ray_dir_x0;
+		floor_y = data->player.pos_y + row_distance * ray_diry0;
+
+		for (int x = 0; x < WIN_WIDTH; ++x)
+		{
+			cell_c = (int)(floor_x);
+			cell_y = (int)(floor_y);
+			texture_x = (int)(TEX_WIDTH * (floor_x - cell_c)) & (TEX_WIDTH - 1);
+			texture_y = (int)(TEX_HEIGHT * (floor_y - cell_y)) & (TEX_HEIGHT - 1);
+			floor_x += floor_step_x;
+			floor_y += floor_step_Y;
+			color = get_pixel_color(&data->img[TEX_WE], texture_x, texture_y, TEX_WIDTH, TEX_HEIGHT);
+			my_mlx_pixel_put(&data->img[RAYS], x, y, color);
+			color = get_pixel_color(&data->img[TEX_EA], texture_x, texture_y, TEX_WIDTH, TEX_HEIGHT);
+			my_mlx_pixel_put(&data->img[RAYS], x, WIN_HEIGHT - y - 1, color);
+		}
+	}
+	//FLOOR CASTING
+
+	//WALL CASTING
+	x = -1;
+	while (++x < WIN_WIDTH)
 	{
 		cam_x = 2 * x / (double)WIN_WIDTH - 1;
 		ray_dir_x = ray->dir_x + ray->plane_x * cam_x;
@@ -167,6 +218,6 @@ void	draw_rays(t_data *data)
 				color = (color >> 1) & 0x7F7F7F;
 			my_mlx_pixel_put(&data->img[RAYS], x, y, color);
 		}
-		x++;
 	}
+	//WALL CASTING
 }

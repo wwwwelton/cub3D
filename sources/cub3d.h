@@ -9,6 +9,8 @@
 
 # define TEXTURE1 "assets/images/stone_bricks.xpm"
 # define TEXTURE2 "assets/images/bricks.xpm"
+# define TEXTURE3 "assets/images/diamond_block.xpm"
+# define TEXTURE4 "assets/images/sandstone_top.xpm"
 
 # define TEX_WIDTH 512
 # define TEX_HEIGHT 512

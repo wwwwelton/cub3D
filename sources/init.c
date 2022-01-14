@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/13 20:35:23 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/14 03:20:12 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	init_data(t_data *data)
 	init_img(data, &data->img[RAYS], IMG_WIDTH, IMG_HEIGHT);
 
 	init_xpm(data, &data->img[TEX_NO], TEXTURE1);
-	init_xpm(data, &data->img[TEX_EA], TEXTURE1);
+	init_xpm(data, &data->img[TEX_EA], TEXTURE3);
 	init_xpm(data, &data->img[TEX_SO], TEXTURE2);
-	init_xpm(data, &data->img[TEX_WE], TEXTURE2);
+	init_xpm(data, &data->img[TEX_WE], TEXTURE4);
 }
