@@ -142,5 +142,7 @@ void	draw_background(t_data *data);
 void	copy_layer(t_img *img_src, t_img *img_dst, int color);
 
 
+int		loop_hook(t_data *data);
+
 
 #endif
