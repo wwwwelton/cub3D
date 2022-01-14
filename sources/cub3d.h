@@ -26,6 +26,11 @@
 # define TEX_SO 5
 # define TEX_EA 6
 
+# define NORTH 1
+# define WEST 2
+# define SOUTH 3
+# define EAST 4
+
 # define RED 0xff0000
 # define RED_BLACK 0xd20000
 # define YELLOW 0xE3E316
@@ -47,6 +52,8 @@
 # define PLAYER_SIZE 10
 # define PLAYER_CENTER 4
 # define LINE_LENGTH 3
+
+# define EDGE '9'
 
 # define X_EVENT_KEY_PRESS 2
 # define X_EVENT_DESTROY_NOTIFY 17
