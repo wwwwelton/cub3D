@@ -124,11 +124,12 @@ typedef struct	s_data
 }				t_data;
 
 //init
-void	init_data(t_data *data);
+void	init_data(t_data *data, char **argv);
 t_bool	validation(t_data *data, int argc, char **argv);
 void	init_img(t_data *data, t_img *img, int width, int heigth);
 int		exit_game(t_data *data);
 void	init_xpm(t_data *data, t_img *img, char *image_path);
+void	init_map(t_data *data, char **argv);
 
 //controller
 int		key_press(int key, t_data *data);

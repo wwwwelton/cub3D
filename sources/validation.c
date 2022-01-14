@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 15:33:46 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/01/14 16:14:41 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/14 16:41:56 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ static t_bool	is_map_name_valid(t_data *data, char *mapname)
 
 t_bool	validation(t_data *data, int argc, char **argv)
 {
+	int	fd;
+
 	if (argc < 2)
 	{
 		ft_putstr_fd("map name not specified\nusage: ./cub3d (mapname)\n", 1);
@@ -45,12 +47,12 @@ t_bool	validation(t_data *data, int argc, char **argv)
 		ft_putstr_fd("incorrect map name\nexpected: (map).cub\n", 1);
 		return (false);
 	}
-	if (open(argv[1], O_RDONLY) == -1)
+	fd = open(argv[1], O_RDONLY);
+	if (fd == -1)
 	{
 		ft_putstr_fd("map does not exist or incorrect permissions\n", 1);
 		return (false);
 	}
-	else
-		close(argv[1]);
+	close(fd);
 	return (true);
 }
