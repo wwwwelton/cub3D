@@ -73,7 +73,7 @@ fclean:				clean
 					$(RM) $(NAME) $(NAME_BONUS)
 
 run:
-					make && clear && ./$(NAME)
+					make && clear && ./$(NAME) assets/maps/map.cub
 
 re:					fclean all
 

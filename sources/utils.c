@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/15 02:13:57 by wleite           ###   ########.fr       */
+/*   Updated: 2022/01/15 02:17:55 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,12 +105,6 @@ void	init_xpm(t_data *data, t_img *img, char *image_path)
 		(mlx->mlx_ptr, image_path, &data->img_width, &data->img_height);
 	img->dump = (int *)
 		mlx_get_data_addr(img->img_ptr, &img->bpp, &img->size_l, &img->endian);
-}
-
-int	loop_hook(t_data *data)
-{
-	draw_screen(data);
-	return (0);
 }
 
 int	loop_hook(t_data *data)
