@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/15 01:13:33 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/15 01:53:45 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,8 @@ void	init_img(t_data *data, t_img *img, int width, int heigth)
 
 	mlx = &data->mlx;
 	img->img_ptr = mlx_new_image(mlx->mlx_ptr, width, heigth);
-	img->dump = (int *)mlx_get_data_addr(img->img_ptr, &img->bpp, &img->size_l, &img->endian);
+	img->dump = (int *)
+		mlx_get_data_addr(img->img_ptr, &img->bpp, &img->size_l, &img->endian);
 }
 
 void	fill_color(t_img *img, int color)
@@ -95,7 +96,6 @@ void	draw_vert_pixel(t_img *img, int x0, int y0, int thick, int color)
 		my_mlx_pixel_put(img, x0 + i, y0, color);
 }
 
-
 void	init_xpm(t_data *data, t_img *img, char *image_path)
 {
 	t_mlx	*mlx;
@@ -103,7 +103,8 @@ void	init_xpm(t_data *data, t_img *img, char *image_path)
 	mlx = &data->mlx;
 	img->img_ptr = mlx_xpm_file_to_image
 		(mlx->mlx_ptr, image_path, &data->img_width, &data->img_height);
-	img->dump = (int *)mlx_get_data_addr(img->img_ptr, &img->bpp, &img->size_l, &img->endian);
+	img->dump = (int *)
+		mlx_get_data_addr(img->img_ptr, &img->bpp, &img->size_l, &img->endian);
 }
 
 int	loop_hook(t_data *data)

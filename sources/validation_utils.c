@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 01:12:55 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/01/15 01:29:44 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/15 01:51:36 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,6 @@ char	**fetch_map_array(char **argv)
 		line = ft_strmerge(line, tmp);
 		tmp = ft_get_next_line(fd);
 	}
-	printf("%s", line);
 	ret = ft_split(line, '\n');
 	ret = insert_padding(ret, string_max_size(ret));
 	close(fd);

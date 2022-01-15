@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 15:33:46 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/01/15 01:28:10 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/15 01:52:13 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,16 @@
 
 static t_bool	is_map_name_valid(t_data *data, char *mapname)
 {
-	char *dot;
+	char	*dot;
 
 	(void)data;
 	dot = ft_strchr(mapname, '.');
 	if (!dot)
-		return(false);
+		return (false);
 	if (ft_strncmp(dot, ".cub", ft_strlen(dot)) || ft_strncmp(".cub", dot, 3))
 	{
 		printf("map name invalid: %s\n", mapname);
-		return(false);
+		return (false);
 	}
 	return (true);
 }
@@ -55,7 +55,6 @@ t_bool	map_validation(char **map)
 		free_matrix(map);
 		return (false);
 	}
-
 }
 
 t_bool	argument_validation(t_data *data, int argc, char **argv)
@@ -86,7 +85,6 @@ t_bool	argument_validation(t_data *data, int argc, char **argv)
 	close(fd);
 	return (true);
 }
-
 
 t_bool	validation(t_data *data, int argc, char **argv)
 {

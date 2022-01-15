@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 01:09:04 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/01/15 01:29:52 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/15 01:51:05 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,11 +83,13 @@ t_bool	crawl_polygon(char **map, int x, int y)
 			return (false);
 		}
 		if (forked_polygon(map, x, y))
+		{
 			if (recurse_polygon(map, x, y))
 			{
 				printf("success\n");
 				return (true);
 			}
+		}
 	}
 }
 
@@ -104,8 +106,8 @@ t_bool	is_player_polygon_closed(char **map)
 		while (map[x][++y])
 			if (ftex_is_in_set(map[x][y], "NSEW"))
 				break ;
-	if (ftex_is_in_set(map[x][y], "NSEW"))
-				break ;
+		if (ftex_is_in_set(map[x][y], "NSEW"))
+			break ;
 		y = -1;
 	}
 	if (x == 0 || map[x][y + 1] == '\0')
