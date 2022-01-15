@@ -24,8 +24,8 @@ BONUS_FILES		=	$(addprefix $(BONUS_DIR)/, $(SOURCES_BONUS))
 OBJECTS			=	$(SOURCES:$(SOURCES_DIR)/%.c=$(OBJ_DIR)/%.o)
 OBJECTS_BONUS	=	$(BONUS_FILES:$(BONUS_DIR)/%.c=$(OBJ_DIR)/%.o)
 
-NAME			=	cub3d
-NAME_BONUS		=	cub3d_bonus
+NAME			=	cub3D
+NAME_BONUS		=	cub3D_bonus
 
 CC				=	gcc
 RM				=	rm -rf
