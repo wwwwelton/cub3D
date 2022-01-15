@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 15:17:47 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/01/14 23:43:21 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/15 00:49:09 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -138,6 +138,57 @@ int	check_end(char **map, int x, int y)
 	|| (map[x + 1] && map[x + 1][y] == '!' && map[x][y + 1] == '!'));
 }
 
+void print_map(char **map)
+{
+	int	i = -1;
+	int	j = -1;
+	while (map[++i])
+	{
+		while (map[i][++j])
+		{
+			if (map[i][j] == '!')
+				printf("\e[42m%c\e[0m", map[i][j]);
+			else if (map[i][j] == ' ')
+				printf("%c", ' ');
+			else
+				printf("\e[41m%c\e[0m", map[i][j]);
+		}
+		printf("\n");
+		j = -1;
+	}
+}
+
+t_bool	forked_polygon(char **map, int x, int y)
+{
+	int	i;
+
+	i = 0;
+	if (map[x][y + 1] == EDGE)
+		i++;
+	if (y > 0 && map[x][y - 1] == EDGE)
+		i++;
+	if (map[x + 1] && map[x + 1][y] == EDGE)
+		i++;
+	if (x > 0 && map[x - 1][y] == EDGE)
+		i++;
+	if (i < 2)
+		return (false);
+	return (true);
+}
+
+t_bool	recurse_polygon(char **map, int x, int y)
+{
+	if (map[x][y + 1] == EDGE)
+		return (crawl_polygon(map, x, y + 1));
+	if (y > 0 && map[x][y - 1] == EDGE)
+		return (crawl_polygon(map, x, y - 1));
+	if (map[x + 1] && map[x + 1][y] == EDGE)
+		return (crawl_polygon(map, x + 1, y));
+	if (x > 0 && map[x - 1][y] == EDGE)
+		return (crawl_polygon(map, x - 1, y));
+	return (false);
+}
+
 t_bool	crawl_polygon(char **map, int x, int y)
 {
 	while (1)
@@ -160,6 +211,12 @@ t_bool	crawl_polygon(char **map, int x, int y)
 			printf("failure\n");
 			return (false);
 		}
+		if (forked_polygon(map, x, y))
+			if (recurse_polygon(map, x, y))
+			{
+				printf("success\n");
+				return (true);
+			}
 	}
 }
 
@@ -194,22 +251,7 @@ void	map_validation(char **map)
 	outline_polygon(map);
 	is_player_polygon_closed(map);
 	printf("outline\n");
-	int	i = -1;
-	int	j = -1;
-	while (map[++i])
-	{
-		while (map[i][++j])
-		{
-			if (map[i][j] == '!')
-				printf("\e[42m%c\e[0m", map[i][j]);
-			else if (map[i][j] == ' ')
-				printf("%c", ' ');
-			else
-				printf("\e[41m%c\e[0m", map[i][j]);
-		}
-		printf("\n");
-		j = -1;
-	}
+	print_map(map);
 }
 
 void	init_map(t_data *data, char **argv)

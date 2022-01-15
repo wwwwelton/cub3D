@@ -137,6 +137,8 @@ void	init_img(t_data *data, t_img *img, int width, int heigth);
 int		exit_game(t_data *data);
 void	init_xpm(t_data *data, t_img *img, char *image_path);
 void	init_map(t_data *data, char **argv);
+t_bool	crawl_polygon(char **map, int x, int y);
+t_bool	recurse_polygon(char **map, int x, int y);
 
 //controller
 int		key_press(int key, t_data *data);
