@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 15:33:46 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/01/14 16:41:56 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/15 01:28:10 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,37 @@ static t_bool	is_map_name_valid(t_data *data, char *mapname)
 	return (true);
 }
 
-t_bool	validation(t_data *data, int argc, char **argv)
+void	free_matrix(char **matrix)
+{
+	int	i;
+
+	i = -1;
+	while (matrix[++i])
+		free(matrix[i]);
+	free(matrix);
+}
+
+t_bool	map_validation(char **map)
+{
+	outline_polygon(map);
+	if (is_player_polygon_closed(map))
+	{
+		printf("outline\n");
+		print_map(map);
+		free_matrix(map);
+		return (true);
+	}
+	else
+	{
+		printf("outline\n");
+		print_map(map);
+		free_matrix(map);
+		return (false);
+	}
+
+}
+
+t_bool	argument_validation(t_data *data, int argc, char **argv)
 {
 	int	fd;
 
@@ -54,5 +84,15 @@ t_bool	validation(t_data *data, int argc, char **argv)
 		return (false);
 	}
 	close(fd);
+	return (true);
+}
+
+
+t_bool	validation(t_data *data, int argc, char **argv)
+{
+	if (!argument_validation(data, argc, argv))
+		return (false);
+	if (!map_validation(fetch_map_array(argv)))
+		return (false);
 	return (true);
 }

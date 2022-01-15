@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/14 16:47:46 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/15 01:41:32 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void	init_data(t_data *data, char **argv)
 {
+	(void)argv;
 	data->mlx.mlx_ptr = mlx_init();
 	data->mlx.win = mlx_new_window(data->mlx.mlx_ptr, WIN_WIDTH, WIN_HEIGHT, "cub3d");
 
@@ -32,7 +33,7 @@ void	init_data(t_data *data, char **argv)
 	init_img(data, &data->img[SCREEN], IMG_WIDTH, IMG_HEIGHT);
 	init_img(data, &data->img[RAYS], IMG_WIDTH, IMG_HEIGHT);
 
-	init_map(data, argv);
+	// init_map(data, argv);
 
 	init_xpm(data, &data->img[TEX_NO], TEXTURE1);
 	init_xpm(data, &data->img[TEX_EA], TEXTURE3);

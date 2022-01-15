@@ -139,6 +139,12 @@ void	init_xpm(t_data *data, t_img *img, char *image_path);
 void	init_map(t_data *data, char **argv);
 t_bool	crawl_polygon(char **map, int x, int y);
 t_bool	recurse_polygon(char **map, int x, int y);
+t_bool	is_char_adjacent(char **map, int x, int y, char c);
+void	outline_polygon(char **map);
+t_bool	is_char_adjacent(char **map, int x, int y, char c);
+int		check_end(char **map, int x, int y);
+char	**fetch_map_array(char **argv);
+t_bool	is_player_polygon_closed(char **map);
 
 //controller
 int		key_press(int key, t_data *data);
@@ -148,9 +154,11 @@ int		key_press(int key, t_data *data);
 void	draw_rays(t_data *data);
 
 //utils
+t_bool	ftex_is_in_set(char c, char *set);
 void	fill_color(t_img *img, int color);
 int		get_pixel_color(t_img *img, int x, int y, int width, int height);
 void	my_mlx_pixel_put(t_img *img, int x, int y, int color);
+void	print_map(char **map);
 
 
 //render

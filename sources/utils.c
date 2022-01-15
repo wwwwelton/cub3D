@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
+/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/14 16:00:47 by wleite           ###   ########.fr       */
+/*   Updated: 2022/01/15 01:13:33 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,19 @@ void	my_mlx_pixel_put(t_img *img, int x, int y, int color)
 		return ;
 	dst = (char *)img->dump + (y * img->size_l + x * (img->bpp / 8));
 	*(unsigned int *)dst = color;
+}
+
+t_bool	ftex_is_in_set(char c, char *set)
+{
+	if (!set)
+		return (false);
+	while (*set)
+	{
+		if (c == *set)
+			return (true);
+		set++;
+	}
+	return (false);
 }
 
 int	get_pixel_color(t_img *img, int x, int y, int width, int height)
