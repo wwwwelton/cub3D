@@ -4,6 +4,7 @@
 # include <stdio.h>
 # include <string.h>
 # include <math.h>
+# include <fcntl.h>
 # include "../libraries/libft/libft.h"
 # include "../libraries/minilibx/mlx.h"
 
@@ -29,7 +30,10 @@
 # define TEX_FL 7
 # define TEX_CE 8
 
-
+# define NORTH 1
+# define WEST 2
+# define SOUTH 3
+# define EAST 4
 
 # define RED 0xff0000
 # define RED_BLACK 0xd20000
@@ -53,6 +57,8 @@
 # define PLAYER_CENTER 4
 # define LINE_LENGTH 3
 
+# define EDGE '9'
+
 # define X_EVENT_KEY_PRESS 2
 # define X_EVENT_DESTROY_NOTIFY 17
 
@@ -69,7 +75,11 @@
 # define KEY_DOWN 65364
 # define KEY_RIGHT 65363
 
-
+typedef enum e_bool
+{
+	false,
+	true
+}	t_bool;
 
 typedef struct	s_img
 {
@@ -105,27 +115,40 @@ typedef struct s_ray
 	double	plane_y;
 }	t_ray;
 
+typedef struct s_map
+{
+	int		**matrix;
+	char	**charmatrix;
+	int	width;
+	int	height;
+}	t_map;
+
 typedef struct	s_data
 {
 	int			img_width;
 	int			img_height;
+	t_map		map;
 	t_mlx		mlx;
-	t_img		img_bg;
-	t_img		img_map;
-	t_img		img_screen;
-	t_img		img_rays;
-	t_img		img_tex1;
-	t_img		img_tex2;
 	t_ray		ray;
 	t_player	player;
 	t_img		img[TEX_NB];
 }				t_data;
 
 //init
-void	init_data(t_data *data);
+void	init_data(t_data *data, char **argv);
+t_bool	validation(t_data *data, int argc, char **argv);
 void	init_img(t_data *data, t_img *img, int width, int heigth);
 int		exit_game(t_data *data);
 void	init_xpm(t_data *data, t_img *img, char *image_path);
+void	init_map(t_data *data, char **argv);
+t_bool	crawl_polygon(char **map, int x, int y);
+t_bool	recurse_polygon(char **map, int x, int y);
+t_bool	is_char_adjacent(char **map, int x, int y, char c);
+void	outline_polygon(char **map);
+t_bool	is_char_adjacent(char **map, int x, int y, char c);
+int		check_end(char **map, int x, int y);
+char	**fetch_map_array(char **argv);
+t_bool	is_player_polygon_closed(char **map);
 
 //controller
 int		key_press(int key, t_data *data);
@@ -135,9 +158,11 @@ int		key_press(int key, t_data *data);
 void	draw_rays(t_data *data);
 
 //utils
+t_bool	ftex_is_in_set(char c, char *set);
 void	fill_color(t_img *img, int color);
 int		get_pixel_color(t_img *img, int x, int y, int width, int height);
 void	my_mlx_pixel_put(t_img *img, int x, int y, int color);
+void	print_map(char **map);
 
 
 //render

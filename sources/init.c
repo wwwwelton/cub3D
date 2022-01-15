@@ -6,16 +6,18 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/14 19:01:23 by wleite           ###   ########.fr       */
+/*   Updated: 2022/01/15 02:13:45 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	init_data(t_data *data)
+void	init_data(t_data *data, char **argv)
 {
+	(void)argv;
 	data->mlx.mlx_ptr = mlx_init();
-	data->mlx.win = mlx_new_window(data->mlx.mlx_ptr, WIN_WIDTH, WIN_HEIGHT, "cub3d");
+	data->mlx.win
+		= mlx_new_window(data->mlx.mlx_ptr, WIN_WIDTH, WIN_HEIGHT, "cub3d");
 
 	data->player.pos_x = 10.676025;
 	data->player.pos_y = 18.382169;

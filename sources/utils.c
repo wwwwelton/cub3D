@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/14 16:00:47 by wleite           ###   ########.fr       */
+/*   Updated: 2022/01/15 02:13:57 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,19 @@ void	my_mlx_pixel_put(t_img *img, int x, int y, int color)
 		return ;
 	dst = (char *)img->dump + (y * img->size_l + x * (img->bpp / 8));
 	*(unsigned int *)dst = color;
+}
+
+t_bool	ftex_is_in_set(char c, char *set)
+{
+	if (!set)
+		return (false);
+	while (*set)
+	{
+		if (c == *set)
+			return (true);
+		set++;
+	}
+	return (false);
 }
 
 int	get_pixel_color(t_img *img, int x, int y, int width, int height)
@@ -38,7 +51,8 @@ void	init_img(t_data *data, t_img *img, int width, int heigth)
 
 	mlx = &data->mlx;
 	img->img_ptr = mlx_new_image(mlx->mlx_ptr, width, heigth);
-	img->dump = (int *)mlx_get_data_addr(img->img_ptr, &img->bpp, &img->size_l, &img->endian);
+	img->dump = (int *)
+		mlx_get_data_addr(img->img_ptr, &img->bpp, &img->size_l, &img->endian);
 }
 
 void	fill_color(t_img *img, int color)
@@ -82,7 +96,6 @@ void	draw_vert_pixel(t_img *img, int x0, int y0, int thick, int color)
 		my_mlx_pixel_put(img, x0 + i, y0, color);
 }
 
-
 void	init_xpm(t_data *data, t_img *img, char *image_path)
 {
 	t_mlx	*mlx;
@@ -90,7 +103,14 @@ void	init_xpm(t_data *data, t_img *img, char *image_path)
 	mlx = &data->mlx;
 	img->img_ptr = mlx_xpm_file_to_image
 		(mlx->mlx_ptr, image_path, &data->img_width, &data->img_height);
-	img->dump = (int *)mlx_get_data_addr(img->img_ptr, &img->bpp, &img->size_l, &img->endian);
+	img->dump = (int *)
+		mlx_get_data_addr(img->img_ptr, &img->bpp, &img->size_l, &img->endian);
+}
+
+int	loop_hook(t_data *data)
+{
+	draw_screen(data);
+	return (0);
 }
 
 int	loop_hook(t_data *data)

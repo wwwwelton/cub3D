@@ -6,17 +6,19 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/14 15:55:10 by wleite           ###   ########.fr       */
+/*   Updated: 2022/01/15 02:13:19 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int	main(void)
+int	main(int argc, char **argv)
 {
 	t_data	data;
 
-	init_data(&data);
+	if (validation(&data, argc, argv) == false)
+		exit (EXIT_FAILURE);
+	init_data(&data, argv);
 	draw_screen(&data);
 	mlx_hook(data.mlx.win, X_EVENT_KEY_PRESS, 1L << 0, &key_press, &data);
 	mlx_hook(data.mlx.win, X_EVENT_DESTROY_NOTIFY, 0, &exit_game, &data);
