@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 15:33:46 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/01/15 01:52:13 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/15 18:17:49 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static t_bool	is_map_name_valid(t_data *data, char *mapname)
 	char	*dot;
 
 	(void)data;
-	dot = ft_strchr(mapname, '.');
+	dot = ft_strrchr(mapname, '.');
 	if (!dot)
 		return (false);
 	if (ft_strncmp(dot, ".cub", ft_strlen(dot)) || ft_strncmp(".cub", dot, 3))
