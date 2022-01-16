@@ -5,6 +5,7 @@
 # define E_MAPDUP "Error\nMultiple maps provided\nusage: ./cub3d (mapname)\n"
 # define E_MAPEXT "Error\nIncorrect map extension\nexpected: (map).cub\n"
 # define E_MAPINVAL "Error\nMap does not exist or incorrect permissions\n"
+# define E_MAPINVAL2 "Error\nmap name invalid: %s\n"
 
 # define E_TEXDUP "Error\nduplicated texture file"
 # define E_TEXEXT "Error\nincorrect file type\nexpected: .xpm\n"
