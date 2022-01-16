@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 15:33:46 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/01/15 21:00:46 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/15 21:07:48 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,11 @@ t_bool	map_validation(char **map)
 		boolean = true;
 	else
 		boolean = false;
-	printf("outline\n");
-	print_map(map);
+	if (DEBUG)
+	{
+		printf("outline\n");
+		print_colored_map(map);
+	}
 	free_matrix(map);
 	return (boolean);
 }

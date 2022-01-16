@@ -18,6 +18,7 @@
 # define TEX_WIDTH 64
 # define TEX_HEIGHT 64
 
+# define DEBUG 1
 
 # define TEX_NB 7
 # define SCREEN 0
@@ -141,14 +142,20 @@ void	init_img(t_data *data, t_img *img, int width, int heigth);
 int		exit_game(t_data *data);
 void	init_xpm(t_data *data, t_img *img, char *image_path);
 void	init_map(t_data *data, char **argv);
+
+
+//map validation
+t_bool	is_player_polygon_closed(char **map);
 t_bool	crawl_polygon(char **map, int x, int y);
 t_bool	recurse_polygon(char **map, int x, int y);
-t_bool	is_char_adjacent(char **map, int x, int y, char c);
 void	outline_polygon(char **map);
 t_bool	is_char_adjacent(char **map, int x, int y, char c);
 int		check_end(char **map, int x, int y);
 char	**fetch_map_array(char **argv);
-t_bool	is_player_polygon_closed(char **map);
+
+//debug
+void	print_clored_map(char **map);
+void	print_map(char **map);
 
 //controller
 int		key_press(int key, t_data *data);
@@ -162,7 +169,6 @@ t_bool	ftex_is_in_set(char c, char *set);
 void	fill_color(t_img *img, int color);
 int		get_pixel_color(t_img *img, int x, int y, int width, int height);
 void	my_mlx_pixel_put(t_img *img, int x, int y, int color);
-void	print_map(char **map);
 
 
 //render
