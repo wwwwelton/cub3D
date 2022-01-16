@@ -20,7 +20,7 @@
 
 # define DEBUG 1
 
-# define TEX_NB 7
+# define TEX_NB 8
 # define SCREEN 0
 # define RAYS 1
 # define BG 2
@@ -89,6 +89,7 @@ typedef struct	s_img
 	int			endian;
 	int			width;
 	int			height;
+	int			color;
 	void		*img_ptr;
 	int			*dump;
 }				t_img;
@@ -124,6 +125,23 @@ typedef struct s_map
 	int	height;
 }	t_map;
 
+typedef struct s_rgb
+{
+	int	r;
+	int	g;
+	int	b;
+}	t_rgb;
+
+typedef struct s_params
+{
+	char	*north;
+	char	*south;
+	char	*east;
+	char	*west;
+	int		ceilcolor;
+	int		floorcolor;
+}	t_params;
+
 typedef struct	s_data
 {
 	int			img_width;
@@ -133,6 +151,7 @@ typedef struct	s_data
 	t_ray		ray;
 	t_player	player;
 	t_img		img[TEX_NB];
+	t_params	params;
 }	t_data;
 
 //init
@@ -143,7 +162,9 @@ int		exit_game(t_data *data);
 void	init_xpm(t_data *data, t_img *img, char *image_path);
 void	init_map(t_data *data, char **argv);
 
-
+//validation
+t_bool	argument_validation(t_data *data, int argc, char **argv);
+t_bool	files_validation(t_params *params, char *file);
 //map validation
 t_bool	is_player_polygon_closed(char **map);
 t_bool	crawl_polygon(char **map, int x, int y);
@@ -169,7 +190,7 @@ t_bool	ftex_is_in_set(char c, char *set);
 void	fill_color(t_img *img, int color);
 int		get_pixel_color(t_img *img, int x, int y, int width, int height);
 void	my_mlx_pixel_put(t_img *img, int x, int y, int color);
-
+void	free_matrix(char **matrix);
 
 //render
 void	draw_screen(t_data *data);

@@ -1,10 +1,14 @@
-R 1080 720
-NO ./wolftex/greystone.png
-SO ./wolftex/redbrick.png
+NO map.xpm
+SO ./wolftex/redbrick.xpm
+EA
+WE
+
+C              255,200,160
+F
+
 EA ./wolftex/wood.png
+
 WE ./wolftex/wood.png
-S ./wolftex/barrel.png
-C 255,200,160
 F
 
                1111111111111111111111111
