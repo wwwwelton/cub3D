@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 01:12:55 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/01/15 01:51:36 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/15 19:00:41 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,16 +84,14 @@ char	**fetch_map_array(char **argv)
 	char	*line;
 	char	*tmp;
 	char	**ret;
-	int		i;
 
-	i = -1;
 	fd = open(argv[1], O_RDONLY);
-	while (++i < 6)
-	{
-		tmp = ft_get_next_line(fd);
-		free(tmp);
-	}
 	tmp = ft_get_next_line(fd);
+	while (ftex_is_in_set(*tmp, "RNSEWSCF\n"))
+	{
+		free(tmp);
+		tmp = ft_get_next_line(fd);
+	}
 	line = ft_strdup("");
 	while (tmp)
 	{

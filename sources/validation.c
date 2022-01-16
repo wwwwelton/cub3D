@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 15:33:46 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/01/15 18:17:49 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/15 21:00:46 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,21 +40,17 @@ void	free_matrix(char **matrix)
 
 t_bool	map_validation(char **map)
 {
+	t_bool	boolean;
+
 	outline_polygon(map);
 	if (is_player_polygon_closed(map))
-	{
-		printf("outline\n");
-		print_map(map);
-		free_matrix(map);
-		return (true);
-	}
+		boolean = true;
 	else
-	{
-		printf("outline\n");
-		print_map(map);
-		free_matrix(map);
-		return (false);
-	}
+		boolean = false;
+	printf("outline\n");
+	print_map(map);
+	free_matrix(map);
+	return (boolean);
 }
 
 t_bool	argument_validation(t_data *data, int argc, char **argv)
