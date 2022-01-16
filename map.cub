@@ -1,15 +1,7 @@
-NO map.xpm
-SO ./wolftex/redbrick.xpm
-EA
-WE
-
-C              255,200,160
-F
-
-EA ./wolftex/wood.png
-
-WE ./wolftex/wood.png
-F
+NO assets/images/no_redbrick.xpm
+SO assets/images/so_redbrick.xpm
+EA assets/images/ea_redbrick.xpm
+WE assets/images/we_redbrick.xpm
 
                1111111111111111111111111
                1000000000110000000000001
