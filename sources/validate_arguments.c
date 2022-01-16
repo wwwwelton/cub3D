@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   validate_arguments.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 23:24:23 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/01/16 04:54:37 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/16 08:07:29 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,16 +39,16 @@ t_bool	argument_validation(t_data *data, int argc, char **argv)
 	int	fd;
 
 	if (argc < 2)
-		return (printerror(E_NOMAP));
+		return (print_error(E_NOMAP));
 	if (argc > 2)
-		return (printerror(E_MAPDUP));
+		return (print_error(E_MAPDUP));
 	if (is_map_name_valid(data, argv[1]) == false)
-		return (printerror(E_MAPEXT));
+		return (print_error(E_MAPEXT));
 	fd = open(argv[1], O_RDONLY);
 	if (fd == -1)
 	{
 		close(fd);
-		return (printerror(E_MAPINVAL));
+		return (print_error(E_MAPINVAL));
 	}
 	close(fd);
 	return (true);
