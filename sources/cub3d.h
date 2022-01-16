@@ -5,6 +5,7 @@
 # include <string.h>
 # include <math.h>
 # include <fcntl.h>
+# include "errors.h"
 # include "../libraries/libft/libft.h"
 # include "../libraries/minilibx/mlx.h"
 
