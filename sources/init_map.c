@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 15:17:47 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/01/15 21:07:59 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/15 22:08:20 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	print_map(char **map)
 	}
 }
 
-void	print_clored_map(char **map)
+void	print_colored_map(char **map)
 {
 	int	i;
 	int	j;

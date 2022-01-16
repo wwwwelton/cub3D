@@ -133,7 +133,7 @@ typedef struct	s_data
 	t_ray		ray;
 	t_player	player;
 	t_img		img[TEX_NB];
-}				t_data;
+}	t_data;
 
 //init
 void	init_data(t_data *data, char **argv);
@@ -154,7 +154,7 @@ int		check_end(char **map, int x, int y);
 char	**fetch_map_array(char **argv);
 
 //debug
-void	print_clored_map(char **map);
+void	print_colored_map(char **map);
 void	print_map(char **map);
 
 //controller

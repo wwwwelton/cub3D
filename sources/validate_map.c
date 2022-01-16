@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 01:09:04 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/01/15 18:49:09 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/15 22:08:40 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ t_bool	crawl_polygon(char **map, int x, int y)
 		}
 		else
 		{
+			map[x][y] = '!';
 			printf("failure\n");
 			return (false);
 		}
@@ -86,6 +87,7 @@ t_bool	crawl_polygon(char **map, int x, int y)
 		{
 			if (recurse_polygon(map, x, y))
 			{
+				map[x][y] = '!';
 				printf("success\n");
 				return (true);
 			}
