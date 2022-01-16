@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
+/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/15 02:13:45 by wleite           ###   ########.fr       */
+/*   Updated: 2022/01/16 01:44:01 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,10 @@ void	init_data(t_data *data, char **argv)
 	init_img(data, &data->img[SCREEN], IMG_WIDTH, IMG_HEIGHT);
 	init_img(data, &data->img[RAYS], IMG_WIDTH, IMG_HEIGHT);
 
-	init_xpm(data, &data->img[TEX_NO], TEXTURE3);
-	init_xpm(data, &data->img[TEX_EA], TEXTURE4);
-	init_xpm(data, &data->img[TEX_SO], TEXTURE5);
-	init_xpm(data, &data->img[TEX_WE], TEXTURE6);
+	init_xpm(data, &data->img[TEX_NO], data->params.north);
+	init_xpm(data, &data->img[TEX_EA], data->params.east);
+	init_xpm(data, &data->img[TEX_SO], data->params.south);
+	init_xpm(data, &data->img[TEX_WE], data->params.west);
 	init_xpm(data, &data->img[TEX_FL], TEXTURE7);
 	init_xpm(data, &data->img[TEX_CE], TEXTURE8);
 }

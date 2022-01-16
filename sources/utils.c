@@ -6,11 +6,68 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/15 23:30:09 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/16 03:34:43 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+int	get_color(int r, int g, int b)
+{
+	int	rgb;
+
+	rgb = 0;
+	rgb += (r & 0xFF) << 16;
+	rgb += (g & 0XFF) << 8;
+	rgb += (b & 0XFF);
+	return (rgb);
+}
+
+static int	istrimmed(char c, char const *set)
+{
+	while (*set)
+	{
+		if (c == *set)
+			return (1);
+		set++;
+	}
+	return (0);
+}
+
+static int	strsize(char *str, char *set)
+{
+	int	i;
+
+	i = 0;
+	while (*str)
+	{
+		if (!istrimmed(*str++, set))
+			i++;
+	}
+	return (i);
+}
+
+
+char	*ftex_strerase(char *str, char *set)
+{
+	size_t	size;
+	char	*res;
+
+	if (!str)
+		return (NULL);
+	size = strsize(str, set);
+	res = (char *)malloc(sizeof(char) * size + 1);
+	while (*str)
+	{
+		if (!istrimmed(*str, set))
+			*res++ = *str++;
+		else
+			str++;
+	}
+	*res = '\0';
+	return (res - size);
+}
+
 
 void	free_matrix(char **matrix)
 {

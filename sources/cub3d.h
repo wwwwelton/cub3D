@@ -191,6 +191,9 @@ void	fill_color(t_img *img, int color);
 int		get_pixel_color(t_img *img, int x, int y, int width, int height);
 void	my_mlx_pixel_put(t_img *img, int x, int y, int color);
 void	free_matrix(char **matrix);
+char	*ftex_strerase(char *str, char *set);
+int		get_color(int r, int g, int b);
+
 
 //render
 void	draw_screen(t_data *data);

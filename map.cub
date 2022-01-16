@@ -2,6 +2,7 @@ NO assets/images/no_redbrick.xpm
 SO assets/images/so_redbrick.xpm
 EA assets/images/ea_redbrick.xpm
 WE assets/images/we_redbrick.xpm
+C 255,255,255
 
                1111111111111111111111111
                1000000000110000000000001
@@ -17,7 +18,7 @@ WE assets/images/we_redbrick.xpm
     11111000001110101011111011110N0111
        11110111 1110101 101111010001
        11111111 1111111 111111111111
-          11
-          11
-          11
+          1
+          1
+          1
 
