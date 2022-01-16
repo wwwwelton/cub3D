@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 23:24:23 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/01/16 04:37:59 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/16 04:54:37 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,30 +28,27 @@ static t_bool	is_map_name_valid(t_data *data, char *mapname)
 	return (true);
 }
 
+static t_bool	print_error(char *error)
+{
+	ft_putstr_fd(error, 2);
+	return (false);
+}
+
 t_bool	argument_validation(t_data *data, int argc, char **argv)
 {
 	int	fd;
 
 	if (argc < 2)
-	{
-		ft_putstr_fd(E_NOMAP, 2);
-		return (false);
-	}
+		return (printerror(E_NOMAP));
 	if (argc > 2)
-	{
-		ft_putstr_fd(E_MAPDUP, 2);
-		return (false);
-	}
+		return (printerror(E_MAPDUP));
 	if (is_map_name_valid(data, argv[1]) == false)
-	{
-		ft_putstr_fd(E_MAPEXT, 2);
-		return (false);
-	}
+		return (printerror(E_MAPEXT));
 	fd = open(argv[1], O_RDONLY);
 	if (fd == -1)
 	{
-		ft_putstr_fd(E_MAPINVAL, 2);
-		return (false);
+		close(fd);
+		return (printerror(E_MAPINVAL));
 	}
 	close(fd);
 	return (true);
