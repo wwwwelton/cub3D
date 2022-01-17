@@ -6,20 +6,25 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 23:22:41 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/01/16 04:35:20 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/16 21:09:42 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-t_bool	files_cleanup(t_params *params, char *tmp, char **matrix, int fd)
+t_bool	files_cleanup(t_params *params, char *tmp, int fd)
 {
 	free(params->north);
 	free(params->south);
 	free(params->west);
 	free(params->east);
-	free_matrix(matrix);
 	free(tmp);
+	tmp = ft_get_next_line(fd);
+	while (tmp)
+	{
+		free(tmp);
+		tmp = ft_get_next_line(fd);
+	}
 	close (fd);
 	return (false);
 }
@@ -86,12 +91,15 @@ t_bool	files_validation(t_params *params, char *file)
 	int		fd;
 	char	*tmp;
 	char	**matrix;
+	t_bool	boolean;
 
+	boolean = true;
+	matrix = NULL;
 	fd = open(file, O_RDONLY);
 	tmp = ft_get_next_line(fd);
 	if (!tmp || fd == -1)
 		return (false);
-	while (tmp)
+	while (tmp && boolean)
 	{
 		if (ftex_is_in_set(*tmp, "RNSEWCF\n") == false)
 		{
@@ -102,30 +110,30 @@ t_bool	files_validation(t_params *params, char *file)
 		matrix = ft_split(tmp, ' ');
 		if (ft_strlen(matrix[0]) > 3)
 		{
+			boolean = false;
 			printf(E_IDINVAL, file, matrix[0]);
-			return (files_cleanup(params, tmp, matrix, fd));
+			continue ;
 		}
 		if (!ft_strncmp(matrix[0], "NO", 2))
-			if (validate_texture_file(matrix[1], &params->north) == false)
-				return (files_cleanup(params, tmp, matrix, fd));
+			boolean = validate_texture_file(matrix[1], &params->north);
 		if (!ft_strncmp(matrix[0], "SO", 2))
-			if (validate_texture_file(matrix[1], &params->south) == false)
-				return (files_cleanup(params, tmp, matrix, fd));
+			boolean = validate_texture_file(matrix[1], &params->south);
 		if (!ft_strncmp(matrix[0], "EA", 2))
-			if (validate_texture_file(matrix[1], &params->east) == false)
-				return (files_cleanup(params, tmp, matrix, fd));
+			boolean = validate_texture_file(matrix[1], &params->east);
 		if (!ft_strncmp(matrix[0], "WE", 2))
-			if (validate_texture_file(matrix[1], &params->west) == false)
-				return (files_cleanup(params, tmp, matrix, fd));
+			boolean = validate_texture_file(matrix[1], &params->west);
 		if (!ft_strncmp(matrix[0], "F", 2))
-			if (validate_color_set(matrix[1], &params->floorcolor) == false)
-				return (files_cleanup(params, tmp, matrix, fd));
+			boolean = validate_color_set(matrix[1], &params->floorcolor);
 		if (!ft_strncmp(matrix[0], "C", 2))
-			if (validate_color_set(matrix[1], &params->ceilcolor) == false)
-				return (files_cleanup(params, tmp, matrix, fd));
+			boolean = validate_color_set(matrix[1], &params->ceilcolor);
 		free_matrix(matrix);
 		free(tmp);
 		tmp = ft_get_next_line(fd);
+	}
+	if (boolean == false)
+	{
+		files_cleanup(params, tmp, fd);
+		return (false);
 	}
 	return (true);
 }
