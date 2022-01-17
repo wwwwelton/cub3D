@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   validate_arguments.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
+/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 23:24:23 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/01/16 08:07:29 by wleite           ###   ########.fr       */
+/*   Updated: 2022/01/16 23:37:20 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static t_bool	is_map_name_valid(t_data *data, char *mapname)
 	return (true);
 }
 
-static t_bool	print_error(char *error)
+t_bool	print_error(char *error)
 {
 	ft_putstr_fd(error, 2);
 	return (false);
