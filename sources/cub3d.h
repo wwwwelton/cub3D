@@ -21,7 +21,7 @@
 
 # define DEBUG 1
 
-# define TEX_NB 8
+# define TEX_NB 9
 # define SCREEN 0
 # define RAYS 1
 # define BG 2
