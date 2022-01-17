@@ -6,11 +6,32 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/16 01:44:01 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/17 00:34:45 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+void	init_xpm(t_data *data, t_img *img, char *image_path)
+{
+	t_mlx	*mlx;
+
+	mlx = &data->mlx;
+	img->img_ptr = mlx_xpm_file_to_image
+		(mlx->mlx_ptr, image_path, &data->img_width, &data->img_height);
+	img->dump = (int *)
+		mlx_get_data_addr(img->img_ptr, &img->bpp, &img->size_l, &img->endian);
+}
+
+void	init_img(t_data *data, t_img *img, int width, int heigth)
+{
+	t_mlx	*mlx;
+
+	mlx = &data->mlx;
+	img->img_ptr = mlx_new_image(mlx->mlx_ptr, width, heigth);
+	img->dump = (int *)
+		mlx_get_data_addr(img->img_ptr, &img->bpp, &img->size_l, &img->endian);
+}
 
 void	init_data(t_data *data, char **argv)
 {
