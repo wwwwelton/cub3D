@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   key_press.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
+/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/14 15:49:10 by wleite           ###   ########.fr       */
+/*   Updated: 2022/01/17 03:15:33 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,5 +83,20 @@ int	key_press(int key, t_data *data)
 	}
 	if (key == KEY_Q || key == KEY_ESC)
 		exit_game(data);
+	return (0);
+}
+
+void 	main_menu(int key, t_data *data)
+{
+	(void)data;
+	printf("%d\n", key);
+}
+
+int	screen_controller(int key, t_data *data)
+{
+	if (data->state == GAME)
+		key_press(key, data);
+	if (data->state == MENU)
+		main_menu(key, data);
 	return (0);
 }

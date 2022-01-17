@@ -32,6 +32,9 @@
 # define TEX_FL 7
 # define TEX_CE 8
 
+# define MENU 0
+# define GAME 1
+
 # define NORTH 1
 # define WEST 2
 # define SOUTH 3
@@ -147,6 +150,7 @@ typedef struct	s_data
 {
 	int			img_width;
 	int			img_height;
+	int			state;
 	t_map		map;
 	t_mlx		mlx;
 	t_ray		ray;
@@ -181,7 +185,7 @@ void	print_map(char **map);
 
 //controller
 int		key_press(int key, t_data *data);
-
+int	screen_controller(int key, t_data *data);
 
 //raycasting
 void	draw_rays(t_data *data);
