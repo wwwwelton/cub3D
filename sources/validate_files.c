@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 23:22:41 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/01/18 00:09:44 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/18 12:41:29 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,6 @@ t_bool	validate_color_set(char *set, int *store)
 	tmp = ftex_strerase(set, " ");
 	rgb = ft_split(tmp, ',');
 	i = -1;
-	print_map(rgb);
 	while (rgb[++i])
 		if (ft_atoi(rgb[i]) > 255 || ft_atoi(rgb[i]) < 0)
 			boolean = print_error(E_RGBRANGE);

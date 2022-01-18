@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 15:33:46 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/01/18 12:32:00 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/18 12:40:18 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,7 @@ t_bool	validate_map_characters(char **map)
 	{
 		while (map[i][++j])
 			if (!ftex_is_in_set(map[i][j], "0123 NSEW"))
-			{
-				printf("%s\n", map[i]);
 				return (false);
-			}
 		j = -1;
 	}
 	return (true);

@@ -19,7 +19,7 @@
 # define TEX_WIDTH 64
 # define TEX_HEIGHT 64
 
-# define DEBUG 1
+# define DEBUG 0
 
 # define SCREEN 0
 # define RAYS 1
