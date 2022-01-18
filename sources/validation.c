@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 15:33:46 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/01/18 05:20:21 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/18 09:10:29 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@ void	remove_outer_characters(char **map)
 	j = -1;
 	while (map[++i])
 	{
-		while (map[i][++j] != '!')
+		while (map[i][++j] != OUTER)
 			map[i][j] = ' ';
 		j = ft_strlen(map[i]);
-		while (map[i][--j] != '!')
+		while (map[i][--j] != OUTER)
 			map[i][j] = ' ';
 		j = -1;
 	}

@@ -21,7 +21,6 @@
 
 # define DEBUG 1
 
-# define TEX_NB 9
 # define SCREEN 0
 # define RAYS 1
 # define BG 2
@@ -31,6 +30,7 @@
 # define TEX_EA 6
 # define TEX_FL 7
 # define TEX_CE 8
+# define TEX_NB 9
 
 # define MENU 0
 # define GAME 1
@@ -65,6 +65,7 @@
 # define EDGE '9'
 # define OUTER '!'
 # define INNER '@'
+# define FILLER '#'
 
 # define X_EVENT_KEY_PRESS 2
 # define X_EVENT_DESTROY_NOTIFY 17

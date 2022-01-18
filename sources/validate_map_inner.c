@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 04:59:34 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/01/18 05:31:30 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/18 09:10:57 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ t_bool	are_inner_polygons_closed(char **map)
 		inner_wall = ft_strchr(map[i], EDGE);
 		if (inner_wall)
 		{
-			if (crawl_polygon(map, i, inner_wall - map[i], '@') == false)
+			if (crawl_polygon(map, i, inner_wall - map[i], INNER) == false)
 				return (false);
 			i--;
 		}
