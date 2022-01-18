@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 15:33:46 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/01/17 23:54:13 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/18 04:07:05 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ t_bool	map_validation(char **map)
 	t_bool	boolean;
 
 	outline_polygon(map);
+	outline_useless_walls(map);
 	if (is_player_polygon_closed(map))
 		boolean = true;
 	else

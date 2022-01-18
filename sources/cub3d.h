@@ -181,6 +181,7 @@ t_bool	is_player_polygon_closed(char **map);
 t_bool	crawl_polygon(char **map, int x, int y);
 t_bool	recurse_polygon(char **map, int x, int y);
 void	outline_polygon(char **map);
+void	outline_useless_walls(char **map);
 t_bool	is_char_adjacent(char **map, int x, int y, char c);
 int		check_end(char **map, int x, int y);
 char	**fetch_map_array(char **argv);

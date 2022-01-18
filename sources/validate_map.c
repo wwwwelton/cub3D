@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 01:09:04 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/01/18 03:51:26 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/18 04:10:36 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,25 @@ void	outline_polygon(char **map)
 		y = -1;
 	}
 }
+
+void	outline_useless_walls(char **map)
+{
+	int	x;
+	int	y;
+
+	x = -1;
+	y = -1;
+	while (map[++x])
+	{
+		while (map[x][++y])
+			if (map[x][y] == '9')
+				if (is_char_adjacent(map, x, y, '0') == false
+					&& is_char_adjacent(map, x, y, '1') == false)
+					map[x][y] = '#';
+		y = -1;
+	}
+}
+
 
 t_bool	forked_polygon(char **map, int x, int y)
 {
