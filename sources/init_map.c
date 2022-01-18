@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 15:17:47 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/01/15 22:08:20 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/18 03:51:48 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,12 +42,16 @@ void	print_colored_map(char **map)
 
 	i = -1;
 	j = -1;
+	printf("\e[1;1H\e[2J");
 	while (map[++i])
 	{
 		while (map[i][++j])
 		{
+			usleep(500);
 			if (map[i][j] == '!')
 				printf("\e[42m%c\e[0m", map[i][j]);
+			else if (map[i][j] == '@')
+				printf("\e[44m%c\e[0m", map[i][j]);
 			else if (map[i][j] == ' ')
 				printf("%c", ' ');
 			else

@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 01:09:04 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/01/18 03:02:56 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/18 03:51:26 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,13 +117,25 @@ t_bool	is_player_inside(char **map)
 	{
 		while(map[i][++j])
 		{
-			while (map[i][j] == '!')
-				j++;
+			if (map[i][j] == '!')
+			{
+				while (map[i][j] && map[i][++j] == '!')
+					continue ;
 			if (ft_strchr(&map[i][j], '!'))
+			{
+				printf("here %s\n", &map[i][j]);
 				inside = 1;
-			while (map[i][++j] != '!' && inside)
+			}
+			}
+			while (map[i][j] != '!' && inside)
+			{
 				if (ftex_is_in_set(map[i][j], "NSWE"))
+				{
+					printf("found!");
 					return (true);
+				}
+				j++;
+			}
 			inside = 0;
 		}
 		j = -1;
@@ -139,7 +151,6 @@ t_xy	get_coordinates(char **map, int x, int y)
 	xy.y = y - 1;
 	while (map[++xy.x])
 	{
-		printf("%s\n", map[xy.x]);
 		while (map[xy.x][++xy.y])
 			if (ftex_is_in_set(map[xy.x][xy.y], "NSEW"))
 				break ;
@@ -155,14 +166,22 @@ t_bool	is_player_polygon_closed(char **map)
 	t_xy xy;
 
 	xy = get_coordinates(map, 0, 0);
-	if (xy.x == 0 || map[xy.x][xy.y + 1] == '\0')
-		return (false);
 	while (map[xy.x][xy.y] && map[xy.x][xy.y] != '9')
 		xy.y++;
-	if (crawl_polygon(map, xy.x, xy.y))
+	if (xy.x == 0 || map[xy.x][xy.y + 1] == '\0')
+		return (false);
+	while (crawl_polygon(map, xy.x, xy.y))
 	{
-		if (is_player_inside(map))
+		while (!is_player_inside(map))
+		{
 			tr_matrix(map, "!", "@");
+			xy = get_coordinates(map, 0, 0);
+			while (map[xy.x][xy.y] && map[xy.x][xy.y] != '9')
+				xy.y++;
+			if (xy.x == 0 || map[xy.x][xy.y + 1] == '\0')
+				return (false);
+			crawl_polygon(map, xy.x, xy.y);
+		}
 		return (true);
 	}
 	return (false);
