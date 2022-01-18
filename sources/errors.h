@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 00:19:05 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/01/17 00:19:05 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/17 22:07:27 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,12 @@
 # define E_MAPINVAL "Error\nMap does not exist or incorrect permissions\n"
 # define E_MAPINVAL2 "Error\nmap name invalid: %s\n"
 
+# define E_NOTEX "Error\nmissing texture\n"
 # define E_TEXDUP "Error\nduplicated texture file"
 # define E_TEXEXT "Error\nincorrect file type\nexpected: .xpm\n"
 # define E_TEXINVAL "Error\nfile does not exist / incorrect permissions\n"
 
+# define E_NORGB "Error\nMissing color\n"
 # define E_RGBRANGE "Error\ncolor value outside of acceptable range\n"
 # define E_RGBMUCH "Error\ntoo many colors in color set\n"
 

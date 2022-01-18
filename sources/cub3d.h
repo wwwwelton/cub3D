@@ -13,13 +13,13 @@
 # define TEXTURE4 "assets/images/we_redbrick.xpm"
 # define TEXTURE5 "assets/images/so_redbrick.xpm"
 # define TEXTURE6 "assets/images/ea_redbrick.xpm"
-# define TEXTURE7 "assets/images/floor_greystone.xpm"
-# define TEXTURE8 "assets/images/ceil_bluestone.xpm"
+# define TEXTURE7 "../assets/images/floor_greystone.xpm"
+# define TEXTURE8 "../assets/images/ceil_bluestone.xpm"
 
 # define TEX_WIDTH 64
 # define TEX_HEIGHT 64
 
-# define DEBUG 1
+# define DEBUG 0
 
 # define TEX_NB 9
 # define SCREEN 0

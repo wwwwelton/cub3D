@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 23:22:41 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/01/17 00:16:10 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/17 23:54:26 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,9 @@ t_bool	validate_texture_file(char *file, char **store)
 	char	*dot;
 
 	if (*store)
-	{
-		ft_putstr_fd(E_TEXDUP, 2);
+		return (print_error(E_TEXDUP));
+	if (!file)
 		return (false);
-	}
 	dot = ft_strrchr(file, '.');
 	if (!dot || ft_strncmp(dot, ".xpm\n", 5))
 	{
@@ -67,17 +66,42 @@ t_bool	validate_color_set(char *set, int *store)
 
 	boolean = true;
 	tmp = ftex_strerase(set, " ");
-	rgb = ft_split(set, ',');
+	rgb = ft_split(tmp, ',');
 	i = -1;
+	print_map(rgb);
 	while (rgb[++i])
 		if (ft_atoi(rgb[i]) > 255 || ft_atoi(rgb[i]) < 0)
 			boolean = print_error(E_RGBRANGE);
 	if (i > 3)
 		boolean = print_error(E_RGBMUCH);
-	*store = get_color(ft_atoi(rgb[0]), ft_atoi(rgb[1]), ft_atoi(rgb[2]));
+	if (boolean)
+		*store = get_color(ft_atoi(rgb[0]), ft_atoi(rgb[1]), ft_atoi(rgb[2]));
 	free(tmp);
 	free_matrix(rgb);
 	return (boolean);
+}
+
+char	*concatenate_color_set(char **matrix)
+{
+	int		i;
+	char	*ret;
+	char	*tmp;
+
+	i = -1;
+	while (matrix[++i])
+		continue ;
+	if (i < 2)
+		return (matrix[1]);
+	i = 1;
+	ret = ft_strdup(matrix[1]);
+	while (matrix[++i])
+	{
+		tmp = ret;
+		ret = ft_strjoin(ret, matrix[i]);
+		free(tmp);
+	}
+	free(matrix[1]);
+	return (ret);
 }
 
 t_bool	check_matrix(t_params *params, char **matrix, char *file, char *tmp)
@@ -86,6 +110,7 @@ t_bool	check_matrix(t_params *params, char **matrix, char *file, char *tmp)
 
 	boolean = true;
 	matrix = ft_split(tmp, ' ');
+	matrix[1] = concatenate_color_set(matrix);
 	if (ft_strlen(matrix[0]) > 3)
 	{
 		boolean = false;
@@ -110,13 +135,42 @@ t_bool	check_matrix(t_params *params, char **matrix, char *file, char *tmp)
 
 t_bool	is_first_character_invalid(int fd, char **tmp)
 {
-	if (ftex_is_in_set(**tmp, "RNSEWCF\n") == false)
+	int	i;
+
+	i = 0;
+	// printf("%p\n", *tmp);
+	// printf("%s\n", *tmp);
+	if (*tmp == NULL)
+		return (false);
+	while ((*tmp)[i] == ' ' || (*tmp)[i] == '\t')
+		++i;
+	if (ftex_is_in_set((*tmp)[i], "RNSEWCF\n") == false)
 	{
 		free(*tmp);
 		*tmp = ft_get_next_line(fd);
 		return (true);
 	}
 	return (false);
+}
+
+t_bool	all_params_valid(t_params *params)
+{
+	// if (DEBUG)
+	// {
+	// 	printf("\n=====PARAMS=======\n");
+	// 	printf("%s\n", params->north);
+	// 	printf("%s\n", params->west);
+	// 	printf("%s\n", params->east);
+	// 	printf("%s\n", params->south);
+	// 	printf("%d\n", params->floorcolor);
+	// 	printf("%d\n", params->ceilcolor);
+	// }
+	if (params->north == NULL || params->east == NULL
+		|| params->south == NULL || params->west == NULL)
+		return (print_error(E_NOTEX));
+	if (params->ceilcolor == -1 || params->floorcolor == -1)
+		return(print_error(E_NORGB));
+	return (true);
 }
 
 t_bool	files_validation(t_params *params, char *file)
@@ -139,6 +193,7 @@ t_bool	files_validation(t_params *params, char *file)
 		boolean = check_matrix(params, matrix, file, tmp);
 		tmp = ft_get_next_line(fd);
 	}
+	boolean = all_params_valid(params);
 	if (boolean == false)
 		return (files_cleanup(params, tmp, fd));
 	return (true);

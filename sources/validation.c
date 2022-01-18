@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 15:33:46 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/01/15 23:31:57 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/17 23:54:13 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ t_bool	map_validation(char **map)
 
 static void	initialize_params(t_params *params)
 {
-	params->ceilcolor = 0;
-	params->floorcolor = 0;
+	params->ceilcolor = -1;
+	params->floorcolor = -1;
 	params->east = NULL;
 	params->north = NULL;
 	params->south = NULL;
@@ -45,9 +45,9 @@ t_bool	validation(t_data *data, int argc, char **argv)
 	initialize_params(&data->params);
 	if (!argument_validation(data, argc, argv))
 		return (false);
-	if (!map_validation(fetch_map_array(argv)))
-		return (false);
 	if (!files_validation(&data->params, argv[1]))
+		return (false);
+	if (!map_validation(fetch_map_array(argv)))
 		return (false);
 	return (true);
 }
