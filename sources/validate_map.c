@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 01:09:04 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/01/18 04:10:36 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/18 05:29:45 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,47 +69,39 @@ t_bool	forked_polygon(char **map, int x, int y)
 t_bool	recurse_polygon(char **map, int x, int y)
 {
 	if (map[x + 1] && map[x + 1][y] == EDGE)
-		return (crawl_polygon(map, x + 1, y));
+		return (crawl_polygon(map, x + 1, y, '!'));
 	if (y > 0 && map[x][y - 1] == EDGE)
-		return (crawl_polygon(map, x, y - 1));
+		return (crawl_polygon(map, x, y - 1, '!'));
 	if (x > 0 && map[x - 1][y] == EDGE)
-		return (crawl_polygon(map, x - 1, y));
+		return (crawl_polygon(map, x - 1, y, '!'));
 	if (map[x][y + 1] == EDGE)
-		return (crawl_polygon(map, x, y + 1));
+		return (crawl_polygon(map, x, y + 1, '!'));
 	return (false);
 }
 
-t_bool	crawl_polygon(char **map, int x, int y)
+t_bool	crawl_polygon(char **map, int x, int y, char fill)
 {
 	while (1)
 	{
 		if (map[x + 1] && map[x + 1][y] == EDGE)
-			map[x++][y] = '!';
+			map[x++][y] = fill;
 		else if (y > 0 && map[x][y - 1] == EDGE)
-			map[x][y--] = '!';
+			map[x][y--] = fill;
 		else if (x > 0 && map[x - 1][y] == EDGE)
-			map[x--][y] = '!';
+			map[x--][y] = fill;
 		else if (map[x][y + 1] == EDGE)
-			map[x][y++] = '!';
-		else if (check_end(map, x, y))
+			map[x][y++] = fill;
+		else if (check_end(map, x, y, fill))
 		{
-			printf("success\n");
+			map[x][y] = fill;
 			return (true);
 		}
 		else
-		{
-			map[x][y] = '!';
-			printf("failure\n");
 			return (false);
-		}
 		if (forked_polygon(map, x, y))
 		{
 			if (recurse_polygon(map, x, y))
-			{
-				map[x][y] = '!';
-				printf("success\n");
 				return (true);
-			}
 		}
 	}
 }
@@ -189,7 +181,7 @@ t_bool	is_player_polygon_closed(char **map)
 		xy.y++;
 	if (xy.x == 0 || map[xy.x][xy.y + 1] == '\0')
 		return (false);
-	while (crawl_polygon(map, xy.x, xy.y))
+	while (crawl_polygon(map, xy.x, xy.y, '!'))
 	{
 		while (!is_player_inside(map))
 		{
@@ -199,7 +191,7 @@ t_bool	is_player_polygon_closed(char **map)
 				xy.y++;
 			if (xy.x == 0 || map[xy.x][xy.y + 1] == '\0')
 				return (false);
-			crawl_polygon(map, xy.x, xy.y);
+			crawl_polygon(map, xy.x, xy.y, '!');
 		}
 		return (true);
 	}

@@ -63,6 +63,8 @@
 # define LINE_LENGTH 3
 
 # define EDGE '9'
+# define OUTER '!'
+# define INNER '@'
 
 # define X_EVENT_KEY_PRESS 2
 # define X_EVENT_DESTROY_NOTIFY 17
@@ -178,13 +180,14 @@ t_bool	argument_validation(t_data *data, int argc, char **argv);
 t_bool	files_validation(t_params *params, char *file);
 //map validation
 t_bool	is_player_polygon_closed(char **map);
-t_bool	crawl_polygon(char **map, int x, int y);
+t_bool	crawl_polygon(char **map, int x, int y, char fill);
 t_bool	recurse_polygon(char **map, int x, int y);
 void	outline_polygon(char **map);
 void	outline_useless_walls(char **map);
 t_bool	is_char_adjacent(char **map, int x, int y, char c);
-int		check_end(char **map, int x, int y);
+int		check_end(char **map, int x, int y, char c);
 char	**fetch_map_array(char **argv);
+t_bool	are_inner_polygons_closed(char **map);
 
 //debug
 void	print_colored_map(char **map);
@@ -207,6 +210,7 @@ char	*ftex_strerase(char *str, char *set);
 void	ftex_tr(char *str, char *del, char *ret);
 int		get_color(int r, int g, int b);
 t_bool	print_error(char *error);
+void	tr_matrix(char **matrix, char *del, char *replace);
 
 //render
 void	draw_screen(t_data *data);

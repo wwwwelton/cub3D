@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 01:12:55 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/01/15 19:00:41 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/18 05:30:00 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,14 @@ t_bool	is_char_adjacent(char **map, int x, int y, char c)
 	return (false);
 }
 
-int	check_end(char **map, int x, int y)
+int	check_end(char **map, int x, int y, char c)
 {
-	return ((y > 0 && map[x][y + 1] == '!' && map[x][y - 1] == '!')
-	|| (x > 0 && map[x + 1] && map[x + 1][y] == '!' && map[x - 1][y] == '!')
-	|| (x > 0 && map[x - 1][y] == '!' && map[x][y + 1] == '!')
-	|| (x > 0 && y > 0 && map[x][y - 1] == '!' && map[x - 1][y] == '!')
-	|| (y > 0 && map[x + 1] && map[x + 1][y] == '!' && map[x][y - 1] == '!')
-	|| (map[x + 1] && map[x + 1][y] == '!' && map[x][y + 1] == '!'));
+	return ((y > 0 && map[x][y + 1] == c && map[x][y - 1] == c)
+	|| (x > 0 && map[x + 1] && map[x + 1][y] == c && map[x - 1][y] == c)
+	|| (x > 0 && map[x - 1][y] == c && map[x][y + 1] == c)
+	|| (x > 0 && y > 0 && map[x][y - 1] == c && map[x - 1][y] == c)
+	|| (y > 0 && map[x + 1] && map[x + 1][y] == c && map[x][y - 1] == c)
+	|| (map[x + 1] && map[x + 1][y] == c && map[x][y + 1] == c));
 }
 
 static int	string_max_size(char **matrix)

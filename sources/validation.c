@@ -6,11 +6,29 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 15:33:46 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/01/18 04:07:05 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/18 05:20:21 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+void	remove_outer_characters(char **map)
+{
+	int	i;
+	int	j;
+
+	i = -1;
+	j = -1;
+	while (map[++i])
+	{
+		while (map[i][++j] != '!')
+			map[i][j] = ' ';
+		j = ft_strlen(map[i]);
+		while (map[i][--j] != '!')
+			map[i][j] = ' ';
+		j = -1;
+	}
+}
 
 t_bool	map_validation(char **map)
 {
@@ -18,10 +36,10 @@ t_bool	map_validation(char **map)
 
 	outline_polygon(map);
 	outline_useless_walls(map);
-	if (is_player_polygon_closed(map))
-		boolean = true;
-	else
-		boolean = false;
+	boolean = is_player_polygon_closed(map);
+	if (boolean)
+		remove_outer_characters(map);
+	boolean = are_inner_polygons_closed(map);
 	if (DEBUG)
 	{
 		printf("outline\n");
