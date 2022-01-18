@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 23:22:41 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/01/17 23:54:26 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/18 00:09:44 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -138,8 +138,6 @@ t_bool	is_first_character_invalid(int fd, char **tmp)
 	int	i;
 
 	i = 0;
-	// printf("%p\n", *tmp);
-	// printf("%s\n", *tmp);
 	if (*tmp == NULL)
 		return (false);
 	while ((*tmp)[i] == ' ' || (*tmp)[i] == '\t')
@@ -155,21 +153,21 @@ t_bool	is_first_character_invalid(int fd, char **tmp)
 
 t_bool	all_params_valid(t_params *params)
 {
-	// if (DEBUG)
-	// {
-	// 	printf("\n=====PARAMS=======\n");
-	// 	printf("%s\n", params->north);
-	// 	printf("%s\n", params->west);
-	// 	printf("%s\n", params->east);
-	// 	printf("%s\n", params->south);
-	// 	printf("%d\n", params->floorcolor);
-	// 	printf("%d\n", params->ceilcolor);
-	// }
+	if (DEBUG)
+	{
+		printf("\n=====PARAMS=======\n");
+		printf("%s\n", params->north);
+		printf("%s\n", params->west);
+		printf("%s\n", params->east);
+		printf("%s\n", params->south);
+		printf("%d\n", params->floorcolor);
+		printf("%d\n", params->ceilcolor);
+	}
 	if (params->north == NULL || params->east == NULL
 		|| params->south == NULL || params->west == NULL)
 		return (print_error(E_NOTEX));
 	if (params->ceilcolor == -1 || params->floorcolor == -1)
-		return(print_error(E_NORGB));
+		return (print_error(E_NORGB));
 	return (true);
 }
 
