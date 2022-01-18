@@ -66,6 +66,8 @@
 # define OUTER '!'
 # define INNER '@'
 # define FILLER '#'
+# define VALID_PLAYER "NSEW"
+# define VALID_MAP "012"
 
 # define X_EVENT_KEY_PRESS 2
 # define X_EVENT_DESTROY_NOTIFY 17

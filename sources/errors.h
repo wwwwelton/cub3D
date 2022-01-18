@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 00:19:05 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/01/17 22:07:27 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/18 12:22:28 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,9 @@
 # define E_MAPEXT "Error\nIncorrect map extension\nexpected: (map).cub\n"
 # define E_MAPINVAL "Error\nMap does not exist or incorrect permissions\n"
 # define E_MAPINVAL2 "Error\nmap name invalid: %s\n"
+# define E_MAPINVAL3 "Error\ninvalid characters in the map\n"
+# define E_MAPOPEN "Error\nOuter walls are open"
+# define E_MAPOPEN2 "Error\nInner walls are open"
 
 # define E_NOTEX "Error\nmissing texture\n"
 # define E_TEXDUP "Error\nduplicated texture file"

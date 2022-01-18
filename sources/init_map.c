@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 15:17:47 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/01/18 09:10:57 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/18 12:29:20 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,12 +42,11 @@ void	print_colored_map(char **map)
 
 	i = -1;
 	j = -1;
-	printf("\e[1;1H\e[2J");
 	while (map[++i])
 	{
 		while (map[i][++j])
 		{
-			usleep(500);
+			usleep(100);
 			if (map[i][j] == OUTER)
 				printf("\e[42m%c\e[0m", map[i][j]);
 			else if (map[i][j] == INNER)

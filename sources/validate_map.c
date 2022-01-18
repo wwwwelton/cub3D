@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 01:09:04 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/01/18 09:10:29 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/18 10:35:03 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -164,14 +164,17 @@ t_xy	get_coordinates(char **map, int x, int y)
 t_bool	is_player_polygon_closed(char **map)
 {
 	t_xy xy;
+	t_bool	boolean;
 
+	boolean = true;
 	xy = get_coordinates(map, 0, 0);
 	while (map[xy.x][xy.y] && map[xy.x][xy.y] != EDGE)
 		xy.y++;
 	if (xy.x == 0 || map[xy.x][xy.y + 1] == '\0')
 		return (false);
-	while (crawl_polygon(map, xy.x, xy.y, OUTER))
+	while (boolean)
 	{
+		boolean = crawl_polygon(map, xy.x, xy.y, OUTER);
 		while (!is_player_inside(map, -1, -1))
 		{
 			tr_matrix(map, "!", "@");
@@ -180,9 +183,9 @@ t_bool	is_player_polygon_closed(char **map)
 				xy.y++;
 			if (xy.x == 0 || map[xy.x][xy.y + 1] == '\0')
 				return (false);
-			crawl_polygon(map, xy.x, xy.y, OUTER);
+			boolean = crawl_polygon(map, xy.x, xy.y, OUTER);
 		}
-		return (true);
+		return (boolean);
 	}
 	return (false);
 }

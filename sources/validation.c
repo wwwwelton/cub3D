@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 15:33:46 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/01/18 09:10:29 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/18 12:32:00 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,30 +21,55 @@ void	remove_outer_characters(char **map)
 	j = -1;
 	while (map[++i])
 	{
-		while (map[i][++j] != OUTER)
+		while (map[i][++j] && map[i][j] != OUTER)
 			map[i][j] = ' ';
 		j = ft_strlen(map[i]);
-		while (map[i][--j] != OUTER)
+		while (--j >= 0 && map[i][j] != OUTER)
 			map[i][j] = ' ';
 		j = -1;
 	}
+}
+
+t_bool	validate_map_characters(char **map)
+{
+	int	i;
+	int	j;
+
+	i = -1;
+	j = -1;
+	while (map[++i])
+	{
+		while (map[i][++j])
+			if (!ftex_is_in_set(map[i][j], "0123 NSEW"))
+			{
+				printf("%s\n", map[i]);
+				return (false);
+			}
+		j = -1;
+	}
+	return (true);
 }
 
 t_bool	map_validation(char **map)
 {
 	t_bool	boolean;
 
-	outline_polygon(map);
-	outline_useless_walls(map);
-	boolean = is_player_polygon_closed(map);
-	if (boolean)
-		remove_outer_characters(map);
-	boolean = are_inner_polygons_closed(map);
+	boolean = true;
 	if (DEBUG)
 	{
 		printf("outline\n");
-		print_colored_map(map);
+		print_map(map);
 	}
+	if (!validate_map_characters(map))
+		boolean = print_error(E_MAPINVAL3);
+	outline_polygon(map);
+	outline_useless_walls(map);
+	if (!is_player_polygon_closed(map))
+		boolean = print_error(E_MAPOPEN);
+	remove_outer_characters(map);
+	if (!are_inner_polygons_closed(map))
+		boolean = print_error(E_MAPOPEN2);
+	print_colored_map(map);
 	free_matrix(map);
 	return (boolean);
 }
@@ -64,9 +89,9 @@ t_bool	validation(t_data *data, int argc, char **argv)
 	initialize_params(&data->params);
 	if (!argument_validation(data, argc, argv))
 		return (false);
-	if (!files_validation(&data->params, argv[1]))
-		return (false);
 	if (!map_validation(fetch_map_array(argv)))
+		return (false);
+	if (!files_validation(&data->params, argv[1]))
 		return (false);
 	return (true);
 }
