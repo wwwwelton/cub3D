@@ -86,6 +86,12 @@ typedef enum e_bool
 	true
 }	t_bool;
 
+typedef struct s_xy
+{
+	int	x;
+	int	y;
+}	t_xy;
+
 typedef struct	s_img
 {
 	int			bpp;

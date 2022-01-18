@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 01:09:04 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/01/15 22:08:40 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/18 03:02:56 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,28 +95,75 @@ t_bool	crawl_polygon(char **map, int x, int y)
 	}
 }
 
+void	tr_matrix(char **matrix, char *del, char *replace)
+{
+	int	i;
+
+	i = -1;
+	while (matrix[++i])
+		ftex_tr(matrix[i], del, replace);
+}
+
+t_bool	is_player_inside(char **map)
+{
+	int	i;
+	int	j;
+	int	inside;
+
+	inside = 0;
+	i = -1;
+	j = -1;
+	while (map[++i])
+	{
+		while(map[i][++j])
+		{
+			while (map[i][j] == '!')
+				j++;
+			if (ft_strchr(&map[i][j], '!'))
+				inside = 1;
+			while (map[i][++j] != '!' && inside)
+				if (ftex_is_in_set(map[i][j], "NSWE"))
+					return (true);
+			inside = 0;
+		}
+		j = -1;
+	}
+	return (false);
+}
+
+t_xy	get_coordinates(char **map, int x, int y)
+{
+	t_xy xy;
+
+	xy.x = x - 1;
+	xy.y = y - 1;
+	while (map[++xy.x])
+	{
+		printf("%s\n", map[xy.x]);
+		while (map[xy.x][++xy.y])
+			if (ftex_is_in_set(map[xy.x][xy.y], "NSEW"))
+				break ;
+		if (ftex_is_in_set(map[xy.x][xy.y], "NSEW"))
+			break ;
+		xy.y = -1;
+	}
+	return (xy);
+}
+
 t_bool	is_player_polygon_closed(char **map)
 {
-	int	x;
-	int	y;
+	t_xy xy;
 
-	x = -1;
-	y = -1;
-	while (map[++x])
-	{
-		printf("%s\n", map[x]);
-		while (map[x][++y])
-			if (ftex_is_in_set(map[x][y], "NSEW"))
-				break ;
-		if (ftex_is_in_set(map[x][y], "NSEW"))
-			break ;
-		y = -1;
-	}
-	if (x == 0 || map[x][y + 1] == '\0')
+	xy = get_coordinates(map, 0, 0);
+	if (xy.x == 0 || map[xy.x][xy.y + 1] == '\0')
 		return (false);
-	while (map[x][y] && map[x][y] != '9')
-		y++;
-	if (crawl_polygon(map, x, y))
+	while (map[xy.x][xy.y] && map[xy.x][xy.y] != '9')
+		xy.y++;
+	if (crawl_polygon(map, xy.x, xy.y))
+	{
+		if (is_player_inside(map))
+			tr_matrix(map, "!", "@");
 		return (true);
+	}
 	return (false);
 }

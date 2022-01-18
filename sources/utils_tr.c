@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/27 08:14:33 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/01/18 01:39:10 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/18 01:43:41 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,12 +43,12 @@ static char	find_new(char *ret, int index)
  * @param del
  * @param replace
  */
-void	ftex_tr(char *str, char *del, char *ret)
+void	ftex_tr(char *str, char *del, char *replace)
 {
 	int		index;
 	int		i;
 
-	if (!str || !del || !ret)
+	if (!str || !del || !replace)
 		return ;
 	i = -1;
 	while (str[++i])
@@ -56,6 +56,6 @@ void	ftex_tr(char *str, char *del, char *ret)
 		index = is_in_del(str[i], del);
 		if (index == -1)
 			continue ;
-		str[i] = find_new(ret, index);
+		str[i] = find_new(replace, index);
 	}
 }
