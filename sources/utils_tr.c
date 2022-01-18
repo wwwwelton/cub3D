@@ -1,0 +1,61 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils_tr.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/27 08:14:33 by jofelipe          #+#    #+#             */
+/*   Updated: 2022/01/18 01:39:10 by jofelipe         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "cub3d.h"
+
+static int	is_in_del(char c, char *del)
+{
+	int	i;
+
+	i = -1;
+	while (del[++i])
+	{
+		if (c == del[i])
+			return (i);
+	}
+	return (-1);
+}
+
+static char	find_new(char *ret, int index)
+{
+	int	len;
+
+	len = ft_strlen(ret);
+	if (index > len - 1)
+		return (ret[len - 1]);
+	else
+		return (ret[index]);
+}
+
+/**
+ * @brief swaps any ocurrence of del in str with replace in order
+ *
+ * @param str
+ * @param del
+ * @param replace
+ */
+void	ftex_tr(char *str, char *del, char *ret)
+{
+	int		index;
+	int		i;
+
+	if (!str || !del || !ret)
+		return ;
+	i = -1;
+	while (str[++i])
+	{
+		index = is_in_del(str[i], del);
+		if (index == -1)
+			continue ;
+		str[i] = find_new(ret, index);
+	}
+}

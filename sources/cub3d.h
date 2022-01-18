@@ -197,6 +197,7 @@ int		get_pixel_color(t_img *img, int x, int y, int width, int height);
 void	my_mlx_pixel_put(t_img *img, int x, int y, int color);
 void	free_matrix(char **matrix);
 char	*ftex_strerase(char *str, char *set);
+void	ftex_tr(char *str, char *del, char *ret);
 int		get_color(int r, int g, int b);
 t_bool	print_error(char *error);
 
