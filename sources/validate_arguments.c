@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 23:24:23 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/01/16 23:37:20 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/18 23:56:31 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,7 @@ t_bool	argument_validation(t_data *data, int argc, char **argv)
 		return (print_error(E_MAPEXT));
 	fd = open(argv[1], O_RDONLY);
 	if (fd == -1)
-	{
-		close(fd);
 		return (print_error(E_MAPINVAL));
-	}
 	close(fd);
 	return (true);
 }
