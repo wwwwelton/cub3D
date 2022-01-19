@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/19 04:47:49 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/19 05:35:04 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	init_xpm(t_data *data, t_img *img, char *image_path)
 
 	mlx = &data->mlx;
 	img->img_ptr = mlx_xpm_file_to_image
-		(mlx->mlx_ptr, image_path, &data->img_width, &data->img_height);
+		(mlx->mlx_ptr, image_path, &img->width, &img->height);
 	img->dump = (int *)
 		mlx_get_data_addr(img->img_ptr, &img->bpp, &img->size_l, &img->endian);
 }
@@ -29,6 +29,8 @@ void	init_img(t_data *data, t_img *img, int width, int heigth)
 
 	mlx = &data->mlx;
 	img->img_ptr = mlx_new_image(mlx->mlx_ptr, width, heigth);
+	img->height = WIN_HEIGHT;
+	img->width = WIN_WIDTH;
 	img->dump = (int *)
 		mlx_get_data_addr(img->img_ptr, &img->bpp, &img->size_l, &img->endian);
 }
@@ -66,5 +68,4 @@ void	init_data(t_data *data, char **argv)
 	init_xpm(data, &data->img[MEN_START], PATHSTART);
 	init_xpm(data, &data->img[MEN_OPTION], PATHOPTION);
 	init_xpm(data, &data->img[MEN_ARROW], PATHARROW);
-
 }

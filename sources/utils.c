@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/19 04:50:58 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/19 07:20:10 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,25 @@ void	fill_color(t_img *img, int color)
 		count_w = -1;
 		while (++count_w < IMG_WIDTH)
 			img->dump[count_h * IMG_WIDTH + count_w] = color;
+	}
+}
+
+void	_copy_layer(t_img *from, t_img *to, int x, int y)
+{
+	int	i;
+	int	j;
+
+	i = -1;
+	j = -1;
+	while (++j < from->height)
+	{
+		while (++i < from->width)
+		{
+			if (from->dump[i + j * from->size_l / 4] != PINK)
+			to->dump[x + i + ((y + j) * to->size_l / 4)]
+				= from->dump[i + j * from->size_l / 4];
+		}
+		i = -1;
 	}
 }
 

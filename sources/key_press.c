@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/17 03:15:33 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/19 07:38:48 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,10 +86,17 @@ int	key_press(int key, t_data *data)
 	return (0);
 }
 
+void	key_enter(t_data *data)
+{
+	data->state = GAME;
+}
+
 void 	main_menu(int key, t_data *data)
 {
 	(void)data;
 	printf("%d\n", key);
+	if (key == KEY_ENTER)
+		key_enter(data);
 }
 
 int	screen_controller(int key, t_data *data)

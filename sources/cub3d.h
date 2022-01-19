@@ -65,6 +65,8 @@
 # define PINK 0xff00fe
 # define BLUE 0x0171FF
 
+# define YOFFSET 100
+
 # define WIN_WIDTH 1024
 # define WIN_HEIGHT 768
 
@@ -92,6 +94,7 @@
 # define KEY_A 97
 # define KEY_S 115
 # define KEY_D 100
+# define KEY_ENTER 65293
 
 # define KEY_UP 65362
 # define KEY_LEFT 65361
@@ -242,7 +245,7 @@ void	draw_screen(t_data *data);
 void	draw_menu(t_data *data);
 void	draw_background(t_data *data);
 void	copy_layer(t_img *img_src, t_img *img_dst, int color);
-
+void	_copy_layer(t_img *from, t_img *to, int x, int y);
 
 int		loop_hook(t_data *data);
 
