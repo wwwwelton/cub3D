@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/19 07:42:32 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/19 15:11:33 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 
 void	draw_menu(t_data *data)
 {
-	t_mlx	*mlx;
+	t_mlx		*mlx;
+	// static int	menu;
+	// static int	options;
 
 	mlx = &data->mlx;
 	_copy_layer(&data->img[MEN_BG], &data->img[SCREEN], 0, 0);
@@ -24,6 +26,9 @@ void	draw_menu(t_data *data)
 	_copy_layer(&data->img[MEN_OPTION], &data->img[SCREEN]
 	, IMG_WIDTH / 2 - (data->img[MEN_OPTION].width / 2)
 	, IMG_HEIGHT / 2 - (data->img[MEN_OPTION].height / 2));
+	_copy_layer(&data->img[MEN_ARROW], &data->img[SCREEN]
+	, IMG_WIDTH / 2 - (data->img[MEN_ARROW].width / 2) - 250
+	, IMG_HEIGHT / 2 - (data->img[MEN_ARROW].height / 2) - YOFFSET);
 	mlx_put_image_to_window(mlx->mlx_ptr, mlx->win, data->img[SCREEN].img_ptr, 0, 0);
 	mlx_destroy_image(data->mlx.mlx_ptr, data->img[SCREEN].img_ptr);
 	init_img(data, &data->img[SCREEN], IMG_WIDTH, IMG_HEIGHT);
