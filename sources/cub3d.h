@@ -16,6 +16,12 @@
 # define TEXTURE7 "assets/images/floor_greystone.xpm"
 # define TEXTURE8 "assets/images/ceil_bluestone.xpm"
 
+# define PATHLOGO "assets/images/cube_logo.xpm"
+# define PATHBG "assets/images/background_menu.xpm"
+# define PATHSTART "assets/images/game_start.xpm"
+# define PATHOPTION "assets/images/options.xpm"
+# define PATHARROW "assets/images/seta.xpm"
+
 # define TEX_WIDTH 64
 # define TEX_HEIGHT 64
 
@@ -30,7 +36,14 @@
 # define TEX_EA 6
 # define TEX_FL 7
 # define TEX_CE 8
-# define TEX_NB 9
+
+# define MEN_LOGO 9
+# define MEN_BG 10
+# define MEN_START 11
+# define MEN_OPTION 12
+# define MEN_ARROW 13
+
+# define TEX_NB 14
 
 # define MENU 0
 # define GAME 1
@@ -226,6 +239,7 @@ void	tr_matrix(char **matrix, char *del, char *replace);
 
 //render
 void	draw_screen(t_data *data);
+void	draw_menu(t_data *data);
 void	draw_background(t_data *data);
 void	copy_layer(t_img *img_src, t_img *img_dst, int color);
 

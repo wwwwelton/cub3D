@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/17 00:34:45 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/19 04:47:49 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,4 +59,12 @@ void	init_data(t_data *data, char **argv)
 	init_xpm(data, &data->img[TEX_WE], data->params.west);
 	init_xpm(data, &data->img[TEX_FL], TEXTURE7);
 	init_xpm(data, &data->img[TEX_CE], TEXTURE8);
+
+
+	init_xpm(data, &data->img[MEN_LOGO], PATHLOGO);
+	init_xpm(data, &data->img[MEN_BG], PATHBG);
+	init_xpm(data, &data->img[MEN_START], PATHSTART);
+	init_xpm(data, &data->img[MEN_OPTION], PATHOPTION);
+	init_xpm(data, &data->img[MEN_ARROW], PATHARROW);
+
 }

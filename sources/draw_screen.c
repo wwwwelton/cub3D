@@ -6,11 +6,17 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/13 20:39:19 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/19 04:48:43 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+void	draw_menu(t_data *data)
+{
+	(void)data;
+	return ;
+}
 
 void	draw_screen(t_data *data)
 {

@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/19 00:45:00 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/19 04:50:58 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,7 +109,10 @@ void	draw_vert_pixel(t_img *img, int x0, int y0, int thick, int color)
 
 int	loop_hook(t_data *data)
 {
-	draw_screen(data);
+	if (data->state == MENU)
+		draw_menu(data);
+	if (data->state == GAME)
+		draw_screen(data);
 	return (0);
 }
 
@@ -128,6 +131,11 @@ int	exit_game(t_data *data)
 	mlx_destroy_image(data->mlx.mlx_ptr, data->img[TEX_WE].img_ptr);
 	mlx_destroy_image(data->mlx.mlx_ptr, data->img[TEX_FL].img_ptr);
 	mlx_destroy_image(data->mlx.mlx_ptr, data->img[TEX_CE].img_ptr);
+	mlx_destroy_image(data->mlx.mlx_ptr, data->img[MEN_LOGO].img_ptr);
+	mlx_destroy_image(data->mlx.mlx_ptr, data->img[MEN_BG].img_ptr);
+	mlx_destroy_image(data->mlx.mlx_ptr, data->img[MEN_START].img_ptr);
+	mlx_destroy_image(data->mlx.mlx_ptr, data->img[MEN_OPTION].img_ptr);
+	mlx_destroy_image(data->mlx.mlx_ptr, data->img[MEN_ARROW].img_ptr);
 	mlx_destroy_window(data->mlx.mlx_ptr, data->mlx.win);
 	mlx_destroy_display(data->mlx.mlx_ptr);
 	free(data->mlx.mlx_ptr);
