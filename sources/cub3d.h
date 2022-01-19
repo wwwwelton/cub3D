@@ -181,6 +181,7 @@ void	init_map(t_data *data, char **argv);
 //validation
 t_bool	argument_validation(t_data *data, int argc, char **argv);
 t_bool	files_validation(t_params *params, char *file);
+
 //map validation
 t_bool	is_player_polygon_closed(char **map);
 t_bool	crawl_polygon(char **map, int x, int y, char fill);
@@ -194,6 +195,10 @@ t_bool	are_inner_polygons_closed(char **map);
 t_bool	map_cleanup(t_params *params);
 t_bool	validation_error(char *error, t_params *params, int fd);
 t_bool	validation_cleanup(t_params *params);
+t_xy	get_coordinates(char **map, int x, int y);
+t_bool	is_player_inside(char **map, int i, int j);
+t_bool	validate_map_characters(char **map);
+void	remove_outer_characters(char **map);
 
 //debug
 void	print_colored_map(char **map);

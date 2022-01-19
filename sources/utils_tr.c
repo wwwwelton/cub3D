@@ -6,11 +6,20 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/27 08:14:33 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/01/18 01:43:41 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/19 01:37:39 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+void	tr_matrix(char **matrix, char *del, char *replace)
+{
+	int	i;
+
+	i = -1;
+	while (matrix[++i])
+		ftex_tr(matrix[i], del, replace);
+}
 
 static int	is_in_del(char c, char *del)
 {

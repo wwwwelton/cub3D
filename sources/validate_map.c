@@ -6,46 +6,11 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 01:09:04 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/01/19 01:21:36 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/19 01:43:40 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-
-void	outline_polygon(char **map)
-{
-	int	x;
-	int	y;
-
-	x = -1;
-	y = -1;
-	while (map[++x])
-	{
-		while (map[x][++y])
-			if (map[x][y] == '1')
-				if (is_char_adjacent(map, x, y, ' ') == true)
-					map[x][y] = EDGE;
-		y = -1;
-	}
-}
-
-void	outline_useless_walls(char **map)
-{
-	int	x;
-	int	y;
-
-	x = -1;
-	y = -1;
-	while (map[++x])
-	{
-		while (map[x][++y])
-			if (map[x][y] == EDGE)
-				if (is_char_adjacent(map, x, y, '0') == false
-					&& is_char_adjacent(map, x, y, '1') == false)
-					map[x][y] = FILLER;
-		y = -1;
-	}
-}
 
 t_bool	forked_polygon(char **map, int x, int y)
 {
@@ -103,44 +68,6 @@ t_bool	crawl_polygon(char **map, int x, int y, char fill)
 				return (true);
 		}
 	}
-}
-
-void	tr_matrix(char **matrix, char *del, char *replace)
-{
-	int	i;
-
-	i = -1;
-	while (matrix[++i])
-		ftex_tr(matrix[i], del, replace);
-}
-
-t_bool	is_player_inside(char **map, int i, int j)
-{
-	int	inside;
-
-	inside = 0;
-	while (map[++i])
-	{
-		while(map[i][++j])
-		{
-			if (map[i][j] == OUTER)
-			{
-				while (map[i][j] && map[i][++j] == OUTER)
-					continue ;
-			if (ft_strchr(&map[i][j], OUTER))
-				inside = 1;
-			}
-			while (map[i][j] != OUTER && inside)
-			{
-				if (ftex_is_in_set(map[i][j], "NSWE"))
-					return (true);
-				j++;
-			}
-			inside = 0;
-		}
-		j = -1;
-	}
-	return (false);
 }
 
 t_xy	get_coordinates(char **map, int x, int y)
