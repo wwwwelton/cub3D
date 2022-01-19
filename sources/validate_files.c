@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 23:22:41 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/01/19 01:49:40 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/19 12:07:32 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ t_bool	check_matrix(t_params *params, char **matrix, char *file, char *tmp)
 	boolean = true;
 	matrix = ft_split(tmp, ' ');
 	matrix[1] = concatenate_color_set(matrix);
-	if (ft_strlen(matrix[0]) > 3)
+	if (ft_strlen(matrix[0]) > 2 && matrix[0][2] != '\n')
 	{
 		boolean = false;
 		printf(E_IDINVAL, file, matrix[0]);
