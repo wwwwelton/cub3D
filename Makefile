@@ -9,6 +9,8 @@ SOURCES_FILES	+=	key_press.c utils.c draw_rays.c validate.c
 SOURCES_FILES	+=	validate_map.c validate_utils.c validate_arguments.c
 SOURCES_FILES	+=	validate_files.c utils_tr.c utils_strerase.c
 SOURCES_FILES	+=	validate_map_inner.c validate_map_utils.c
+SOURCES_FILES	+=	validate_files_utils.c
+
 
 SOURCES_BONUS	=
 

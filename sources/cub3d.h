@@ -199,6 +199,10 @@ t_xy	get_coordinates(char **map, int x, int y);
 t_bool	is_player_inside(char **map, int i, int j);
 t_bool	validate_map_characters(char **map);
 void	remove_outer_characters(char **map);
+t_bool	is_first_character_invalid(int fd, char **tmp);
+void	clean_gnl(char *tmp, int fd);
+t_bool	validation_cleanup(t_params *params);
+t_bool	all_params_valid(t_params *params);
 
 //debug
 void	print_colored_map(char **map);
