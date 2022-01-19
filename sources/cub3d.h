@@ -178,7 +178,7 @@ typedef struct	s_data
 	int			img_width;
 	int			img_height;
 	int			state;
-	t_map		map;
+	char		**map;
 	t_mlx		mlx;
 	t_ray		ray;
 	t_player	player;
@@ -197,7 +197,7 @@ void	init_map(t_data *data, char **argv);
 //validation
 t_bool	argument_validation(t_data *data, int argc, char **argv);
 t_bool	files_validation(t_params *params, char *file);
-t_bool	validation_cleanup(t_params *params);
+t_bool	validation_failed(t_params *params, char **map);
 void	clean_gnl(char *tmp, int fd);
 
 //map validation

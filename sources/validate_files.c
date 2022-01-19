@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 23:22:41 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/01/19 12:07:32 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/19 14:21:23 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ t_bool	validate_texture_file(char *file, char **store)
 	dot = ft_strrchr(file, '.');
 	if (!dot || ft_strncmp(dot, ".xpm\n", 5))
 	{
-		printf("%s%s", E_TEXEXT, file);
+		printf("%sgot: %s", E_TEXEXT, file);
 		return (false);
 	}
 	file[ft_strlen(file) - 1] = '\0';
@@ -111,7 +111,6 @@ t_bool	check_matrix(t_params *params, char **matrix, char *file, char *tmp)
 	if (!ft_strncmp(matrix[0], "C", 2) && boolean)
 		boolean = validate_color_set(matrix[1], &params->ceilcolor);
 	free_matrix(matrix);
-	free(tmp);
 	return (boolean);
 }
 
@@ -133,11 +132,10 @@ t_bool	files_validation(t_params *params, char *file)
 		if (is_first_character_invalid(fd, &tmp))
 			break ;
 		boolean = check_matrix(params, matrix, file, tmp);
+		free(tmp);
 		tmp = ft_get_next_line(fd);
 	}
 	clean_gnl(tmp, fd);
 	boolean = all_params_valid(params);
-	if (boolean == false)
-		return (validation_cleanup(params));
-	return (true);
+	return (boolean);
 }

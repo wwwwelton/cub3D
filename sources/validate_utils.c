@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   validation_utils.c                                 :+:      :+:    :+:   */
+/*   validate_utils.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 01:12:55 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/01/18 05:30:00 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/19 14:13:33 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,8 @@ char	**fetch_map_array(char **argv)
 	char	**ret;
 
 	fd = open(argv[1], O_RDONLY);
+	if (fd == -1)
+		return (NULL);
 	tmp = ft_get_next_line(fd);
 	while (ftex_is_in_set(*tmp, "RNSEWSCF\n"))
 	{

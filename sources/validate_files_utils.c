@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/19 01:48:47 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/01/19 01:49:38 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/19 14:12:25 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,9 @@ t_bool	is_first_character_invalid(int fd, char **tmp)
 	return (false);
 }
 
-t_bool	validation_cleanup(t_params *params)
+t_bool	validation_failed(t_params *params, char **map)
 {
+	free_matrix(map);
 	free(params->north);
 	free(params->south);
 	free(params->west);

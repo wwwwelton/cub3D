@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/19 07:20:10 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/19 14:23:31 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,6 +141,7 @@ int	exit_game(t_data *data)
 	free(data->params.south);
 	free(data->params.west);
 	free(data->params.east);
+	free_matrix(data->map);
 	mlx_destroy_image(data->mlx.mlx_ptr, data->img[BG].img_ptr);
 	mlx_destroy_image(data->mlx.mlx_ptr, data->img[SCREEN].img_ptr);
 	mlx_destroy_image(data->mlx.mlx_ptr, data->img[RAYS].img_ptr);
