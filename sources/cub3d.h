@@ -222,8 +222,9 @@ void	print_colored_map(char **map);
 void	print_map(char **map);
 
 //controller
-int		key_press(int key, t_data *data);
 int		screen_controller(int key, t_data *data);
+void	keys_wasd(int key, t_data *data);
+// int		key_press(int key, t_data *data);
 
 //raycasting
 void	draw_rays(t_data *data);
