@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 23:22:41 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/01/19 14:21:23 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/19 14:50:49 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,7 @@ t_bool	validate_texture_file(char *file, char **store)
 	fd = open(file, O_RDONLY);
 	if (fd == -1)
 	{
-		printf("%s%s", E_TEXINVAL, file);
-		close(fd);
+		printf("%s%s\n", E_TEXINVAL, file);
 		return (false);
 	}
 	close(fd);
@@ -48,13 +47,17 @@ t_bool	validate_color_set(char *set, int *store)
 	t_bool	boolean;
 
 	boolean = true;
-	tmp = ftex_strerase(set, " ");
+	tmp = ftex_strerase(set, " \n");
+	printf("%s\n", tmp);
+	printf("%s\n", set);
 	rgb = ft_split(tmp, ',');
+	print_map(rgb);
 	i = -1;
 	while (rgb[++i])
 		if (ft_atoi(rgb[i]) > 255 || ft_atoi(rgb[i]) < 0)
 			boolean = print_error(E_RGBRANGE);
-	if (i > 3)
+	printf("%d\n", i);
+	if (i != 3)
 		boolean = print_error(E_RGBMUCH);
 	if (boolean)
 		*store = get_color(ft_atoi(rgb[0]), ft_atoi(rgb[1]), ft_atoi(rgb[2]));
@@ -136,6 +139,7 @@ t_bool	files_validation(t_params *params, char *file)
 		tmp = ft_get_next_line(fd);
 	}
 	clean_gnl(tmp, fd);
-	boolean = all_params_valid(params);
+	if (boolean)
+		boolean = all_params_valid(params);
 	return (boolean);
 }

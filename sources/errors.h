@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 00:19:05 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/01/19 01:15:58 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/19 14:43:11 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@
 
 # define E_NORGB "Error\nMissing color\n"
 # define E_RGBRANGE "Error\ncolor value outside of acceptable range\n"
-# define E_RGBMUCH "Error\ntoo many colors in color set\n"
+# define E_RGBMUCH "Error\nWrong number of colors in set\n"
 
 # define E_IDINVAL "Error\n%s: Invalid identifier: %s\n"
 

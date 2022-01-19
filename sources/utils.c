@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/19 14:23:31 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/19 14:32:14 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ void	free_matrix(char **matrix)
 	int	i;
 
 	i = -1;
+	if (!matrix)
+		return ;
 	while (matrix[++i])
 		ft_free_ptr((void *)&matrix[i]);
 	free(matrix);

@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/19 01:48:47 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/01/19 14:12:25 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/19 14:49:18 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void	clean_gnl(char *tmp, int fd)
 {
+	if (fd == -1)
+		return ;
 	free(tmp);
 	tmp = ft_get_next_line(fd);
 	while (tmp)
@@ -44,6 +46,8 @@ t_bool	is_first_character_invalid(int fd, char **tmp)
 
 t_bool	validation_failed(t_params *params, char **map)
 {
+	if (map)
+		print_colored_map(map);
 	free_matrix(map);
 	free(params->north);
 	free(params->south);
@@ -54,16 +58,6 @@ t_bool	validation_failed(t_params *params, char **map)
 
 t_bool	all_params_valid(t_params *params)
 {
-	if (DEBUG)
-	{
-		printf("\n=====PARAMS=======\n");
-		printf("%s\n", params->north);
-		printf("%s\n", params->west);
-		printf("%s\n", params->east);
-		printf("%s\n", params->south);
-		printf("%d\n", params->floorcolor);
-		printf("%d\n", params->ceilcolor);
-	}
 	if (params->north == NULL || params->east == NULL
 		|| params->south == NULL || params->west == NULL)
 		return (print_error(E_NOTEX));

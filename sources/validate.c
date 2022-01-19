@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 15:33:46 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/01/19 14:22:58 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/19 14:36:12 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ t_bool	map_validation(char **map)
 	remove_outer_characters(map);
 	if (!are_inner_polygons_closed(map))
 		return (print_error(E_MAPOPEN2));
-	print_colored_map(map);
 	return (true);
 }
 
@@ -50,5 +49,6 @@ t_bool	validation(t_data *data, int argc, char **argv)
 		return(validation_failed(&data->params, data->map));
 	if (!files_validation(&data->params, argv[1]))
 		return(validation_failed(&data->params, data->map));
+	print_colored_map(data->map);
 	return (true);
 }
