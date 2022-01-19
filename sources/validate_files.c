@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 23:22:41 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/01/19 14:50:49 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/19 15:03:54 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,15 +48,12 @@ t_bool	validate_color_set(char *set, int *store)
 
 	boolean = true;
 	tmp = ftex_strerase(set, " \n");
-	printf("%s\n", tmp);
-	printf("%s\n", set);
 	rgb = ft_split(tmp, ',');
 	print_map(rgb);
 	i = -1;
 	while (rgb[++i])
 		if (ft_atoi(rgb[i]) > 255 || ft_atoi(rgb[i]) < 0)
 			boolean = print_error(E_RGBRANGE);
-	printf("%d\n", i);
 	if (i != 3)
 		boolean = print_error(E_RGBMUCH);
 	if (boolean)
@@ -101,17 +98,17 @@ t_bool	check_matrix(t_params *params, char **matrix, char *file, char *tmp)
 		boolean = false;
 		printf(E_IDINVAL, file, matrix[0]);
 	}
-	if (!ft_strncmp(matrix[0], "NO", 2) && boolean)
+	else if (!ft_strncmp(matrix[0], "NO", 2) && boolean)
 		boolean = validate_texture_file(matrix[1], &params->north);
-	if (!ft_strncmp(matrix[0], "SO", 2) && boolean)
+	else if (!ft_strncmp(matrix[0], "SO", 2) && boolean)
 		boolean = validate_texture_file(matrix[1], &params->south);
-	if (!ft_strncmp(matrix[0], "EA", 2) && boolean)
+	else if (!ft_strncmp(matrix[0], "EA", 2) && boolean)
 		boolean = validate_texture_file(matrix[1], &params->east);
-	if (!ft_strncmp(matrix[0], "WE", 2) && boolean)
+	else if (!ft_strncmp(matrix[0], "WE", 2) && boolean)
 		boolean = validate_texture_file(matrix[1], &params->west);
-	if (!ft_strncmp(matrix[0], "F", 2) && boolean)
+	else if (!ft_strncmp(matrix[0], "F", 2) && boolean)
 		boolean = validate_color_set(matrix[1], &params->floorcolor);
-	if (!ft_strncmp(matrix[0], "C", 2) && boolean)
+	else if (!ft_strncmp(matrix[0], "C", 2) && boolean)
 		boolean = validate_color_set(matrix[1], &params->ceilcolor);
 	free_matrix(matrix);
 	return (boolean);
