@@ -181,6 +181,8 @@ void	init_map(t_data *data, char **argv);
 //validation
 t_bool	argument_validation(t_data *data, int argc, char **argv);
 t_bool	files_validation(t_params *params, char *file);
+t_bool	validation_cleanup(t_params *params);
+void	clean_gnl(char *tmp, int fd);
 
 //map validation
 t_bool	is_player_polygon_closed(char **map);
@@ -192,16 +194,11 @@ t_bool	is_char_adjacent(char **map, int x, int y, char c);
 int		check_end(char **map, int x, int y, char c);
 char	**fetch_map_array(char **argv);
 t_bool	are_inner_polygons_closed(char **map);
-t_bool	map_cleanup(t_params *params);
-t_bool	validation_error(char *error, t_params *params, int fd);
-t_bool	validation_cleanup(t_params *params);
 t_xy	get_coordinates(char **map, int x, int y);
 t_bool	is_player_inside(char **map, int i, int j);
 t_bool	validate_map_characters(char **map);
 void	remove_outer_characters(char **map);
 t_bool	is_first_character_invalid(int fd, char **tmp);
-void	clean_gnl(char *tmp, int fd);
-t_bool	validation_cleanup(t_params *params);
 t_bool	all_params_valid(t_params *params);
 
 //debug
@@ -210,7 +207,7 @@ void	print_map(char **map);
 
 //controller
 int		key_press(int key, t_data *data);
-int	screen_controller(int key, t_data *data);
+int		screen_controller(int key, t_data *data);
 
 //raycasting
 void	draw_rays(t_data *data);
