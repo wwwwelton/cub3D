@@ -6,18 +6,14 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 23:22:41 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/01/18 12:41:29 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/19 01:15:33 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-t_bool	files_cleanup(t_params *params, char *tmp, int fd)
+void	clean_gnl(char *tmp, int fd)
 {
-	free(params->north);
-	free(params->south);
-	free(params->west);
-	free(params->east);
 	free(tmp);
 	tmp = ft_get_next_line(fd);
 	while (tmp)
@@ -26,6 +22,24 @@ t_bool	files_cleanup(t_params *params, char *tmp, int fd)
 		tmp = ft_get_next_line(fd);
 	}
 	close (fd);
+}
+
+
+t_bool	validation_cleanup(t_params *params)
+{
+	free(params->north);
+	free(params->south);
+	free(params->west);
+	free(params->east);
+	return (false);
+}
+
+t_bool	map_cleanup(t_params *params)
+{
+	free(params->north);
+	free(params->south);
+	free(params->west);
+	free(params->east);
 	return (false);
 }
 
@@ -186,12 +200,13 @@ t_bool	files_validation(t_params *params, char *file)
 	while (tmp && boolean)
 	{
 		if (is_first_character_invalid(fd, &tmp))
-			continue ;
+			break ;
 		boolean = check_matrix(params, matrix, file, tmp);
 		tmp = ft_get_next_line(fd);
 	}
+	clean_gnl(tmp, fd);
 	boolean = all_params_valid(params);
 	if (boolean == false)
-		return (files_cleanup(params, tmp, fd));
+		return (validation_cleanup(params));
 	return (true);
 }

@@ -19,7 +19,7 @@
 # define TEX_WIDTH 64
 # define TEX_HEIGHT 64
 
-# define DEBUG 0
+# define DEBUG 1
 
 # define SCREEN 0
 # define RAYS 1
@@ -191,6 +191,9 @@ t_bool	is_char_adjacent(char **map, int x, int y, char c);
 int		check_end(char **map, int x, int y, char c);
 char	**fetch_map_array(char **argv);
 t_bool	are_inner_polygons_closed(char **map);
+t_bool	map_cleanup(t_params *params);
+t_bool	validation_error(char *error, t_params *params, int fd);
+t_bool	validation_cleanup(t_params *params);
 
 //debug
 void	print_colored_map(char **map);

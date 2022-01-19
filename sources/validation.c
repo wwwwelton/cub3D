@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 15:33:46 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/01/18 12:40:18 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/19 01:18:28 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,26 +49,30 @@ t_bool	validate_map_characters(char **map)
 
 t_bool	map_validation(char **map)
 {
-	t_bool	boolean;
-
-	boolean = true;
 	if (DEBUG)
-	{
-		printf("outline\n");
 		print_map(map);
-	}
 	if (!validate_map_characters(map))
-		boolean = print_error(E_MAPINVAL3);
+	{
+		free_matrix(map);
+		return (print_error(E_MAPINVAL3));
+	}
 	outline_polygon(map);
 	outline_useless_walls(map);
 	if (!is_player_polygon_closed(map))
-		boolean = print_error(E_MAPOPEN);
+	{
+		print_colored_map(map);
+		free_matrix(map);
+		return (print_error(E_MAPOPEN));
+	}
 	remove_outer_characters(map);
 	if (!are_inner_polygons_closed(map))
-		boolean = print_error(E_MAPOPEN2);
+	{
+		free_matrix(map);
+		return (print_error(E_MAPOPEN2));
+	}
 	print_colored_map(map);
 	free_matrix(map);
-	return (boolean);
+	return (true);
 }
 
 static void	initialize_params(t_params *params)
@@ -86,9 +90,9 @@ t_bool	validation(t_data *data, int argc, char **argv)
 	initialize_params(&data->params);
 	if (!argument_validation(data, argc, argv))
 		return (false);
-	if (!map_validation(fetch_map_array(argv)))
-		return (false);
 	if (!files_validation(&data->params, argv[1]))
 		return (false);
+	if (!map_validation(fetch_map_array(argv)))
+		return (validation_cleanup(&data->params));
 	return (true);
 }
