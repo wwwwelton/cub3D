@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/19 01:38:56 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/01/19 01:43:54 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/19 04:31:09 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,9 +68,6 @@ void	outline_useless_walls(char **map)
 
 t_bool	is_player_inside(char **map, int i, int j)
 {
-	int	inside;
-
-	inside = 0;
 	while (map[++i])
 	{
 		while(map[i][++j])
@@ -79,16 +76,18 @@ t_bool	is_player_inside(char **map, int i, int j)
 			{
 				while (map[i][j] && map[i][++j] == OUTER)
 					continue ;
-			if (ft_strchr(&map[i][j], OUTER))
-				inside = 1;
+				if (ft_strchr(&map[i][j], OUTER))
+				{
+					while (map[i][j] != OUTER)
+					{
+						if (ftex_is_in_set(map[i][j], "NSWE"))
+							return (true);
+						j++;
+					}
+				}
 			}
-			while (map[i][j] != OUTER && inside)
-			{
-				if (ftex_is_in_set(map[i][j], "NSWE"))
-					return (true);
-				j++;
-			}
-			inside = 0;
+			if (!map[i][j])
+				j--;
 		}
 		j = -1;
 	}
