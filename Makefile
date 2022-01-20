@@ -4,14 +4,26 @@ LIBFT			=	$(LIBFT_PATH)/libft.a
 MINILIBX_PATH	=	./libraries/minilibx
 MINILIBX		=	$(MINILIBX_PATH)/libmlx.a
 
-SOURCES_FILES	=	cub3d.c draw_bg.c init.c draw_screen.c init_map.c
-SOURCES_FILES	+=	utils.c draw_rays.c validate.c
-SOURCES_FILES	+=	validate_map.c validate_utils.c validate_arguments.c
-SOURCES_FILES	+=	validate_files.c utils_tr.c utils_strerase.c
-SOURCES_FILES	+=	validate_map_inner.c validate_map_utils.c
-SOURCES_FILES	+=	validate_files_utils.c keys_wasd.c keys_controller.c
-SOURCES_FILES	+=	keys_menu_wasd.c
-
+SOURCES_FILES	=	cub3d.c \
+					init.c \
+					print_map.c \
+					draw_bg.c \
+					draw_screen.c \
+					draw_rays.c \
+					validate.c \
+					validate_map.c \
+					validate_map_inner.c \
+					validate_map_utils.c \
+					validate_files.c \
+					validate_files_utils.c \
+					validate_arguments.c \
+					validate_utils.c \
+					utils_tr.c \
+					utils_strerase.c \
+					utils.c \
+					keys_wasd.c \
+					keys_controller.c \
+					keys_menu_wasd.c
 
 SOURCES_BONUS	=
 
