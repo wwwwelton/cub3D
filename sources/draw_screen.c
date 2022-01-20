@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/20 05:32:14 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/20 06:25:18 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,12 @@ void	draw_options(t_data *data)
 	t_mlx		*mlx;
 
 	mlx = &data->mlx;
+	(void) mlx;
 	_copy_layer(&data->img[MEN_BG], &data->img[SCREEN], 0, 0);
 	_copy_layer(&data->img[MEN_START], &data->img[SCREEN]
 	, IMG_WIDTH / 2 - (data->img[MEN_START].width / 2 + YOFFSET * 3)
 	, IMG_HEIGHT / 2 - (data->img[MEN_START].height / 2) - YOFFSET * 3);
+	fill(&data->img[SCREEN], fillparams(50, 450, 100, 50), RED);
 	_copy_layer(&data->img[MEN_OPT], &data->img[SCREEN]
 	, IMG_WIDTH / 2 - (data->img[MEN_OPT].width / 2 + YOFFSET * 3)
 	, IMG_HEIGHT / 2 - (data->img[MEN_OPT].height / 2) - YOFFSET * 2);

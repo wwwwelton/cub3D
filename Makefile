@@ -20,6 +20,7 @@ SOURCES_FILES	=	cub3d.c \
 					validate_utils.c \
 					utils_tr.c \
 					utils_strerase.c \
+					utils_fill.c \
 					utils.c \
 					keys_wasd.c \
 					keys_controller.c \

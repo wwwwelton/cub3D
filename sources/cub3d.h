@@ -108,6 +108,14 @@ typedef enum e_bool
 	true
 }	t_bool;
 
+typedef struct s_fill
+{
+	int	x;
+	int	y;
+	int	xlen;
+	int	ylen;
+}	t_fill;
+
 typedef struct s_xy
 {
 	int	x;
@@ -116,9 +124,13 @@ typedef struct s_xy
 
 typedef struct s_menu
 {
-	int	main;
-	int	options;
-	int	game;
+	int		game;
+	int		main;
+	int		options;
+	int		opt_moves;
+	int		opt_rots;
+	int		opt_mouses;
+	t_bool	sound;
 }	t_menu;
 
 typedef struct	s_img
@@ -249,6 +261,8 @@ void	ftex_tr(char *str, char *del, char *ret);
 int		get_color(int r, int g, int b);
 t_bool	print_error(char *error);
 void	tr_matrix(char **matrix, char *del, char *replace);
+void	fill(t_img *img, t_fill fill, int color);
+t_fill	fillparams(int x, int y, int xlen, int ylen);
 
 //render
 void	draw_screen(t_data *data);
