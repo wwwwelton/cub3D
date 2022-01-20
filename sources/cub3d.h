@@ -1,5 +1,17 @@
-#ifndef _CUB3D_H
-# define _CUB3D_H
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   cub3d.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/01/20 09:06:24 by jofelipe          #+#    #+#             */
+/*   Updated: 2022/01/20 14:17:56 by jofelipe         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef CUB3D_H
+# define CUB3D_H
 
 # include <stdio.h>
 # include <string.h>
@@ -66,7 +78,11 @@
 # define PINK 0xff00fe
 # define BLUE 0x0171FF
 
-# define YOFFSET 100
+# define YOFFSET 250
+# define XOFFSET 100
+
+# define OPTYOFFSET 200
+# define OPTXOFFSET 100
 
 # define WIN_WIDTH 1024
 # define WIN_HEIGHT 768

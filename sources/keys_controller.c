@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/20 05:11:20 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/20 14:49:24 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,18 @@ void	keys_enter(t_data *data)
 	if (data->state == MENU)
 		if (data->menu.main == 0)
 			data->state = GAME;
+	if (data->state == OPTIONS)
+		if (data->menu.options == 4)
+		{
+			data->menu.options = 0;
+			data->state = MENU;
+		}
 }
 
 void	options_menu(int key, t_data *data)
 {
-	(void)key;
-	(void)data;
+	if (key == KEY_W || key == KEY_A || key == KEY_S || key == KEY_D)
+		keys_menu_wasd(key, data);
 }
 
 void	main_menu(int key, t_data *data)
@@ -47,6 +53,8 @@ void	main_game(int key, t_data *data)
 
 int	screen_controller(int key, t_data *data)
 {
+	if (key == KEY_Q || key == KEY_ESC)
+		exit_game(data);
 	if (data->state == GAME)
 		main_game(key, data);
 	if (data->state == MENU)
