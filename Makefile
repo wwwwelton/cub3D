@@ -10,6 +10,7 @@ SOURCES_FILES	+=	validate_map.c validate_utils.c validate_arguments.c
 SOURCES_FILES	+=	validate_files.c utils_tr.c utils_strerase.c
 SOURCES_FILES	+=	validate_map_inner.c validate_map_utils.c
 SOURCES_FILES	+=	validate_files_utils.c keys_wasd.c keys_controller.c
+SOURCES_FILES	+=	keys_menu_wasd.c
 
 
 SOURCES_BONUS	=

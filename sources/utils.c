@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/19 14:32:14 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/20 04:37:07 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -156,7 +156,7 @@ int	exit_game(t_data *data)
 	mlx_destroy_image(data->mlx.mlx_ptr, data->img[MEN_LOGO].img_ptr);
 	mlx_destroy_image(data->mlx.mlx_ptr, data->img[MEN_BG].img_ptr);
 	mlx_destroy_image(data->mlx.mlx_ptr, data->img[MEN_START].img_ptr);
-	mlx_destroy_image(data->mlx.mlx_ptr, data->img[MEN_OPTION].img_ptr);
+	mlx_destroy_image(data->mlx.mlx_ptr, data->img[MEN_OPT].img_ptr);
 	mlx_destroy_image(data->mlx.mlx_ptr, data->img[MEN_ARROW].img_ptr);
 	mlx_destroy_window(data->mlx.mlx_ptr, data->mlx.win);
 	mlx_destroy_display(data->mlx.mlx_ptr);

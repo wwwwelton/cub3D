@@ -40,7 +40,7 @@
 # define MEN_LOGO 9
 # define MEN_BG 10
 # define MEN_START 11
-# define MEN_OPTION 12
+# define MEN_OPT 12
 # define MEN_ARROW 13
 
 # define TEX_NB 14
@@ -113,6 +113,13 @@ typedef struct s_xy
 	int	y;
 }	t_xy;
 
+typedef struct s_menu
+{
+	int	main;
+	int	options;
+	int	game;
+}	t_menu;
+
 typedef struct	s_img
 {
 	int			bpp;
@@ -183,6 +190,7 @@ typedef struct	s_data
 	t_ray		ray;
 	t_player	player;
 	t_img		img[TEX_NB];
+	t_menu		menu;
 	t_params	params;
 }	t_data;
 
@@ -224,7 +232,7 @@ void	print_map(char **map);
 //controller
 int		screen_controller(int key, t_data *data);
 void	keys_wasd(int key, t_data *data);
-// int		key_press(int key, t_data *data);
+void	keys_menu_wasd(int key, t_data *data);
 
 //raycasting
 void	draw_rays(t_data *data);

@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/19 10:14:15 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/20 04:40:30 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ void	main_menu(int key, t_data *data)
 	printf("%d\n", key);
 	if (key == KEY_ENTER)
 		keys_enter(data);
+	if (key == KEY_W || key == KEY_S)
+		keys_menu_wasd(key, data);
 }
 
 void	main_game(int key, t_data *data)

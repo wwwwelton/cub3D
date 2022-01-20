@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/19 05:35:04 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/20 04:38:30 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,10 @@ void	init_data(t_data *data, char **argv)
 	data->player.move_speed = 0.15;
 	data->player.rot_speed = 0.05;
 
+	data->menu.main = 0;
+	data->menu.options = 0;
+	data->menu.game = 0;
+
 	init_img(data, &data->img[BG], IMG_WIDTH, IMG_HEIGHT);
 	init_img(data, &data->img[SCREEN], IMG_WIDTH, IMG_HEIGHT);
 	init_img(data, &data->img[RAYS], IMG_WIDTH, IMG_HEIGHT);
@@ -66,6 +70,6 @@ void	init_data(t_data *data, char **argv)
 	init_xpm(data, &data->img[MEN_LOGO], PATHLOGO);
 	init_xpm(data, &data->img[MEN_BG], PATHBG);
 	init_xpm(data, &data->img[MEN_START], PATHSTART);
-	init_xpm(data, &data->img[MEN_OPTION], PATHOPTION);
+	init_xpm(data, &data->img[MEN_OPT], PATHOPTION);
 	init_xpm(data, &data->img[MEN_ARROW], PATHARROW);
 }
