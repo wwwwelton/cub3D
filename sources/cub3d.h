@@ -47,6 +47,7 @@
 
 # define MENU 0
 # define GAME 1
+# define OPTIONS 3
 
 # define NORTH 1
 # define WEST 2
@@ -252,6 +253,7 @@ void	tr_matrix(char **matrix, char *del, char *replace);
 //render
 void	draw_screen(t_data *data);
 void	draw_menu(t_data *data);
+void	draw_options(t_data *data);
 void	draw_background(t_data *data);
 void	copy_layer(t_img *img_src, t_img *img_dst, int color);
 void	_copy_layer(t_img *from, t_img *to, int x, int y);

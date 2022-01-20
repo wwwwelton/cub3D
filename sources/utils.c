@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/20 04:37:07 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/20 05:17:20 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,6 +134,8 @@ int	loop_hook(t_data *data)
 		draw_menu(data);
 	if (data->state == GAME)
 		draw_screen(data);
+	if (data->state == OPTIONS)
+		draw_options(data);
 	return (0);
 }
 
