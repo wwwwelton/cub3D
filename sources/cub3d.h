@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 09:06:24 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/01/20 14:17:56 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/21 08:09:12 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -253,6 +253,8 @@ t_bool	validate_map_characters(char **map);
 void	remove_outer_characters(char **map);
 t_bool	is_first_character_invalid(int fd, char **tmp);
 t_bool	all_params_valid(t_params *params);
+void	initial_map_cleanup(char **map);
+t_bool	is_not_adjacent(char **map, int x, int y, char c);
 
 //debug
 void	print_colored_map(char **map);

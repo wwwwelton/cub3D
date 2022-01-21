@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 15:33:46 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/01/19 14:36:12 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/21 08:14:03 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ t_bool	map_validation(char **map)
 	remove_outer_characters(map);
 	if (!are_inner_polygons_closed(map))
 		return (print_error(E_MAPOPEN2));
+	tr_matrix(map, "1", "@");
 	return (true);
 }
 
@@ -45,6 +46,7 @@ t_bool	validation(t_data *data, int argc, char **argv)
 	if (!argument_validation(data, argc, argv))
 		return(validation_failed(&data->params, NULL));
 	data->map = fetch_map_array(argv);
+	initial_map_cleanup(data->map);
 	if (!map_validation(data->map))
 		return(validation_failed(&data->params, data->map));
 	if (!files_validation(&data->params, argv[1]))
