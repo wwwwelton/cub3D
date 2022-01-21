@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/20 05:17:20 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/21 09:33:00 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,25 +141,17 @@ int	loop_hook(t_data *data)
 
 int	exit_game(t_data *data)
 {
+	int	i;
+
+	i = -1;
+	while (++i < TEX_NB)
+		mlx_destroy_image(data->mlx.mlx_ptr, data->img[i].img_ptr);
 	free(data->params.north);
 	free(data->params.south);
 	free(data->params.west);
 	free(data->params.east);
 	free_matrix(data->map);
-	mlx_destroy_image(data->mlx.mlx_ptr, data->img[BG].img_ptr);
-	mlx_destroy_image(data->mlx.mlx_ptr, data->img[SCREEN].img_ptr);
-	mlx_destroy_image(data->mlx.mlx_ptr, data->img[RAYS].img_ptr);
-	mlx_destroy_image(data->mlx.mlx_ptr, data->img[TEX_NO].img_ptr);
-	mlx_destroy_image(data->mlx.mlx_ptr, data->img[TEX_EA].img_ptr);
-	mlx_destroy_image(data->mlx.mlx_ptr, data->img[TEX_SO].img_ptr);
-	mlx_destroy_image(data->mlx.mlx_ptr, data->img[TEX_WE].img_ptr);
-	mlx_destroy_image(data->mlx.mlx_ptr, data->img[TEX_FL].img_ptr);
-	mlx_destroy_image(data->mlx.mlx_ptr, data->img[TEX_CE].img_ptr);
-	mlx_destroy_image(data->mlx.mlx_ptr, data->img[MEN_LOGO].img_ptr);
-	mlx_destroy_image(data->mlx.mlx_ptr, data->img[MEN_BG].img_ptr);
-	mlx_destroy_image(data->mlx.mlx_ptr, data->img[MEN_START].img_ptr);
-	mlx_destroy_image(data->mlx.mlx_ptr, data->img[MEN_OPT].img_ptr);
-	mlx_destroy_image(data->mlx.mlx_ptr, data->img[MEN_ARROW].img_ptr);
+	free_matrix(data->devmap);
 	mlx_destroy_window(data->mlx.mlx_ptr, data->mlx.win);
 	mlx_destroy_display(data->mlx.mlx_ptr);
 	free(data->mlx.mlx_ptr);
