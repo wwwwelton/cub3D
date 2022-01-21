@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 09:06:24 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/01/21 08:09:12 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/21 08:25:26 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -215,6 +215,7 @@ typedef struct	s_data
 	int			img_height;
 	int			state;
 	char		**map;
+	char		**devmap;
 	t_mlx		mlx;
 	t_ray		ray;
 	t_player	player;
