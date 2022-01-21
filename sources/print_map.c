@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 15:17:47 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/01/21 08:12:58 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/21 08:33:08 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	print_colored_map(char **map)
 
 	i = -1;
 	j = -1;
-	// printf("\e[1;1H\e[2J");
+	printf(CLEAR);
 	while (map[++i])
 	{
 		while (map[i][++j])

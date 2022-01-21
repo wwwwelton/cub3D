@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 09:06:24 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/01/21 08:25:26 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/21 08:33:26 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@
 # define TEX_HEIGHT 64
 
 # define DEBUG 0
+# define CLEAR "\e[1;1H\e[2J"
 
 # define SCREEN 0
 # define RAYS 1
