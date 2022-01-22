@@ -3,42 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   keys_wasd.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/19 09:22:26 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/01/19 09:33:15 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/22 18:05:14 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-
-int	worldMappsu[24][24] =
-{
-	{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
-	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-	{1,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-	{1,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-	{1,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-	{1,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-	{1,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-	{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}
-};
 
 void	key_w(t_data *data)
 {
@@ -47,9 +19,9 @@ void	key_w(t_data *data)
 
 	player = &data->player;
 	ray = &data->ray;
-	if (!worldMappsu[(int)(player->pos_x + ray->dir_x * player->move_speed)][(int)(data->player.pos_y)])
+	if (!data->map[(int)(player->pos_x + ray->dir_x * player->move_speed)][(int)(data->player.pos_y)] - '0')
 		player->pos_x += ray->dir_x * player->move_speed;
-	if (!worldMappsu[(int)(player->pos_x)][(int)(player->pos_y + ray->dir_y * player->move_speed)])
+	if (!data->map[(int)(player->pos_x)][(int)(player->pos_y + ray->dir_y * player->move_speed)] - '0')
 		player->pos_y += ray->dir_y * player->move_speed;
 }
 void	key_a(t_data *data)
@@ -76,9 +48,9 @@ void	key_s(t_data *data)
 
 	player = &data->player;
 	ray = &data->ray;
-	if (!worldMappsu[(int)(player->pos_x - ray->dir_x * player->move_speed)][(int)(player->pos_y)])
+	if (!data->map[(int)(player->pos_x - ray->dir_x * player->move_speed)][(int)(player->pos_y)] - '0')
 		player->pos_x -= ray->dir_x * player->move_speed;
-	if (!worldMappsu[(int)(player->pos_x)][(int)(player->pos_y - ray->dir_y * player->move_speed)])
+	if (!data->map[(int)(player->pos_x)][(int)(player->pos_y - ray->dir_y * player->move_speed)] - '0')
 		player->pos_y -= ray->dir_y * player->move_speed;
 }
 

@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/14 19:05:57 by wleite           ###   ########.fr       */
+/*   Updated: 2022/01/22 18:05:06 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -180,7 +180,7 @@ void	draw_rays(t_data *data)
 				map_y += step_y;
 				side = 1;
 			}
-			if (worldMap[map_x][map_y] > 0)
+			if (data->map[map_x][map_y] - '0' > 0)
 				hit = 1;
 		}
 		if (side == 0)
