@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 09:06:24 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/01/26 17:21:57 by wleite           ###   ########.fr       */
+/*   Updated: 2022/01/26 17:39:13 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@
 # define SCREEN 0
 # define RAYS 1
 # define BG 2
+# define MAP 14
 # define TEX_NO 3
 # define TEX_WE 4
 # define TEX_SO 5
@@ -56,7 +57,7 @@
 # define MEN_OPT 12
 # define MEN_ARROW 13
 
-# define TEX_NB 14
+# define TEX_NB 15
 
 # define MENU 0
 # define GAME 1
@@ -150,7 +151,7 @@ typedef struct s_menu
 	t_bool	sound;
 }	t_menu;
 
-typedef struct	s_img
+typedef struct s_img
 {
 	int			bpp;
 	int			size_l;
@@ -162,7 +163,7 @@ typedef struct	s_img
 	int			*dump;
 }				t_img;
 
-typedef struct	s_mlx
+typedef struct s_mlx
 {
 	void		*mlx_ptr;
 	void		*win;
@@ -193,7 +194,7 @@ typedef struct s_params
 	int		floorcolor;
 }	t_params;
 
-typedef struct	s_data
+typedef struct s_data
 {
 	int			img_width;
 	int			img_height;
@@ -250,6 +251,9 @@ void	keys_menu_wasd(int key, t_data *data);
 //raycasting
 void	draw_rays(t_data *data);
 
+//map
+void	draw_map(t_data *data);
+
 //utils
 t_bool	ftex_is_in_set(char c, char *set);
 void	fill_color(t_img *img, int color);
@@ -273,6 +277,5 @@ void	copy_layer(t_img *img_src, t_img *img_dst, int color);
 void	_copy_layer(t_img *from, t_img *to, int x, int y);
 
 int		loop_hook(t_data *data);
-
 
 #endif

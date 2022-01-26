@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/19 09:22:26 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/01/26 17:20:12 by wleite           ###   ########.fr       */
+/*   Updated: 2022/01/26 17:34:43 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void	key_w(t_data *data)
 {
 	(void)data;
 }
+
 void	key_a(t_data *data)
 {
 	(void)data;

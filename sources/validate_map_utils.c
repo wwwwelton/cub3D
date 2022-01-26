@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   validate_map_utils.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/19 01:38:56 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/01/21 08:09:45 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/26 17:35:23 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ void	remove_outer_characters(char **map)
 		j = -1;
 	}
 }
-
 
 void	outline_polygon(char **map)
 {
@@ -70,7 +69,7 @@ t_bool	is_player_inside(char **map, int i, int j)
 {
 	while (map[++i])
 	{
-		while(map[i][++j])
+		while (map[i][++j])
 		{
 			if (map[i][j] == OUTER)
 			{
@@ -106,9 +105,7 @@ t_bool	validate_map_characters(char **map)
 	{
 		while (map[i][++j])
 			if (!ftex_is_in_set(map[i][j], "0123 NSEW\n"))
-			{
 				return (false);
-			}
 		j = -1;
 	}
 	return (true);

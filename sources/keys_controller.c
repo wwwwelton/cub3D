@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   keys_controller.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/20 14:49:24 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/26 17:37:13 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,13 @@ void	keys_enter(t_data *data)
 		if (data->menu.main == 0)
 			data->state = GAME;
 	if (data->state == OPTIONS)
+	{
 		if (data->menu.options == 4)
 		{
 			data->menu.options = 0;
 			data->state = MENU;
 		}
+	}
 }
 
 void	options_menu(int key, t_data *data)
@@ -63,4 +65,3 @@ int	screen_controller(int key, t_data *data)
 		options_menu(key, data);
 	return (0);
 }
-
