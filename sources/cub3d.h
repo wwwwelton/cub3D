@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 09:06:24 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/01/21 08:33:26 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/26 17:21:57 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -162,35 +162,18 @@ typedef struct	s_img
 	int			*dump;
 }				t_img;
 
-typedef struct	s_player
-{
-	double	pos_x;
-	double	pos_y;
-	double	move_speed;
-	double	rot_speed;
-	t_img	img_player;
-}				t_player;
-
 typedef struct	s_mlx
 {
 	void		*mlx_ptr;
 	void		*win;
 }				t_mlx;
 
-typedef struct s_ray
-{
-	double	dir_x;
-	double	dir_y;
-	double	plane_x;
-	double	plane_y;
-}	t_ray;
-
 typedef struct s_map
 {
 	int		**matrix;
 	char	**charmatrix;
-	int	width;
-	int	height;
+	int		width;
+	int		height;
 }	t_map;
 
 typedef struct s_rgb
@@ -218,8 +201,6 @@ typedef struct	s_data
 	char		**map;
 	char		**devmap;
 	t_mlx		mlx;
-	t_ray		ray;
-	t_player	player;
 	t_img		img[TEX_NB];
 	t_menu		menu;
 	t_params	params;
@@ -231,7 +212,6 @@ t_bool	validation(t_data *data, int argc, char **argv);
 void	init_img(t_data *data, t_img *img, int width, int heigth);
 int		exit_game(t_data *data);
 void	init_xpm(t_data *data, t_img *img, char *image_path);
-void	init_map(t_data *data, char **argv);
 
 //validation
 t_bool	argument_validation(t_data *data, int argc, char **argv);
