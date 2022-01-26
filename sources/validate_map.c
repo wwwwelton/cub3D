@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 01:09:04 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/01/19 01:43:40 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/26 18:49:00 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,10 +95,10 @@ t_bool	is_player_polygon_closed(char **map)
 
 	boolean = true;
 	xy = get_coordinates(map, 0, 0);
-	while (map[xy.x][xy.y] && map[xy.x][xy.y] != EDGE)
-		xy.y++;
 	if (xy.x == 0 || map[xy.x][xy.y + 1] == '\0')
 		return (false);
+	while (map[xy.x][xy.y] && map[xy.x][xy.y] != EDGE)
+		xy.y++;
 	while (boolean)
 	{
 		boolean = crawl_polygon(map, xy.x, xy.y, OUTER);
