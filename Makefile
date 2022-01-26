@@ -8,6 +8,7 @@ SOURCES_FILES	=	cub3d.c \
 					init.c \
 					print_map.c \
 					draw_bg.c \
+					draw_map.c \
 					draw_screen.c \
 					draw_rays.c \
 					validate.c \
@@ -92,6 +93,9 @@ fclean:				clean
 
 run:
 					make && clear && ./$(NAME) assets/maps/map.cub
+
+runv:
+					make && clear && valgrind ./$(NAME) assets/maps/map.cub
 
 re:					fclean all
 

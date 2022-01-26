@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_screen.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/20 14:53:18 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/26 17:38:39 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ void	draw_menu(t_data *data)
 	mlx = &data->mlx;
 	_copy_layer(&img[MEN_BG], &img[SCREEN], 0, 0);
 	_copy_layer(&img[MEN_START], &img[SCREEN]
-	, middle_x(img[MEN_START])
-	, middle_y(img[MEN_START]) - XOFFSET);
+		, middle_x(img[MEN_START])
+		, middle_y(img[MEN_START]) - XOFFSET);
 
 	_copy_layer(&img[MEN_OPT], img
 	, middle_x(img[MEN_OPT])
@@ -94,8 +94,10 @@ void	draw_screen(t_data *data)
 	fill_color(&data->img[SCREEN], BLACK);
 	fill_color(&data->img[BG], BLACK);
 	draw_background(data);
+	draw_map(data);
 	draw_rays(data);
 	copy_layer(&data->img[RAYS], &data->img[SCREEN], BLACK);
+	copy_layer(&data->img[MAP], &data->img[SCREEN], BLACK);
 	copy_layer(&data->img[BG], &data->img[SCREEN], BLACK);
 	mlx_put_image_to_window(mlx->mlx_ptr, mlx->win, data->img->img_ptr, 0, 0);
 	mlx_destroy_image(data->mlx.mlx_ptr, data->img[RAYS].img_ptr);

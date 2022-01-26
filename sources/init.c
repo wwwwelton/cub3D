@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/26 17:19:31 by wleite           ###   ########.fr       */
+/*   Updated: 2022/01/26 17:37:42 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@ void	init_data(t_data *data, char **argv)
 	data->mlx.mlx_ptr = mlx_init();
 	data->mlx.win
 		= mlx_new_window(data->mlx.mlx_ptr, WIN_WIDTH, WIN_HEIGHT, "cub3d");
-
 	data->menu.main = 0;
 	data->menu.options = 0;
 	data->menu.game = 0;
@@ -50,8 +49,9 @@ void	init_data(t_data *data, char **argv)
 	data->menu.opt_moves = 1;
 
 	init_img(data, &data->img[BG], IMG_WIDTH, IMG_HEIGHT);
-	init_img(data, &data->img[SCREEN], IMG_WIDTH, IMG_HEIGHT);
 	init_img(data, &data->img[RAYS], IMG_WIDTH, IMG_HEIGHT);
+	init_img(data, &data->img[MAP], IMG_WIDTH, IMG_HEIGHT);
+	init_img(data, &data->img[SCREEN], IMG_WIDTH, IMG_HEIGHT);
 
 	init_xpm(data, &data->img[TEX_NO], data->params.north);
 	init_xpm(data, &data->img[TEX_EA], data->params.east);

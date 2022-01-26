@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 09:06:24 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/01/26 17:39:13 by wleite           ###   ########.fr       */
+/*   Updated: 2022/01/26 18:12:53 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,6 +119,11 @@
 # define KEY_LEFT 65361
 # define KEY_DOWN 65364
 # define KEY_RIGHT 65363
+
+//map
+# define MINIMAP_SCALE_FACTOR 1.0
+# define TILE_SIZE 64
+//map
 
 typedef enum e_bool
 {
