@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/21 09:33:00 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/26 15:51:45 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ void	_copy_layer(t_img *from, t_img *to, int x, int y)
 	{
 		while (++i < from->width)
 		{
-			if (from->dump[i + j * from->size_l / 4] != PINK)
+			if (from->dump[i + j * from->size_l / 4] != BLACK)
 			to->dump[x + i + ((y + j) * to->size_l / 4)]
 				= from->dump[i + j * from->size_l / 4];
 		}
