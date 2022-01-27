@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/27 10:26:33 by wleite           ###   ########.fr       */
+/*   Updated: 2022/01/27 11:23:38 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -146,6 +146,13 @@ void	draw_rect(t_img *img, t_rect rect)
 			img->dump[y * IMG_WIDTH + x] = rect.color;
 		}
 	}
+}
+
+void	normalizeAngle(float *angle)
+{
+	*angle = remainder(*angle, TWO_PI);
+	if (*angle < 0)
+		*angle = TWO_PI + *angle;
 }
 
 int	loop_hook(t_data *data)

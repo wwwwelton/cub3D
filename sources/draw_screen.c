@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/27 10:54:27 by wleite           ###   ########.fr       */
+/*   Updated: 2022/01/27 11:28:43 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,7 @@ void	draw_screen(t_data *data)
 	mlx = &data->mlx;
 	fill_color(&data->img[SCREEN], BLACK);
 	fill_color(&data->img[BG], BLACK);
+	fill_color(&data->img[MAP], BLACK);
 	draw_background(data);
 	draw_map(data);
 	draw_player(data);

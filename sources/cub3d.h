@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 09:06:24 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/01/27 11:02:34 by wleite           ###   ########.fr       */
+/*   Updated: 2022/01/27 13:07:27 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,6 +134,8 @@ typedef struct s_rect
 //map
 
 //player
+# define PLAYER_SIZE 64
+
 typedef struct s_player
 {
 	float	x;
@@ -282,9 +284,11 @@ void	draw_rays(t_data *data);
 
 //map
 void	draw_map(t_data *data);
+int		map_has_wall_at(t_data *data, float x, float y);
 
 //player
 void	draw_player(t_data *data);
+void	move_player(t_data *data);
 
 //utils
 t_bool	ftex_is_in_set(char c, char *set);
@@ -300,6 +304,7 @@ void	tr_matrix(char **matrix, char *del, char *replace);
 void	fill(t_img *img, t_fill fill, int color);
 t_fill	fillparams(int x, int y, int xlen, int ylen);
 void	draw_rect(t_img *img, t_rect rect);
+void	normalizeAngle(float *angle);
 
 //render
 void	draw_screen(t_data *data);

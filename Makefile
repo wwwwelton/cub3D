@@ -12,6 +12,8 @@ SOURCES_FILES	=	cub3d.c \
 					draw_player.c \
 					draw_rays.c \
 					draw_screen.c \
+					map_utils.c \
+					player_utils.c \
 					validate.c \
 					validate_map.c \
 					validate_map_inner.c \
