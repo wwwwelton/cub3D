@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/26 17:37:42 by wleite           ###   ########.fr       */
+/*   Updated: 2022/01/27 11:00:28 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,16 @@ void	init_data(t_data *data, char **argv)
 	data->menu.opt_mouses = 3;
 	data->menu.opt_rots = 2;
 	data->menu.opt_moves = 1;
+
+	data->player.x = WIN_WIDTH / 2;
+	data->player.y = WIN_HEIGHT / 2;
+	data->player.width = 50;
+	data->player.height = 50;
+	data->player.turn_dir = 0;
+	data->player.walk_dir = 0;
+	data->player.rot_angle = PI / 2;
+	data->player.walk_speed = 100;
+	data->player.turn_speed = 30 * (PI / 180);
 
 	init_img(data, &data->img[BG], IMG_WIDTH, IMG_HEIGHT);
 	init_img(data, &data->img[RAYS], IMG_WIDTH, IMG_HEIGHT);

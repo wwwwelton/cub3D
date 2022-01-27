@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/26 17:38:39 by wleite           ###   ########.fr       */
+/*   Updated: 2022/01/27 10:54:27 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,7 @@ void	draw_screen(t_data *data)
 	fill_color(&data->img[BG], BLACK);
 	draw_background(data);
 	draw_map(data);
+	draw_player(data);
 	draw_rays(data);
 	copy_layer(&data->img[RAYS], &data->img[SCREEN], BLACK);
 	copy_layer(&data->img[MAP], &data->img[SCREEN], BLACK);

@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 09:06:24 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/01/27 10:27:04 by wleite           ###   ########.fr       */
+/*   Updated: 2022/01/27 11:02:34 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,9 @@
 # define IMG_WIDTH 1024
 # define IMG_HEIGHT 768
 
+#define PI 3.14159265
+#define TWO_PI 6.28318530
+
 # define EDGE '9'
 # define OUTER '!'
 # define INNER '@'
@@ -129,6 +132,21 @@ typedef struct s_rect
 	int	color;
 }	t_rect;
 //map
+
+//player
+typedef struct s_player
+{
+	float	x;
+	float	y;
+	float	width;
+	float	height;
+	int		turn_dir;
+	int		walk_dir;
+	float	rot_angle;
+	float	walk_speed;
+	float	turn_speed;
+}	t_player;
+//player
 
 typedef enum e_bool
 {
@@ -215,6 +233,7 @@ typedef struct s_data
 	t_img		img[TEX_NB];
 	t_menu		menu;
 	t_params	params;
+	t_player	player;
 }	t_data;
 
 //init
@@ -263,6 +282,9 @@ void	draw_rays(t_data *data);
 
 //map
 void	draw_map(t_data *data);
+
+//player
+void	draw_player(t_data *data);
 
 //utils
 t_bool	ftex_is_in_set(char c, char *set);

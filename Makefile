@@ -9,8 +9,9 @@ SOURCES_FILES	=	cub3d.c \
 					print_map.c \
 					draw_bg.c \
 					draw_map.c \
-					draw_screen.c \
+					draw_player.c \
 					draw_rays.c \
+					draw_screen.c \
 					validate.c \
 					validate_map.c \
 					validate_map_inner.c \
@@ -49,7 +50,7 @@ NAME_BONUS		=	cub3D_bonus
 CC				=	gcc
 RM				=	rm -rf
 
-CFLAGS			=	-O3 -Wall -Wextra -Werror -g3
+CFLAGS			=	-Wall -Wextra -Werror -g3
 # CFLAGS			=
 LDFLAGS			=	-lXext -lX11 -lm
 
