@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 09:06:24 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/01/27 13:07:27 by wleite           ###   ########.fr       */
+/*   Updated: 2022/01/27 19:31:03 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,14 +123,20 @@
 # define MINIMAP_SCALE_FACTOR 0.28
 # define TILE_SIZE 64
 
-typedef struct s_rect
+typedef struct s_line
 {
-	int	x;
-	int	y;
-	int	width;
-	int	height;
+	int	sx;
+	int	sy;
+	int	dx;
+	int	dy;
+	int	err;
+	int	e2;
+	int	x0;
+	int	y0;
+	int	x1;
+	int	y1;
 	int	color;
-}	t_rect;
+}	t_line;
 //map
 
 //player
@@ -149,6 +155,17 @@ typedef struct s_player
 	float	turn_speed;
 }	t_player;
 //player
+
+//line
+typedef struct s_rect
+{
+	int	x;
+	int	y;
+	int	width;
+	int	height;
+	int	color;
+}	t_rect;
+//line
 
 typedef enum e_bool
 {
@@ -305,6 +322,7 @@ void	fill(t_img *img, t_fill fill, int color);
 t_fill	fillparams(int x, int y, int xlen, int ylen);
 void	draw_rect(t_img *img, t_rect rect);
 void	normalizeAngle(float *angle);
+void	draw_line(t_img *img, t_line line);
 
 //render
 void	draw_screen(t_data *data);

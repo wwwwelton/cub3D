@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/27 13:04:36 by wleite           ###   ########.fr       */
+/*   Updated: 2022/01/27 14:04:38 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,8 @@ void	init_data(t_data *data, char **argv)
 	data->player.height = PLAYER_SIZE;
 	data->player.turn_dir = 0;
 	data->player.walk_dir = 0;
-	data->player.rot_angle = PI / 2;
-	data->player.walk_speed = 10;
+	data->player.rot_angle = 270 * (PI / 180);
+	data->player.walk_speed = 50;
 	data->player.turn_speed = 30 * (PI / 180);
 
 	init_img(data, &data->img[BG], IMG_WIDTH, IMG_HEIGHT);

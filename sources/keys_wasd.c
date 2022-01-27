@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/19 09:22:26 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/01/27 13:05:52 by wleite           ###   ########.fr       */
+/*   Updated: 2022/01/27 13:59:57 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	key_w(t_data *data)
 {
 
-	data->player.walk_dir = -1;
+	data->player.walk_dir = 1;
 	move_player(data);
 	data->player.walk_dir = 0;
 }
@@ -29,7 +29,7 @@ void	key_a(t_data *data)
 
 void	key_s(t_data *data)
 {
-	data->player.walk_dir = 1;
+	data->player.walk_dir = -1;
 	move_player(data);
 	data->player.walk_dir = 0;
 }

@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/27 11:23:38 by wleite           ###   ########.fr       */
+/*   Updated: 2022/01/27 13:50:11 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -164,6 +164,32 @@ int	loop_hook(t_data *data)
 	if (data->state == OPTIONS)
 		draw_options(data);
 	return (0);
+}
+
+void	draw_line(t_img *img, t_line line)
+{
+	line.dx =  abs(line.x1 - line.x0);
+	line.sx = line.x0 < line.x1 ? 1 : -1;
+	line.dy = -abs(line.y1 - line.y0);
+	line.sy = line.y0 < line.y1 ? 1 : -1;
+	line.err = line.dx + line.dy;
+	while (1)
+	{
+		if (line.x0 == line.x1 && line.y0 == line.y1)
+			break ;
+		my_mlx_pixel_put(img, line.x0, line.y0, line.color);
+		line.e2 = 2 * line.err;
+		if (line.e2 >= line.dy)
+		{
+			line.err += line.dy;
+			line.x0 += line.sx;
+		}
+		if (line.e2 <= line.dx)
+		{
+			line.err += line.dx;
+			line.y0 += line.sy;
+		}
+	}
 }
 
 int	exit_game(t_data *data)
