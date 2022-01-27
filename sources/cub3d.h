@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 09:06:24 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/01/26 18:12:53 by wleite           ###   ########.fr       */
+/*   Updated: 2022/01/27 10:27:04 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,10 +92,6 @@
 # define IMG_WIDTH 1024
 # define IMG_HEIGHT 768
 
-# define PLAYER_SIZE 10
-# define PLAYER_CENTER 4
-# define LINE_LENGTH 3
-
 # define EDGE '9'
 # define OUTER '!'
 # define INNER '@'
@@ -121,8 +117,17 @@
 # define KEY_RIGHT 65363
 
 //map
-# define MINIMAP_SCALE_FACTOR 1.0
+# define MINIMAP_SCALE_FACTOR 0.28
 # define TILE_SIZE 64
+
+typedef struct s_rect
+{
+	int	x;
+	int	y;
+	int	width;
+	int	height;
+	int	color;
+}	t_rect;
 //map
 
 typedef enum e_bool
@@ -272,6 +277,7 @@ t_bool	print_error(char *error);
 void	tr_matrix(char **matrix, char *del, char *replace);
 void	fill(t_img *img, t_fill fill, int color);
 t_fill	fillparams(int x, int y, int xlen, int ylen);
+void	draw_rect(t_img *img, t_rect rect);
 
 //render
 void	draw_screen(t_data *data);

@@ -92,10 +92,10 @@ fclean:				clean
 					$(RM) $(NAME) $(NAME_BONUS)
 
 run:
-					make && clear && ./$(NAME) assets/maps/map.cub
+					make && clear && ./$(NAME) assets/maps/minimap.cub
 
 runv:
-					make && clear && valgrind ./$(NAME) assets/maps/map.cub
+					make && clear && valgrind ./$(NAME) assets/maps/minimap.cub
 
 re:					fclean all
 

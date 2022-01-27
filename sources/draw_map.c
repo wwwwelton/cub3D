@@ -6,14 +6,11 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/26 19:55:17 by wleite           ###   ########.fr       */
+/*   Updated: 2022/01/27 10:29:16 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-
-// t_fill	fillparams(int x, int y, int xlen, int ylen)
-// void	fill(t_img *img, t_fill fill, int color)
 
 static int	map_height(char **mat)
 {
@@ -35,8 +32,10 @@ void	draw_map(t_data *data)
 	int		x;
 	int		y;
 	t_img	*img;
-	t_fill	rect;
+	t_rect	rect;
 
+	rect.width = TILE_SIZE * MINIMAP_SCALE_FACTOR;
+	rect.height = TILE_SIZE * MINIMAP_SCALE_FACTOR;
 	img = &data->img[MAP];
 	y = -1;
 	while (++y < map_height(data->map))
@@ -44,13 +43,15 @@ void	draw_map(t_data *data)
 		x = -1;
 		while (++x < map_width(data->map))
 		{
-			// rect = fillparams(x * TILE_SIZE, y * TILE_SIZE, TILE_SIZE, TILE_SIZE);
+			rect.x = x * TILE_SIZE * MINIMAP_SCALE_FACTOR;
+			rect.y = y * TILE_SIZE * MINIMAP_SCALE_FACTOR;
 			if (ftex_is_in_set(data->map[y][x], "!@"))
-				fill(img, rect, WHITE);
+				rect.color = WHITE;
+			else if (ftex_is_in_set(data->map[y][x], "0N"))
+				rect.color = BLACKB;
 			else
-				fill(img, rect, PINK);
+				continue ;
+			draw_rect(img, rect);
 		}
 	}
 }
-
-

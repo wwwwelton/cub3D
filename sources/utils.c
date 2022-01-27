@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/26 15:51:45 by wleite           ###   ########.fr       */
+/*   Updated: 2022/01/27 10:26:33 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,6 +126,26 @@ void	draw_vert_pixel(t_img *img, int x0, int y0, int thick, int color)
 	i = -1;
 	while (++i < thick)
 		my_mlx_pixel_put(img, x0 + i, y0, color);
+}
+
+void	draw_rect(t_img *img, t_rect rect)
+{
+	int		x;
+	int		y;
+
+	rect.height += rect.y;
+	rect.width += rect.x;
+	y = rect.y - 1;
+	while (++y < rect.height)
+	{
+		x = rect.x - 1;
+		while (++x < rect.width)
+		{
+			if (y < 0 || y >= WIN_HEIGHT || x < 0 || x >= WIN_WIDTH)
+				return ;
+			img->dump[y * IMG_WIDTH + x] = rect.color;
+		}
+	}
 }
 
 int	loop_hook(t_data *data)
