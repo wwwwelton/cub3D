@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils_fill.c                                       :+:      :+:    :+:   */
+/*   graphics_fill.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 05:58:37 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/01/20 06:23:59 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/28 20:00:11 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,20 @@ t_fill	fillparams(int x, int y, int xlen, int ylen)
 	fill.xlen = xlen;
 	fill.ylen = ylen;
 	return (fill);
+}
+
+void	fill_color(t_img *img, int color)
+{
+	int		count_w;
+	int		count_h;
+
+	count_h = -1;
+	while (++count_h < IMG_HEIGHT)
+	{
+		count_w = -1;
+		while (++count_w < IMG_WIDTH)
+			img->dump[count_h * IMG_WIDTH + count_w] = color;
+	}
 }
 
 /**

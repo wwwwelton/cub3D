@@ -7,7 +7,10 @@ MINILIBX		=	$(MINILIBX_PATH)/libmlx.a
 SOURCES_FILES	=	cub3d.c \
 					init.c \
 					init_utils.c \
-					graphics.c \
+					graphics_utils.c \
+					graphics_draw_line.c \
+					graphics_draw_rect.c \
+					graphics_fill.c \
 					print_map.c \
 					cleanup.c \
 					draw_bg.c \
@@ -15,6 +18,7 @@ SOURCES_FILES	=	cub3d.c \
 					draw_player.c \
 					draw_rays.c \
 					draw_screen.c \
+					draw_utils.c \
 					game_loop.c \
 					keys_utils.c \
 					map_utils.c \
@@ -29,7 +33,6 @@ SOURCES_FILES	=	cub3d.c \
 					utils_player.c \
 					utils_tr.c \
 					utils_strerase.c \
-					utils_fill.c \
 					utils_math.c \
 					utils.c \
 					keys_wasd.c \
