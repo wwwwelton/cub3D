@@ -6,19 +6,30 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/28 19:52:36 by wleite           ###   ########.fr       */
+/*   Updated: 2022/01/28 20:14:00 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
+static void	init_draw_line(t_line *line)
+{
+	line->dx = abs(line->x1 - line->x0);
+	line->dy = -abs(line->y1 - line->y0);
+	if (line->x0 < line->x1)
+		line->sx = 1;
+	else
+		line->sx = -1;
+	if (line->y0 < line->y1)
+		line->sy = 1;
+	else
+		line->sy = -1;
+	line->err = line->dx + line->dy;
+}
+
 void	draw_line(t_img *img, t_line line)
 {
-	line.dx = abs(line.x1 - line.x0);
-	line.sx = line.x0 < line.x1 ? 1 : -1;
-	line.dy = -abs(line.y1 - line.y0);
-	line.sy = line.y0 < line.y1 ? 1 : -1;
-	line.err = line.dx + line.dy;
+	init_draw_line(&line);
 	while (1)
 	{
 		if (line.x0 == line.x1 && line.y0 == line.y1)

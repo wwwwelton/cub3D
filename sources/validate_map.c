@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   validate_map.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 01:09:04 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/01/26 18:49:00 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/28 20:07:03 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ t_bool	crawl_polygon(char **map, int x, int y, char fill)
 
 t_xy	get_coordinates(char **map, int x, int y)
 {
-	t_xy xy;
+	t_xy	xy;
 
 	xy.x = x - 1;
 	xy.y = y - 1;
@@ -90,7 +90,7 @@ t_xy	get_coordinates(char **map, int x, int y)
 
 t_bool	is_player_polygon_closed(char **map)
 {
-	t_xy xy;
+	t_xy	xy;
 	t_bool	boolean;
 
 	boolean = true;
