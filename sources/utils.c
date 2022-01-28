@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/27 13:50:11 by wleite           ###   ########.fr       */
+/*   Updated: 2022/01/28 17:12:45 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -176,6 +176,9 @@ void	draw_line(t_img *img, t_line line)
 	while (1)
 	{
 		if (line.x0 == line.x1 && line.y0 == line.y1)
+			break ;
+		if (line.x0 < 0 || line.x0 >= WIN_WIDTH
+			|| line.y0 < 0 || line.y0 >= WIN_HEIGHT)
 			break ;
 		my_mlx_pixel_put(img, line.x0, line.y0, line.color);
 		line.e2 = 2 * line.err;
