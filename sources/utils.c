@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/28 19:20:42 by wleite           ###   ########.fr       */
+/*   Updated: 2022/01/28 19:25:02 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,16 +58,6 @@ t_bool	ftex_is_in_set(char c, char *set)
 	return (false);
 }
 
-int	get_pixel_color(t_img *img, int x, int y, int width, int height)
-{
-	char	*dst;
-
-	if (x < 0 || x > width || y < 0 || y > height)
-		return (1);
-	dst = (char *)img->dump + (y * img->size_l + x * (img->bpp / 8));
-	return (*(unsigned int *)dst);
-}
-
 void	fill_color(t_img *img, int color)
 {
 	int		count_w;
@@ -95,7 +85,7 @@ void	_copy_layer(t_img *from, t_img *to, int x, int y)
 		{
 			if (from->dump[i + j * from->size_l / 4] != BLACK)
 			to->dump[x + i + ((y + j) * to->size_l / 4)]
-				= from->dump[i + j * from->size_l / 4];
+					= from->dump[i + j * from->size_l / 4];
 		}
 		i = -1;
 	}
@@ -117,15 +107,6 @@ void	copy_layer(t_img *img_src, t_img *img_dst, int color)
 					= img_src->dump[count_h * IMG_WIDTH + count_w];
 		}
 	}
-}
-
-void	draw_vert_pixel(t_img *img, int x0, int y0, int thick, int color)
-{
-	int	i;
-
-	i = -1;
-	while (++i < thick)
-		my_mlx_pixel_put(img, x0 + i, y0, color);
 }
 
 void	draw_rect(t_img *img, t_rect rect)
@@ -171,7 +152,7 @@ int	loop_hook(t_data *data)
 
 void	draw_line(t_img *img, t_line line)
 {
-	line.dx =  abs(line.x1 - line.x0);
+	line.dx = abs(line.x1 - line.x0);
 	line.sx = line.x0 < line.x1 ? 1 : -1;
 	line.dy = -abs(line.y1 - line.y0);
 	line.sy = line.y0 < line.y1 ? 1 : -1;
