@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 09:06:24 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/01/27 19:31:03 by wleite           ###   ########.fr       */
+/*   Updated: 2022/01/28 19:01:52 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,8 +92,8 @@
 # define IMG_WIDTH 1024
 # define IMG_HEIGHT 768
 
-#define PI 3.14159265
-#define TWO_PI 6.28318530
+# define PI 3.14159265
+# define TWO_PI 6.28318530
 
 # define EDGE '9'
 # define OUTER '!'
@@ -104,6 +104,8 @@
 
 # define X_EVENT_KEY_PRESS 2
 # define X_EVENT_DESTROY_NOTIFY 17
+# define K_PRESS 0
+# define K_RELEASE 1
 
 # define KEY_ESC 65307
 # define KEY_Q 113
@@ -292,9 +294,13 @@ void	print_colored_map(char **map);
 void	print_map(char **map);
 
 //controller
-int		screen_controller(int key, t_data *data);
-void	keys_wasd(int key, t_data *data);
+int		screen_controller(int key, t_data *data, int event_type);
+void	keys_wasd(int key, t_data *data, int event_type);
 void	keys_menu_wasd(int key, t_data *data);
+
+//keys
+int		key_press(int key, t_data *data);
+int		key_release(int key, t_data *data);
 
 //raycasting
 void	draw_rays(t_data *data);
@@ -305,7 +311,7 @@ int		map_has_wall_at(t_data *data, float x, float y);
 
 //player
 void	draw_player(t_data *data);
-void	move_player(t_data *data);
+void	update_player(t_data *data);
 
 //utils
 t_bool	ftex_is_in_set(char c, char *set);

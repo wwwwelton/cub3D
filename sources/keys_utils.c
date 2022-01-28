@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.c                                            :+:      :+:    :+:   */
+/*   keys_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/28 18:11:43 by wleite           ###   ########.fr       */
+/*   Updated: 2022/01/28 18:45:30 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int	main(int argc, char **argv)
+int	key_press(int key, t_data *data)
 {
-	t_data	data;
+	screen_controller(key, data, K_PRESS);
+	return (0);
+}
 
-	if (validation(&data, argc, argv) == false)
-		exit (EXIT_FAILURE);
-	data.state = MENU;
-	init_data(&data, argv);
-	mlx_hook(data.mlx.win, 2, 1L << 0, key_press, &data);
-	mlx_hook(data.mlx.win, 3, 1L << 1, key_release, &data);
-	mlx_hook(data.mlx.win, X_EVENT_DESTROY_NOTIFY, 0, &exit_game, &data);
-	mlx_loop_hook(data.mlx.mlx_ptr, &loop_hook, &data);
-	mlx_loop(data.mlx.mlx_ptr);
+int	key_release(int key, t_data *data)
+{
+	screen_controller(key, data, K_RELEASE);
 	return (0);
 }

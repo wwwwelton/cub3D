@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/27 14:04:38 by wleite           ###   ########.fr       */
+/*   Updated: 2022/01/28 19:00:51 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,8 @@ void	init_data(t_data *data, char **argv)
 	data->player.turn_dir = 0;
 	data->player.walk_dir = 0;
 	data->player.rot_angle = 270 * (PI / 180);
-	data->player.walk_speed = 50;
-	data->player.turn_speed = 30 * (PI / 180);
+	data->player.walk_speed = 10;
+	data->player.turn_speed = 10 * (PI / 180);
 
 	init_img(data, &data->img[BG], IMG_WIDTH, IMG_HEIGHT);
 	init_img(data, &data->img[RAYS], IMG_WIDTH, IMG_HEIGHT);
