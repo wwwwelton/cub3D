@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 09:06:24 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/01/28 19:01:52 by wleite           ###   ########.fr       */
+/*   Updated: 2022/01/28 19:20:31 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -258,7 +258,7 @@ typedef struct s_data
 }	t_data;
 
 //init
-void	init_data(t_data *data, char **argv);
+void	init_data(t_data *data);
 t_bool	validation(t_data *data, int argc, char **argv);
 void	init_img(t_data *data, t_img *img, int width, int heigth);
 int		exit_game(t_data *data);
@@ -316,7 +316,6 @@ void	update_player(t_data *data);
 //utils
 t_bool	ftex_is_in_set(char c, char *set);
 void	fill_color(t_img *img, int color);
-int		get_pixel_color(t_img *img, int x, int y, int width, int height);
 void	my_mlx_pixel_put(t_img *img, int x, int y, int color);
 void	free_matrix(char **matrix);
 char	*ftex_strerase(char *str, char *set);
