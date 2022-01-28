@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 09:06:24 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/01/28 19:20:31 by wleite           ###   ########.fr       */
+/*   Updated: 2022/01/28 19:44:13 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -261,8 +261,11 @@ typedef struct s_data
 void	init_data(t_data *data);
 t_bool	validation(t_data *data, int argc, char **argv);
 void	init_img(t_data *data, t_img *img, int width, int heigth);
-int		exit_game(t_data *data);
 void	init_xpm(t_data *data, t_img *img, char *image_path);
+int		exit_game(t_data *data);
+
+//loop
+int		loop_hook(t_data *data);
 
 //validation
 t_bool	argument_validation(t_data *data, int argc, char **argv);
@@ -326,7 +329,7 @@ void	tr_matrix(char **matrix, char *del, char *replace);
 void	fill(t_img *img, t_fill fill, int color);
 t_fill	fillparams(int x, int y, int xlen, int ylen);
 void	draw_rect(t_img *img, t_rect rect);
-void	normalizeAngle(float *angle);
+void	normalize_angle(float *angle);
 void	draw_line(t_img *img, t_line line);
 
 //render

@@ -6,12 +6,16 @@ MINILIBX		=	$(MINILIBX_PATH)/libmlx.a
 
 SOURCES_FILES	=	cub3d.c \
 					init.c \
+					init_utils.c \
+					graphics.c \
 					print_map.c \
+					cleanup.c \
 					draw_bg.c \
 					draw_map.c \
 					draw_player.c \
 					draw_rays.c \
 					draw_screen.c \
+					game_loop.c \
 					keys_utils.c \
 					map_utils.c \
 					validate.c \
@@ -26,6 +30,7 @@ SOURCES_FILES	=	cub3d.c \
 					utils_tr.c \
 					utils_strerase.c \
 					utils_fill.c \
+					utils_math.c \
 					utils.c \
 					keys_wasd.c \
 					keys_controller.c \
