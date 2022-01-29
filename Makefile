@@ -21,7 +21,7 @@ SOURCES_FILES	=	cub3d.c \
 					draw_utils.c \
 					game_loop.c \
 					keys_utils.c \
-					map_utils.c \
+					utils_map.c \
 					validate.c \
 					validate_map.c \
 					validate_map_inner.c \
@@ -50,15 +50,17 @@ OBJ_DIR			=	objects
 HEADER			=	$(SOURCES_DIR)/cub3d.h
 HEADER_BONUS	=	$(BONUS_DIR)/cub3d.h
 
-SOURCES			=	$(addprefix $(SOURCES_DIR)/, $(SOURCES_FILES))
-BONUS_FILES		=	$(addprefix $(BONUS_DIR)/, $(SOURCES_BONUS))
 
-OBJECTS			=	$(SOURCES:$(SOURCES_DIR)/%.c=$(OBJ_DIR)/%.o)
+OBJECTS			=	$(SOURCES_FILES:%.c=$(OBJ_DIR)/%.o)
 OBJECTS_BONUS	=	$(BONUS_FILES:$(BONUS_DIR)/%.c=$(OBJ_DIR)/%.o)
+
+VPATH			=	sources sources/draw sources/validation sources/keys \
+					sources/graphics sources/utils sources/init
 
 NAME			=	cub3D
 NAME_BONUS		=	cub3D_bonus
 
+INCLUDES		=	-I./sources -I./sources/validation
 CC				=	gcc
 RM				=	rm -rf
 
@@ -66,11 +68,11 @@ CFLAGS			=	-Wall -Wextra -Werror -g3
 # CFLAGS			=
 LDFLAGS			=	-lXext -lX11 -lm
 
-$(OBJ_DIR)/%.o:		$(SOURCES_DIR)/%.c $(HEADER)
-					$(CC) $(CFLAGS) -c $< -o $@
+$(OBJ_DIR)/%.o:		%.c $(HEADER)
+					$(CC) $(CFLAGS) -c $< -o $@ $(INCLUDES)
 
-$(OBJ_DIR)/%.o:		$(BONUS_DIR)/%.c $(HEADER_BONUS)
-					$(CC) $(CFLAGS) -c $< -o $@
+$(OBJ_DIR)/%.o:		%.c $(HEADER_BONUS)
+					$(CC) $(CFLAGS) -c $< -o $@ -I ./sources_bonus
 
 all:				$(NAME)
 

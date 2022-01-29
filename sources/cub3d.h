@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 09:06:24 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/01/28 22:21:20 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/28 23:07:18 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,7 +123,7 @@
 # define KEY_RIGHT 65363
 
 //map
-# define MINIMAP_SCALE_FACTOR 0.28
+# define MINIMAP_SCALE_FACTOR 0.1
 # define TILE_SIZE 64
 
 typedef struct s_line
@@ -266,7 +266,7 @@ void	init_xpm(t_data *data, t_img *img, char *image_path);
 int		exit_game(t_data *data);
 
 //loop
-int		loop_hook(t_data *data);
+int		game_loop(t_data *data);
 
 //validation
 t_bool	argument_validation(t_data *data, int argc, char **argv);
@@ -339,6 +339,6 @@ void	draw_options(t_data *data);
 void	draw_background(t_data *data);
 void	copy_layer(t_img *from, t_img *to, int x, int y);
 
-int		loop_hook(t_data *data);
+int		game_loop(t_data *data);
 
 #endif

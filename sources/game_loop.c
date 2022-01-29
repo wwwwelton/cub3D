@@ -6,13 +6,13 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 19:36:18 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/28 22:21:20 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/28 23:07:18 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int	loop_hook(t_data *data)
+int	game_loop(t_data *data)
 {
 	if (data->state == MENU)
 		draw_menu(data);
