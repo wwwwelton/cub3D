@@ -17,7 +17,7 @@ SOURCES_FILES	=	cub3d.c \
 					draw_map.c \
 					draw_player.c \
 					draw_rays.c \
-					draw_screen.c \
+					draw.c \
 					draw_utils.c \
 					game_loop.c \
 					keys_utils.c \

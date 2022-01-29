@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   graphics_fill.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
+/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 05:58:37 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/01/28 20:06:19 by wleite           ###   ########.fr       */
+/*   Updated: 2022/01/28 22:15:09 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,20 +30,6 @@ t_fill	fillparams(int x, int y, int xlen, int ylen)
 	fill.xlen = xlen;
 	fill.ylen = ylen;
 	return (fill);
-}
-
-void	fill_color(t_img *img, int color)
-{
-	int		count_w;
-	int		count_h;
-
-	count_h = -1;
-	while (++count_h < IMG_HEIGHT)
-	{
-		count_w = -1;
-		while (++count_w < IMG_WIDTH)
-			img->dump[count_h * IMG_WIDTH + count_w] = color;
-	}
 }
 
 /**

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
+/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/28 19:17:23 by wleite           ###   ########.fr       */
+/*   Updated: 2022/01/28 22:03:16 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ static void	init_images(t_data *data)
 	init_img(data, &data->img[RAYS], IMG_WIDTH, IMG_HEIGHT);
 	init_img(data, &data->img[MAP], IMG_WIDTH, IMG_HEIGHT);
 	init_img(data, &data->img[SCREEN], IMG_WIDTH, IMG_HEIGHT);
+	init_img(data, &data->img[PLAYER], IMG_WIDTH, IMG_HEIGHT);
 	init_xpm(data, &data->img[TEX_NO], data->params.north);
 	init_xpm(data, &data->img[TEX_EA], data->params.east);
 	init_xpm(data, &data->img[TEX_SO], data->params.south);

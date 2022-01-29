@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_player.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
+/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/27 19:31:55 by wleite           ###   ########.fr       */
+/*   Updated: 2022/01/28 22:06:03 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	draw_player(t_data *data)
 
 	rect.width = TILE_SIZE * MINIMAP_SCALE_FACTOR;
 	rect.height = TILE_SIZE * MINIMAP_SCALE_FACTOR;
-	img = &data->img[MAP];
+	img = &data->img[PLAYER];
 	player = data->player;
 	rect.x = player.x * MINIMAP_SCALE_FACTOR;
 	rect.y = player.y * MINIMAP_SCALE_FACTOR;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
+/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 09:06:24 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/01/28 19:44:13 by wleite           ###   ########.fr       */
+/*   Updated: 2022/01/28 22:21:20 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@
 # define SCREEN 0
 # define RAYS 1
 # define BG 2
-# define MAP 14
 # define TEX_NO 3
 # define TEX_WE 4
 # define TEX_SO 5
@@ -56,8 +55,10 @@
 # define MEN_START 11
 # define MEN_OPT 12
 # define MEN_ARROW 13
+# define MAP 14
+# define PLAYER 15
 
-# define TEX_NB 15
+# define TEX_NB 16
 
 # define MENU 0
 # define GAME 1
@@ -318,7 +319,6 @@ void	update_player(t_data *data);
 
 //utils
 t_bool	ftex_is_in_set(char c, char *set);
-void	fill_color(t_img *img, int color);
 void	my_mlx_pixel_put(t_img *img, int x, int y, int color);
 void	free_matrix(char **matrix);
 char	*ftex_strerase(char *str, char *set);
@@ -333,12 +333,11 @@ void	normalize_angle(float *angle);
 void	draw_line(t_img *img, t_line line);
 
 //render
-void	draw_screen(t_data *data);
+void	draw_game(t_data *data);
 void	draw_menu(t_data *data);
 void	draw_options(t_data *data);
 void	draw_background(t_data *data);
-void	copy_layer(t_img *img_src, t_img *img_dst, int color);
-void	_copy_layer(t_img *from, t_img *to, int x, int y);
+void	copy_layer(t_img *from, t_img *to, int x, int y);
 
 int		loop_hook(t_data *data);
 
