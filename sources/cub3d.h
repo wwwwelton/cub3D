@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 09:06:24 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/01/29 00:22:39 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/29 02:42:08 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@
 # include "errors.h"
 # include "../libraries/libft/libft.h"
 # include "../libraries/minilibx/mlx.h"
+# include "time.h"
+# include <sys/time.h>
 
 # define TEXTURE3 "assets/images/no_redbrick.xpm"
 # define TEXTURE4 "assets/images/we_redbrick.xpm"
@@ -121,6 +123,8 @@
 # define KEY_LEFT 65361
 # define KEY_DOWN 65364
 # define KEY_RIGHT 65363
+
+# define FRAME_DELAY 500
 
 //map
 # define MINIMAP_SCALE_FACTOR 0.1
@@ -252,8 +256,16 @@ typedef struct s_params
 	int		floorcolor;
 }	t_params;
 
+typedef struct s_fps
+{
+	int		fps;
+	long	current_time;
+	long	last_time;
+}	t_fps;
+
 typedef struct s_data
 {
+	t_fps		fps;
 	int			img_width;
 	int			img_height;
 	int			state;
@@ -350,5 +362,9 @@ void	draw_options(t_data *data);
 void	draw_background(t_data *data);
 void	copy_layer(t_img *from, t_img *to, int x, int y);
 int		game_loop(t_data *data);
+
+//fps counter uses time.h and <sys/time.h
+void	draw_fps(t_data *data);
+long	timestamp(void);
 
 #endif

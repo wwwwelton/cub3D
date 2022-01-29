@@ -1,34 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   draw_fps.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/29 02:22:14 by wleite           ###   ########.fr       */
+/*   Updated: 2022/01/29 02:42:56 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-t_bool	ftex_is_in_set(char c, char *set)
+void	draw_fps(t_data *data)
 {
-	if (!set)
-		return (false);
-	while (*set)
+	static clock_t	clock_cur;
+	int				fps;
+
+	data->fps.last_time = timestamp();
+	fps = CLOCKS_PER_SEC / (clock() - clock_cur);
+	clock_cur = clock();
+	if ((data->fps.last_time - data->fps.current_time) > FRAME_DELAY)
 	{
-		if (c == *set)
-			return (true);
-		set++;
+		data->fps.fps = fps;
+		data->fps.current_time = timestamp();
 	}
-	return (false);
-}
-
-long	timestamp(void)
-{
-	struct timeval	time;
-
-	gettimeofday(&time, NULL);
-	return ((time.tv_sec * 1000) + (time.tv_usec / 1000));
+	fps = data->fps.fps;
+	mlx_string_put(data->mlx.mlx_ptr, data->mlx.win, 500, 20, WHITE, \
+	(char []){'0' + fps / 100, '0' + fps / 10 % 10, '0' + fps % 10, '\0'});
 }
