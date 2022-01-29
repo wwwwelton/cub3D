@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 05:58:37 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/01/28 22:15:09 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/29 00:23:08 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,9 @@ void	fill(t_img *img, t_fill fill, int color)
 	j = -1;
 	i = -1;
 	if (fill.xlen == 0)
-		fill.xlen = WIN_HEIGHT; //change to img height later
+		fill.xlen = WIN_HEIGHT;
 	if (fill.ylen == 0)
-		fill.xlen = WIN_WIDTH; //change to img width later
+		fill.xlen = WIN_WIDTH;
 	while (++j < fill.xlen)
 	{
 		while (++i < fill.ylen)
@@ -57,3 +57,5 @@ void	fill(t_img *img, t_fill fill, int color)
 		i = -1;
 	}
 }
+//change to img height later
+//change to img width later

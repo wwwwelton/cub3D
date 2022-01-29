@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 09:06:24 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/01/28 23:07:18 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/29 00:22:39 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -213,6 +213,14 @@ typedef struct s_img
 	int			*dump;
 }				t_img;
 
+typedef struct s_menuelem
+{
+	t_img	*src;
+	t_img	*dst;
+	int		x;
+	int		y;
+}	t_menuelem;
+
 typedef struct s_mlx
 {
 	void		*mlx_ptr;
@@ -331,6 +339,9 @@ t_fill	fillparams(int x, int y, int xlen, int ylen);
 void	draw_rect(t_img *img, t_rect rect);
 void	normalize_angle(float *angle);
 void	draw_line(t_img *img, t_line line);
+int		middle_x(t_img img);
+int		middle_y(t_img img);
+void	create_menu_item(t_data *data, int src, int offy, int offx);
 
 //render
 void	draw_game(t_data *data);
@@ -338,7 +349,6 @@ void	draw_menu(t_data *data);
 void	draw_options(t_data *data);
 void	draw_background(t_data *data);
 void	copy_layer(t_img *from, t_img *to, int x, int y);
-
 int		game_loop(t_data *data);
 
 #endif
