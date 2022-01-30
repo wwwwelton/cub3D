@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 13:10:51 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/30 00:40:01 by wleite           ###   ########.fr       */
+/*   Updated: 2022/01/30 00:45:41 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -154,20 +154,5 @@ void	cast_all_rays(t_data *data)
 		ray_angle = player_rot_angle + atan((col - NUM_RAYS / 2) / dist_proj_plane);
 		normalize_angle(&ray_angle);
 		cast_ray(ray_angle, col, data);
-	}
-}
-
-void	render_map_rays(t_data *data)
-{
-	t_line	line;
-
-	for (int i = 0; i < NUM_RAYS; i++)
-	{
-		line.x0 = data->player.x * MINIMAP_SCALE_FACTOR;
-		line.y0 = data->player.y * MINIMAP_SCALE_FACTOR;
-		line.x1 = data->rays[i].wall_hit_x * MINIMAP_SCALE_FACTOR;
-		line.y1 = data->rays[i].wall_hit_y * MINIMAP_SCALE_FACTOR;
-		line.color = RED;
-		draw_line(&data->img[PLAYER], line);
 	}
 }

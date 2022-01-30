@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 09:06:24 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/01/30 00:39:50 by wleite           ###   ########.fr       */
+/*   Updated: 2022/01/30 00:46:02 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -418,6 +418,5 @@ void	init_vert_hit_data(float ray_angle,	t_ray_hit_data *vert_data, t_data *data
 void	check_vert_hit(float ray_angle, t_ray_hit_data *vert_data, t_data *data);
 void	cast_ray(float ray_angle, int col_id, t_data *data);
 void	cast_all_rays(t_data *data);
-void	render_map_rays(t_data *data);
 
 #endif
