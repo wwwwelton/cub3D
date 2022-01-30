@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/30 00:40:09 by wleite           ###   ########.fr       */
+/*   Updated: 2022/01/30 00:43:32 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,13 @@ int	is_inside_map(float x, float y, t_data *data)
 {
 	if (x >= 0 && x <= map_width(data) * TILE_SIZE
 		&& y >= 0 && y <= map_height(data) * TILE_SIZE)
-			return (true);
+	{
+		return (true);
+	}
 	return (false);
 }
 
-int get_map_at(int i, int j, t_data *data)
+int	get_map_at(int i, int j, t_data *data)
 {
 	return (data->map[i][j] - '0');
 }
