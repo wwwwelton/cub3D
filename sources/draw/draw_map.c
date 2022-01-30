@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/29 23:15:20 by wleite           ###   ########.fr       */
+/*   Updated: 2022/01/30 00:37:56 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,10 @@ void	draw_map(t_data *data)
 	rect.height = TILE_SIZE * MINIMAP_SCALE_FACTOR;
 	img = &data->img[MAP];
 	y = -1;
-	while (++y < map_height(data->map))
+	while (++y < map_height(data))
 	{
 		x = -1;
-		while (++x < map_width(data->map))
+		while (++x < map_width(data))
 		{
 			rect.x = x * TILE_SIZE * MINIMAP_SCALE_FACTOR;
 			rect.y = y * TILE_SIZE * MINIMAP_SCALE_FACTOR;

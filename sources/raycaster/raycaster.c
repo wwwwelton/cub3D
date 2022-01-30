@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 13:10:51 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/30 00:05:30 by wleite           ###   ########.fr       */
+/*   Updated: 2022/01/30 00:40:01 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	check_horz_hit(float ray_angle, t_ray_hit_data *horz_data, t_data *data)
 		horz_data->y_to_check = horz_data->next_touch_y;
 		if (is_ray_facing_up(ray_angle))
 			horz_data->y_to_check -= 1;
-		if (map_has_wall_at(data, horz_data->x_to_check, horz_data->y_to_check))
+		if (map_has_wall_at(horz_data->x_to_check, horz_data->y_to_check, data))
 		{
 			horz_data->wall_hit_x = horz_data->next_touch_x;
 			horz_data->wall_hit_y = horz_data->next_touch_y;
@@ -93,7 +93,7 @@ void	check_vert_hit(float ray_angle, t_ray_hit_data *vert_data, t_data *data)
 		vert_data->y_to_check = vert_data->next_touch_y;
 		if (is_ray_facing_left(ray_angle))
 			vert_data->x_to_check -= 1;
-		if (map_has_wall_at(data, vert_data->x_to_check, vert_data->y_to_check))
+		if (map_has_wall_at(vert_data->x_to_check, vert_data->y_to_check, data))
 		{
 			vert_data->wall_hit_x = vert_data->next_touch_x;
 			vert_data->wall_hit_y = vert_data->next_touch_y;

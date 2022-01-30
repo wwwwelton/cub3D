@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 09:06:24 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/01/30 00:06:30 by wleite           ###   ########.fr       */
+/*   Updated: 2022/01/30 00:39:50 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -365,9 +365,9 @@ void	draw_rays(t_data *data);
 
 //map
 void	draw_map(t_data *data);
-int		map_has_wall_at(t_data *data, float x, float y);
-int		map_height(char **mat);
-int		map_width(char **mat);
+int		map_has_wall_at(float x, float y, t_data *data);
+int		map_height(t_data *data);
+int		map_width(t_data *data);
 int		is_inside_map(float x, float y, t_data *data);
 int		get_map_at(int i, int j, t_data *data);
 
