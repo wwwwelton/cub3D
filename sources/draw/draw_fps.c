@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/29 02:42:56 by wleite           ###   ########.fr       */
+/*   Updated: 2022/01/30 00:07:37 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,6 @@ void	draw_fps(t_data *data)
 		data->fps.current_time = timestamp();
 	}
 	fps = data->fps.fps;
-	mlx_string_put(data->mlx.mlx_ptr, data->mlx.win, 500, 20, WHITE, \
+	mlx_string_put(data->mlx.mlx_ptr, data->mlx.win, 1000, 20, WHITE, \
 	(char []){'0' + fps / 100, '0' + fps / 10 % 10, '0' + fps % 10, '\0'});
 }
