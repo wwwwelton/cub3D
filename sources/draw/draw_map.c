@@ -6,26 +6,11 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/27 10:29:16 by wleite           ###   ########.fr       */
+/*   Updated: 2022/01/29 23:15:20 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-
-static int	map_height(char **mat)
-{
-	int	i;
-
-	i = 0;
-	while (mat[i])
-		i++;
-	return (i);
-}
-
-static int	map_width(char **mat)
-{
-	return (ft_strlen(mat[0]));
-}
 
 void	draw_map(t_data *data)
 {
