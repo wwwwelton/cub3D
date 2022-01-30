@@ -6,13 +6,13 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/29 00:22:04 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/30 18:53:35 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	create_menu_item(t_data *data, int src, int offy, int offx)
+void	put_menu_item(t_data *data, int src, int offy, int offx)
 {
 	t_menuelem	elem;
 

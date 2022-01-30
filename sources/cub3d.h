@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
+/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 09:06:24 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/01/29 02:42:08 by wleite           ###   ########.fr       */
+/*   Updated: 2022/01/30 18:53:35 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@
 # define MEN_BG 10
 # define MEN_START 11
 # define MEN_OPT 12
-# define MEN_ARROW 13
+# define ARROW 13
 # define MAP 14
 # define PLAYER 15
 
@@ -83,11 +83,11 @@
 # define PINK 0xff00fe
 # define BLUE 0x0171FF
 
-# define YOFFSET 250
-# define XOFFSET 100
+# define YOFF 250
+# define XOFF 100
 
-# define OPTYOFFSET 200
-# define OPTXOFFSET 100
+# define OPTYOFF 200
+# define OPTXOFF 100
 
 # define WIN_WIDTH 1024
 # define WIN_HEIGHT 768
@@ -353,7 +353,7 @@ void	normalize_angle(float *angle);
 void	draw_line(t_img *img, t_line line);
 int		middle_x(t_img img);
 int		middle_y(t_img img);
-void	create_menu_item(t_data *data, int src, int offy, int offx);
+void	put_menu_item(t_data *data, int src, int offy, int offx);
 
 //render
 void	draw_game(t_data *data);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
+/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/29 02:39:12 by wleite           ###   ########.fr       */
+/*   Updated: 2022/01/30 18:53:00 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ static void	init_images(t_data *data)
 	init_xpm(data, &data->img[MEN_BG], PATHBG);
 	init_xpm(data, &data->img[MEN_START], PATHSTART);
 	init_xpm(data, &data->img[MEN_OPT], PATHOPTION);
-	init_xpm(data, &data->img[MEN_ARROW], PATHARROW);
+	init_xpm(data, &data->img[ARROW], PATHARROW);
 }
 
 void	init_data(t_data *data)
