@@ -23,6 +23,10 @@ SOURCES_FILES	=	cub3d.c \
 					draw_utils.c \
 					game_loop.c \
 					keys_utils.c \
+					raycaster.c \
+					raycaster_init.c \
+					raycaster_utils.c \
+					raycaster_utils_direction.c \
 					utils_map.c \
 					validate.c \
 					validate_map.c \
@@ -57,7 +61,8 @@ OBJECTS			=	$(SOURCES_FILES:%.c=$(OBJ_DIR)/%.o)
 OBJECTS_BONUS	=	$(BONUS_FILES:$(BONUS_DIR)/%.c=$(OBJ_DIR)/%.o)
 
 VPATH			=	sources sources/draw sources/validation sources/keys \
-					sources/graphics sources/utils sources/init
+					sources/graphics sources/utils sources/init \
+					sources/raycaster
 
 NAME			=	cub3D
 NAME_BONUS		=	cub3D_bonus

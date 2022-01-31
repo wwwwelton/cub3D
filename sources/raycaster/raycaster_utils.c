@@ -1,25 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils_math.c                                       :+:      :+:    :+:   */
+/*   raycaster_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/29 23:37:03 by wleite           ###   ########.fr       */
+/*   Created: 2022/01/29 13:10:51 by wleite            #+#    #+#             */
+/*   Updated: 2022/01/31 16:25:42 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	normalize_angle(float *angle)
+int	get_map_texture(t_hit_data *hit_data, t_data *data)
 {
-	*angle = remainder(*angle, TWO_PI);
-	if (*angle < 0)
-		*angle = TWO_PI + *angle;
+	int	ret;
+
+	ret = get_map_value((int)floor(hit_data->y_to_check / TILE_SIZE),
+			(int)floor(hit_data->x_to_check / TILE_SIZE), data);
+	return (ret - '0');
 }
 
-float	distance_between_points(float x1, float y1, float x2, float y2)
+float	get_hit_distance(t_hit_data *hit_data, t_data *data)
 {
-	return (sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1)));
+	float	ret;
+
+	ret = distance_between_points(data->player.x, data->player.y,
+			hit_data->wall_hit_x, hit_data->wall_hit_y);
+	return (ret);
 }

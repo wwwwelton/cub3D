@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game_loop.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 19:36:18 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/30 23:50:59 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/31 16:30:19 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ int	game_loop(t_data *data)
 	{
 		update_player(data);
 		update_player_matrix(data);
+		cast_all_rays(data);
 		draw_game(data);
 	}
 	if (data->state == OPTIONS)

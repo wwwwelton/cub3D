@@ -1,25 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils_math.c                                       :+:      :+:    :+:   */
+/*   raycaster_utils_dir.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/29 23:37:03 by wleite           ###   ########.fr       */
+/*   Created: 2022/01/29 13:10:51 by wleite            #+#    #+#             */
+/*   Updated: 2022/01/31 15:46:34 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	normalize_angle(float *angle)
+int	is_ray_facing_down(float angle)
 {
-	*angle = remainder(*angle, TWO_PI);
-	if (*angle < 0)
-		*angle = TWO_PI + *angle;
+	return (angle > 0 && angle < PI);
 }
 
-float	distance_between_points(float x1, float y1, float x2, float y2)
+int	is_ray_facing_up(float angle)
 {
-	return (sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1)));
+	return (!is_ray_facing_down(angle));
+}
+
+int	is_ray_facing_right(float angle)
+{
+	return (angle < 0.5 * PI || angle > 1.5 * PI);
+}
+
+int	is_ray_facing_left(float angle)
+{
+	return (!is_ray_facing_right(angle));
 }

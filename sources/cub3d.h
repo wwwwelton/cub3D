@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 09:06:24 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/01/30 23:25:46 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/31 16:29:38 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,7 +139,7 @@
 # define FRAME_DELAY 500
 
 //map
-# define MINIMAP_SCALE_FACTOR 0.1
+# define MINIMAP_SCALE_FACTOR 0.29
 # define TILE_SIZE 64
 
 typedef struct s_line
@@ -185,6 +185,38 @@ typedef struct s_rect
 	int	color;
 }	t_rect;
 //line
+
+//ray
+# define NUM_RAYS WIN_WIDTH
+# define FLT_MAX 3.40282346638528859812e+38F
+
+typedef struct s_hit_data
+{
+	float	wall_hit_x;
+	float	wall_hit_y;
+	int		wall_texture;
+	float	next_touch_x;
+	float	next_touch_y;
+	float	hit_distance;
+	float	x_intercept;
+	float	y_intercept;
+	float	x_step;
+	float	y_step;
+	float	x_to_check;
+	float	y_to_check;
+	int		found_vert_wall_hit;
+}	t_hit_data;
+
+typedef struct s_ray
+{
+	float	ray_angle;
+	float	wall_hit_x;
+	float	wall_hit_y;
+	float	distance;
+	int		was_hit_vertical;
+	int		texture;
+}	t_ray;
+//ray
 
 typedef enum e_bool
 {
@@ -289,6 +321,7 @@ typedef struct s_data
 	t_menu		menu;
 	t_params	params;
 	t_player	player;
+	t_ray		rays[NUM_RAYS];
 }	t_data;
 
 //init
@@ -344,7 +377,11 @@ void	draw_rays(t_data *data);
 
 //map
 void	draw_map(t_data *data);
-int		map_has_wall_at(t_data *data, float x, float y);
+int		map_has_wall_at(float x, float y, t_data *data);
+int		map_height(t_data *data);
+int		map_width(t_data *data);
+int		is_inside_map(float x, float y, t_data *data);
+int		get_map_value(int i, int j, t_data *data);
 
 //player
 void	draw_player(t_data *data);
@@ -364,6 +401,7 @@ void	fill(t_img *img, t_fill fill, int color);
 t_fill	fillparams(int x, int y, int xlen, int ylen);
 void	draw_rect(t_img *img, t_rect rect);
 void	normalize_angle(float *angle);
+float	distance_between_points(float x1, float y1, float x2, float y2);
 void	draw_line(t_img *img, t_line line);
 int		middle_x(t_img img);
 int		middle_y(t_img img);
@@ -380,5 +418,20 @@ int		game_loop(t_data *data);
 //fps counter uses time.h and <sys/time.h
 void	draw_fps(t_data *data);
 long	timestamp(void);
+
+//raycaster
+int		is_ray_facing_down(float angle);
+int		is_ray_facing_up(float angle);
+int		is_ray_facing_right(float angle);
+int		is_ray_facing_left(float angle);
+
+void	init_horz_hit_data(float ray_angle,	t_hit_data *horz, t_player player);
+void	init_vert_hit_data(float ray_angle,	t_hit_data *vert, t_player player);
+void	check_horz_hit(float ray_angle, t_hit_data *horz, t_data *data);
+void	check_vert_hit(float ray_angle, t_hit_data *vert, t_data *data);
+void	cast_ray(float ray_angle, int col_id, t_data *data);
+void	cast_all_rays(t_data *data);
+int		get_map_texture(t_hit_data *hit_data, t_data *data);
+float	get_hit_distance(t_hit_data *hit_data, t_data *data);
 
 #endif

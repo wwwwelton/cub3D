@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_player.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/30 23:50:59 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/31 16:31:57 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	update_player(t_data *data)
 	move_step = player->walk_dir * player->walk_speed;
 	new_player_x = player->x + cos(player->rot_angle) * move_step;
 	new_player_y = player->y + sin(player->rot_angle) * move_step;
-	if (!map_has_wall_at(data, new_player_x, new_player_y))
+	if (!map_has_wall_at(new_player_x, new_player_y, data))
 	{
 		player->x = new_player_x;
 		player->y = new_player_y;
