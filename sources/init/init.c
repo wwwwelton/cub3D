@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/30 20:56:03 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/30 21:50:48 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ static void	init_images(t_data *data)
 	init_xpm(data, &data->img[RSPD], PATHRSPD);
 	init_xpm(data, &data->img[MSPD], PATHMSPD);
 	init_xpm(data, &data->img[ARROW], PATHARROW);
+	init_xpm(data, &data->img[EXIT], PATHEXIT);
 }
 
 void	init_data(t_data *data)

@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 04:27:47 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/01/30 21:33:19 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/30 21:51:54 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,15 +62,15 @@ void	wasd_menu(int key, t_data *data)
 {
 	if (key == KEY_W)
 	{
-		data->menu.main++;
-		if (data->menu.main > 1)
-			data->menu.main = 0;
+		data->menu.main--;
+		if (data->menu.main < 0)
+			data->menu.main = 2;
 	}
 	if (key == KEY_S)
 	{
-		data->menu.main--;
-		if (data->menu.main < 0)
-			data->menu.main = 1;
+		data->menu.main++;
+		if (data->menu.main > 2)
+			data->menu.main = 0;
 	}
 }
 

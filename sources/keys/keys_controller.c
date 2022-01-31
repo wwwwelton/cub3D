@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/30 21:18:14 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/30 21:54:06 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,16 @@
 
 static void	keys_enter(t_data *data)
 {
-	if (data->state == MENU)
-		if (data->menu.main == 1)
-			data->state = OPTIONS;
-	if (data->state == MENU)
-		if (data->menu.main == 0)
+	printf("state %d\n", data->state);
+	if (data->state == MENU && data->menu.main == 1)
+		data->state = OPTIONS;
+	else if (data->state == MENU && data->menu.main == 2)
+		exit_game(data);
+	else if (data->state == MENU && data->menu.main == 0)
 			data->state = GAME;
-	if (data->state == OPTIONS)
+	else if (data->state == GAME)
+		data->state = MENU;
+	else if (data->state == OPTIONS)
 	{
 		if (data->menu.options == 3)
 		{
@@ -28,6 +31,8 @@ static void	keys_enter(t_data *data)
 			data->state = MENU;
 		}
 	}
+	else
+		return ;
 }
 
 static void	options_menu(int key, t_data *data)
@@ -52,6 +57,8 @@ static void	main_game(int key, t_data *data, int event_type)
 		keys_wasd(key, data, event_type);
 	if (key == KEY_Q || key == KEY_ESC)
 		exit_game(data);
+	if (key == KEY_ENTER && event_type == K_PRESS)
+		keys_enter(data);
 }
 
 int	screen_controller(int key, t_data *data, int event_type)
@@ -60,11 +67,11 @@ int	screen_controller(int key, t_data *data, int event_type)
 	{
 		if (key == KEY_Q || key == KEY_ESC)
 			exit_game(data);
-		if (data->state == GAME)
+		else if (data->state == GAME)
 			main_game(key, data, K_PRESS);
-		if (data->state == MENU)
+		else if (data->state == MENU)
 			main_menu(key, data);
-		if (data->state == OPTIONS)
+		else if (data->state == OPTIONS)
 			options_menu(key, data);
 	}
 	if (event_type == K_RELEASE)

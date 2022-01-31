@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 09:06:24 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/01/30 21:06:20 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/30 21:49:23 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@
 # define PATHRSPD "assets/images/rotation_speed.xpm"
 # define PATHBACK "assets/images/back_to_menu.xpm"
 # define PATHRESUME "assets/images/resume_game.xpm"
+# define PATHEXIT "assets/images/exit_game.xpm"
 
 # define TEX_WIDTH 64
 # define TEX_HEIGHT 64
@@ -69,8 +70,9 @@
 # define RSPD 18
 # define BACK 19
 # define RESUME 20
+# define EXIT 21
 
-# define TEX_NB 21
+# define TEX_NB 22
 
 # define MENU 0
 # define GAME 1
