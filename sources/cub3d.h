@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 09:06:24 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/01/30 21:49:23 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/30 21:58:20 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -281,6 +281,7 @@ typedef struct s_data
 	int			img_width;
 	int			img_height;
 	int			state;
+	t_bool		game_running;
 	char		**map;
 	char		**devmap;
 	t_mlx		mlx;

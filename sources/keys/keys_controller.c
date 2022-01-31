@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/30 21:54:06 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/30 21:58:59 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,10 @@ static void	keys_enter(t_data *data)
 	else if (data->state == MENU && data->menu.main == 2)
 		exit_game(data);
 	else if (data->state == MENU && data->menu.main == 0)
-			data->state = GAME;
+	{
+		data->game_running = true;
+		data->state = GAME;
+	}
 	else if (data->state == GAME)
 		data->state = MENU;
 	else if (data->state == OPTIONS)

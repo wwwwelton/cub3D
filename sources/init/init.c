@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/30 21:50:48 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/30 21:59:27 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 static void	init_menu(t_data *data)
 {
+	data->game_running = false;
 	data->menu.main = 0;
 	data->menu.options = 0;
 	data->menu.game = 0;
