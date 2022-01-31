@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/30 18:53:00 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/30 20:56:03 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,10 @@ static void	init_player(t_data *data)
 
 static void	init_images(t_data *data)
 {
-	init_img(data, &data->img[BG], IMG_WIDTH, IMG_HEIGHT);
-	init_img(data, &data->img[RAYS], IMG_WIDTH, IMG_HEIGHT);
-	init_img(data, &data->img[MAP], IMG_WIDTH, IMG_HEIGHT);
 	init_img(data, &data->img[SCREEN], IMG_WIDTH, IMG_HEIGHT);
+	init_img(data, &data->img[RAYS], IMG_WIDTH, IMG_HEIGHT);
+	init_img(data, &data->img[BG], IMG_WIDTH, IMG_HEIGHT);
+	init_img(data, &data->img[MAP], IMG_WIDTH, IMG_HEIGHT);
 	init_img(data, &data->img[PLAYER], IMG_WIDTH, IMG_HEIGHT);
 	init_xpm(data, &data->img[TEX_NO], data->params.north);
 	init_xpm(data, &data->img[TEX_EA], data->params.east);
@@ -52,6 +52,11 @@ static void	init_images(t_data *data)
 	init_xpm(data, &data->img[MEN_BG], PATHBG);
 	init_xpm(data, &data->img[MEN_START], PATHSTART);
 	init_xpm(data, &data->img[MEN_OPT], PATHOPTION);
+	init_xpm(data, &data->img[SENSI], PATHSENSI);
+	init_xpm(data, &data->img[RESUME], PATHRESUME);
+	init_xpm(data, &data->img[BACK], PATHBACK);
+	init_xpm(data, &data->img[RSPD], PATHRSPD);
+	init_xpm(data, &data->img[MSPD], PATHMSPD);
 	init_xpm(data, &data->img[ARROW], PATHARROW);
 }
 

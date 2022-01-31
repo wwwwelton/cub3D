@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 09:06:24 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/01/30 18:53:35 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/30 21:06:20 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,11 @@
 # define PATHSTART "assets/images/game_start.xpm"
 # define PATHOPTION "assets/images/options.xpm"
 # define PATHARROW "assets/images/seta.xpm"
+# define PATHSENSI "assets/images/mouse_speed.xpm"
+# define PATHMSPD "assets/images/move_speed.xpm"
+# define PATHRSPD "assets/images/rotation_speed.xpm"
+# define PATHBACK "assets/images/back_to_menu.xpm"
+# define PATHRESUME "assets/images/resume_game.xpm"
 
 # define TEX_WIDTH 64
 # define TEX_HEIGHT 64
@@ -51,16 +56,21 @@
 # define TEX_EA 6
 # define TEX_FL 7
 # define TEX_CE 8
+# define MAP 14
+# define PLAYER 15
 
 # define MEN_LOGO 9
 # define MEN_BG 10
 # define MEN_START 11
 # define MEN_OPT 12
 # define ARROW 13
-# define MAP 14
-# define PLAYER 15
+# define SENSI 16
+# define MSPD 17
+# define RSPD 18
+# define BACK 19
+# define RESUME 20
 
-# define TEX_NB 16
+# define TEX_NB 21
 
 # define MENU 0
 # define GAME 1
