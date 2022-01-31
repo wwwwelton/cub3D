@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   keys_controller.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
+/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/28 18:47:50 by wleite           ###   ########.fr       */
+/*   Updated: 2022/01/30 21:18:14 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void	keys_enter(t_data *data)
 			data->state = GAME;
 	if (data->state == OPTIONS)
 	{
-		if (data->menu.options == 4)
+		if (data->menu.options == 3)
 		{
 			data->menu.options = 0;
 			data->state = MENU;
@@ -34,6 +34,8 @@ static void	options_menu(int key, t_data *data)
 {
 	if (key == KEY_W || key == KEY_A || key == KEY_S || key == KEY_D)
 		keys_menu_wasd(key, data);
+	if (key == KEY_ENTER)
+		keys_enter(data);
 }
 
 static void	main_menu(int key, t_data *data)
