@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 04:27:47 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/01/30 21:31:39 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/30 21:33:19 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,6 @@ void	wasd_menu(int key, t_data *data)
 		if (data->menu.main < 0)
 			data->menu.main = 1;
 	}
-
 }
 
 void	keys_menu_wasd(int key, t_data *data)
