@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 09:06:24 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/01/30 21:58:20 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/01/30 23:25:46 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -349,6 +349,7 @@ int		map_has_wall_at(t_data *data, float x, float y);
 //player
 void	draw_player(t_data *data);
 void	update_player(t_data *data);
+void	update_player_matrix(t_data *data);
 
 //utils
 t_bool	ftex_is_in_set(char c, char *set);
