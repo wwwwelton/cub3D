@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 09:06:24 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/01/30 00:46:02 by wleite           ###   ########.fr       */
+/*   Updated: 2022/01/31 16:25:42 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -178,7 +178,7 @@ typedef struct s_rect
 # define NUM_RAYS WIN_WIDTH
 # define FLT_MAX 3.40282346638528859812e+38F
 
-typedef struct s_ray_hit_data
+typedef struct s_hit_data
 {
 	float	wall_hit_x;
 	float	wall_hit_y;
@@ -193,8 +193,7 @@ typedef struct s_ray_hit_data
 	float	x_to_check;
 	float	y_to_check;
 	int		found_vert_wall_hit;
-	int		found_wall_hit;
-}	t_ray_hit_data;
+}	t_hit_data;
 
 typedef struct s_ray
 {
@@ -369,7 +368,7 @@ int		map_has_wall_at(float x, float y, t_data *data);
 int		map_height(t_data *data);
 int		map_width(t_data *data);
 int		is_inside_map(float x, float y, t_data *data);
-int		get_map_at(int i, int j, t_data *data);
+int		get_map_value(int i, int j, t_data *data);
 
 //player
 void	draw_player(t_data *data);
@@ -412,11 +411,13 @@ int		is_ray_facing_up(float angle);
 int		is_ray_facing_right(float angle);
 int		is_ray_facing_left(float angle);
 
-void	init_horz_hit_data(float ray_angle,	t_ray_hit_data *horz_data, t_data *data);
-void	check_horz_hit(float ray_angle, t_ray_hit_data *horz_data, t_data *data);
-void	init_vert_hit_data(float ray_angle,	t_ray_hit_data *vert_data, t_data *data);
-void	check_vert_hit(float ray_angle, t_ray_hit_data *vert_data, t_data *data);
+void	init_horz_hit_data(float ray_angle,	t_hit_data *horz, t_player player);
+void	init_vert_hit_data(float ray_angle,	t_hit_data *vert, t_player player);
+void	check_horz_hit(float ray_angle, t_hit_data *horz, t_data *data);
+void	check_vert_hit(float ray_angle, t_hit_data *vert, t_data *data);
 void	cast_ray(float ray_angle, int col_id, t_data *data);
 void	cast_all_rays(t_data *data);
+int		get_map_texture(t_hit_data *hit_data, t_data *data);
+float	get_hit_distance(t_hit_data *hit_data, t_data *data);
 
 #endif

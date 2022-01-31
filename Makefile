@@ -24,7 +24,9 @@ SOURCES_FILES	=	cub3d.c \
 					game_loop.c \
 					keys_utils.c \
 					raycaster.c \
+					raycaster_init.c \
 					raycaster_utils.c \
+					raycaster_utils_direction.c \
 					utils_map.c \
 					validate.c \
 					validate_map.c \

@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   raycaster_utils.c                                  :+:      :+:    :+:   */
+/*   raycaster_utils_dir.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 13:10:51 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/31 16:25:42 by wleite           ###   ########.fr       */
+/*   Updated: 2022/01/31 15:46:34 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int	get_map_texture(t_hit_data *hit_data, t_data *data)
+int	is_ray_facing_down(float angle)
 {
-	int	ret;
-
-	ret = get_map_value((int)floor(hit_data->y_to_check / TILE_SIZE),
-			(int)floor(hit_data->x_to_check / TILE_SIZE), data);
-	return (ret - '0');
+	return (angle > 0 && angle < PI);
 }
 
-float	get_hit_distance(t_hit_data *hit_data, t_data *data)
+int	is_ray_facing_up(float angle)
 {
-	float	ret;
+	return (!is_ray_facing_down(angle));
+}
 
-	ret = distance_between_points(data->player.x, data->player.y,
-			hit_data->wall_hit_x, hit_data->wall_hit_y);
-	return (ret);
+int	is_ray_facing_right(float angle)
+{
+	return (angle < 0.5 * PI || angle > 1.5 * PI);
+}
+
+int	is_ray_facing_left(float angle)
+{
+	return (!is_ray_facing_right(angle));
 }
