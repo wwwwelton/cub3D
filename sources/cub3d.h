@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 09:06:24 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/01/31 21:37:40 by wleite           ###   ########.fr       */
+/*   Updated: 2022/01/31 22:10:55 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -300,16 +300,8 @@ typedef struct s_params
 	int		floorcolor;
 }	t_params;
 
-typedef struct s_fps
-{
-	int		fps;
-	long	current_time;
-	long	last_time;
-}	t_fps;
-
 typedef struct s_data
 {
-	t_fps		fps;
 	int			img_width;
 	int			img_height;
 	int			state;
