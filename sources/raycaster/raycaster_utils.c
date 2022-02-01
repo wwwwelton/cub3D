@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 13:10:51 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/31 16:25:42 by wleite           ###   ########.fr       */
+/*   Updated: 2022/01/31 21:37:40 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	get_map_texture(t_hit_data *hit_data, t_data *data)
 {
 	int	ret;
 
-	ret = get_map_value((int)floor(hit_data->y_to_check / TILE_SIZE),
+	ret = get_map_value_at((int)floor(hit_data->y_to_check / TILE_SIZE),
 			(int)floor(hit_data->x_to_check / TILE_SIZE), data);
 	return (ret - '0');
 }

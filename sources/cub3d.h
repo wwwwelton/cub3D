@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 09:06:24 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/01/31 16:29:38 by wleite           ###   ########.fr       */
+/*   Updated: 2022/01/31 21:37:40 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -381,7 +381,7 @@ int		map_has_wall_at(float x, float y, t_data *data);
 int		map_height(t_data *data);
 int		map_width(t_data *data);
 int		is_inside_map(float x, float y, t_data *data);
-int		get_map_value(int i, int j, t_data *data);
+int		get_map_value_at(int i, int j, t_data *data);
 
 //player
 void	draw_player(t_data *data);
