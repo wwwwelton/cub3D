@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 09:06:24 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/02 12:02:44 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/02 16:57:45 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -220,6 +220,21 @@ typedef struct s_ray
 }	t_ray;
 //ray
 
+//wall
+typedef struct s_wall_data
+{
+	float	height;
+	int		top_y;
+	int		bottom_y;
+	float	perp_distance;
+	float	dist_proj_plane;
+	int		pixel_color;
+	int		texture_offset_x;
+	int		texture_offset_y;
+	int		distance_from_top;
+}	t_wall_data;
+//wall
+
 typedef enum e_bool
 {
 	false,
@@ -395,6 +410,7 @@ void	fill(t_img *img, t_fill fill, int color);
 t_fill	fillparams(int x, int y, int xlen, int ylen);
 void	draw_rect(t_img *img, t_rect rect);
 void	normalize_angle(float *angle);
+float	get_perp_distance(t_ray ray, t_data *data);
 float	distance_between_points(float x1, float y1, float x2, float y2);
 void	draw_line(t_img *img, t_line line);
 int		middle_x(t_img img);
@@ -431,5 +447,9 @@ float	get_hit_distance(t_hit_data *hit_data, t_data *data);
 //wall
 void	change_color_intensity(int *color, float factor);
 void	draw_wall(t_data *data);
+void	init_wall_data(t_wall_data *wall);
+int		get_wall_texture_side(t_ray ray);
+int		get_wall_pixel_color(t_img texture, t_wall_data *wall);
+void	check_inverse_offset_x(t_ray ray, t_wall_data *wall);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/01 20:24:40 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/02 17:08:46 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,17 +50,4 @@ void	copy_layer(t_img *from, t_img *to, int x, int y)
 		}
 		i = -1;
 	}
-}
-
-void	change_color_intensity(int *color, float factor)
-{
-	int	r;
-	int	g;
-	int	b;
-
-	r = (*color & 0xFF0000) * factor;
-	g = (*color & 0x00FF00) * factor;
-	b = (*color & 0x0000FF) * factor;
-
-	*color = (r & 0xFF0000) | (g & 0x00FF00) | (b & 0x0000FF);
 }
