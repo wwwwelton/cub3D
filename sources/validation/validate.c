@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 15:33:46 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/02 06:40:18 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/02 07:04:14 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ t_bool	validation(t_data *data, int argc, char **argv)
 	initialize_params(&data->params);
 	if (!argument_validation(data, argc, argv))
 		return (validation_failed(&data->params, NULL));
-	data->map = fetch_map_array(argv);
+	data->map = fetch_map_array(open(argv[1], O_RDONLY));
 	if (!data->map)
 	{
 		printf(E_MAPEMPTY);
@@ -82,7 +82,7 @@ t_bool	validation(t_data *data, int argc, char **argv)
 		return (validation_failed(&data->params, data->map));
 	if (!map_validation(data->map))
 		return (validation_failed(&data->params, data->map));
-	data->devmap = fetch_map_array(argv);
+	data->devmap = fetch_map_array(open(argv[1], O_RDONLY));
 	initial_map_cleanup(data->devmap);
 	print_colored_map(data->map);
 	return (true);

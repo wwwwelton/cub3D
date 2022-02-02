@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 09:06:24 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/02 04:51:28 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/02 07:03:33 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -340,7 +340,7 @@ void	outline_polygon(char **map);
 void	outline_useless_walls(char **map);
 t_bool	is_char_adjacent(char **map, int x, int y, char c);
 int		check_end(char **map, int x, int y, char c);
-char	**fetch_map_array(char **argv);
+char	**fetch_map_array(int fd);
 t_bool	are_inner_polygons_closed(char **map);
 t_xy	get_coordinates(char **map, int x, int y);
 t_bool	is_player_inside(char **map, int i, int j);

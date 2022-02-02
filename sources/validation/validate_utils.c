@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 01:12:55 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/02 07:00:32 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/02 07:03:25 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,14 +68,12 @@ static char	**insert_padding(char **matrix, int maxsize)
 	return (matrix);
 }
 
-char	**fetch_map_array(char **argv)
+char	**fetch_map_array(int fd)
 {
-	int		fd;
 	char	*line;
 	char	*tmp;
 	char	**ret;
 
-	fd = open(argv[1], O_RDONLY);
 	if (fd == -1)
 		return (NULL);
 	tmp = ft_get_next_line(fd);
