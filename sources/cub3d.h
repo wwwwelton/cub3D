@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
+/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 09:06:24 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/01/31 22:10:55 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/02 04:03:40 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -398,6 +398,7 @@ void	draw_line(t_img *img, t_line line);
 int		middle_x(t_img img);
 int		middle_y(t_img img);
 void	put_menu_item(t_data *data, int src, int offy, int offx);
+int		count_commas(char *str);
 
 //render
 void	draw_game(t_data *data);

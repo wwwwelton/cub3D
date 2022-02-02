@@ -3,14 +3,30 @@
 /*                                                        :::      ::::::::   */
 /*   validate_utils.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
+/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 01:12:55 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/01/28 20:15:10 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/02 04:03:23 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+int	count_commas(char *str)
+{
+	int	i;
+
+	i = 0;
+	if (!str)
+		return (0);
+	while (*str)
+	{
+		if (*str == ',')
+			i++;
+		str++;
+	}
+	return (i);
+}
 
 int	check_end(char **map, int x, int y, char c)
 {
