@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 23:22:41 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/02 05:01:28 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/02 06:24:54 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ t_bool	validate_texture_file(char *file, char **store)
 	dot = ft_strrchr(file, '.');
 	if (!dot || ft_strncmp(dot, ".xpm\n", 5))
 	{
-		printf("%sgot: %s", E_TEXEXT, file);
+		printf("%sgot: %s\n", E_TEXEXT, file);
 		return (false);
 	}
 	file[ft_strlen(file) - 1] = '\0';
@@ -75,7 +75,7 @@ char	*concatenate_color_set(char **matrix)
 	i = -1;
 	while (matrix[++i])
 		continue ;
-	if (i < 2)
+	if (i < 2 || !ft_strchr(matrix[1], ','))
 		return (matrix[1]);
 	i = 1;
 	ret = ft_strdup(matrix[1]);

@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 01:12:55 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/02 04:03:23 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/02 07:00:32 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,16 +26,6 @@ int	count_commas(char *str)
 		str++;
 	}
 	return (i);
-}
-
-int	check_end(char **map, int x, int y, char c)
-{
-	return ((y > 0 && map[x][y + 1] == c && map[x][y - 1] == c)
-	|| (x > 0 && map[x + 1] && map[x + 1][y] == c && map[x - 1][y] == c)
-	|| (x > 0 && map[x - 1][y] == c && map[x][y + 1] == c)
-	|| (x > 0 && y > 0 && map[x][y - 1] == c && map[x - 1][y] == c)
-	|| (y > 0 && map[x + 1] && map[x + 1][y] == c && map[x][y - 1] == c)
-	|| (map[x + 1] && map[x + 1][y] == c && map[x][y + 1] == c));
 }
 
 static int	string_max_size(char **matrix)
@@ -89,10 +79,12 @@ char	**fetch_map_array(char **argv)
 	if (fd == -1)
 		return (NULL);
 	tmp = ft_get_next_line(fd);
-	while (ftex_is_in_set(*tmp, "RNSEWSCF\n"))
+	while (ftex_is_in_set(*tmp, "NSEWCF\n"))
 	{
 		free(tmp);
 		tmp = ft_get_next_line(fd);
+		if (!tmp)
+			return (NULL);
 	}
 	line = ft_strdup("");
 	while (tmp)

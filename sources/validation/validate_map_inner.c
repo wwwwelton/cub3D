@@ -6,11 +6,21 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 04:59:34 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/01/21 08:34:43 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/02 07:00:35 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+int	check_end(char **map, int x, int y, char c)
+{
+	return ((y > 0 && map[x][y + 1] == c && map[x][y - 1] == c)
+	|| (x > 0 && map[x + 1] && map[x + 1][y] == c && map[x - 1][y] == c)
+	|| (x > 0 && map[x - 1][y] == c && map[x][y + 1] == c)
+	|| (x > 0 && y > 0 && map[x][y - 1] == c && map[x - 1][y] == c)
+	|| (y > 0 && map[x + 1] && map[x + 1][y] == c && map[x][y - 1] == c)
+	|| (map[x + 1] && map[x + 1][y] == c && map[x][y + 1] == c));
+}
 
 void	initial_map_cleanup(char **map)
 {

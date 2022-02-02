@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 15:33:46 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/02 05:37:03 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/02 06:40:18 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,11 @@ t_bool	validation(t_data *data, int argc, char **argv)
 	if (!argument_validation(data, argc, argv))
 		return (validation_failed(&data->params, NULL));
 	data->map = fetch_map_array(argv);
+	if (!data->map)
+	{
+		printf(E_MAPEMPTY);
+		return (validation_failed(&data->params, NULL));
+	}
 	initial_map_cleanup(data->map);
 	if (!files_validation(&data->params, argv[1]))
 		return (validation_failed(&data->params, data->map));

@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 00:19:05 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/02 05:36:48 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/02 06:39:57 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 # define E_MAPINVAL3 "Error\ninvalid characters in the map\n"
 # define E_MAPOPEN "Error\nOuter walls are open\n"
 # define E_MAPOPEN2 "Error\nInner walls are open"
+# define E_MAPEMPTY "Error\nThe map is empty\n"
 
 # define E_PLAYERDUP "Error\nIncorrect number of characters in the map\n"
 
