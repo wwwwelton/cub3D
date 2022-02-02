@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/02 17:06:10 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/02 17:54:17 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ static void	render_wall(int x, t_wall_data *wall, t_data *data)
 	int		y;
 	int		text_num;
 	float	height_scale;
+	float	color_factor;
 
 	y = wall->top_y - 1;
 	while (++y < wall->bottom_y)
@@ -45,6 +46,11 @@ static void	render_wall(int x, t_wall_data *wall, t_data *data)
 		height_scale = data->img[text_num].height / wall->height;
 		wall->texture_offset_y = wall->distance_from_top * height_scale;
 		wall->pixel_color = get_wall_pixel_color(data->img[text_num], wall);
+		if (data->rays[x].distance > FOG_DIST)
+		{
+			color_factor = FOG_DIST / data->rays[x].distance;
+			change_color_intensity(&wall->pixel_color, color_factor);
+		}
 		if (data->rays[x].was_hit_vertical)
 			change_color_intensity(&wall->pixel_color, 0.7);
 		data->img[FRAME].dump[(WIN_WIDTH * y) + x] = wall->pixel_color;

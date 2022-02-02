@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 09:06:24 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/02 16:57:45 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/02 17:55:09 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -191,6 +191,7 @@ typedef struct s_rect
 # define NUM_RAYS WIN_WIDTH
 # define FLT_MAX 3.40282346638528859812e+38F
 # define FOV_ANGLE 1.0472
+# define FOG_DIST 800
 
 typedef struct s_hit_data
 {
