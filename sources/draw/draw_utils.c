@@ -3,14 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   draw_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/30 18:53:35 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/02 17:08:46 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+int	middle_x(t_img img)
+{
+	return (IMG_WIDTH / 2 - (img.width / 2));
+}
+
+int	middle_y(t_img img)
+{
+	return (IMG_HEIGHT / 2 - (img.height / 2));
+}
 
 void	put_menu_item(t_data *data, int src, int offy, int offx)
 {
@@ -21,16 +31,6 @@ void	put_menu_item(t_data *data, int src, int offy, int offx)
 	elem.x = middle_x(data->img[src]) - offy;
 	elem.y = middle_y(data->img[src]) + offx;
 	copy_layer(elem.src, elem.dst, elem.x, elem.y);
-}
-
-int	middle_x(t_img img)
-{
-	return (IMG_WIDTH / 2 - (img.width / 2));
-}
-
-int	middle_y(t_img img)
-{
-	return (IMG_HEIGHT / 2 - (img.height / 2));
 }
 
 void	copy_layer(t_img *from, t_img *to, int x, int y)

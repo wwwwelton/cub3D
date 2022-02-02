@@ -31,7 +31,9 @@ void	draw_game(t_data *data)
 	draw_map(data);
 	draw_player(data);
 	draw_rays(data);
+	draw_wall(data);
 	copy_layer(&data->img[BG], &data->img[SCREEN], 0, 0);
+	copy_layer(&data->img[FRAME], &data->img[SCREEN], 0, 0);
 	copy_layer(&data->img[MAP], &data->img[SCREEN], 0, 0);
 	copy_layer(&data->img[PLAYER], &data->img[SCREEN], 0, 0);
 	copy_layer(&data->img[RAYS], &data->img[SCREEN], 0, 0);

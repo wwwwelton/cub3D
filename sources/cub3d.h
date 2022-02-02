@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 09:06:24 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/02 07:57:59 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/02 18:01:04 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@
 # define TEX_CE 8
 # define MAP 14
 # define PLAYER 15
+# define FRAME 22
 
 # define MEN_LOGO 9
 # define MEN_BG 10
@@ -72,7 +73,7 @@
 # define RESUME 20
 # define EXIT 21
 
-# define TEX_NB 22
+# define TEX_NB 23
 
 # define MENU 0
 # define GAME 1
@@ -139,7 +140,7 @@
 # define FRAME_DELAY 500
 
 //map
-# define MINIMAP_SCALE_FACTOR 0.29
+# define MINIMAP_SCALE_FACTOR 0.1
 # define TILE_SIZE 64
 
 typedef struct s_line
@@ -189,6 +190,8 @@ typedef struct s_rect
 //ray
 # define NUM_RAYS WIN_WIDTH
 # define FLT_MAX 3.40282346638528859812e+38F
+# define FOV_ANGLE 1.0472
+# define FOG_DIST 800
 
 typedef struct s_hit_data
 {
@@ -217,6 +220,21 @@ typedef struct s_ray
 	int		texture;
 }	t_ray;
 //ray
+
+//wall
+typedef struct s_wall_data
+{
+	float	height;
+	int		top_y;
+	int		bottom_y;
+	float	perp_distance;
+	float	dist_proj_plane;
+	int		pixel_color;
+	int		texture_offset_x;
+	int		texture_offset_y;
+	int		distance_from_top;
+}	t_wall_data;
+//wall
 
 typedef enum e_bool
 {
@@ -393,6 +411,7 @@ void	fill(t_img *img, t_fill fill, int color);
 t_fill	fillparams(int x, int y, int xlen, int ylen);
 void	draw_rect(t_img *img, t_rect rect);
 void	normalize_angle(float *angle);
+float	get_perp_distance(t_ray ray, t_data *data);
 float	distance_between_points(float x1, float y1, float x2, float y2);
 void	draw_line(t_img *img, t_line line);
 int		middle_x(t_img img);
@@ -426,5 +445,13 @@ void	cast_ray(float ray_angle, int col_id, t_data *data);
 void	cast_all_rays(t_data *data);
 int		get_map_texture(t_hit_data *hit_data, t_data *data);
 float	get_hit_distance(t_hit_data *hit_data, t_data *data);
+
+//wall
+void	change_color_intensity(int *color, float factor);
+void	draw_wall(t_data *data);
+void	init_wall_data(t_wall_data *wall);
+int		get_wall_texture_side(t_ray ray);
+int		get_wall_pixel_color(t_img texture, t_wall_data *wall);
+void	check_inverse_offset_x(t_ray ray, t_wall_data *wall);
 
 #endif
