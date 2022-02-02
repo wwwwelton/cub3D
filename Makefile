@@ -21,6 +21,7 @@ SOURCES_FILES	=	cub3d.c \
 					draw_fps.c \
 					draw.c \
 					draw_utils.c \
+					draw_wall.c \
 					game_loop.c \
 					keys_utils.c \
 					raycaster.c \

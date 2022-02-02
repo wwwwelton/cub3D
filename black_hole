@@ -8,6 +8,17 @@ int	get_pixel_color(t_img *img, int x, int y, int width, int height)
 	return (*(unsigned int *)dst);
 }
 
+// int	get_pixel_color(t_img texture, int offset_x, int offset_y)
+// {
+// 	int	pixel_color;
+
+// 	if (offset_x < 0 || offset_x > texture.width
+// 		|| offset_y < 0 || offset_y > texture_height)
+// 		return (1);
+// 	pixel_color = texture.dump[(texture.width * offset_y) + offset_x];
+// 	return (pixel_color);
+// }
+
 void	draw_vert_pixel(t_img *img, int x0, int y0, int thick, int color)
 {
 	int	i;

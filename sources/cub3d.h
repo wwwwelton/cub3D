@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 09:06:24 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/01/31 22:10:55 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/02 12:02:44 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@
 # define TEX_CE 8
 # define MAP 14
 # define PLAYER 15
+# define FRAME 22
 
 # define MEN_LOGO 9
 # define MEN_BG 10
@@ -72,7 +73,7 @@
 # define RESUME 20
 # define EXIT 21
 
-# define TEX_NB 22
+# define TEX_NB 23
 
 # define MENU 0
 # define GAME 1
@@ -139,7 +140,7 @@
 # define FRAME_DELAY 500
 
 //map
-# define MINIMAP_SCALE_FACTOR 0.29
+# define MINIMAP_SCALE_FACTOR 0.1
 # define TILE_SIZE 64
 
 typedef struct s_line
@@ -189,6 +190,7 @@ typedef struct s_rect
 //ray
 # define NUM_RAYS WIN_WIDTH
 # define FLT_MAX 3.40282346638528859812e+38F
+# define FOV_ANGLE 1.0472
 
 typedef struct s_hit_data
 {
@@ -425,5 +427,9 @@ void	cast_ray(float ray_angle, int col_id, t_data *data);
 void	cast_all_rays(t_data *data);
 int		get_map_texture(t_hit_data *hit_data, t_data *data);
 float	get_hit_distance(t_hit_data *hit_data, t_data *data);
+
+//wall
+void	change_color_intensity(int *color, float factor);
+void	draw_wall(t_data *data);
 
 #endif
