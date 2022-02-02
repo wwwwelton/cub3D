@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/19 01:38:56 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/02 04:41:59 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/02 07:52:52 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,6 @@ t_bool	validate_map_characters(char **map)
 
 	i = -1;
 	j = -1;
-	print_map(map);
 	while (map[++i])
 	{
 		while (map[i][++j])

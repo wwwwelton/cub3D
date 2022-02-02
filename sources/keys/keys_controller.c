@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/30 21:58:59 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/02 07:53:35 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 static void	keys_enter(t_data *data)
 {
-	printf("state %d\n", data->state);
 	if (data->state == MENU && data->menu.main == 1)
 		data->state = OPTIONS;
 	else if (data->state == MENU && data->menu.main == 2)
