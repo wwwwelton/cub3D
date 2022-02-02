@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   validate_map_utils.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
+/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/19 01:38:56 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/01/26 17:35:23 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/02 04:41:59 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,7 @@ t_bool	validate_map_characters(char **map)
 	while (map[++i])
 	{
 		while (map[i][++j])
-			if (!ftex_is_in_set(map[i][j], "0123 NSEW\n"))
+			if (!ftex_is_in_set(map[i][j], "01 NSEW\n"))
 				return (false);
 		j = -1;
 	}

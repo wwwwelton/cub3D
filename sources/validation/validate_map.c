@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 01:09:04 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/01/30 23:22:30 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/02 05:54:38 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,7 @@ t_bool	is_player_polygon_closed(char **map)
 		{
 			tr_matrix(map, "!", "@");
 			xy = get_coordinates(map, 0, 0);
-			if (xy.x == 0 || map[xy.x][xy.y + 1] == '\0')
+			if (xy.x == 0 || !ft_strchr(&map[xy.x][xy.y], EDGE))
 				return (false);
 			while (map[xy.x][xy.y] && map[xy.x][xy.y] != EDGE)
 				xy.y++;

@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 00:19:05 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/01/19 14:43:11 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/02 05:36:48 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@
 # define E_MAPOPEN "Error\nOuter walls are open\n"
 # define E_MAPOPEN2 "Error\nInner walls are open"
 
+# define E_PLAYERDUP "Error\nIncorrect number of characters in the map\n"
+
 # define E_NOTEX "Error\nmissing texture\n"
 # define E_TEXDUP "Error\nduplicated texture file"
 # define E_TEXEXT "Error\nincorrect file type\nexpected: .xpm\n"
@@ -30,6 +32,7 @@
 # define E_NORGB "Error\nMissing color\n"
 # define E_RGBRANGE "Error\ncolor value outside of acceptable range\n"
 # define E_RGBMUCH "Error\nWrong number of colors in set\n"
+# define E_RGBDUP "Error\nDuplicate color identifiers\n"
 
 # define E_IDINVAL "Error\n%s: Invalid identifier: %s\n"
 

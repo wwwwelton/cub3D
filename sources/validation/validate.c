@@ -3,19 +3,46 @@
 /*                                                        :::      ::::::::   */
 /*   validate.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
+/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 15:33:46 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/01/28 20:07:54 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/02 05:37:03 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
+static t_bool	find_player(char **map)
+{
+	int	i;
+	int	j;
+	int	character;
+
+	i = -1;
+	j = -1;
+	character = 0;
+	while (map[++i])
+	{
+		while (map[i][++j])
+			if (ftex_is_in_set(map[i][j], "NSEW"))
+				character++;
+		j = -1;
+	}
+	if (character != 1)
+		return (false);
+	return (true);
+}
+
 t_bool	map_validation(char **map)
 {
 	if (DEBUG)
 		print_map(map);
+	if (!find_player(map))
+	{
+		return (print_error(E_PLAYERDUP));
+		printf("map\n");
+		print_map(map);
+	}
 	if (!validate_map_characters(map))
 		return (print_error(E_MAPINVAL3));
 	outline_polygon(map);
@@ -46,9 +73,9 @@ t_bool	validation(t_data *data, int argc, char **argv)
 		return (validation_failed(&data->params, NULL));
 	data->map = fetch_map_array(argv);
 	initial_map_cleanup(data->map);
-	if (!map_validation(data->map))
-		return (validation_failed(&data->params, data->map));
 	if (!files_validation(&data->params, argv[1]))
+		return (validation_failed(&data->params, data->map));
+	if (!map_validation(data->map))
 		return (validation_failed(&data->params, data->map));
 	data->devmap = fetch_map_array(argv);
 	initial_map_cleanup(data->devmap);

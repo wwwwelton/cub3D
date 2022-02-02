@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 23:22:41 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/02 04:33:42 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/02 05:01:28 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,8 @@ t_bool	validate_color_set(char *set, int *store)
 	boolean = true;
 	if (count_commas(set) != 2)
 		return (print_error(E_RGBMUCH));
+	if (*store != -1)
+		return (print_error(E_RGBDUP));
 	tmp = ftex_strerase(set, " \n");
 	rgb = ft_split(tmp, ',');
 	i = -1;
@@ -129,7 +131,8 @@ t_bool	files_validation(t_params *params, char *file)
 	{
 		if (is_first_character_invalid(fd, &tmp))
 			break ;
-		boolean = check_matrix(params, matrix, file, tmp);
+		if (*tmp != '\n')
+			boolean = check_matrix(params, matrix, file, tmp);
 		free(tmp);
 		tmp = ft_get_next_line(fd);
 	}

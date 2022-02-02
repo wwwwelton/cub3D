@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/19 01:48:47 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/01/19 14:49:18 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/02 04:56:59 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ t_bool	is_first_character_invalid(int fd, char **tmp)
 		return (false);
 	while ((*tmp)[i] == ' ' || (*tmp)[i] == '\t')
 		++i;
-	if (ftex_is_in_set((*tmp)[i], "RNSEWCF\n") == false)
+	if (ftex_is_in_set((*tmp)[i], "NSEWCF\n") == false)
 	{
 		free(*tmp);
 		*tmp = ft_get_next_line(fd);
