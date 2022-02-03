@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   graphics.c                                         :+:      :+:    :+:   */
+/*   graphics_utils.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/28 20:00:39 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/03 14:14:05 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,9 @@ int	get_color(int r, int g, int b)
 	return (rgb);
 }
 
-void	my_mlx_pixel_put(t_img *img, int x, int y, int color)
+void	pixel_put(t_img *img, int x, int y, int color)
 {
-	char	*dst;
-
-	if (x < 0 || x > IMG_WIDTH || y < 0 || y > IMG_HEIGHT)
+	if (x < 0 || x > img->width || y < 0 || y > img->height)
 		return ;
-	dst = (char *)img->dump + (y * img->size_l + x * (img->bpp / 8));
-	*(unsigned int *)dst = color;
+	img->dump[(y * img->width) + x] = color;
 }

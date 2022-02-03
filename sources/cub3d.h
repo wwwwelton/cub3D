@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 09:06:24 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/03 13:49:57 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/03 14:09:51 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -411,7 +411,7 @@ void	set_player_position(t_data *data, char **map);
 
 //utils
 t_bool	ftex_is_in_set(char c, char *set);
-void	my_mlx_pixel_put(t_img *img, int x, int y, int color);
+void	pixel_put(t_img *img, int x, int y, int color);
 void	free_matrix(char **matrix);
 char	*ftex_strerase(char *str, char *set);
 void	ftex_tr(char *str, char *del, char *ret);
