@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/03 13:49:57 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/03 13:55:51 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ static void	render_wall(int x, t_wall_data *wall, t_data *data)
 			change_color_intensity(&wall->pixel_color, color_factor);
 		}
 		if (data->rays[x].was_hit_vertical)
-			change_color_intensity(&wall->pixel_color, 0.7);
+			change_color_intensity(&wall->pixel_color, 0.5);
 		data->img[FRAME].dump[(WIN_WIDTH * y) + x] = wall->pixel_color;
 	}
 }
