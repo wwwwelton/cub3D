@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 09:06:24 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/03 02:50:14 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/03 13:49:57 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -461,7 +461,7 @@ float	get_hit_distance(t_hit_data *hit_data, t_data *data);
 void	change_color_intensity(int *color, float factor);
 void	draw_wall(t_data *data);
 void	init_wall_data(t_wall_data *wall);
-int		get_wall_texture_side(t_ray ray);
+int		get_wall_facing_side(t_ray ray);
 int		get_wall_pixel_color(t_img texture, t_wall_data *wall);
 void	check_inverse_offset_x(t_ray ray, t_wall_data *wall);
 

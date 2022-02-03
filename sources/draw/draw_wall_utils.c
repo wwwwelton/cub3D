@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/02 17:08:42 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/03 13:49:57 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	init_wall_data(t_wall_data *wall)
 	wall->dist_proj_plane = (WIN_WIDTH / 2) / tan(FOV_ANGLE / 2);
 }
 
-int	get_wall_texture_side(t_ray ray)
+int	get_wall_facing_side(t_ray ray)
 {
 	if (!ray.was_hit_vertical && is_ray_facing_up(ray.ray_angle))
 		return (TEX_NO);
