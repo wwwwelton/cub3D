@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/28 20:00:29 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/03 14:23:57 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,6 @@ void	draw_rect(t_img *img, t_rect rect)
 	{
 		x = rect.x - 1;
 		while (++x < rect.width)
-		{
-			if (y < 0 || y >= WIN_HEIGHT || x < 0 || x >= WIN_WIDTH)
-				return ;
-			img->dump[y * IMG_WIDTH + x] = rect.color;
-		}
+			pixel_put(img, x, y, rect.color);
 	}
 }
