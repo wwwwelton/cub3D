@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
+/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 09:06:24 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/02 18:30:10 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/03 02:50:14 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -177,6 +177,7 @@ typedef struct s_player
 	int		turn_dir;
 	int		walk_dir;
 	int		side_dir;
+	int		init_pos;
 	float	rot_angle;
 	float	walk_speed;
 	float	turn_speed;
@@ -404,6 +405,9 @@ int		get_map_value_at(int i, int j, t_data *data);
 void	draw_player(t_data *data);
 void	update_player(t_data *data);
 void	update_player_matrix(t_data *data);
+char	get_player_direction(char **map);
+float	set_player_direction(char c);
+void	set_player_position(t_data *data, char **map);
 
 //utils
 t_bool	ftex_is_in_set(char c, char *set);

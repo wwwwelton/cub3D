@@ -3,14 +3,46 @@
 /*                                                        :::      ::::::::   */
 /*   utils_player.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
+/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/03 01:17:58 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/03 02:24:20 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+void	set_player_position(t_data *data, char **map)
+{
+	t_xy	xy;
+
+	xy = get_coordinates(map, 0, 0);
+	data->player.y = xy.x * TILE_SIZE;
+	data->player.x = xy.y * TILE_SIZE;
+}
+
+char	get_player_direction(char **map)
+{
+	t_xy	xy;
+
+	xy = get_coordinates(map, 0, 0);
+	return (map[xy.x][xy.y]);
+}
+
+float	set_player_direction(char c)
+{
+	printf("%c\n", c);
+	if (c == 'N')
+		return (270 * (PI / 180));
+	else if (c == 'E')
+		return (360 * (PI / 180));
+	else if (c == 'W')
+		return (180 * (PI / 180));
+	else if (c == 'S')
+		return (90 * (PI / 180));
+	else
+		return (0);
+}
 
 void	update_player_matrix(t_data *data)
 {

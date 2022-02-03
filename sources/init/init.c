@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
+/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/02 18:30:48 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/03 02:25:41 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,14 @@ static void	init_menu(t_data *data)
 
 static void	init_player(t_data *data)
 {
-	data->player.x = WIN_WIDTH / 2;
-	data->player.y = WIN_HEIGHT / 2;
+	data->player.init_pos = get_player_direction(data->map);
+	data->player.rot_angle = set_player_direction(data->player.init_pos);
+	set_player_position(data, data->map);
 	data->player.width = PLAYER_SIZE;
 	data->player.height = PLAYER_SIZE;
 	data->player.turn_dir = 0;
 	data->player.walk_dir = 0;
 	data->player.side_dir = 0;
-	data->player.rot_angle = 270 * (PI / 180);
 	data->player.walk_speed = 10;
 	data->player.turn_speed = 5 * (PI / 180);
 }
