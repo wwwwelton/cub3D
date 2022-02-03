@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/03 14:14:05 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/03 14:21:06 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	get_color(int r, int g, int b)
 
 void	pixel_put(t_img *img, int x, int y, int color)
 {
-	if (x < 0 || x > img->width || y < 0 || y > img->height)
+	if (x < 0 || x >= img->width || y < 0 || y >= img->height)
 		return ;
 	img->dump[(y * img->width) + x] = color;
 }
