@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 04:59:34 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/02 07:00:35 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/03 04:47:25 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,16 +24,22 @@ int	check_end(char **map, int x, int y, char c)
 
 void	initial_map_cleanup(char **map)
 {
-	int	i;
-	int	j;
+	int		i;
+	int		j;
+	t_xy	player;
 
 	i = -1;
 	j = -1;
+	player = get_coordinates(map, 0, 0);
 	while (map[++i])
 	{
 		while (map[i][++j])
 		{
-			if (map[i][j] == '1' && !is_not_adjacent(map, i, j, '0'))
+			if (map[i][j] == '1' && !is_not_adjacent(map, i, j, '0')
+			&& is_not_adjacent(map, player.x, player.y, 'E') == true
+			&& is_not_adjacent(map, player.x, player.y, 'W') == true
+			&& is_not_adjacent(map, player.x, player.y, 'S') == true
+			&& is_not_adjacent(map, player.x, player.y, 'N') == true)
 				map[i][j] = ' ';
 		}
 		j = -1;

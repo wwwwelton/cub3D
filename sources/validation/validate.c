@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 15:33:46 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/02 07:57:49 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/03 04:44:47 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ t_bool	map_validation(char **map)
 		print_map(map);
 	if (!find_player(map))
 		return (print_error(E_PLAYERDUP));
+	initial_map_cleanup(map);
 	if (!validate_map_characters(map))
 		return (print_error(E_MAPINVAL3));
 	outline_polygon(map);
@@ -73,7 +74,6 @@ t_bool	validation(t_data *data, int argc, char **argv)
 		printf(E_MAPEMPTY);
 		return (validation_failed(&data->params, NULL));
 	}
-	initial_map_cleanup(data->map);
 	if (!files_validation(&data->params, argv[1]))
 		return (validation_failed(&data->params, data->map));
 	if (!map_validation(data->map))
