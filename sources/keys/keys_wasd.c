@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/19 09:22:26 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/01/28 18:59:51 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/02 19:30:19 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,14 @@ static void	keys_press_wasd(int key, t_data *data)
 	if (key == KEY_W)
 		data->player.walk_dir = 1;
 	if (key == KEY_A)
-		data->player.turn_dir = -1;
+		data->player.side_dir = 1;
 	if (key == KEY_S)
 		data->player.walk_dir = -1;
 	if (key == KEY_D)
+		data->player.side_dir = -1;
+	if (key == KEY_A_LEFT)
+		data->player.turn_dir = -1;
+	if (key == KEY_A_RIGHT)
 		data->player.turn_dir = 1;
 }
 
@@ -29,10 +33,14 @@ static void	keys_release_wasd(int key, t_data *data)
 	if (key == KEY_W)
 		data->player.walk_dir = 0;
 	if (key == KEY_A)
-		data->player.turn_dir = 0;
+		data->player.side_dir = 0;
 	if (key == KEY_S)
 		data->player.walk_dir = 0;
 	if (key == KEY_D)
+		data->player.side_dir = 0;
+	if (key == KEY_A_LEFT)
+		data->player.turn_dir = 0;
+	if (key == KEY_A_RIGHT)
 		data->player.turn_dir = 0;
 }
 

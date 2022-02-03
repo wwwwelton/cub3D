@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 09:06:24 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/02 18:01:04 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/02 18:30:10 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,11 +131,17 @@
 # define KEY_S 115
 # define KEY_D 100
 # define KEY_ENTER 65293
+# define KEY_N_ENTER 65421
 
 # define KEY_UP 65362
 # define KEY_LEFT 65361
 # define KEY_DOWN 65364
 # define KEY_RIGHT 65363
+
+# define KEY_A_UP 65362
+# define KEY_A_LEFT 65361
+# define KEY_A_DOWN 65364
+# define KEY_A_RIGHT 65363
 
 # define FRAME_DELAY 500
 
@@ -170,6 +176,7 @@ typedef struct s_player
 	float	height;
 	int		turn_dir;
 	int		walk_dir;
+	int		side_dir;
 	float	rot_angle;
 	float	walk_speed;
 	float	turn_speed;

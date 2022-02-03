@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   keys_controller.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/02 07:53:35 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/02 18:25:20 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,13 +41,13 @@ static void	options_menu(int key, t_data *data)
 {
 	if (key == KEY_W || key == KEY_A || key == KEY_S || key == KEY_D)
 		keys_menu_wasd(key, data);
-	if (key == KEY_ENTER)
+	if (key == KEY_ENTER || key == KEY_N_ENTER)
 		keys_enter(data);
 }
 
 static void	main_menu(int key, t_data *data)
 {
-	if (key == KEY_ENTER)
+	if (key == KEY_ENTER || key == KEY_N_ENTER)
 		keys_enter(data);
 	if (key == KEY_W || key == KEY_S)
 		keys_menu_wasd(key, data);
@@ -55,11 +55,12 @@ static void	main_menu(int key, t_data *data)
 
 static void	main_game(int key, t_data *data, int event_type)
 {
-	if (key == KEY_W || key == KEY_A || key == KEY_S || key == KEY_D)
+	if (key == KEY_W || key == KEY_A || key == KEY_S || key == KEY_D
+		|| key == KEY_A_LEFT || key == KEY_A_RIGHT)
 		keys_wasd(key, data, event_type);
 	if (key == KEY_Q || key == KEY_ESC)
 		exit_game(data);
-	if (key == KEY_ENTER && event_type == K_PRESS)
+	if ((key == KEY_ENTER || key == KEY_N_ENTER) && event_type == K_PRESS)
 		keys_enter(data);
 }
 
