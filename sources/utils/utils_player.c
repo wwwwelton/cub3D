@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/03 02:24:20 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/04 00:48:34 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ void	set_player_position(t_data *data, char **map)
 	t_xy	xy;
 
 	xy = get_coordinates(map, 0, 0);
-	data->player.y = xy.x * TILE_SIZE;
-	data->player.x = xy.y * TILE_SIZE;
+	data->player.y = xy.x * TILE_SIZE + (TILE_SIZE / 2);
+	data->player.x = xy.y * TILE_SIZE + (TILE_SIZE / 2);
 }
 
 char	get_player_direction(char **map)
