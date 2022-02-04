@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/04 02:05:25 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/04 02:18:56 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,11 +78,8 @@ void	draw_wall(t_data *data)
 			wall.bottom_y = 0;
 		if (wall.bottom_y >= WIN_HEIGHT)
 			wall.bottom_y = WIN_HEIGHT;
-		if (data->rays[x].was_hit_vertical)
-			wall.texture_offset_x = (int)data->rays[x].wall_hit_y % TILE_SIZE;
-		else
-			wall.texture_offset_x = (int)data->rays[x].wall_hit_x % TILE_SIZE;
-		check_inverse_offset_x(data->rays[x], &wall);
+		wall.texture_offset_x = get_texture_offset_x(data->rays[x]);
+		check_inverse_offset_x(data->rays[x], &wall.texture_offset_x);
 		render_ceil(x, &wall, data);
 		render_wall(x, &wall, data);
 		render_floor(x, &wall, data);

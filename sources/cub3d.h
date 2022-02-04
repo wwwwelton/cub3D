@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 09:06:24 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/04 01:32:16 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/04 02:17:33 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -430,6 +430,7 @@ int		middle_x(t_img img);
 int		middle_y(t_img img);
 void	put_menu_item(t_data *data, int src, int offy, int offx);
 int		count_commas(char *str);
+void	change_color_intensity(int *color, float factor);
 
 //render
 void	draw_game(t_data *data);
@@ -459,11 +460,11 @@ int		get_map_texture(t_hit_data *hit_data, t_data *data);
 float	get_hit_distance(t_hit_data *hit_data, t_data *data);
 
 //wall
-void	change_color_intensity(int *color, float factor);
 void	draw_wall(t_data *data);
 void	init_wall_data(t_wall_data *wall);
 int		get_wall_facing_side(t_ray ray);
 int		get_wall_pixel_color(t_img texture, t_wall_data *wall);
-void	check_inverse_offset_x(t_ray ray, t_wall_data *wall);
+void	check_inverse_offset_x(t_ray ray, int *texture_offset_x);
+int		get_texture_offset_x(t_ray ray);
 
 #endif

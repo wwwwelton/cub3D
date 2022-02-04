@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/04 02:07:33 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/04 02:16:49 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,10 +54,18 @@ int	get_wall_pixel_color(t_img texture, t_wall_data *wall)
 	return (pixel_color);
 }
 
-void	check_inverse_offset_x(t_ray ray, t_wall_data *wall)
+void	check_inverse_offset_x(t_ray ray, int *texture_offset_x)
 {
 	if (!ray.was_hit_vertical && is_ray_facing_down(ray.ray_angle))
-		wall->texture_offset_x = TILE_SIZE - wall->texture_offset_x;
+		*texture_offset_x = TILE_SIZE - *texture_offset_x;
 	if (ray.was_hit_vertical && is_ray_facing_left(ray.ray_angle))
-		wall->texture_offset_x = TILE_SIZE - wall->texture_offset_x;
+		*texture_offset_x = TILE_SIZE - *texture_offset_x;
+}
+
+int	get_texture_offset_x(t_ray ray)
+{
+	if (ray.was_hit_vertical)
+		return ((int)ray.wall_hit_y % TILE_SIZE);
+	else
+		return ((int)ray.wall_hit_x % TILE_SIZE);
 }
