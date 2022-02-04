@@ -59,3 +59,32 @@ void	copy_layer(t_img *img_src, t_img *img_dst, int color)
 		}
 	}
 }
+
+void	draw_map(t_data *data)
+{
+	int		x;
+	int		y;
+	t_img	*img;
+	t_rect	rect;
+
+	rect.width = TILE_SIZE * MINIMAP_SCALE_FACTOR;
+	rect.height = TILE_SIZE * MINIMAP_SCALE_FACTOR;
+	img = &data->img[MAP];
+	y = -1;
+	while (++y < map_height(data))
+	{
+		x = -1;
+		while (++x < map_width(data))
+		{
+			rect.x = x * TILE_SIZE * MINIMAP_SCALE_FACTOR;
+			rect.y = y * TILE_SIZE * MINIMAP_SCALE_FACTOR;
+			if (ftex_is_in_set(data->map[y][x], "!@"))
+				rect.color = WHITE;
+			else if (ftex_is_in_set(data->map[y][x], "0N"))
+				rect.color = BLACKB;
+			else
+				continue ;
+			draw_rect(img, rect);
+		}
+	}
+}
