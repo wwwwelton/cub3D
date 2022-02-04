@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/03 13:49:57 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/04 02:07:33 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,16 +60,4 @@ void	check_inverse_offset_x(t_ray ray, t_wall_data *wall)
 		wall->texture_offset_x = TILE_SIZE - wall->texture_offset_x;
 	if (ray.was_hit_vertical && is_ray_facing_left(ray.ray_angle))
 		wall->texture_offset_x = TILE_SIZE - wall->texture_offset_x;
-}
-
-void	change_color_intensity(int *color, float factor)
-{
-	int	r;
-	int	g;
-	int	b;
-
-	r = (*color & 0xFF0000) * factor;
-	g = (*color & 0x00FF00) * factor;
-	b = (*color & 0x0000FF) * factor;
-	*color = (r & 0xFF0000) | (g & 0x00FF00) | (b & 0x0000FF);
 }

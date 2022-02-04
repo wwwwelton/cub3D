@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/03 14:21:06 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/04 02:04:12 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,4 +28,16 @@ void	pixel_put(t_img *img, int x, int y, int color)
 	if (x < 0 || x >= img->width || y < 0 || y >= img->height)
 		return ;
 	img->dump[(y * img->width) + x] = color;
+}
+
+void	change_color_intensity(int *color, float factor)
+{
+	int	r;
+	int	g;
+	int	b;
+
+	r = (*color & 0xFF0000) * factor;
+	g = (*color & 0x00FF00) * factor;
+	b = (*color & 0x0000FF) * factor;
+	*color = (r & 0xFF0000) | (g & 0x00FF00) | (b & 0x0000FF);
 }
