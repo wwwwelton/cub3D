@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
+/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 09:06:24 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/03 14:09:51 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/04 05:57:04 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,8 @@
 # define GRAYF 0x707070
 # define PINK 0xff00fe
 # define BLUE 0x0171FF
+# define BLUE2 0x3d5061
+# define GRAY2 0x1d2024
 
 # define YOFF 250
 # define XOFF 100
@@ -394,7 +396,7 @@ int		key_release(int key, t_data *data);
 void	draw_rays(t_data *data);
 
 //map
-void	draw_map(t_data *data);
+void	draw_map(t_data *data, char **map, int x, int y);
 int		map_has_wall_at(float x, float y, t_data *data);
 int		map_height(t_data *data);
 int		map_width(t_data *data);
