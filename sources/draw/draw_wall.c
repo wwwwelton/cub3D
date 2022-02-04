@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/04 02:18:56 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/04 18:04:42 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static void	render_wall(int x, t_wall_data *wall, t_data *data)
 	while (++y < wall->bottom_y)
 	{
 		text_num = get_wall_facing_side(data->rays[x]);
-		wall->distance_from_top = y + (wall->height / 2) - (WIN_HEIGHT / 2);
+		wall->distance_from_top = y + (wall->height / 2) - wall->win_height / 2;
 		height_scale = data->img[text_num].height / wall->height;
 		wall->texture_offset_y = wall->distance_from_top * height_scale;
 		wall->pixel_color = get_wall_pixel_color(data->img[text_num], wall);
@@ -62,18 +62,18 @@ void	draw_wall(t_data *data)
 	int			x;
 	t_wall_data	wall;
 
-	init_wall_data(&wall);
+	init_wall_data(&wall, data->player);
 	x = -1;
 	while (++x < NUM_RAYS)
 	{
 		wall.perp_distance = get_perp_distance(data->rays[x], data);
 		wall.height = (TILE_SIZE / wall.perp_distance) * wall.dist_proj_plane;
-		wall.top_y = (WIN_HEIGHT / 2) - (wall.height / 2);
+		wall.top_y = (wall.win_height / 2) - (wall.height / 2);
 		if (wall.top_y < 0)
 			wall.top_y = 0;
 		if (wall.top_y >= WIN_HEIGHT)
 			wall.top_y = WIN_HEIGHT;
-		wall.bottom_y = (WIN_HEIGHT / 2) + (wall.height / 2);
+		wall.bottom_y = (wall.win_height / 2) + (wall.height / 2);
 		if (wall.bottom_y < 0)
 			wall.bottom_y = 0;
 		if (wall.bottom_y >= WIN_HEIGHT)

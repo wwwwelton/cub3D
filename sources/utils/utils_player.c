@@ -3,46 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   utils_player.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/04 00:48:34 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/04 18:30:05 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-
-void	set_player_position(t_data *data, char **map)
-{
-	t_xy	xy;
-
-	xy = get_coordinates(map, 0, 0);
-	data->player.y = xy.x * TILE_SIZE + (TILE_SIZE / 2);
-	data->player.x = xy.y * TILE_SIZE + (TILE_SIZE / 2);
-}
-
-char	get_player_direction(char **map)
-{
-	t_xy	xy;
-
-	xy = get_coordinates(map, 0, 0);
-	return (map[xy.x][xy.y]);
-}
-
-float	set_player_direction(char c)
-{
-	printf("%c\n", c);
-	if (c == 'N')
-		return (270 * (PI / 180));
-	else if (c == 'E')
-		return (360 * (PI / 180));
-	else if (c == 'W')
-		return (180 * (PI / 180));
-	else if (c == 'S')
-		return (90 * (PI / 180));
-	else
-		return (0);
-}
 
 void	update_player_matrix(t_data *data)
 {
@@ -77,14 +45,13 @@ void	update_player(t_data *data)
 
 	player = &data->player;
 	player->rot_angle += player->turn_dir * player->turn_speed;
+	player->view_angle += player->look_dir * player->look_speed;
 	normalize_angle(&player->rot_angle);
+	lock_view_angle(&player->view_angle);
 	move_step = player->walk_dir * player->walk_speed;
 	side_step = player->side_dir * player->walk_speed;
 	if (move_step && side_step)
-	{
-		move_step /= 2;
-		side_step /= 2;
-	}
+		decrease_step(&move_step, &side_step);
 	new_player_x = player->x + cos(player->rot_angle) * move_step;
 	new_player_y = player->y + sin(player->rot_angle) * move_step;
 	new_player_x = new_player_x - sin(-player->rot_angle) * side_step;

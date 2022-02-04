@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/02 18:25:20 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/04 03:44:17 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,8 @@ static void	main_menu(int key, t_data *data)
 static void	main_game(int key, t_data *data, int event_type)
 {
 	if (key == KEY_W || key == KEY_A || key == KEY_S || key == KEY_D
-		|| key == KEY_A_LEFT || key == KEY_A_RIGHT)
+		|| key == KEY_A_LEFT || key == KEY_A_RIGHT
+		|| key == KEY_A_UP || key == KEY_A_DOWN)
 		keys_wasd(key, data, event_type);
 	if (key == KEY_Q || key == KEY_ESC)
 		exit_game(data);

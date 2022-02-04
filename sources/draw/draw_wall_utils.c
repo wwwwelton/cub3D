@@ -6,13 +6,13 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/04 02:16:49 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/04 18:22:50 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	init_wall_data(t_wall_data *wall)
+void	init_wall_data(t_wall_data *wall, t_player player)
 {
 	wall->height = 0;
 	wall->top_y = 0;
@@ -22,6 +22,7 @@ void	init_wall_data(t_wall_data *wall)
 	wall->texture_offset_y = 0;
 	wall->distance_from_top = 0;
 	wall->dist_proj_plane = (WIN_WIDTH / 2) / tan(FOV_ANGLE / 2);
+	wall->win_height = WIN_HEIGHT + player.view_angle;
 }
 
 int	get_wall_facing_side(t_ray ray)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 09:06:24 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/04 09:24:13 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/04 18:36:28 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -169,6 +169,7 @@ typedef struct s_line
 
 //player
 # define PLAYER_SIZE 64
+# define VIEW_ANGLE 400
 
 typedef struct s_player
 {
@@ -179,10 +180,13 @@ typedef struct s_player
 	int		turn_dir;
 	int		walk_dir;
 	int		side_dir;
+	int		look_dir;
 	int		init_pos;
+	float	view_angle;
 	float	rot_angle;
 	float	walk_speed;
 	float	turn_speed;
+	float	look_speed;
 }	t_player;
 //player
 
@@ -244,6 +248,7 @@ typedef struct s_wall_data
 	int		texture_offset_x;
 	int		texture_offset_y;
 	int		distance_from_top;
+	int		win_height;
 }	t_wall_data;
 //wall
 
@@ -411,6 +416,8 @@ void	update_player_matrix(t_data *data);
 char	get_player_direction(char **map);
 float	set_player_direction(char c);
 void	set_player_position(t_data *data, char **map);
+void	decrease_step(float *move_step, float *side_step);
+void	lock_view_angle(float *view_angle);
 
 //utils
 t_bool	ftex_is_in_set(char c, char *set);
@@ -463,7 +470,7 @@ float	get_hit_distance(t_hit_data *hit_data, t_data *data);
 
 //wall
 void	draw_wall(t_data *data);
-void	init_wall_data(t_wall_data *wall);
+void	init_wall_data(t_wall_data *wall, t_player player);
 int		get_wall_facing_side(t_ray ray);
 int		get_wall_pixel_color(t_img texture, t_wall_data *wall);
 void	check_inverse_offset_x(t_ray ray, int *texture_offset_x);

@@ -40,6 +40,8 @@ SOURCES_FILES	=	cub3d.c \
 					validate_utils.c \
 					validate_utils2.c \
 					utils_player.c \
+					utils_player_aux.c \
+					utils_player_aux2.c \
 					utils_tr.c \
 					utils_strerase.c \
 					utils_math.c \

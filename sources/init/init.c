@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/03 02:25:41 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/04 18:22:50 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,11 @@ static void	init_player(t_data *data)
 	data->player.turn_dir = 0;
 	data->player.walk_dir = 0;
 	data->player.side_dir = 0;
-	data->player.walk_speed = 10;
+	data->player.look_dir = 0;
+	data->player.view_angle = 0;
+	data->player.walk_speed = 20;
 	data->player.turn_speed = 5 * (PI / 180);
+	data->player.look_speed = 55;
 }
 
 static void	init_images(t_data *data)
