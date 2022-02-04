@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/04 06:00:16 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/04 06:25:20 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	draw_map(t_data *data, char **map, int x, int y)
 				|| pl.x + x - 9 > height || pl.y + y - 9 > len)
 				fill(&data->img[SCREEN], params, GRAY);
 			else if (ftex_is_in_set(map[pl.x + x - 10][pl.y + y - 10], "@! "))
-				fill(&data->img[SCREEN], params, RED);
+				fill(&data->img[SCREEN], params, BLUE);
 			else if (ftex_is_in_set(map[pl.x + x - 10][pl.y + y - 10], "NSEW"))
 				fill(&data->img[SCREEN], params, YELLOW);
 			else
