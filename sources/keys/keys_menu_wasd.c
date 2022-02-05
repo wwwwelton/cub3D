@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 04:27:47 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/01/30 21:51:54 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/05 05:07:09 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,40 @@
 
 void	options_d(t_data *data)
 {
-	if (data->menu.options == 0)
-		if (data->menu.opt_mouses < 3)
-			data->menu.opt_mouses++;
-	if (data->menu.options == 1)
-		if (data->menu.opt_moves < 3)
-			data->menu.opt_moves++;
-	if (data->menu.options == 2)
-		if (data->menu.opt_rots < 3)
-			data->menu.opt_rots++;
+	if (data->menu.options == 0 && data->menu.opt_mouses < 3)
+	{
+		data->menu.opt_mouses++;
+		data->player.look_speed += 20;
+	}
+	if (data->menu.options == 1 && data->menu.opt_moves < 3)
+	{
+		data->menu.opt_moves++;
+		data->player.walk_speed += 10;
+	}
+	if (data->menu.options == 2 && data->menu.opt_rots < 3)
+	{
+		data->menu.opt_rots++;
+		data->player.turn_speed *= 2;
+	}
 }
 
 void	options_a(t_data *data)
 {
-	if (data->menu.options == 0)
-		if (data->menu.opt_mouses > 1)
-			data->menu.opt_mouses--;
-	if (data->menu.options == 1)
-		if (data->menu.opt_moves > 1)
-			data->menu.opt_moves--;
-	if (data->menu.options == 2)
-		if (data->menu.opt_rots > 1)
-			data->menu.opt_rots--;
+	if (data->menu.options == 0 && data->menu.opt_mouses > 1)
+	{
+		data->menu.opt_mouses--;
+		data->player.look_speed -= 20;
+	}
+	if (data->menu.options == 1 && data->menu.opt_moves > 1)
+	{
+		data->menu.opt_moves--;
+		data->player.walk_speed -= 10;
+	}
+	if (data->menu.options == 2 && data->menu.opt_rots > 1)
+	{
+		data->menu.opt_rots--;
+		data->player.turn_speed /= 2;
+	}
 }
 
 void	wasd_options(int key, t_data *data)
