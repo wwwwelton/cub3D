@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
+/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 09:06:24 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/04 18:36:28 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/04 22:37:22 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -372,7 +372,7 @@ t_bool	crawl_polygon(char **map, int x, int y, char fill);
 t_bool	recurse_polygon(char **map, int x, int y);
 void	outline_polygon(char **map);
 void	outline_useless_walls(char **map);
-t_bool	is_char_adjacent(char **map, int x, int y, char c);
+t_bool	is_border(char **map, int x, int y, char c);
 int		check_end(char **map, int x, int y, char c);
 char	**fetch_map_array(int fd);
 t_bool	are_inner_polygons_closed(char **map);
@@ -383,7 +383,7 @@ void	remove_outer_characters(char **map);
 t_bool	is_first_character_invalid(int fd, char **tmp);
 t_bool	all_params_valid(t_params *params);
 void	initial_map_cleanup(char **map);
-t_bool	is_not_adjacent(char **map, int x, int y, char c);
+t_bool	is_char_adjacent_to(char **map, int x, int y, char c);
 
 //debug
 void	print_colored_map(char **map);

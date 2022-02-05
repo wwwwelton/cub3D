@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   validate_utils2.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
+/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 01:12:55 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/01/28 20:14:50 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/04 22:36:39 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-t_bool	is_not_adjacent(char **map, int x, int y, char c)
+t_bool	is_char_adjacent_to(char **map, int x, int y, char c)
 {
 	if ((x > 0 && y > 0 && map[x - 1][y - 1] == c)
 	|| (y > 0 && map[x][y - 1] == c)
@@ -26,7 +26,7 @@ t_bool	is_not_adjacent(char **map, int x, int y, char c)
 	return (false);
 }
 
-t_bool	is_char_adjacent(char **map, int x, int y, char c)
+t_bool	is_border(char **map, int x, int y, char c)
 {
 	if (x == 0 || y == 0 || map[x][y + 1] == '\0' || map[x + 1] == NULL)
 		return (true);

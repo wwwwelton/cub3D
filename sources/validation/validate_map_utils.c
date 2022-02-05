@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/19 01:38:56 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/02 07:52:52 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/04 22:37:22 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	outline_polygon(char **map)
 	{
 		while (map[x][++y])
 			if (map[x][y] == '1')
-				if (is_char_adjacent(map, x, y, ' ') == true)
+				if (is_border(map, x, y, ' ') == true)
 					map[x][y] = EDGE;
 		y = -1;
 	}
@@ -58,8 +58,8 @@ void	outline_useless_walls(char **map)
 	{
 		while (map[x][++y])
 			if (map[x][y] == EDGE)
-				if (is_char_adjacent(map, x, y, '0') == false
-					&& is_char_adjacent(map, x, y, '1') == false)
+				if (is_border(map, x, y, '0') == false
+					&& is_border(map, x, y, '1') == false)
 					map[x][y] = FILLER;
 		y = -1;
 	}
