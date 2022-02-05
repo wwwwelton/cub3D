@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 09:06:24 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/05 02:44:52 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/05 03:01:49 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -439,7 +439,7 @@ int		middle_x(t_img img);
 int		middle_y(t_img img);
 void	put_menu_item(t_data *data, int src, int offy, int offx);
 int		count_commas(char *str);
-void	alpha_blending(int *color, float factor);
+void	change_color_intensity(int *color, float factor);
 int		alpha_blending2(int color, float factor);
 
 //render

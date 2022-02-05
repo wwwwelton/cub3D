@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   graphics_utils.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/05 02:45:12 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/05 03:04:53 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	alpha_blending2(int color, float factor)
 	return ((r & 0xFF0000) | (g & 0x00FF00) | (b & 0x0000FF));
 }
 
-void	alpha_blending(int *color, float factor)
+void	change_color_intensity(int *color, float factor)
 {
 	int	r;
 	int	g;
