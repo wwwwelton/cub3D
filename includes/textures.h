@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 06:16:42 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/05 06:28:37 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/05 13:03:02 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@
 # define PATHRESUME "assets/images/resume_game.xpm"
 # define PATHEXIT "assets/images/exit_game.xpm"
 # define PATHCROSSHAIR "assets/images/crosshair.xpm"
+# define PATHHUDFRAME "assets/images/hud_frame.xpm"
 
 # define TEX_WIDTH 64
 # define TEX_HEIGHT 64
@@ -59,7 +60,8 @@
 # define BACK 19
 # define RESUME 20
 # define EXIT 21
-# define CROSSHAIR 23
-# define TEX_NB 24
+# define CROSSHAIR 24
+# define HUDFRAME 23
+# define TEX_NB 25
 
 #endif

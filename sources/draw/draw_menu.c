@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 00:18:15 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/01/30 22:50:01 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/05 13:01:13 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,9 @@ void	draw_options(t_data *data)
 	fill(img, fillparams(250, 600, 100 * data->menu.opt_rots, 70), RED);
 	put_menu_item(data, BACK, OPTYOFF, XOFF * 0);
 	put_menu_item(data, ARROW, OPTYOFF + 250, XOFF * (data->menu.options - 3));
+	put_menu_item(data, HUDFRAME, -238, -300);
+	put_menu_item(data, HUDFRAME, -238, -200);
+	put_menu_item(data, HUDFRAME, -238, -100);
 	mlx_put_image_to_window(mlx->mlx_ptr, mlx->win, img->img_ptr, 0, 0);
 	mlx_destroy_image(mlx->mlx_ptr, img[SCREEN].img_ptr);
 	init_img(data, &img[SCREEN], IMG_WIDTH, IMG_HEIGHT);
