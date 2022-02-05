@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 09:06:24 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/05 06:24:32 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/05 06:28:53 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@
 # include <string.h>
 # include <math.h>
 # include <fcntl.h>
+# include "textures.h"
 # include "defs.h"
 # include "errors.h"
 # include "graphics.h"
-# include "textures.h"
 # include "keys.h"
 # include "colors.h"
 # include "../libraries/libft/libft.h"

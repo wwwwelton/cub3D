@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 06:04:56 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/05 06:21:18 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/05 06:28:29 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 # define IMG_WIDTH 1024
 # define IMG_HEIGHT 768
 
-# define TEX_NB 23
 # define NUM_RAYS WIN_WIDTH
 # define FLT_MAX 3.40282346638528859812e+38F
 # define FOV_ANGLE 1.0472
