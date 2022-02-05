@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 04:59:34 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/04 08:18:13 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/04 21:56:15 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,10 @@ void	initial_map_cleanup(char **map)
 		while (map[i][++j])
 		{
 			if (map[i][j] == '1' && !is_not_adjacent(map, i, j, '0')
-			&& !is_not_adjacent(map, player.x, player.y, 'E')
-			&& !is_not_adjacent(map, player.x, player.y, 'W')
-			&& !is_not_adjacent(map, player.x, player.y, 'S')
-			&& !is_not_adjacent(map, player.x, player.y, 'N'))
+			&& (is_not_adjacent(map, player.x, player.y, 'E')
+			|| is_not_adjacent(map, player.x, player.y, 'W')
+			|| is_not_adjacent(map, player.x, player.y, 'S')
+			|| is_not_adjacent(map, player.x, player.y, 'N')))
 				map[i][j] = ' ';
 		}
 		j = -1;
