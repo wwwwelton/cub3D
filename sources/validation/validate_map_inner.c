@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 04:59:34 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/04 22:36:54 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/04 23:06:04 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,20 +26,18 @@ void	initial_map_cleanup(char **map)
 {
 	int		i;
 	int		j;
-	t_xy	player;
 
 	i = -1;
 	j = -1;
-	player = get_coordinates(map, 0, 0);
 	while (map[++i])
 	{
 		while (map[i][++j])
 		{
 			if (map[i][j] == '1' && !is_char_adjacent_to(map, i, j, '0')
-			&& (is_char_adjacent_to(map, player.x, player.y, 'E') == false
-			|| is_char_adjacent_to(map, player.x, player.y, 'W') == false
-			|| is_char_adjacent_to(map, player.x, player.y, 'S') == false
-			|| is_char_adjacent_to(map, player.x, player.y, 'N') == false))
+			&& (is_char_adjacent_to(map, i, j, 'E') == false
+			&& is_char_adjacent_to(map, i, j, 'W') == false
+			&& is_char_adjacent_to(map, i, j, 'S') == false
+			&& is_char_adjacent_to(map, i, j, 'N') == false))
 				map[i][j] = ' ';
 		}
 		j = -1;
