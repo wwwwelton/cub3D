@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_wall.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
+/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/04 18:04:42 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/05 02:44:52 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,10 @@ static void	render_wall(int x, t_wall_data *wall, t_data *data)
 		if (FOG_DIST && data->rays[x].distance > FOG_DIST)
 		{
 			color_factor = FOG_DIST / data->rays[x].distance;
-			change_color_intensity(&wall->pixel_color, color_factor);
+			alpha_blending(&wall->pixel_color, color_factor);
 		}
 		if (FOG_SIDE && data->rays[x].was_hit_vertical)
-			change_color_intensity(&wall->pixel_color, FOG_SIDE);
+			alpha_blending(&wall->pixel_color, FOG_SIDE);
 		pixel_put(&data->img[FRAME], x, y, wall->pixel_color);
 	}
 }

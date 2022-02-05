@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   graphics_utils.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
+/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/04 02:04:12 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/05 02:45:12 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,19 @@ void	pixel_put(t_img *img, int x, int y, int color)
 	img->dump[(y * img->width) + x] = color;
 }
 
-void	change_color_intensity(int *color, float factor)
+int	alpha_blending2(int color, float factor)
+{
+	int	r;
+	int	g;
+	int	b;
+
+	r = (color & 0xFF0000) * factor;
+	g = (color & 0x00FF00) * factor;
+	b = (color & 0x0000FF) * factor;
+	return ((r & 0xFF0000) | (g & 0x00FF00) | (b & 0x0000FF));
+}
+
+void	alpha_blending(int *color, float factor)
 {
 	int	r;
 	int	g;

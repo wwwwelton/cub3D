@@ -38,7 +38,7 @@ void	draw_game(t_data *data)
 	copy_layer(&data->img[FRAME], &data->img[SCREEN], 0, 0);
 	copy_layer(&data->img[PLAYER], &data->img[SCREEN], 0, 0);
 	copy_layer(&data->img[RAYS], &data->img[SCREEN], 0, 0);
-	copy_layer(&data->img[MAP], &data->img[SCREEN], 0, 0);
+	alpha_layer(&data->img[MAP], &data->img[SCREEN], 0, 0);
 	mlx_put_image_to_window(mlx->mlx_ptr, mlx->win, data->img->img_ptr, 0, 0);
 	reinit_images(data);
 }

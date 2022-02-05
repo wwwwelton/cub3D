@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 09:06:24 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/05 01:52:32 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/05 02:44:52 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -205,7 +205,7 @@ typedef struct s_rect
 # define NUM_RAYS WIN_WIDTH
 # define FLT_MAX 3.40282346638528859812e+38F
 # define FOV_ANGLE 1.0472
-# define FOG_DIST 0
+# define FOG_DIST 400
 # define FOG_SIDE 0.7
 
 typedef struct s_hit_data
@@ -439,7 +439,8 @@ int		middle_x(t_img img);
 int		middle_y(t_img img);
 void	put_menu_item(t_data *data, int src, int offy, int offx);
 int		count_commas(char *str);
-void	change_color_intensity(int *color, float factor);
+void	alpha_blending(int *color, float factor);
+int		alpha_blending2(int color, float factor);
 
 //render
 void	draw_game(t_data *data);
@@ -447,6 +448,7 @@ void	draw_menu(t_data *data);
 void	draw_options(t_data *data);
 void	draw_background(t_data *data);
 void	copy_layer(t_img *from, t_img *to, int x, int y);
+void	alpha_layer(t_img *from, t_img *to, int x, int y);
 int		game_loop(t_data *data);
 
 //fps counter uses time.h and <sys/time.h
