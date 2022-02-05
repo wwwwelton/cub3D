@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 09:06:24 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/05 06:23:18 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/05 06:24:32 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,8 +97,8 @@ void	initial_map_cleanup(char **map);
 t_bool	is_char_adjacent_to(char **map, int x, int y, char c);
 
 //debug
-void	print_colored_map(char **map);
 void	print_map(char **map);
+void	print_colored_map(char **map);
 
 //raycasting
 void	draw_rays(t_data *data);
