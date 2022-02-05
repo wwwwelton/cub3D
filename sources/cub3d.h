@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 09:06:24 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/05 03:01:49 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/05 04:12:40 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -439,8 +439,6 @@ int		middle_x(t_img img);
 int		middle_y(t_img img);
 void	put_menu_item(t_data *data, int src, int offy, int offx);
 int		count_commas(char *str);
-void	change_color_intensity(int *color, float factor);
-int		alpha_blending2(int color, float factor);
 
 //render
 void	draw_game(t_data *data);
@@ -450,6 +448,10 @@ void	draw_background(t_data *data);
 void	copy_layer(t_img *from, t_img *to, int x, int y);
 void	alpha_layer(t_img *from, t_img *to, int x, int y);
 int		game_loop(t_data *data);
+
+//graphics
+int		blend_colors(int color1, int color2, float alpha1, float alpha2);
+void	change_color_intensity(int *color, float factor);
 
 //fps counter uses time.h and <sys/time.h
 void	draw_fps(t_data *data);

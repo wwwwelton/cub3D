@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/05 03:04:53 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/05 03:26:05 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,18 +30,6 @@ void	pixel_put(t_img *img, int x, int y, int color)
 	img->dump[(y * img->width) + x] = color;
 }
 
-int	alpha_blending2(int color, float factor)
-{
-	int	r;
-	int	g;
-	int	b;
-
-	r = (color & 0xFF0000) * factor;
-	g = (color & 0x00FF00) * factor;
-	b = (color & 0x0000FF) * factor;
-	return ((r & 0xFF0000) | (g & 0x00FF00) | (b & 0x0000FF));
-}
-
 void	change_color_intensity(int *color, float factor)
 {
 	int	r;
@@ -52,4 +40,11 @@ void	change_color_intensity(int *color, float factor)
 	g = (*color & 0x00FF00) * factor;
 	b = (*color & 0x0000FF) * factor;
 	*color = (r & 0xFF0000) | (g & 0x00FF00) | (b & 0x0000FF);
+}
+
+int	blend_colors(int color1, int color2, float alpha1, float alpha2)
+{
+	change_color_intensity(&color1, alpha1);
+	change_color_intensity(&color2, alpha2);
+	return (color1 + color2);
 }

@@ -88,3 +88,19 @@ void	draw_map(t_data *data)
 		}
 	}
 }
+
+void	draw_player(t_data *data)
+{
+	t_img		*img;
+	t_player	player;
+	t_line		line;
+
+	img = &data->img[PLAYER];
+	player = data->player;
+	line.x0 = 50 + 115;
+	line.y0 = (WIN_HEIGHT - 270) + 115;
+	line.x1 = line.x0 + cos(player.rot_angle) * 15;
+	line.y1 = line.y0 + sin(player.rot_angle) * 15;
+	line.color = YELLOW;
+	draw_line(img, line);
+}
