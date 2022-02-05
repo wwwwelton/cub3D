@@ -34,6 +34,7 @@ void	draw_game(t_data *data)
 	draw_rays(data);
 	draw_wall(data);
 	draw_map(data, data->map, -1, -1);
+	draw_crosshair(data);
 	copy_layer(&data->img[BG], &data->img[SCREEN], 0, 0);
 	copy_layer(&data->img[FRAME], &data->img[SCREEN], 0, 0);
 	copy_layer(&data->img[RAYS], &data->img[SCREEN], 0, 0);
