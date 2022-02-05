@@ -60,7 +60,10 @@ BONUS_DIR		=	sources_bonus
 
 OBJ_DIR			=	objects
 
-HEADER			=	includes/cub3d.h
+HEADERS			=	includes/cub3d.h includes/colors.h includes/defs.h \
+					includes/textures.h sources/keys/keys.h \
+					sources/graphics/graphics.h
+
 HEADER_BONUS	=	$(BONUS_DIR)/cub3d.h
 
 
@@ -83,7 +86,7 @@ CFLAGS			=	-Wall -Wextra -Werror -g3
 # CFLAGS			=
 LDFLAGS			=	-lXext -lX11 -lm
 
-$(OBJ_DIR)/%.o:	%.c $(HEADER)
+$(OBJ_DIR)/%.o:	%.c $(HEADERS)
 				$(CC) $(CFLAGS) -c $< -o $@ $(INCLUDES)
 
 $(OBJ_DIR)/%.o:	%.c $(HEADER_BONUS)
@@ -93,7 +96,7 @@ all:			$(NAME)
 
 bonus:			$(NAME_BONUS)
 
-$(NAME):		$(LIBFT) $(OBJ_DIR) $(MINILIBX) $(OBJECTS) $(HEADER) Makefile
+$(NAME):		$(LIBFT) $(OBJ_DIR) $(MINILIBX) $(OBJECTS) $(HEADERS)
 				$(CC) $(CFLAGS) $(OBJECTS) $(LIBFT) $(MINILIBX) \
 				$(LDFLAGS) -o $(NAME)
 
