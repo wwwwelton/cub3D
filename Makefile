@@ -74,7 +74,7 @@ VPATH			=	sources sources/draw sources/validation sources/keys \
 NAME			=	cub3D
 NAME_BONUS		=	cub3D_bonus
 
-INCLUDES		=	-I./sources -I./sources/validation
+INCLUDES		=	-I./sources -I./sources/validation -I./sources/graphics
 CC				=	gcc
 RM				=	rm -rf
 
