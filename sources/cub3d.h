@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 09:06:24 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/05 04:59:14 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/05 05:10:24 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,12 +90,12 @@
 # define BLACK 0x000000
 # define BLACKB 0x010101
 # define WHITE 0xFFFFFF
-# define GRAY 0x484848
+# define GRAY 0x5c5c5c
 # define GRAYC 0x383838
 # define GRAYF 0x707070
 # define PINK 0xff00fe
 # define BLUE 0x0171FF
-# define BLUE2 0x3d5061
+# define BLUE2 0x1b4382
 # define GRAY2 0x1d2024
 
 # define YOFF 250
