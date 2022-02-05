@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 09:06:24 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/05 05:10:24 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/05 05:33:19 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@
 # define PATHRESUME "assets/images/resume_game.xpm"
 # define PATHEXIT "assets/images/exit_game.xpm"
 
+# define PATHCROSSHAIR "assets/images/crosshair.xpm"
+
 # define TEX_WIDTH 64
 # define TEX_HEIGHT 64
 
@@ -60,6 +62,7 @@
 # define MAP 14
 # define PLAYER 15
 # define FRAME 22
+# define CROSSHAIR 23
 
 # define MEN_LOGO 9
 # define MEN_BG 10
@@ -73,7 +76,7 @@
 # define RESUME 20
 # define EXIT 21
 
-# define TEX_NB 23
+# define TEX_NB 24
 
 # define MENU 0
 # define GAME 1
@@ -419,6 +422,7 @@ float	set_player_direction(char c);
 void	set_player_position(t_data *data, char **map);
 void	decrease_step(float *move_step, float *side_step);
 void	lock_view_angle(float *view_angle);
+void	draw_crosshair(t_data *data);
 
 //utils
 t_bool	ftex_is_in_set(char c, char *set);

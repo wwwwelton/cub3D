@@ -19,6 +19,7 @@ SOURCES_FILES	=	cub3d.c \
 					draw_rays.c \
 					draw_menu.c \
 					draw_fps.c \
+					draw_crosshair.c \
 					draw.c \
 					draw_utils.c \
 					draw_wall.c \
