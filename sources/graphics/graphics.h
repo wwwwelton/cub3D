@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 05:46:11 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/05 06:20:24 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/05 11:58:49 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,8 @@ typedef struct s_rgb
 }	t_rgb;
 
 void	copy_layer(t_img *from, t_img *to, int x, int y);
-void	alpha_layer(t_img *from, t_img *to, int x, int y);
+void	alpha_layer(t_img *from, t_img *to, t_xy xy, float alpha);
+t_xy	layer_vars(int x, int y);
 int		blend_colors(int color1, int color2, float alpha1, float alpha2);
 void	change_color_intensity(int *color, float factor);
 void	fill(t_img *img, t_fill fill, int color);

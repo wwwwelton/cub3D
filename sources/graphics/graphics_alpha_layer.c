@@ -6,18 +6,27 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 05:37:35 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/05 05:37:51 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/05 10:38:51 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	alpha_layer(t_img *from, t_img *to, int x, int y)
+t_xy	layer_vars(int x, int y)
+{
+	t_xy	xy;
+
+	xy.x = x;
+	xy.y = y;
+	return (xy);
+}
+
+void	alpha_layer(t_img *from, t_img *to, t_xy xy, float alpha)
 {
 	int	i;
 	int	j;
-	int	*color_from;
-	int	*color_to;
+	int	*rgb_from;
+	int	*rgb_to;
 
 	i = -1;
 	j = -1;
@@ -25,10 +34,10 @@ void	alpha_layer(t_img *from, t_img *to, int x, int y)
 	{
 		while (++i < from->width)
 		{
-			color_from = &from->dump[i + j * from->size_l / 4];
-			color_to = &to->dump[x + i + ((y + j) * to->size_l / 4)];
-			if (*color_from != BLACK)
-				*color_to = blend_colors(*color_from, *color_to, 0.7, 0.3);
+			rgb_from = &from->dump[i + j * from->size_l / 4];
+			rgb_to = &to->dump[xy.x + i + ((xy.y + j) * to->size_l / 4)];
+			if (*rgb_from != BLACK)
+				*rgb_to = blend_colors(*rgb_from, *rgb_to, alpha, 1 - alpha);
 		}
 		i = -1;
 	}
