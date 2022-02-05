@@ -60,7 +60,7 @@ BONUS_DIR		=	sources_bonus
 
 OBJ_DIR			=	objects
 
-HEADER			=	$(SOURCES_DIR)/cub3d.h
+HEADER			=	includes/cub3d.h
 HEADER_BONUS	=	$(BONUS_DIR)/cub3d.h
 
 
@@ -74,7 +74,8 @@ VPATH			=	sources sources/draw sources/validation sources/keys \
 NAME			=	cub3D
 NAME_BONUS		=	cub3D_bonus
 
-INCLUDES		=	-I./sources -I./sources/validation -I./sources/graphics
+INCLUDES		=	-I./sources -I./sources/validation -I./sources/graphics \
+					-I./sources/keys -I./includes
 CC				=	gcc
 RM				=	rm -rf
 
@@ -82,50 +83,50 @@ CFLAGS			=	-Wall -Wextra -Werror -g3
 # CFLAGS			=
 LDFLAGS			=	-lXext -lX11 -lm
 
-$(OBJ_DIR)/%.o:		%.c $(HEADER)
-					$(CC) $(CFLAGS) -c $< -o $@ $(INCLUDES)
+$(OBJ_DIR)/%.o:	%.c $(HEADER)
+				$(CC) $(CFLAGS) -c $< -o $@ $(INCLUDES)
 
-$(OBJ_DIR)/%.o:		%.c $(HEADER_BONUS)
-					$(CC) $(CFLAGS) -c $< -o $@ -I ./sources_bonus
+$(OBJ_DIR)/%.o:	%.c $(HEADER_BONUS)
+				$(CC) $(CFLAGS) -c $< -o $@ -I ./sources_bonus
 
-all:				$(NAME)
+all:			$(NAME)
 
-bonus:				$(NAME_BONUS)
+bonus:			$(NAME_BONUS)
 
-$(NAME):			$(LIBFT) $(OBJ_DIR) $(MINILIBX) $(OBJECTS) $(HEADER)
-					$(CC) $(CFLAGS) $(OBJECTS) $(LIBFT) $(MINILIBX) \
-					$(LDFLAGS) -o $(NAME)
+$(NAME):		$(LIBFT) $(OBJ_DIR) $(MINILIBX) $(OBJECTS) $(HEADER) Makefile
+				$(CC) $(CFLAGS) $(OBJECTS) $(LIBFT) $(MINILIBX) \
+				$(LDFLAGS) -o $(NAME)
 
-$(NAME_BONUS):		$(LIBFT) $(OBJ_DIR) $(MINILIBX) $(OBJECTS_BONUS) \
-					$(HEADER_BONUS)
-					$(CC) $(CFLAGS) $(OBJECTS_BONUS) $(LIBFT) $(MINILIBX) \
-					$(LDFLAGS) -o $(NAME)
-					cp $(NAME) $(NAME_BONUS)
+$(NAME_BONUS):	$(LIBFT) $(OBJ_DIR) $(MINILIBX) $(OBJECTS_BONUS) \
+				 $(HEADER_BONUS)
+				$(CC) $(CFLAGS) $(OBJECTS_BONUS) $(LIBFT) $(MINILIBX)\
+				 $(LDFLAGS) -o $(NAME)
+				cp $(NAME) $(NAME_BONUS)
 
 $(LIBFT):
-					$(MAKE) -C $(LIBFT_PATH) bonus
+				$(MAKE) -C $(LIBFT_PATH) bonus
 
 $(MINILIBX):
-					$(MAKE) -C $(MINILIBX_PATH)
+				$(MAKE) -C $(MINILIBX_PATH)
 
 $(OBJ_DIR):
-					mkdir -p $(OBJ_DIR)
+				mkdir -p $(OBJ_DIR)
 
 clean:
-					$(MAKE) -C $(LIBFT_PATH) clean
-					$(MAKE) -C $(MINILIBX_PATH) clean
-					$(RM) $(OBJ_DIR)
+				$(MAKE) -C $(LIBFT_PATH) clean
+				$(MAKE) -C $(MINILIBX_PATH) clean
+				$(RM) $(OBJ_DIR)
 
-fclean:				clean
-					$(MAKE) -C $(LIBFT_PATH) fclean
-					$(RM) $(NAME) $(NAME_BONUS)
+fclean:			clean
+				$(MAKE) -C $(LIBFT_PATH) fclean
+				$(RM) $(NAME) $(NAME_BONUS)
 
 run:
-					make && clear && ./$(NAME) assets/maps/minimap.cub
+				make && clear && ./$(NAME) assets/maps/minimap.cub
 
 runv:
-					make && clear && valgrind ./$(NAME) assets/maps/minimap.cub
+				make && clear && valgrind ./$(NAME) assets/maps/minimap.cub
 
-re:					fclean all
+re:				fclean all
 
-.PHONY:				all clean fclean re libft minilibx bonus
+.PHONY:			all clean fclean re libft minilibx bonus
