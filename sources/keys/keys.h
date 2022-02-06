@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   keys.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 06:15:57 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/05 06:19:46 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/05 23:26:21 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@
 # define KEY_D 100
 # define KEY_ENTER 65293
 # define KEY_N_ENTER 65421
+# define KEY_CTRL 65507
+# define KEY_R_CTRL 65508
 
 # define KEY_UP 65362
 # define KEY_LEFT 65361

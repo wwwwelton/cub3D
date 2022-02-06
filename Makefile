@@ -13,6 +13,7 @@ SOURCES_FILES	=	cub3d.c \
 					graphics_fill.c \
 					graphics_alpha_layer.c \
 					graphics_copy_layer.c \
+					mouse_handler.c \
 					print_map.c \
 					cleanup.c \
 					draw_bg.c \
@@ -62,7 +63,7 @@ OBJ_DIR			=	objects
 
 HEADERS			=	includes/cub3d.h includes/colors.h includes/defs.h \
 					includes/textures.h sources/keys/keys.h \
-					sources/graphics/graphics.h
+					sources/graphics/graphics.h sources/mouse/mouse.h
 
 HEADER_BONUS	=	$(BONUS_DIR)/cub3d.h
 
@@ -72,13 +73,13 @@ OBJECTS_BONUS	=	$(BONUS_FILES:$(BONUS_DIR)/%.c=$(OBJ_DIR)/%.o)
 
 VPATH			=	sources sources/draw sources/validation sources/keys \
 					sources/graphics sources/utils sources/init \
-					sources/raycaster
+					sources/raycaster sources/mouse
 
 NAME			=	cub3D
 NAME_BONUS		=	cub3D_bonus
 
 INCLUDES		=	-I./sources -I./sources/validation -I./sources/graphics \
-					-I./sources/keys -I./includes
+					-I./sources/keys -I./sources/mouse -I./includes
 CC				=	gcc
 RM				=	rm -rf
 
@@ -101,9 +102,9 @@ $(NAME):		$(LIBFT) $(OBJ_DIR) $(MINILIBX) $(OBJECTS) $(HEADERS)
 				$(LDFLAGS) -o $(NAME)
 
 $(NAME_BONUS):	$(LIBFT) $(OBJ_DIR) $(MINILIBX) $(OBJECTS_BONUS) \
-				 $(HEADER_BONUS)
+				$(HEADER_BONUS)
 				$(CC) $(CFLAGS) $(OBJECTS_BONUS) $(LIBFT) $(MINILIBX)\
-				 $(LDFLAGS) -o $(NAME)
+				$(LDFLAGS) -o $(NAME)
 				cp $(NAME) $(NAME_BONUS)
 
 $(LIBFT):

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   defs.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 06:04:56 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/05 06:28:29 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/05 23:19:19 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -171,6 +171,7 @@ typedef struct s_data
 	int			img_width;
 	int			img_height;
 	int			state;
+	int			mouse_lock;
 	t_bool		game_running;
 	char		**map;
 	char		**devmap;

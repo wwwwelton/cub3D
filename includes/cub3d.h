@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 09:06:24 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/05 06:28:53 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/05 23:19:08 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 # include "graphics.h"
 # include "keys.h"
 # include "colors.h"
+# include "mouse.h"
 # include "../libraries/libft/libft.h"
 # include "../libraries/minilibx/mlx.h"
 # include "time.h"
