@@ -61,9 +61,13 @@ BONUS_DIR		=	sources_bonus
 
 OBJ_DIR			=	objects
 
-HEADERS			=	includes/cub3d.h includes/colors.h includes/defs.h \
-					includes/textures.h sources/keys/keys.h \
-					sources/graphics/graphics.h sources/mouse/mouse.h
+HEADERS			=	cub3d.h \
+					colors.h \
+					defs.h \
+					textures.h \
+					keys.h \
+					graphics.h \
+					mouse.h \
 
 HEADER_BONUS	=	$(BONUS_DIR)/cub3d.h
 
@@ -73,18 +77,18 @@ OBJECTS_BONUS	=	$(BONUS_FILES:$(BONUS_DIR)/%.c=$(OBJ_DIR)/%.o)
 
 VPATH			=	sources sources/draw sources/validation sources/keys \
 					sources/graphics sources/utils sources/init \
-					sources/raycaster sources/mouse
+					sources/raycaster sources/mouse includes/
 
 NAME			=	cub3D
 NAME_BONUS		=	cub3D_bonus
 
 INCLUDES		=	-I./sources -I./sources/validation -I./sources/graphics \
 					-I./sources/keys -I./sources/mouse -I./includes
+
 CC				=	gcc
 RM				=	rm -rf
 
 CFLAGS			=	-Wall -Wextra -Werror -g3
-# CFLAGS			=
 LDFLAGS			=	-lXext -lX11 -lm
 
 $(OBJ_DIR)/%.o:	%.c $(HEADERS)
