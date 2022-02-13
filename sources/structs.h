@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 17:16:54 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/13 17:27:04 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/13 17:41:04 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ typedef struct s_line
 	int	y1;
 	int	color;
 }	t_line;
-
 
 typedef struct s_hit_data
 {
@@ -133,7 +132,6 @@ typedef struct s_player
 	float	look_speed;
 }	t_player;
 //player
-
 
 typedef struct s_map
 {

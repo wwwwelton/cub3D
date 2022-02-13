@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 06:16:42 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/05 13:03:02 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/13 17:41:09 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,32 +36,35 @@
 
 # define TEX_WIDTH 64
 # define TEX_HEIGHT 64
-# define SCREEN 0
-# define RAYS 1
-# define BG 2
-# define TEX_NO 3
-# define TEX_WE 4
-# define TEX_SO 5
-# define TEX_EA 6
-# define TEX_FL 7
-# define TEX_CE 8
-# define MAP 14
-# define PLAYER 15
-# define FRAME 22
 
-# define MEN_LOGO 9
-# define MEN_BG 10
-# define MEN_START 11
-# define MEN_OPT 12
-# define ARROW 13
-# define SENSI 16
-# define MSPD 17
-# define RSPD 18
-# define BACK 19
-# define RESUME 20
-# define EXIT 21
-# define CROSSHAIR 24
-# define HUDFRAME 23
-# define TEX_NB 25
+typedef enum e_tex
+{
+	SCREEN,
+	RAYS,
+	BG,
+	MAP,
+	PLAYER,
+	FRAME,
+	TEX_NO,
+	TEX_EA,
+	TEX_SO,
+	TEX_WE,
+	TEX_FL,
+	TEX_CE,
+	MEN_LOGO,
+	MEN_BG,
+	MEN_START,
+	MEN_OPT,
+	SENSI,
+	RESUME,
+	BACK,
+	RSPD,
+	MSPD,
+	ARROW,
+	CROSSHAIR,
+	HUDFRAME,
+	EXIT,
+	TEX_NB
+}	t_tex;
 
 #endif
