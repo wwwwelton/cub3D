@@ -1,32 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   defs.h                                             :+:      :+:    :+:   */
+/*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
+/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/05 06:04:56 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/05 23:19:19 by wleite           ###   ########.fr       */
+/*   Created: 2022/02/13 17:16:54 by jofelipe          #+#    #+#             */
+/*   Updated: 2022/02/13 17:27:04 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DEFS_H
-# define DEFS_H
-
-# define WIN_WIDTH 1024
-# define WIN_HEIGHT 768
-
-# define IMG_WIDTH 1024
-# define IMG_HEIGHT 768
-
-# define NUM_RAYS WIN_WIDTH
-# define FLT_MAX 3.40282346638528859812e+38F
-# define FOV_ANGLE 1.0472
-# define FOG_DIST 400
-# define FOG_SIDE 0.7
-
-# define PLAYER_SIZE 64
-# define VIEW_ANGLE 400
+#ifndef STRUCTS_H
+# define STRUCTS_H
 
 typedef struct s_line
 {
@@ -43,25 +28,6 @@ typedef struct s_line
 	int	color;
 }	t_line;
 
-typedef struct s_player
-{
-	float	x;
-	float	y;
-	float	width;
-	float	height;
-	int		turn_dir;
-	int		walk_dir;
-	int		side_dir;
-	int		look_dir;
-	int		init_pos;
-	float	view_angle;
-	float	rot_angle;
-	float	walk_speed;
-	float	turn_speed;
-	int		turn_speed_var;
-	float	look_speed;
-}	t_player;
-//player
 
 typedef struct s_hit_data
 {
@@ -147,6 +113,27 @@ typedef struct s_mlx
 	void		*mlx_ptr;
 	void		*win;
 }				t_mlx;
+
+typedef struct s_player
+{
+	float	x;
+	float	y;
+	float	width;
+	float	height;
+	int		turn_dir;
+	int		walk_dir;
+	int		side_dir;
+	int		look_dir;
+	int		init_pos;
+	float	view_angle;
+	float	rot_angle;
+	float	walk_speed;
+	float	turn_speed;
+	int		turn_speed_var;
+	float	look_speed;
+}	t_player;
+//player
+
 
 typedef struct s_map
 {

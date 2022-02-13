@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
+/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 09:06:24 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/05 23:19:08 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/13 17:21:31 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,50 +17,17 @@
 # include <string.h>
 # include <math.h>
 # include <fcntl.h>
-# include "textures.h"
-# include "defs.h"
+# include "defines.h"
 # include "errors.h"
+# include "textures.h"
+# include "structs.h"
 # include "graphics.h"
 # include "keys.h"
-# include "colors.h"
 # include "mouse.h"
 # include "../libraries/libft/libft.h"
 # include "../libraries/minilibx/mlx.h"
 # include "time.h"
 # include <sys/time.h>
-
-# define CLEAR "\e[1;1H\e[2J"
-# define DEBUG 0
-
-# define MENU 0
-# define GAME 1
-# define OPTIONS 3
-
-# define NORTH 1
-# define WEST 2
-# define SOUTH 3
-# define EAST 4
-
-# define YOFF 250
-# define XOFF 100
-
-# define OPTYOFF 200
-# define OPTXOFF 100
-
-# define PI 3.14159265
-# define TWO_PI 6.28318530
-
-# define EDGE '9'
-# define OUTER '!'
-# define INNER '@'
-# define FILLER '#'
-# define VALID_PLAYER "NSEW"
-# define VALID_MAP "01"
-
-# define FRAME_DELAY 500
-
-# define MINIMAP_SCALE_FACTOR 0.1
-# define TILE_SIZE 64
 
 //init
 void	init_data(t_data *data);
