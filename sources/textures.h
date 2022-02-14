@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 06:16:42 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/13 17:41:09 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/14 18:06:34 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ typedef enum e_tex
 	CROSSHAIR,
 	HUDFRAME,
 	EXIT,
+	BLOCK,
 	TEX_NB
 }	t_tex;
 

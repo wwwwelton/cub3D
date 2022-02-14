@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 09:06:24 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/13 17:21:31 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/14 18:11:57 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,6 +106,7 @@ void	draw_line(t_img *img, t_line line);
 int		middle_x(t_img img);
 int		middle_y(t_img img);
 void	put_menu_item(t_data *data, int src, int offy, int offx);
+void	fill_menu_item(t_data *data, int i, int offy, int offx);
 int		count_commas(char *str);
 
 //render

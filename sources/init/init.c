@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
+/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/05 23:33:50 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/14 18:51:33 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,14 @@ static void	init_images(t_data *data)
 	init_img(data, &data->img[MAP], IMG_WIDTH, IMG_HEIGHT);
 	init_img(data, &data->img[PLAYER], IMG_WIDTH, IMG_HEIGHT);
 	init_img(data, &data->img[FRAME], IMG_WIDTH, IMG_HEIGHT);
+	init_img(data, &data->img[BLOCK], 100, 70);
+	data->img[BLOCK].height = 70;
+	data->img[BLOCK].width = 100;
+	fill(&data->img[BLOCK], fillparams(0, 0, 100, 70), RED);
+}
+
+void	init_xpm_textures(t_data *data)
+{
 	init_xpm(data, &data->img[TEX_NO], data->params.north);
 	init_xpm(data, &data->img[TEX_EA], data->params.east);
 	init_xpm(data, &data->img[TEX_SO], data->params.south);
@@ -78,4 +86,5 @@ void	init_data(t_data *data)
 	init_menu(data);
 	init_player(data);
 	init_images(data);
+	init_xpm_textures(data);
 }
