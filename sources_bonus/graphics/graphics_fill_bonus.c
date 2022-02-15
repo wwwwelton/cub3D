@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   graphics_fill.c                                    :+:      :+:    :+:   */
+/*   graphics_fill_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 05:58:37 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/05 05:11:10 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/15 00:25:38 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "cub3d_bonus.h"
 
 /**
  * @brief parameters to fill function

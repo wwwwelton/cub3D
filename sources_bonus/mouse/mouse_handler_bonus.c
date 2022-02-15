@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mouse_handler.c                                    :+:      :+:    :+:   */
+/*   mouse_handler_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/19 09:22:26 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/05 23:56:35 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/15 00:25:38 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "cub3d_bonus.h"
 
 void	check_mouse_visibility(t_data *data)
 {

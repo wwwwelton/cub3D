@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   raycaster_utils.c                                  :+:      :+:    :+:   */
+/*   raycaster_utils_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 13:10:51 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/31 21:37:40 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/15 00:25:39 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "cub3d_bonus.h"
 
 int	get_map_texture(t_hit_data *hit_data, t_data *data)
 {

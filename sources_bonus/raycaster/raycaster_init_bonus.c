@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   raycaster_init.c                                   :+:      :+:    :+:   */
+/*   raycaster_init_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 13:10:51 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/31 16:15:07 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/15 00:25:39 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "cub3d_bonus.h"
 
 void	init_horz_hit_data(float ray_angle,	t_hit_data *horz, t_player player)
 {

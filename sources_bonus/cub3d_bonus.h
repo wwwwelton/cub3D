@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 09:06:24 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/14 23:17:22 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/15 00:27:40 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,18 @@
 # include <string.h>
 # include <math.h>
 # include <fcntl.h>
-# include "defines.h"
-# include "errors.h"
-# include "textures.h"
-# include "structs.h"
-# include "graphics.h"
-# include "raycaster.h"
-# include "draw.h"
-# include "keys.h"
-# include "mouse.h"
+# include "defines_bonus.h"
+# include "errors_bonus.h"
+# include "textures_bonus.h"
+# include "structs_bonus.h"
+# include "graphics_bonus.h"
+# include "raycaster_bonus.h"
+# include "draw_bonus.h"
+# include "keys_bonus.h"
+# include "mouse_bonus.h"
 # include "../libraries/libft/libft.h"
 # include "../libraries/minilibx/mlx.h"
-# include "time.h"
+# include <time.h>
 # include <sys/time.h>
 
 //init

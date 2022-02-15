@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   raycaster_utils_dir.c                              :+:      :+:    :+:   */
+/*   raycaster_utils_direction_bonus.c                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 13:10:51 by wleite            #+#    #+#             */
-/*   Updated: 2022/01/31 15:46:34 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/15 00:25:39 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "cub3d_bonus.h"
 
 int	is_ray_facing_down(float angle)
 {
