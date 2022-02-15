@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 17:16:54 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/14 22:30:06 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/14 23:28:52 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,6 @@ typedef struct s_params
 typedef struct s_data
 {
 	int			state;
-	int			mouse_lock;
 	t_bool		game_running;
 	char		**map;
 	char		**devmap;

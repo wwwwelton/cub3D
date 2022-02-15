@@ -11,7 +11,6 @@ SOURCES_FILES	=	cub3d.c \
 					graphics_fill.c \
 					graphics_alpha_layer.c \
 					graphics_copy_layer.c \
-					mouse_handler.c \
 					print_map.c \
 					cleanup.c \
 					draw_map.c \
@@ -101,7 +100,6 @@ HEADERS			=	cub3d.h \
 					textures.h \
 					keys.h \
 					graphics.h \
-					mouse.h \
 					raycaster.h \
 					draw.h \
 
@@ -115,7 +113,7 @@ HEADERS_BONUS	=	cub3d_bonus.h \
 					draw_bonus.h \
 
 INCLUDES		=	-I./sources -I./sources/validation -I./sources/graphics \
-					-I./sources/keys -I./sources/mouse -I./sources/raycaster \
+					-I./sources/keys -I./sources/raycaster \
 					-I./sources/draw
 
 INCLUDES_BONUS	=	-I./sources_bonus -I./sources_bonus/validation \
@@ -125,7 +123,7 @@ INCLUDES_BONUS	=	-I./sources_bonus -I./sources_bonus/validation \
 
 VPATH			=	sources sources/draw sources/validation sources/keys \
 					sources/graphics sources/utils sources/init \
-					sources/raycaster sources/mouse \
+					sources/raycaster \
 					sources_bonus sources_bonus/draw sources_bonus/validation \
 					sources_bonus/keys sources_bonus/graphics \
 					sources_bonus/utils sources_bonus/init \

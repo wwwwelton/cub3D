@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/14 22:18:19 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/14 23:29:09 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ static void	init_menu(t_data *data)
 	data->menu.opt_mouses = 3;
 	data->menu.opt_rots = 2;
 	data->menu.opt_moves = 1;
-	data->mouse_lock = 1;
 }
 
 static void	init_player(t_data *data)

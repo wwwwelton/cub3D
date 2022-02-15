@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 09:06:24 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/14 23:27:09 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/14 23:30:53 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@
 # include "raycaster.h"
 # include "draw.h"
 # include "keys.h"
-# include "mouse.h"
 # include "../libraries/libft/libft.h"
 # include "../libraries/minilibx/mlx.h"
 
