@@ -144,7 +144,7 @@ CFLAGS			=	-Wall -Wextra -Werror -g3
 LDFLAGS			=	-lXext -lX11 -lm
 
 $(OBJ_DIR)/%.o:	%.c $(HEADERS)
-				$(CC) $(CFLAGS) -c $< -o $@ $(INCLUDES)
+				$(CC) $(CFLAGS) -c $< -o $@ $(INCLUDES) $(INCLUDES_BONUS)
 
 all:			$(NAME)
 
