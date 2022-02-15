@@ -184,6 +184,12 @@ run:
 runv:
 				make && clear && valgrind ./$(NAME) assets/maps/minimap.cub
 
+runb:
+				make bonus && clear && ./$(NAME_BONUS) assets/maps/minimap.cub
+
+runvb:
+				make bonus && clear && valgrind ./$(NAME_BONUS) assets/maps/minimap.cub
+
 re:				fclean all
 
 .PHONY:			all clean fclean re libft minilibx bonus
