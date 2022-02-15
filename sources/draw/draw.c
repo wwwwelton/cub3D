@@ -18,10 +18,10 @@ static void	reinit_images(t_data *data)
 	mlx_destroy_image(data->mlx.mlx_ptr, data->img[RAYS].img_ptr);
 	mlx_destroy_image(data->mlx.mlx_ptr, data->img[SCREEN].img_ptr);
 	mlx_destroy_image(data->mlx.mlx_ptr, data->img[MAP].img_ptr);
-	init_img(data, &data->img[PLAYER], IMG_WIDTH, IMG_HEIGHT);
-	init_img(data, &data->img[RAYS], IMG_WIDTH, IMG_HEIGHT);
-	init_img(data, &data->img[SCREEN], IMG_WIDTH, IMG_HEIGHT);
-	init_img(data, &data->img[MAP], IMG_WIDTH, IMG_HEIGHT);
+	init_img(data, &data->img[PLAYER], WIN_WIDTH, WIN_HEIGHT);
+	init_img(data, &data->img[RAYS], WIN_WIDTH, WIN_HEIGHT);
+	init_img(data, &data->img[SCREEN], WIN_WIDTH, WIN_HEIGHT);
+	init_img(data, &data->img[MAP], WIN_WIDTH, WIN_HEIGHT);
 }
 
 void	draw_game(t_data *data)

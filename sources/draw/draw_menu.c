@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 00:18:15 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/14 18:49:32 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/14 21:16:04 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	draw_menu(t_data *data)
 	put_menu_item(data, MEN_LOGO, 0, -250);
 	mlx_put_image_to_window(mlx->mlx_ptr, mlx->win, img->img_ptr, 0, 0);
 	mlx_destroy_image(mlx->mlx_ptr, img[SCREEN].img_ptr);
-	init_img(data, &img[SCREEN], IMG_WIDTH, IMG_HEIGHT);
+	init_img(data, &img[SCREEN], WIN_WIDTH, WIN_HEIGHT);
 }
 
 void	draw_options(t_data *data)
@@ -55,5 +55,5 @@ void	draw_options(t_data *data)
 	put_menu_item(data, ARROW, OPTYOFF + 250, XOFF * (data->menu.options - 3));
 	mlx_put_image_to_window(mlx->mlx_ptr, mlx->win, img->img_ptr, 0, 0);
 	mlx_destroy_image(mlx->mlx_ptr, img[SCREEN].img_ptr);
-	init_img(data, &img[SCREEN], IMG_WIDTH, IMG_HEIGHT);
+	init_img(data, &img[SCREEN], WIN_WIDTH, WIN_HEIGHT);
 }

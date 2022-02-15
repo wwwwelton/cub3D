@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 17:18:00 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/14 21:04:39 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/14 21:24:42 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,10 @@
 
 # define MENU 0
 # define GAME 1
-# define OPTIONS 3
-
-# define NORTH 1
-# define WEST 2
-# define SOUTH 3
-# define EAST 4
+# define OPTIONS 2
 
 # define YOFF 250
 # define XOFF 100
-
 # define OPTYOFF 200
 # define OPTXOFF 100
 
@@ -43,14 +37,10 @@
 
 # define FRAME_DELAY 500
 
-# define MINIMAP_SCALE_FACTOR 0.1
 # define TILE_SIZE 64
 
 # define WIN_WIDTH 1024
 # define WIN_HEIGHT 768
-
-# define IMG_WIDTH 1024
-# define IMG_HEIGHT 768
 
 # define NUM_RAYS WIN_WIDTH
 # define FLT_MAX 3.40282346638528859812e+38F
@@ -58,21 +48,15 @@
 # define FOG_DIST 400
 # define FOG_SIDE 0.7
 
-# define PLAYER_SIZE 64
+# define PLAYER_SIZE TILE_SIZE
 # define VIEW_ANGLE 400
 
 # define RED 0xff0000
-# define RED_BLACK 0xd20000
 # define YELLOW 0xE3E316
 # define BLACK 0x000000
 # define BLACKB 0x010101
 # define WHITE 0xFFFFFF
 # define GRAY 0x5c5c5c
-# define GRAYC 0x383838
-# define GRAYF 0x707070
-# define PINK 0xff00fe
-# define BLUE 0x0171FF
-# define BLUE2 0x1b4382
-# define GRAY2 0x1d2024
+# define BLUE 0x1b4382
 
 #endif

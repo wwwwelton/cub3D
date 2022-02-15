@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/14 18:47:11 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/14 21:16:04 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 int	middle_x(t_img img)
 {
-	return (IMG_WIDTH / 2 - (img.width / 2));
+	return (WIN_WIDTH / 2 - (img.width / 2));
 }
 
 int	middle_y(t_img img)
 {
-	return (IMG_HEIGHT / 2 - (img.height / 2));
+	return (WIN_HEIGHT / 2 - (img.height / 2));
 }
 
 void	fill_menu_item(t_data *data, int i, int offy, int offx)

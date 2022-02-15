@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 17:16:54 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/13 17:41:04 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/14 21:18:54 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -153,8 +153,6 @@ typedef struct s_params
 
 typedef struct s_data
 {
-	int			img_width;
-	int			img_height;
 	int			state;
 	int			mouse_lock;
 	t_bool		game_running;
