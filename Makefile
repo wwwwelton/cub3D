@@ -48,7 +48,49 @@ SOURCES_FILES	=	cub3d.c \
 					keys_controller.c \
 					keys_menu_wasd.c
 
-SOURCES_BONUS	=
+BONUS_FILES	=		cub3d_bonus.c \
+					init_bonus.c \
+					init_utils_bonus.c \
+					graphics_utils_bonus.c \
+					graphics_fill_bonus.c \
+					graphics_alpha_layer_bonus.c \
+					graphics_copy_layer_bonus.c \
+					mouse_handler_bonus.c \
+					print_map_bonus.c \
+					cleanup_bonus.c \
+					draw_map_bonus.c \
+					draw_menu_bonus.c \
+					draw_fps_bonus.c \
+					draw_crosshair_bonus.c \
+					draw_bonus.c \
+					draw_utils_bonus.c \
+					draw_wall_bonus.c \
+					draw_wall_utils_bonus.c \
+					game_loop_bonus.c \
+					keys_utils_bonus.c \
+					raycaster_bonus.c \
+					raycaster_init_bonus.c \
+					raycaster_utils_bonus.c \
+					raycaster_utils_direction_bonus.c \
+					utils_map_bonus.c \
+					validate_bonus.c \
+					validate_map_bonus.c \
+					validate_map_inner_bonus.c \
+					validate_map_utils_bonus.c \
+					validate_files_bonus.c \
+					validate_files_utils_bonus.c \
+					validate_arguments_bonus.c \
+					validate_utils_bonus.c \
+					validate_utils2_bonus.c \
+					utils_player_bonus.c \
+					utils_player_aux_bonus.c \
+					utils_tr_bonus.c \
+					utils_strerase_bonus.c \
+					utils_math_bonus.c \
+					utils_bonus.c \
+					keys_wasd_bonus.c \
+					keys_controller_bonus.c \
+					keys_menu_wasd_bonus.c \
 
 SOURCES_DIR		=	sources
 BONUS_DIR		=	sources_bonus
@@ -62,20 +104,38 @@ HEADERS			=	cub3d.h \
 					graphics.h \
 					mouse.h \
 					raycaster.h \
-					draw.h
+					draw.h \
+
+HEADERS_BONUS	=	cub3d_bonus.h \
+					defines_bonus.h \
+					textures_bonus.h \
+					keys_bonus.h \
+					graphics_bonus.h \
+					mouse_bonus.h \
+					raycaster_bonus.h \
+					draw_bonus.h \
 
 INCLUDES		=	-I./sources -I./sources/validation -I./sources/graphics \
 					-I./sources/keys -I./sources/mouse -I./sources/raycaster \
 					-I./sources/draw
 
+INCLUDES_BONUS	=	-I./sources_bonus -I./sources_bonus/validation \
+					-I./sources_bonus/graphics -I./sources_bonus/keys \
+					-I./sources_bonus/mouse -I./sources_bonus/raycaster \
+					-I./sources_bonus/draw
+
 VPATH			=	sources sources/draw sources/validation sources/keys \
 					sources/graphics sources/utils sources/init \
-					sources/raycaster sources/mouse
+					sources/raycaster sources/mouse \
+					sources_bonus sources_bonus/draw sources_bonus/validation \
+					sources_bonus/keys sources_bonus/graphics \
+					sources_bonus/utils sources_bonus/init \
+					sources_bonus/raycaster sources_bonus/mouse \
 
-HEADER_BONUS	=	$(BONUS_DIR)/cub3d.h
+HEADER_BONUS	=	$(BONUS_DIR)/cub3d_bonus.h
 
 OBJECTS			=	$(SOURCES_FILES:%.c=$(OBJ_DIR)/%.o)
-OBJECTS_BONUS	=	$(BONUS_FILES:$(BONUS_DIR)/%.c=$(OBJ_DIR)/%.o)
+OBJECTS_BONUS	=	$(BONUS_FILES:%.c=$(OBJ_DIR)/%.o)
 
 
 NAME			=	cub3D
@@ -90,9 +150,6 @@ LDFLAGS			=	-lXext -lX11 -lm
 
 $(OBJ_DIR)/%.o:	%.c $(HEADERS)
 				$(CC) $(CFLAGS) -c $< -o $@ $(INCLUDES)
-
-$(OBJ_DIR)/%.o:	%.c $(HEADER_BONUS)
-				$(CC) $(CFLAGS) -c $< -o $@ -I ./sources_bonus
 
 all:			$(NAME)
 
