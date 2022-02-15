@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 17:18:00 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/14 18:47:35 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/14 21:04:39 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,11 @@
 # define MINIMAP_SCALE_FACTOR 0.1
 # define TILE_SIZE 64
 
-# define WIN_WIDTH 1920
-# define WIN_HEIGHT 1080
+# define WIN_WIDTH 1024
+# define WIN_HEIGHT 768
 
-# define IMG_WIDTH 1920
-# define IMG_HEIGHT 1080
+# define IMG_WIDTH 1024
+# define IMG_HEIGHT 768
 
 # define NUM_RAYS WIN_WIDTH
 # define FLT_MAX 3.40282346638528859812e+38F

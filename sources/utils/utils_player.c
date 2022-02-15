@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_player.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
+/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/04 18:30:05 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/14 21:10:04 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,6 @@ void	update_player_matrix(t_data *data)
 			data->map[player_y][player_x] = 'N';
 			printf(CLEAR);
 			print_colored_map(data->map);
-			printf("player x %d player y %d\n", player_x, player_y);
-			printf("xy.x %d xy.y %d\n", xy.x, xy.y);
 		}
 	}
 }
