@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 06:16:42 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/14 21:37:02 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/14 22:19:49 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,7 @@
 typedef enum e_tex
 {
 	SCREEN,
-	RAYS,
-	BG,
 	MAP,
-	PLAYER,
 	FRAME,
 	TEX_NO,
 	TEX_EA,
