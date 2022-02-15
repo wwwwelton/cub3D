@@ -6,12 +6,22 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 17:16:54 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/14 21:18:54 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/14 22:10:04 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRUCTS_H
 # define STRUCTS_H
+
+typedef struct s_ray
+{
+	float	ray_angle;
+	float	wall_hit_x;
+	float	wall_hit_y;
+	float	distance;
+	int		was_hit_vertical;
+	int		texture;
+}	t_ray;
 
 typedef struct s_line
 {
@@ -27,50 +37,6 @@ typedef struct s_line
 	int	y1;
 	int	color;
 }	t_line;
-
-typedef struct s_hit_data
-{
-	float	wall_hit_x;
-	float	wall_hit_y;
-	int		wall_texture;
-	float	next_touch_x;
-	float	next_touch_y;
-	float	hit_distance;
-	float	x_intercept;
-	float	y_intercept;
-	float	x_step;
-	float	y_step;
-	float	x_to_check;
-	float	y_to_check;
-	int		found_vert_wall_hit;
-}	t_hit_data;
-
-typedef struct s_ray
-{
-	float	ray_angle;
-	float	wall_hit_x;
-	float	wall_hit_y;
-	float	distance;
-	int		was_hit_vertical;
-	int		texture;
-}	t_ray;
-//ray
-
-//wall
-typedef struct s_wall_data
-{
-	float	height;
-	int		top_y;
-	int		bottom_y;
-	float	perp_distance;
-	float	dist_proj_plane;
-	int		pixel_color;
-	int		texture_offset_x;
-	int		texture_offset_y;
-	int		distance_from_top;
-	int		win_height;
-}	t_wall_data;
-//wall
 
 typedef enum e_bool
 {
@@ -131,7 +97,6 @@ typedef struct s_player
 	int		turn_speed_var;
 	float	look_speed;
 }	t_player;
-//player
 
 typedef struct s_map
 {

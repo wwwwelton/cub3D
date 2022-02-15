@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 09:06:24 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/14 21:33:06 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/14 22:11:50 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@
 # include "textures.h"
 # include "structs.h"
 # include "graphics.h"
+# include "raycaster.h"
+# include "draw.h"
 # include "keys.h"
 # include "mouse.h"
 # include "../libraries/libft/libft.h"
@@ -38,6 +40,8 @@ int		exit_game(t_data *data);
 
 //loop
 int		game_loop(t_data *data);
+void	update_player(t_data *data);
+void	update_player_matrix(t_data *data);
 
 //validation
 t_bool	argument_validation(t_data *data, int argc, char **argv);
@@ -68,21 +72,8 @@ t_bool	is_char_adjacent_to(char **map, int x, int y, char c);
 void	print_map(char **map);
 void	print_colored_map(char **map);
 
-//raycasting
-void	draw_rays(t_data *data);
-
-//raycaster map
-void	draw_map(t_data *data, char **map, int x, int y);
-int		map_has_wall_at(float x, float y, t_data *data);
-int		map_height(t_data *data);
-int		map_width(t_data *data);
-int		is_inside_map(float x, float y, t_data *data);
-int		get_map_value_at(int i, int j, t_data *data);
-
 //player
 void	draw_player(t_data *data);
-void	update_player(t_data *data);
-void	update_player_matrix(t_data *data);
 char	get_player_direction(char **map);
 float	set_player_direction(char c);
 void	set_player_position(t_data *data, char **map);
@@ -91,22 +82,23 @@ void	lock_view_angle(float *view_angle);
 void	draw_crosshair(t_data *data);
 
 //utils
-t_bool	ftex_is_in_set(char c, char *set);
-void	pixel_put(t_img *img, int x, int y, int color);
-void	free_matrix(char **matrix);
 char	*ftex_strerase(char *str, char *set);
+t_bool	ftex_is_in_set(char c, char *set);
 void	ftex_tr(char *str, char *del, char *ret);
-t_bool	print_error(char *error);
 void	tr_matrix(char **matrix, char *del, char *replace);
-void	normalize_angle(float *angle);
-float	get_perp_distance(t_ray ray, t_data *data);
-float	distance_between_points(float x1, float y1, float x2, float y2);
+void	free_matrix(char **matrix);
+void	pixel_put(t_img *img, int x, int y, int color);
+t_bool	print_error(char *error);
+int		count_commas(char *str);
 void	draw_line(t_img *img, t_line line);
 int		middle_x(t_img img);
 int		middle_y(t_img img);
+int		map_height(t_data *data);
+int		map_width(t_data *data);
+int		get_map_value_at(int i, int j, t_data *data);
+int		is_inside_map(float x, float y, t_data *data);
 void	put_menu_item(t_data *data, int src, int offy, int offx);
 void	fill_menu_item(t_data *data, int i, int offy, int offx);
-int		count_commas(char *str);
 
 //render
 void	draw_game(t_data *data);
@@ -118,28 +110,5 @@ int		game_loop(t_data *data);
 //fps counter uses time.h and <sys/time.h
 void	draw_fps(t_data *data);
 long	timestamp(void);
-
-//raycaster
-int		is_ray_facing_down(float angle);
-int		is_ray_facing_up(float angle);
-int		is_ray_facing_right(float angle);
-int		is_ray_facing_left(float angle);
-
-void	init_horz_hit_data(float ray_angle,	t_hit_data *horz, t_player player);
-void	init_vert_hit_data(float ray_angle,	t_hit_data *vert, t_player player);
-void	check_horz_hit(float ray_angle, t_hit_data *horz, t_data *data);
-void	check_vert_hit(float ray_angle, t_hit_data *vert, t_data *data);
-void	cast_ray(float ray_angle, int col_id, t_data *data);
-void	cast_all_rays(t_data *data);
-int		get_map_texture(t_hit_data *hit_data, t_data *data);
-float	get_hit_distance(t_hit_data *hit_data, t_data *data);
-
-//wall
-void	draw_wall(t_data *data);
-void	init_wall_data(t_wall_data *wall, t_player player);
-int		get_wall_facing_side(t_ray ray);
-int		get_wall_pixel_color(t_img texture, t_wall_data *wall);
-void	check_inverse_offset_x(t_ray ray, int *texture_offset_x);
-int		get_texture_offset_x(t_ray ray);
 
 #endif

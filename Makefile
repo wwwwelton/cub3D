@@ -66,9 +66,12 @@ HEADERS			=	cub3d.h \
 					keys.h \
 					graphics.h \
 					mouse.h \
+					raycaster.h \
+					draw.h
 
 INCLUDES		=	-I./sources -I./sources/validation -I./sources/graphics \
-					-I./sources/keys -I./sources/mouse
+					-I./sources/keys -I./sources/mouse -I./sources/raycaster \
+					-I./sources/draw
 
 VPATH			=	sources sources/draw sources/validation sources/keys \
 					sources/graphics sources/utils sources/init \
