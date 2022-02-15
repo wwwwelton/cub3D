@@ -15,10 +15,7 @@ SOURCES_FILES	=	cub3d.c \
 					mouse_handler.c \
 					print_map.c \
 					cleanup.c \
-					draw_bg.c \
 					draw_map.c \
-					draw_player.c \
-					draw_rays.c \
 					draw_menu.c \
 					draw_fps.c \
 					draw_crosshair.c \

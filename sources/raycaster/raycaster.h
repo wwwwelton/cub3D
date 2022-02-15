@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 21:42:58 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/14 22:15:04 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/14 22:24:26 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ typedef struct s_wall_data
 }	t_wall_data;
 
 //raycaster
-void	draw_rays(t_data *data);
 int		is_ray_facing_down(float angle);
 int		is_ray_facing_up(float angle);
 int		is_ray_facing_right(float angle);

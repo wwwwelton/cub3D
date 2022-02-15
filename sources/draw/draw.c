@@ -25,9 +25,6 @@ void	draw_game(t_data *data)
 	t_mlx	*mlx;
 
 	mlx = &data->mlx;
-	draw_background(data);
-	draw_player(data);
-	draw_rays(data);
 	draw_wall(data);
 	draw_map(data, data->map, -1, -1);
 	draw_crosshair(data);

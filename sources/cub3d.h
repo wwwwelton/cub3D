@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 09:06:24 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/14 22:11:50 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/14 22:23:51 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,6 @@ void	print_map(char **map);
 void	print_colored_map(char **map);
 
 //player
-void	draw_player(t_data *data);
 char	get_player_direction(char **map);
 float	set_player_direction(char c);
 void	set_player_position(t_data *data, char **map);
@@ -104,7 +103,6 @@ void	fill_menu_item(t_data *data, int i, int offy, int offx);
 void	draw_game(t_data *data);
 void	draw_menu(t_data *data);
 void	draw_options(t_data *data);
-void	draw_background(t_data *data);
 int		game_loop(t_data *data);
 
 //fps counter uses time.h and <sys/time.h
