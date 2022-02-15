@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 09:06:24 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/14 22:27:42 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/14 22:55:55 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,7 @@ int		middle_y(t_img img);
 int		map_height(t_data *data);
 int		map_width(t_data *data);
 int		get_map_value_at(int i, int j, t_data *data);
+int		map_has_wall_at(float x, float y, t_data *data);
 int		is_inside_map(float x, float y, t_data *data);
 void	put_menu_item(t_data *data, int src, int offy, int offx);
 void	fill_menu_item(t_data *data, int i, int offy, int offx);

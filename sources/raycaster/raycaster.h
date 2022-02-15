@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 21:42:58 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/14 22:24:26 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/14 22:55:50 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,6 @@ int		get_map_texture(t_hit_data *hit_data, t_data *data);
 float	get_hit_distance(t_hit_data *hit_data, t_data *data);
 
 //utils
-int		map_has_wall_at(float x, float y, t_data *data);
 void	normalize_angle(float *angle);
 float	get_perp_distance(t_ray ray, t_data *data);
 float	distance_between_points(float x1, float y1, float x2, float y2);

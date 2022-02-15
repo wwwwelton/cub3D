@@ -3,17 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   keys.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
+/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 06:15:57 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/05 23:26:21 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/14 22:45:16 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef KEYS_H
 # define KEYS_H
 
-# define X_EVENT_KEY_PRESS 2
 # define X_EVENT_DESTROY_NOTIFY 17
 # define K_PRESS 0
 # define K_RELEASE 1

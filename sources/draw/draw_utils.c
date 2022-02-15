@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/14 21:16:04 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/14 22:44:34 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	fill_menu_item(t_data *data, int i, int offy, int offx)
 
 void	put_menu_item(t_data *data, int src, int offy, int offx)
 {
-	t_menuelem	elem;
+	t_menu_elem	elem;
 
 	elem.dst = &data->img[SCREEN];
 	elem.src = &data->img[src];
