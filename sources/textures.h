@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 06:16:42 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/14 18:06:34 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/14 21:37:02 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@
 # define TEXTURE4 "assets/images/we_redbrick.xpm"
 # define TEXTURE5 "assets/images/so_redbrick.xpm"
 # define TEXTURE6 "assets/images/ea_redbrick.xpm"
-# define TEXTURE7 "assets/images/floor_greystone.xpm"
-# define TEXTURE8 "assets/images/ceil_bluestone.xpm"
 
 # define PATHLOGO "assets/images/cube_logo.xpm"
 # define PATHBG "assets/images/background_menu.xpm"
@@ -49,8 +47,6 @@ typedef enum e_tex
 	TEX_EA,
 	TEX_SO,
 	TEX_WE,
-	TEX_FL,
-	TEX_CE,
 	MEN_LOGO,
 	MEN_BG,
 	MEN_START,
