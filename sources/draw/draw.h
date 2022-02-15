@@ -6,14 +6,12 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 21:59:34 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/14 22:07:54 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/14 23:33:54 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DRAW_H
 # define DRAW_H
-
-void	draw_map(t_data *data, char **map, int x, int y);
 
 //wall
 void	draw_wall(t_data *data);

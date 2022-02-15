@@ -9,11 +9,9 @@ SOURCES_FILES	=	cub3d.c \
 					init_utils.c \
 					graphics_utils.c \
 					graphics_fill.c \
-					graphics_alpha_layer.c \
 					graphics_copy_layer.c \
 					print_map.c \
 					cleanup.c \
-					draw_map.c \
 					draw_menu.c \
 					draw_crosshair.c \
 					draw.c \

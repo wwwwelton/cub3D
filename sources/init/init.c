@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/14 23:29:09 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/14 23:37:16 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ static void	init_player(t_data *data)
 static void	init_images(t_data *data)
 {
 	init_img(data, &data->img[SCREEN], WIN_WIDTH, WIN_HEIGHT);
-	init_img(data, &data->img[MAP], WIN_WIDTH, WIN_HEIGHT);
 	init_img(data, &data->img[FRAME], WIN_WIDTH, WIN_HEIGHT);
 	init_img(data, &data->img[BLOCK], 100, 70);
 	data->img[BLOCK].height = 70;
