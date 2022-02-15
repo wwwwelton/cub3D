@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 15:33:46 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/04 21:56:07 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/14 22:38:50 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static t_bool	find_player(char **map)
 	while (map[++i])
 	{
 		while (map[i][++j])
-			if (ftex_is_in_set(map[i][j], "NSEW"))
+			if (ftex_is_in_set(map[i][j], VALID_PLAYER))
 				character++;
 		j = -1;
 	}

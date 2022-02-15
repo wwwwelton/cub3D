@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_player_aux.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
+/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/04 18:27:29 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/14 22:39:35 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,8 @@ char	get_player_direction(char **map)
 
 float	set_player_direction(char c)
 {
-	printf("%c\n", c);
+	if (DEBUG)
+		printf("%c\n", c);
 	if (c == 'N')
 		return (270 * (PI / 180));
 	else if (c == 'E')

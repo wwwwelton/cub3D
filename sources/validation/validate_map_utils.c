@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/19 01:38:56 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/04 22:37:22 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/14 22:37:58 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ t_bool	is_player_inside(char **map, int i, int j)
 				{
 					while (map[i][j] != OUTER)
 					{
-						if (ftex_is_in_set(map[i][j], "NSWE"))
+						if (ftex_is_in_set(map[i][j], VALID_PLAYER))
 							return (true);
 						j++;
 					}
@@ -103,7 +103,7 @@ t_bool	validate_map_characters(char **map)
 	while (map[++i])
 	{
 		while (map[i][++j])
-			if (!ftex_is_in_set(map[i][j], "01 NSEW\n"))
+			if (!ftex_is_in_set(map[i][j], VALID_MAP_CHARS))
 				return (false);
 		j = -1;
 	}

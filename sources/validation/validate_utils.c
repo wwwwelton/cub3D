@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 01:12:55 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/02 07:03:25 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/14 22:38:34 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ char	**fetch_map_array(int fd)
 	if (fd == -1)
 		return (NULL);
 	tmp = ft_get_next_line(fd);
-	while (ftex_is_in_set(*tmp, "NSEWCF\n"))
+	while (ftex_is_in_set(*tmp, VALID_ID))
 	{
 		free(tmp);
 		tmp = ft_get_next_line(fd);

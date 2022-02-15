@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 01:09:04 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/04 04:26:35 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/14 22:38:17 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,9 +79,9 @@ t_xy	get_coordinates(char **map, int x, int y)
 	while (map[++xy.x])
 	{
 		while (map[xy.x][++xy.y])
-			if (ftex_is_in_set(map[xy.x][xy.y], "NSEW"))
+			if (ftex_is_in_set(map[xy.x][xy.y], VALID_PLAYER))
 				break ;
-		if (ftex_is_in_set(map[xy.x][xy.y], "NSEW"))
+		if (ftex_is_in_set(map[xy.x][xy.y], VALID_PLAYER))
 			break ;
 		xy.y = -1;
 	}
