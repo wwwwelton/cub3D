@@ -9,7 +9,6 @@ SOURCES_FILES	=	cub3d.c \
 					init_utils.c \
 					graphics_utils.c \
 					graphics_draw_line.c \
-					graphics_draw_rect.c \
 					graphics_fill.c \
 					graphics_alpha_layer.c \
 					graphics_copy_layer.c \

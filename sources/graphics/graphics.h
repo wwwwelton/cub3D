@@ -6,21 +6,12 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 05:46:11 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/05 11:58:49 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/14 21:36:09 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GRAPHICS_H
 # define GRAPHICS_H
-
-typedef struct s_rect
-{
-	int	x;
-	int	y;
-	int	width;
-	int	height;
-	int	color;
-}	t_rect;
 
 typedef struct s_fill
 {

@@ -104,3 +104,29 @@ void	draw_player(t_data *data)
 	line.color = YELLOW;
 	draw_line(img, line);
 }
+
+typedef struct s_rect
+{
+	int	x;
+	int	y;
+	int	width;
+	int	height;
+	int	color;
+}	t_rect;
+
+
+void	draw_rect(t_img *img, t_rect rect)
+{
+	int		x;
+	int		y;
+
+	rect.height += rect.y;
+	rect.width += rect.x;
+	y = rect.y - 1;
+	while (++y < rect.height)
+	{
+		x = rect.x - 1;
+		while (++x < rect.width)
+			pixel_put(img, x, y, rect.color);
+	}
+}

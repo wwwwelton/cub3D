@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 09:06:24 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/14 18:11:57 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/14 21:33:06 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ void	print_colored_map(char **map);
 //raycasting
 void	draw_rays(t_data *data);
 
-//map
+//raycaster map
 void	draw_map(t_data *data, char **map, int x, int y);
 int		map_has_wall_at(float x, float y, t_data *data);
 int		map_height(t_data *data);
@@ -98,7 +98,6 @@ char	*ftex_strerase(char *str, char *set);
 void	ftex_tr(char *str, char *del, char *ret);
 t_bool	print_error(char *error);
 void	tr_matrix(char **matrix, char *del, char *replace);
-void	draw_rect(t_img *img, t_rect rect);
 void	normalize_angle(float *angle);
 float	get_perp_distance(t_ray ray, t_data *data);
 float	distance_between_points(float x1, float y1, float x2, float y2);
