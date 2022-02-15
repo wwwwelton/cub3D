@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   defines.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 17:18:00 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/14 22:38:00 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/14 23:52:57 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,6 @@
 # define VALID_MAP "01"
 # define VALID_ID "NSEWCF\n"
 
-# define FRAME_DELAY 500
-
 # define TILE_SIZE 64
 
 # define WIN_WIDTH 1024
@@ -47,8 +45,8 @@
 # define NUM_RAYS WIN_WIDTH
 # define FLT_MAX 3.40282346638528859812e+38F
 # define FOV_ANGLE 1.0472
-# define FOG_DIST 400
-# define FOG_SIDE 0.7
+# define FOG_DIST 0
+# define FOG_SIDE 1
 
 # define PLAYER_SIZE TILE_SIZE
 # define VIEW_ANGLE 400
