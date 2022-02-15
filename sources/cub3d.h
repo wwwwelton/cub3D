@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 09:06:24 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/14 22:23:51 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/14 22:27:42 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,6 @@ void	free_matrix(char **matrix);
 void	pixel_put(t_img *img, int x, int y, int color);
 t_bool	print_error(char *error);
 int		count_commas(char *str);
-void	draw_line(t_img *img, t_line line);
 int		middle_x(t_img img);
 int		middle_y(t_img img);
 int		map_height(t_data *data);

@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 17:16:54 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/14 22:10:04 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/14 22:30:06 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,21 +22,6 @@ typedef struct s_ray
 	int		was_hit_vertical;
 	int		texture;
 }	t_ray;
-
-typedef struct s_line
-{
-	int	sx;
-	int	sy;
-	int	dx;
-	int	dy;
-	int	err;
-	int	e2;
-	int	x0;
-	int	y0;
-	int	x1;
-	int	y1;
-	int	color;
-}	t_line;
 
 typedef enum e_bool
 {
