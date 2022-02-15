@@ -16,7 +16,6 @@ SOURCES_FILES	=	cub3d.c \
 					cleanup.c \
 					draw_map.c \
 					draw_menu.c \
-					draw_fps.c \
 					draw_crosshair.c \
 					draw.c \
 					draw_utils.c \

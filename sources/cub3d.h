@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 09:06:24 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/14 22:55:55 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/14 23:27:09 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,6 @@
 # include "mouse.h"
 # include "../libraries/libft/libft.h"
 # include "../libraries/minilibx/mlx.h"
-# include "time.h"
-# include <sys/time.h>
 
 //init
 void	init_data(t_data *data);
@@ -104,9 +102,5 @@ void	draw_game(t_data *data);
 void	draw_menu(t_data *data);
 void	draw_options(t_data *data);
 int		game_loop(t_data *data);
-
-//fps counter uses time.h and <sys/time.h
-void	draw_fps(t_data *data);
-long	timestamp(void);
 
 #endif

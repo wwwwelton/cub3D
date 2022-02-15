@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game_loop.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
+/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 19:36:18 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/05 23:56:29 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/14 23:26:42 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,5 @@ int	game_loop(t_data *data)
 	}
 	if (data->state == OPTIONS)
 		draw_options(data);
-	draw_fps(data);
 	return (0);
 }
