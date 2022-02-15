@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   keys_controller.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
+/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/05 23:25:01 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/14 23:44:17 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,6 @@ static void	keys_enter(t_data *data)
 		data->game_running = true;
 		data->state = GAME;
 	}
-	else if (data->state == GAME)
-		data->state = MENU;
 	else if (data->state == OPTIONS)
 	{
 		if (data->menu.options == 3)
