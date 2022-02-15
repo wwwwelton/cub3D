@@ -3,20 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   textures_bonus.h                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 06:16:42 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/14 23:17:48 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/15 01:23:04 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef TEXTURES_BONUS_H
 # define TEXTURES_BONUS_H
-
-# define TEXTURE3 "assets/images/no_redbrick.xpm"
-# define TEXTURE4 "assets/images/we_redbrick.xpm"
-# define TEXTURE5 "assets/images/so_redbrick.xpm"
-# define TEXTURE6 "assets/images/ea_redbrick.xpm"
 
 # define PATHLOGO "assets/images/cube_logo.xpm"
 # define PATHBG "assets/images/background_menu.xpm"
