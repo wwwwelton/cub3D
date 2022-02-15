@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/15 19:48:32 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/15 20:22:24 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ static void	init_player(t_data *data)
 	data->player.walk_speed = 20;
 	data->player.turn_speed = 5 * (PI / 180);
 	data->player.look_speed = 55;
+	data->player.action_door = false;
 }
 
 static void	init_images(t_data *data)

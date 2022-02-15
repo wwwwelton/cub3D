@@ -143,7 +143,7 @@ RM				=	rm -rf
 CFLAGS			=	-Wall -Wextra -Werror -g3
 LDFLAGS			=	-lXext -lX11 -lm
 
-$(OBJ_DIR)/%.o:	%.c $(HEADERS)
+$(OBJ_DIR)/%.o:	%.c $(HEADERS) $(HEADERS_BONUS)
 				$(CC) $(CFLAGS) -c $< -o $@ $(INCLUDES) $(INCLUDES_BONUS)
 
 all:			$(NAME)

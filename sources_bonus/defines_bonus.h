@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 17:18:00 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/14 23:17:32 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/15 20:04:49 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,10 @@
 # define OUTER '!'
 # define INNER '@'
 # define FILLER '#'
-# define VALID_MAP_CHARS "01 NSEW\n"
 # define VALID_PLAYER "NSEW"
-# define VALID_MAP "01"
-# define VALID_ID "NSEWCF\n"
+# define VALID_MAP "01DH"
+# define VALID_ID "NSEWCFDH\n"
+# define VALID_MAP_CHARS "01 NSEWDH\n"
 
 # define FRAME_DELAY 500
 
