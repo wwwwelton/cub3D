@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   textures_bonus.h                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
+/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 06:16:42 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/15 01:23:04 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/15 19:42:49 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@
 # define PATHEXIT "assets/images/exit_game.xpm"
 # define PATHCROSSHAIR "assets/images/crosshair.xpm"
 # define PATHHUDFRAME "assets/images/hud_frame.xpm"
+# define PATHHUDBLOCK "assets/images/hud_block.xpm"
 
 # define TEX_WIDTH 64
 # define TEX_HEIGHT 64

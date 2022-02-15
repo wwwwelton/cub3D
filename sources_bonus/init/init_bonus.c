@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
+/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/15 00:25:38 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/15 19:48:32 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,6 @@ static void	init_images(t_data *data)
 	init_img(data, &data->img[SCREEN], WIN_WIDTH, WIN_HEIGHT);
 	init_img(data, &data->img[MAP], WIN_WIDTH, WIN_HEIGHT);
 	init_img(data, &data->img[FRAME], WIN_WIDTH, WIN_HEIGHT);
-	init_img(data, &data->img[BLOCK], 100, 70);
-	data->img[BLOCK].height = 70;
-	data->img[BLOCK].width = 100;
-	fill(&data->img[BLOCK], fillparams(0, 0, 100, 70), RED);
 }
 
 void	init_xpm_textures(t_data *data)
@@ -68,6 +64,7 @@ void	init_xpm_textures(t_data *data)
 	init_xpm(data, &data->img[RSPD], PATHRSPD);
 	init_xpm(data, &data->img[MSPD], PATHMSPD);
 	init_xpm(data, &data->img[ARROW], PATHARROW);
+	init_xpm(data, &data->img[BLOCK], PATHHUDBLOCK);
 	init_xpm(data, &data->img[CROSSHAIR], PATHCROSSHAIR);
 	init_xpm(data, &data->img[HUDFRAME], PATHHUDFRAME);
 	init_xpm(data, &data->img[EXIT], PATHEXIT);
