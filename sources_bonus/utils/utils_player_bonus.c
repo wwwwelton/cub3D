@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_player_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/15 20:48:51 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/16 01:14:14 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,23 +33,13 @@ void	update_player_matrix(t_data *data)
 	}
 }
 
-void	update_player(t_data *data)
+static void	move_player(float move_step, float side_step, t_data *data)
 {
-	float		move_step;
-	float		side_step;
 	float		new_player_x;
 	float		new_player_y;
 	t_player	*player;
 
 	player = &data->player;
-	player->rot_angle += player->turn_dir * player->turn_speed;
-	player->view_angle += player->look_dir * player->look_speed;
-	normalize_angle(&player->rot_angle);
-	lock_view_angle(&player->view_angle);
-	move_step = player->walk_dir * player->walk_speed;
-	side_step = player->side_dir * player->walk_speed;
-	if (move_step && side_step)
-		decrease_step(&move_step, &side_step);
 	new_player_x = player->x + cos(player->rot_angle) * move_step;
 	new_player_y = player->y + sin(player->rot_angle) * move_step;
 	new_player_x = new_player_x - sin(-player->rot_angle) * side_step;
@@ -59,4 +49,24 @@ void	update_player(t_data *data)
 		player->x = new_player_x;
 		player->y = new_player_y;
 	}
+}
+
+void	update_player(t_data *data)
+{
+	float		move_step;
+	float		side_step;
+	float		delta_time;
+	t_player	*player;
+
+	player = &data->player;
+	delta_time = data->frame.delta_time;
+	player->rot_angle += player->turn_dir * player->turn_speed * delta_time;
+	player->view_angle += player->look_dir * player->look_speed * delta_time;
+	normalize_angle(&player->rot_angle);
+	lock_view_angle(&player->view_angle);
+	move_step = player->walk_dir * player->walk_speed * delta_time;
+	side_step = player->side_dir * player->walk_speed * delta_time;
+	if (move_step && side_step)
+		decrease_step(&move_step, &side_step);
+	move_player(move_step, side_step, data);
 }
