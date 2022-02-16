@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_utils_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
+/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/15 00:25:38 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/16 17:19:43 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,7 @@ void	put_menu_item(t_data *data, int src, int offy, int offx)
 	elem.src = &data->img[src];
 	elem.x = middle_x(data->img[src]) - offy;
 	elem.y = middle_y(data->img[src]) + offx;
+	if (elem.y < 0)
+		elem.y = 0;
 	copy_layer(elem.src, elem.dst, elem.x, elem.y);
 }

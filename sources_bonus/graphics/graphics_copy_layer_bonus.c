@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   graphics_copy_layer_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
+/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 05:36:24 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/15 00:25:38 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/16 17:19:05 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ void	copy_layer(t_img *from, t_img *to, int x, int y)
 
 	i = -1;
 	j = -1;
-	while (++j < from->height)
+	while (++j < from->height && j < WIN_HEIGHT)
 	{
-		while (++i < from->width)
+		while (++i < from->width && i < WIN_WIDTH)
 		{
 			if (from->dump[i + j * from->size_l / 4] != BLACK)
 			to->dump[x + i + ((y + j) * to->size_l / 4)]
