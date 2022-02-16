@@ -88,6 +88,7 @@ BONUS_FILES	=		cub3d_bonus.c \
 					keys_wasd_bonus.c \
 					keys_controller_bonus.c \
 					keys_menu_wasd_bonus.c \
+					keys_actions_bonus.c \
 
 SOURCES_DIR		=	sources
 BONUS_DIR		=	sources_bonus
@@ -144,7 +145,7 @@ RM				=	rm -rf
 CFLAGS			=	-Wall -Wextra -Werror -g3
 LDFLAGS			=	-lXext -lX11 -lm
 
-$(OBJ_DIR)/%.o:	%.c $(HEADERS)
+$(OBJ_DIR)/%.o:	%.c $(HEADERS) $(HEADERS_BONUS)
 				$(CC) $(CFLAGS) -c $< -o $@ $(INCLUDES) $(INCLUDES_BONUS)
 
 all:			$(NAME)

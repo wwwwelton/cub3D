@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   keys_controller_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
+/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/15 00:25:38 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/15 20:43:05 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,8 @@ static void	main_game(int key, t_data *data, int event_type)
 		exit_game(data);
 	else if ((key == KEY_ENTER || key == KEY_N_ENTER) && event_type == K_PRESS)
 		keys_enter(data);
+	else if (key == KEY_E)
+		keys_actions(key, data);
 	else
 		keys_wasd(key, data, event_type);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_map_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
+/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/15 00:25:38 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/15 21:45:04 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,12 @@ static void	init_draw_map(t_data *data, int *height, int *len, t_xy *pl)
 	*len = ft_strlen(data->map[0]);
 	*pl = get_coordinates(data->map, 0, 0);
 	vars = fillparams(503, 55, 10 * 23, 10 * 23);
+	vars.x = WIN_HEIGHT - 265;
+	vars.y = middle_y(data->img[MAP]) + 55;
 	fill(&data->img[MAP], vars, BLACKB);
 	vars = fillparams(498, 50, 10 * 23, 10 * 23);
+	vars.x = WIN_HEIGHT - 265;
+	vars.y = middle_y(data->img[MAP]) + 55;
 	fill(&data->img[MAP], vars, BLACKB);
 }
 

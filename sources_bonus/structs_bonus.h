@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 17:16:54 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/15 22:23:52 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/15 23:12:35 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ typedef struct s_player
 	float	y;
 	float	width;
 	float	height;
+	t_bool	action_door;
 	int		turn_dir;
 	int		walk_dir;
 	int		side_dir;

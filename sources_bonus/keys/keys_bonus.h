@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 06:15:57 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/14 23:16:44 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/15 20:42:53 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 # define KEY_A 97
 # define KEY_S 115
 # define KEY_D 100
+# define KEY_E 101
 # define KEY_ENTER 65293
 # define KEY_N_ENTER 65421
 # define KEY_CTRL 65507
@@ -43,6 +44,7 @@
 int		screen_controller(int key, t_data *data, int event_type);
 void	keys_wasd(int key, t_data *data, int event_type);
 void	keys_menu_wasd(int key, t_data *data);
+void	keys_actions(int key, t_data *data);
 
 //keys
 int		key_press(int key, t_data *data);

@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/15 23:09:34 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/15 23:12:51 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ static void	init_player(t_data *data)
 	data->player.walk_speed = 20;
 	data->player.turn_speed = 5 * (PI / 180);
 	data->player.look_speed = 55;
+	data->player.action_door = false;
 }
 
 static void	init_images(t_data *data)
@@ -48,26 +49,29 @@ static void	init_images(t_data *data)
 	init_img(data, &data->img[FRAME], WIN_WIDTH, WIN_HEIGHT);
 }
 
-void	init_xpm_textures(t_data *data)
+t_bool	init_xpm_textures(t_data *data)
 {
-	init_xpm(data, &data->img[TEX_NO], data->params.north);
-	init_xpm(data, &data->img[TEX_EA], data->params.east);
-	init_xpm(data, &data->img[TEX_SO], data->params.south);
-	init_xpm(data, &data->img[TEX_WE], data->params.west);
-	init_xpm(data, &data->img[MEN_LOGO], PATHLOGO);
-	init_xpm(data, &data->img[MEN_BG], PATHBG);
-	init_xpm(data, &data->img[MEN_START], PATHSTART);
-	init_xpm(data, &data->img[MEN_OPT], PATHOPTION);
-	init_xpm(data, &data->img[SENSI], PATHSENSI);
-	init_xpm(data, &data->img[RESUME], PATHRESUME);
-	init_xpm(data, &data->img[BACK], PATHBACK);
-	init_xpm(data, &data->img[RSPD], PATHRSPD);
-	init_xpm(data, &data->img[MSPD], PATHMSPD);
-	init_xpm(data, &data->img[ARROW], PATHARROW);
-	init_xpm(data, &data->img[BLOCK], PATHHUDBLOCK);
-	init_xpm(data, &data->img[CROSSHAIR], PATHCROSSHAIR);
-	init_xpm(data, &data->img[HUDFRAME], PATHHUDFRAME);
-	init_xpm(data, &data->img[EXIT], PATHEXIT);
+	static t_bool	valid = true;
+
+	init_xpm(data, &data->img[TEX_NO], data->params.north, &valid);
+	init_xpm(data, &data->img[TEX_EA], data->params.east, &valid);
+	init_xpm(data, &data->img[TEX_SO], data->params.south, &valid);
+	init_xpm(data, &data->img[TEX_WE], data->params.west, &valid);
+	init_xpm(data, &data->img[MEN_LOGO], PATHLOGO, &valid);
+	init_xpm(data, &data->img[MEN_BG], PATHBG, &valid);
+	init_xpm(data, &data->img[MEN_START], PATHSTART, &valid);
+	init_xpm(data, &data->img[MEN_OPT], PATHOPTION, &valid);
+	init_xpm(data, &data->img[SENSI], PATHSENSI, &valid);
+	init_xpm(data, &data->img[RESUME], PATHRESUME, &valid);
+	init_xpm(data, &data->img[BACK], PATHBACK, &valid);
+	init_xpm(data, &data->img[RSPD], PATHRSPD, &valid);
+	init_xpm(data, &data->img[MSPD], PATHMSPD, &valid);
+	init_xpm(data, &data->img[ARROW], PATHARROW, &valid);
+	init_xpm(data, &data->img[BLOCK], PATHHUDBLOCK, &valid);
+	init_xpm(data, &data->img[CROSSHAIR], PATHCROSSHAIR, &valid);
+	init_xpm(data, &data->img[HUDFRAME], PATHHUDFRAME, &valid);
+	init_xpm(data, &data->img[EXIT], PATHEXIT, &valid);
+	return (valid);
 }
 
 void	init_data(t_data *data)
@@ -82,4 +86,6 @@ void	init_data(t_data *data)
 	data->frame.delta_time = 0;
 	ft_strlcpy(data->frame.fps, "000", 4);
 	data->frame.cycle = 0;
+	if (init_xpm_textures(data) == false)
+		exit_game(data);
 }

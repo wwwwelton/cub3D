@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 06:16:42 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/15 19:42:49 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/15 21:16:50 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@
 # define PATHCROSSHAIR "assets/images/crosshair.xpm"
 # define PATHHUDFRAME "assets/images/hud_frame.xpm"
 # define PATHHUDBLOCK "assets/images/hud_block.xpm"
+# define PATHNOIMAGE "assets/images/no_image.xpm"
 
 # define TEX_WIDTH 64
 # define TEX_HEIGHT 64
