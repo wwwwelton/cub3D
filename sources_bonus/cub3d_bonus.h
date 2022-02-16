@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 09:06:24 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/16 01:51:38 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/16 16:22:57 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,7 +109,7 @@ void	draw_menu(t_data *data);
 void	draw_options(t_data *data);
 int		game_loop(t_data *data);
 
-//fps counter uses time.h and <sys/time.h
+//fps
 void	draw_fps(t_data *data);
 long	timestamp(void);
 
