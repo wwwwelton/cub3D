@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/16 16:49:13 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/16 18:34:36 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,11 @@ static void	init_draw_map(t_data *data, int *height, int *len, t_xy *pl)
 	*height = get_height(data->map);
 	*len = ft_strlen(data->map[0]);
 	*pl = get_coordinates(data->map, 0, 0);
-	vars = fillparams(503, 55, 10 * 23, 10 * 23);
-	vars.x = WIN_HEIGHT - 270;
-	vars.y = middle_y(data->img[MAP]) + 50;
+	vars = fillparams(503, 55, 10 * 23 + 2, 10 * 23 + 2);
+	vars.x = WIN_HEIGHT - 271;
+	vars.y = middle_y(data->img[MAP]) + 49;
 	fill(&data->img[MAP], vars, BLACKB);
-	vars = fillparams(498, 50, 10 * 23, 10 * 23);
+	vars = fillparams(498, 50, 10 * 23 + 2, 10 * 23 + 2);
 	vars.x = WIN_HEIGHT - 265;
 	vars.y = middle_y(data->img[MAP]) + 55;
 	fill(&data->img[MAP], vars, BLACKB);
@@ -57,7 +57,7 @@ void	draw_map(t_data *data, char **map, int x, int y)
 				fill(&data->img[MAP], vars, GRAY);
 			else if (ftex_is_in_set(map[pl.x + x - 10][pl.y + y - 10], "@! "))
 				fill(&data->img[MAP], vars, BLUE);
-			else if (ftex_is_in_set(map[pl.x + x - 10][pl.y + y - 10], "NSEW"))
+			else if (ftex_is_in_set(map[pl.x + x - 10][pl.y + y - 10], "NSEWP"))
 				fill(&data->img[MAP], vars, YELLOW);
 			else
 				fill(&data->img[MAP], vars, GRAY);
