@@ -16,6 +16,7 @@ static void	reinit_images(t_data *data)
 {
 	mlx_destroy_image(data->mlx.mlx_ptr, data->img[SCREEN].img_ptr);
 	mlx_destroy_image(data->mlx.mlx_ptr, data->img[MAP].img_ptr);
+	mlx_destroy_image(data->mlx.mlx_ptr, data->img[FPS].img_ptr);
 	init_img(data, &data->img[SCREEN], WIN_WIDTH, WIN_HEIGHT);
 	init_img(data, &data->img[MAP], WIN_WIDTH, WIN_HEIGHT);
 	init_img(data, &data->img[FPS], WIN_WIDTH, WIN_HEIGHT);
