@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_map_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
+/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 15:17:47 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/15 00:25:38 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/16 18:16:26 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	print_colored_map(char **map)
 				printf("\e[42m%c\e[0m", map[i][j]);
 			else if (map[i][j] == INNER)
 				printf("\e[44m%c\e[0m", map[i][j]);
-			else if (ftex_is_in_set(map[i][j], "NSEW"))
+			else if (ftex_is_in_set(map[i][j], VALID_PLAYER))
 				printf("\e[46m%c\e[0m", map[i][j]);
 			else if (map[i][j] == ' ')
 				printf("%c", ' ');

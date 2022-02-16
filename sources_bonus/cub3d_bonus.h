@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
+/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 09:06:24 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/16 16:22:57 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/16 17:52:10 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,6 +102,7 @@ int		is_inside_map(float x, float y, t_data *data);
 void	put_menu_item(t_data *data, int src, int offy, int offx);
 void	fill_menu_item(t_data *data, int i, int offy, int offx);
 void	sync_time(t_data *data);
+int		get_height(char **map);
 
 //render
 void	draw_game(t_data *data);

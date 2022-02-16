@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   defines_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
+/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 17:18:00 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/16 02:28:22 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/16 17:43:48 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@
 # define OUTER '!'
 # define INNER '@'
 # define FILLER '#'
-# define VALID_PLAYER "NSEW"
+# define VALID_PLAYER "NSEWP"
 # define VALID_MAP "01DH"
 # define VALID_ID "NSEWCFDH\n"
 # define VALID_MAP_CHARS "01 NSEWDH\n"
