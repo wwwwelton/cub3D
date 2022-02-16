@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 17:18:00 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/15 23:17:23 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/16 02:28:22 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,9 @@
 # define XOFF 100
 # define OPTYOFF 200
 # define OPTXOFF 100
+
+# define FPSXOFF 35
+# define FPSYOFF 20
 
 # define PI 3.14159265
 # define TWO_PI 6.28318530

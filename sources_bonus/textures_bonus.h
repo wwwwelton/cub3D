@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 06:16:42 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/16 01:37:48 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/16 02:01:39 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ typedef enum e_tex
 	ARROW,
 	CROSSHAIR,
 	HUDFRAME,
+	FPS,
 	EXIT,
 	BLOCK,
 	FPS_0,
