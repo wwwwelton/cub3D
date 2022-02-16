@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 06:16:42 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/16 02:01:39 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/16 20:05:20 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@
 # define PATHFPS8 "assets/images/fps_numbers/8.xpm"
 # define PATHFPS9 "assets/images/fps_numbers/9.xpm"
 
+# define PATHDOOR "assets/images/door.xpm"
+
 # define TEX_WIDTH 64
 # define TEX_HEIGHT 64
 
@@ -52,6 +54,7 @@ typedef enum e_tex
 	TEX_EA,
 	TEX_SO,
 	TEX_WE,
+	TEX_DOOR,
 	MEN_LOGO,
 	MEN_BG,
 	MEN_START,

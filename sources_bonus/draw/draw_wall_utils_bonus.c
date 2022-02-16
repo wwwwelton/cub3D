@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/15 00:25:38 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/16 18:47:57 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,10 @@ void	init_wall_data(t_wall_data *wall, t_player player)
 	wall->win_height = WIN_HEIGHT + player.view_angle;
 }
 
-int	get_wall_facing_side(t_ray ray)
+int	get_wall_texture(t_ray ray)
 {
+	if (ray.texture == 'D')
+		return (TEX_DOOR);
 	if (!ray.was_hit_vertical && is_ray_facing_up(ray.ray_angle))
 		return (TEX_NO);
 	if (!ray.was_hit_vertical && is_ray_facing_down(ray.ray_angle))

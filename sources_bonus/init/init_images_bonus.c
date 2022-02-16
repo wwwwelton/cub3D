@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/16 01:54:37 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/16 18:47:33 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ t_bool	init_xpm_textures(t_data *data)
 	init_xpm(data, &data->img[TEX_EA], data->params.east, &valid);
 	init_xpm(data, &data->img[TEX_SO], data->params.south, &valid);
 	init_xpm(data, &data->img[TEX_WE], data->params.west, &valid);
+	init_xpm(data, &data->img[TEX_DOOR], PATHDOOR, &valid);
 	init_xpm(data, &data->img[MEN_LOGO], PATHLOGO, &valid);
 	init_xpm(data, &data->img[MEN_BG], PATHBG, &valid);
 	init_xpm(data, &data->img[MEN_START], PATHSTART, &valid);

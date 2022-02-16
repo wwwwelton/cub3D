@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/15 00:25:38 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/16 18:29:57 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static void	render_wall(int x, t_wall_data *wall, t_data *data)
 	y = wall->top_y - 1;
 	while (++y < wall->bottom_y)
 	{
-		text_num = get_wall_facing_side(data->rays[x]);
+		text_num = get_wall_texture(data->rays[x]);
 		wall->distance_from_top = y + (wall->height / 2) - wall->win_height / 2;
 		height_scale = data->img[text_num].height / wall->height;
 		wall->texture_offset_y = wall->distance_from_top * height_scale;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 09:06:24 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/16 17:52:10 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/16 18:43:55 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ int		middle_x(t_img img);
 int		middle_y(t_img img);
 int		map_height(t_data *data);
 int		map_width(t_data *data);
-int		get_map_value_at(int i, int j, t_data *data);
+char	get_map_value_at(int i, int j, t_data *data);
 int		map_has_wall_at(float x, float y, t_data *data);
 int		is_inside_map(float x, float y, t_data *data);
 void	put_menu_item(t_data *data, int src, int offy, int offx);

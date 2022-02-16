@@ -6,19 +6,19 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 13:10:51 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/15 00:25:39 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/16 18:29:07 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
 
-int	get_map_texture(t_hit_data *hit_data, t_data *data)
+char	get_map_texture(t_hit_data *hit_data, t_data *data)
 {
 	int	ret;
 
 	ret = get_map_value_at((int)floor(hit_data->y_to_check / TILE_SIZE),
 			(int)floor(hit_data->x_to_check / TILE_SIZE), data);
-	return (ret - '0');
+	return (ret);
 }
 
 float	get_hit_distance(t_hit_data *hit_data, t_data *data)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycaster_bonus.h                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 21:42:58 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/14 23:17:03 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/16 18:29:15 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void	check_horz_hit(float ray_angle, t_hit_data *horz, t_data *data);
 void	check_vert_hit(float ray_angle, t_hit_data *vert, t_data *data);
 void	cast_ray(float ray_angle, int col_id, t_data *data);
 void	cast_all_rays(t_data *data);
-int		get_map_texture(t_hit_data *hit_data, t_data *data);
+char	get_map_texture(t_hit_data *hit_data, t_data *data);
 float	get_hit_distance(t_hit_data *hit_data, t_data *data);
 
 //utils
