@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structs_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 17:16:54 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/14 23:17:43 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/15 22:23:52 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,6 +101,13 @@ typedef struct s_params
 	int		floorcolor;
 }	t_params;
 
+typedef struct s_frame
+{
+	float	delta_time;
+	char	fps[4];
+	int		cycle;
+}	t_frame;
+
 typedef struct s_data
 {
 	int			state;
@@ -114,6 +121,7 @@ typedef struct s_data
 	t_params	params;
 	t_player	player;
 	t_ray		rays[NUM_RAYS];
+	t_frame		frame;
 }	t_data;
 
 #endif

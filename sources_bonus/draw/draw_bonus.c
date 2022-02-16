@@ -25,6 +25,7 @@ void	draw_game(t_data *data)
 	t_mlx	*mlx;
 
 	mlx = &data->mlx;
+	draw_fps(data);
 	draw_wall(data);
 	draw_map(data, data->map, -1, -1);
 	draw_crosshair(data);

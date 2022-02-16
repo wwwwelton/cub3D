@@ -82,6 +82,7 @@ BONUS_FILES	=		cub3d_bonus.c \
 					utils_player_aux_bonus.c \
 					utils_tr_bonus.c \
 					utils_strerase_bonus.c \
+					utils_time_bonus.c \
 					utils_math_bonus.c \
 					utils_bonus.c \
 					keys_wasd_bonus.c \

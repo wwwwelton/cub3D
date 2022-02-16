@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/15 19:48:32 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/15 23:09:34 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,4 +79,7 @@ void	init_data(t_data *data)
 	init_player(data);
 	init_images(data);
 	init_xpm_textures(data);
+	data->frame.delta_time = 0;
+	ft_strlcpy(data->frame.fps, "000", 4);
+	data->frame.cycle = 0;
 }

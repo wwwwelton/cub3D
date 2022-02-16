@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 09:06:24 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/15 00:27:40 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/15 22:13:03 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,7 @@ int		map_has_wall_at(float x, float y, t_data *data);
 int		is_inside_map(float x, float y, t_data *data);
 void	put_menu_item(t_data *data, int src, int offy, int offx);
 void	fill_menu_item(t_data *data, int i, int offy, int offx);
+void	sync_time(t_data *data);
 
 //render
 void	draw_game(t_data *data);
