@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/16 18:15:12 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/16 18:22:44 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ void	update_player_matrix(t_data *data)
 		&& player_x >= 0 && player_y >= 0
 		&& player_y < (int)ft_strlen(data->map[0]))
 	{
-		printf("%d, %d\n", player_x, player_y);
 		if (data->map[player_y][player_x] == '0')
 		{
 			data->map[xy.x][xy.y] = '0';

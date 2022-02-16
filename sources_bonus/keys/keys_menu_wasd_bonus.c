@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   keys_menu_wasd_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
+/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 04:27:47 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/15 00:25:38 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/16 18:31:55 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,33 +52,33 @@ void	options_a(t_data *data)
 
 void	wasd_options(int key, t_data *data)
 {
-	if (key == KEY_W)
+	if (key == KEY_W || key == KEY_A_UP)
 	{
 		data->menu.options--;
 		if (data->menu.options < 0)
 			data->menu.options = 3;
 	}
-	if (key == KEY_S)
+	if (key == KEY_S || key == KEY_A_DOWN)
 	{
 		data->menu.options++;
 		if (data->menu.options > 3)
 			data->menu.options = 0;
 	}
-	if (key == KEY_A)
+	if (key == KEY_A || key == KEY_A_LEFT)
 		options_a(data);
-	if (key == KEY_D)
+	if (key == KEY_D || key == KEY_A_RIGHT)
 		options_d(data);
 }
 
 void	wasd_menu(int key, t_data *data)
 {
-	if (key == KEY_W)
+	if (key == KEY_W || key == KEY_A_UP)
 	{
 		data->menu.main--;
 		if (data->menu.main < 0)
 			data->menu.main = 2;
 	}
-	if (key == KEY_S)
+	if (key == KEY_S || key == KEY_A_DOWN)
 	{
 		data->menu.main++;
 		if (data->menu.main > 2)
