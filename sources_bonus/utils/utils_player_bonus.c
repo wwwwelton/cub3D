@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/17 00:03:33 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/17 02:07:53 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,26 +56,24 @@ static void	move_player(float move_step, float side_step, t_data *data)
 
 static void	open_door(t_data *data)
 {
-	int			distance;
+	int			step;
 	float		new_player_x;
 	float		new_player_y;
 	t_player	*player;
 
-	if (data->player.action_door == false)
-		return ;
-	distance = 0;
+	step = 0;
 	player = &data->player;
-	while (distance < ACTION_DIST)
+	while (step < ACTION_DIST)
 	{
-		new_player_x = player->x + cos(player->rot_angle) * distance;
-		new_player_y = player->y + sin(player->rot_angle) * distance;
-		if (get_map_value_at_pos(new_player_x, new_player_y, data) == 'D')
+		new_player_x = player->x + cos(player->rot_angle) * step;
+		new_player_y = player->y + sin(player->rot_angle) * step;
+		if (get_map_value_at_pos(new_player_x, new_player_y, data) == 'D'
+			&& data->player.action_door == true)
 		{
-			set_map_value_at_pos(new_player_x, new_player_y, '0', data);
-			data->player.action_door = false;
-			return ;
+			set_map_value_at_pos(new_player_x, new_player_y, 'O', data);
+			break ;
 		}
-		distance += 10;
+		step += 10;
 	}
 	data->player.action_door = false;
 }
