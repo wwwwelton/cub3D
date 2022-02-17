@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 17:18:00 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/17 00:00:18 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/17 00:07:06 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,5 +65,6 @@
 # define WHITE 0xFFFFFF
 # define GRAY 0x5c5c5c
 # define BLUE 0x1b4382
+# define GREEN 0x006262
 
 #endif

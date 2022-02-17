@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_map_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/16 18:34:36 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/17 00:07:11 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,8 @@ void	draw_map(t_data *data, char **map, int x, int y)
 				fill(&data->img[MAP], vars, GRAY);
 			else if (ftex_is_in_set(map[pl.x + x - 10][pl.y + y - 10], "@! "))
 				fill(&data->img[MAP], vars, BLUE);
+			else if (ftex_is_in_set(map[pl.x + x - 10][pl.y + y - 10], "DO"))
+				fill(&data->img[MAP], vars, GREEN);
 			else if (ftex_is_in_set(map[pl.x + x - 10][pl.y + y - 10], "NSEWP"))
 				fill(&data->img[MAP], vars, YELLOW);
 			else
