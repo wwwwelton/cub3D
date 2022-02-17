@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/17 03:01:49 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/17 03:17:03 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ void	update_player_matrix(t_data *data)
 	player_x = data->player.x / TILE_SIZE;
 	player_y = data->player.y / TILE_SIZE;
 	if ((xy.x != player_x || xy.y != player_y)
-		&& player_x < get_height(data->map) - 1
+		&& player_x < map_height(data) - 1
 		&& player_x >= 0 && player_y >= 0
-		&& player_y < (int)ft_strlen(data->map[0]))
+		&& player_y < map_width(data))
 	{
 		if (data->map[player_y][player_x] == '0')
 		{

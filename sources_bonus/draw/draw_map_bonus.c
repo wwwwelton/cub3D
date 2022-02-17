@@ -6,28 +6,18 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/17 03:02:24 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/17 03:16:44 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
 
-int	get_height(char **map)
-{
-	int	i;
-
-	i = 0;
-	while (map[i])
-		i++;
-	return (i);
-}
-
 static void	init_draw_map(t_data *data, int *height, int *len, t_xy *pl)
 {
 	t_fill	vars;
 
-	*height = get_height(data->map);
-	*len = ft_strlen(data->map[0]);
+	*height = map_height(data);
+	*len = map_width(data);
 	*pl = get_coordinates(data->map, 0, 0);
 	vars = fillparams(503, 55, 10 * 23 + 2, 10 * 23 + 2);
 	vars.x = WIN_HEIGHT - 271;
