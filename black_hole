@@ -206,3 +206,27 @@ static void	mouse_handler_y(int y, int mid_x, int mid_y, t_data *data)
 		new_y = mid_y;
 	}
 }
+
+int	is_wall_side_door(t_ray ray, t_data *data)
+{
+	int	map_x;
+	int	map_y;
+
+	map_x = (int)floor(ray.wall_hit_x / TILE_SIZE);
+	map_y = (int)floor(ray.wall_hit_y / TILE_SIZE);
+	if (!ray.was_hit_vertical)
+	{
+		if (get_map_value_at(map_x + 1, map_y, data) == 'H')
+			return (true);
+		if (get_map_value_at(map_x - 1, map_y, data) == 'H')
+			return (true);
+	}
+	else
+	{
+		if (get_map_value_at(map_x, map_y + 1, data) == 'H')
+			return (true);
+		if (get_map_value_at(map_x, map_y - 1, data) == 'H')
+			return (true);
+	}
+	return (false);
+}
