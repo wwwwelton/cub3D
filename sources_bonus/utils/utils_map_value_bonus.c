@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/16 23:09:07 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/17 03:39:14 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	map_has_wall_at(float x, float y, t_data *data)
 	{
 		return (false);
 	}
-	return (ftex_is_in_set(data->map[map_y][map_x], "!@D"));
+	return (ftex_is_in_set(data->map[map_y][map_x], VALID_WALLS));
 }
 
 char	get_map_value_at(int i, int j, t_data *data)

@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 17:18:00 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/17 00:07:06 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/17 03:38:59 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@
 # define VALID_MAP "01DH"
 # define VALID_ID "NSEWCFDH\n"
 # define VALID_MAP_CHARS "01 NSEWDH\n"
+# define VALID_WALLS "!@D"
 
 # define FRAME_DELAY 500
 
