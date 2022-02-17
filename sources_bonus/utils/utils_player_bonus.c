@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/17 02:07:53 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/17 03:01:49 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ static void	open_door(t_data *data)
 		if (get_map_value_at_pos(new_player_x, new_player_y, data) == 'D'
 			&& data->player.action_door == true)
 		{
-			set_map_value_at_pos(new_player_x, new_player_y, 'O', data);
+			set_map_value_at_pos(new_player_x, new_player_y, 'H', data);
 			break ;
 		}
 		step += 10;
