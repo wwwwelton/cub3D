@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 09:06:24 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/17 03:15:12 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/17 05:11:18 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,7 @@ int		middle_y(t_img img);
 int		map_height(t_data *data);
 int		map_width(t_data *data);
 char	get_map_value_at(int i, int j, t_data *data);
+void	set_map_value_at(int i, int j, char value, t_data *data);
 int		get_map_value_at_pos(float x, float y, t_data *data);
 void	set_map_value_at_pos(float x, float y, char value, t_data *data);
 int		map_has_wall_at(float x, float y, t_data *data);

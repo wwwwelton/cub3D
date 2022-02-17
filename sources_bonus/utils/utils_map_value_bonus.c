@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/17 03:39:14 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/17 05:12:15 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,16 @@ char	get_map_value_at(int i, int j, t_data *data)
 	return (data->map[i][j]);
 }
 
+void	set_map_value_at(int i, int j, char value, t_data *data)
+{
+	if (i < 0 || i > (map_height(data) - 1)
+		|| j < 0 || j > (map_width(data) - 1))
+	{
+		return ;
+	}
+	data->map[i][j] = value;
+}
+
 int	get_map_value_at_pos(float x, float y, t_data *data)
 {
 	int	map_x;
@@ -64,5 +74,5 @@ void	set_map_value_at_pos(float x, float y, char value, t_data *data)
 	{
 		return ;
 	}
-	data->map[map_y][map_x] = value;
+	set_map_value_at(map_y, map_x, value, data);
 }
