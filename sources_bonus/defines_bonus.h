@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   defines_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 17:18:00 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/16 17:43:48 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/17 00:00:18 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,8 @@
 # define FOV_ANGLE 1.0472
 # define FOG_DIST 400
 # define FOG_SIDE 0.7
+
+# define ACTION_DIST 150
 
 # define PLAYER_SIZE TILE_SIZE
 # define VIEW_ANGLE 400

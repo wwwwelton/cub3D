@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_player_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/16 18:22:44 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/17 00:03:33 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,32 @@ static void	move_player(float move_step, float side_step, t_data *data)
 	}
 }
 
+static void	open_door(t_data *data)
+{
+	int			distance;
+	float		new_player_x;
+	float		new_player_y;
+	t_player	*player;
+
+	if (data->player.action_door == false)
+		return ;
+	distance = 0;
+	player = &data->player;
+	while (distance < ACTION_DIST)
+	{
+		new_player_x = player->x + cos(player->rot_angle) * distance;
+		new_player_y = player->y + sin(player->rot_angle) * distance;
+		if (get_map_value_at_pos(new_player_x, new_player_y, data) == 'D')
+		{
+			set_map_value_at_pos(new_player_x, new_player_y, '0', data);
+			data->player.action_door = false;
+			return ;
+		}
+		distance += 10;
+	}
+	data->player.action_door = false;
+}
+
 void	update_player(t_data *data)
 {
 	float		move_step;
@@ -71,5 +97,6 @@ void	update_player(t_data *data)
 	side_step = player->side_dir * player->walk_speed * delta_time;
 	if (move_step && side_step)
 		decrease_step(&move_step, &side_step);
+	open_door(data);
 	move_player(move_step, side_step, data);
 }

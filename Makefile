@@ -71,6 +71,7 @@ BONUS_FILES	=		cub3d_bonus.c \
 					raycaster_utils_bonus.c \
 					raycaster_utils_direction_bonus.c \
 					utils_map_bonus.c \
+					utils_map_value_bonus.c \
 					validate_bonus.c \
 					validate_map_bonus.c \
 					validate_map_inner_bonus.c \
