@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 21:59:34 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/16 17:54:07 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/18 20:10:43 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,12 @@ int		get_wall_texture(t_ray ray);
 int		get_wall_pixel_color(t_img texture, t_wall_data *wall);
 void	check_inverse_offset_x(t_ray ray, int *texture_offset_x);
 int		get_texture_offset_x(t_ray ray);
+
+//sprite
+void	draw_sprites(t_data *data);
+void	init_sprite_data(t_sprite visible_sprite, t_sprite_data *sprite,
+			t_data *data);
+int		get_sprite_pixel_color(t_img texture, t_sprite_data *sprite);
+void	change_sprite_color_intensity(t_sprite_data *sprite);
 
 #endif

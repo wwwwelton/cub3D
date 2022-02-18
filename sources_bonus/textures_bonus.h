@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 06:16:42 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/16 20:05:20 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/18 00:09:49 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@
 
 # define PATHDOOR "assets/images/door.xpm"
 
+# define PATHARMOR "assets/images/sprites/armor.xpm"
+
 # define TEX_WIDTH 64
 # define TEX_HEIGHT 64
 
@@ -50,6 +52,7 @@ typedef enum e_tex
 	SCREEN,
 	MAP,
 	FRAME,
+	SPRITE,
 	TEX_NO,
 	TEX_EA,
 	TEX_SO,
@@ -80,6 +83,7 @@ typedef enum e_tex
 	FPS_7,
 	FPS_8,
 	FPS_9,
+	SPT_ARMOR,
 	TEX_NB
 }	t_tex;
 

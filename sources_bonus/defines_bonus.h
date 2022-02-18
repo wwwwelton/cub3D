@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 17:18:00 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/17 03:38:59 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/18 19:11:04 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,9 @@
 
 # define FRAME_DELAY 500
 
+# define NUM_SPRITES 50
+# define EPSILON 0.2
+
 # define TILE_SIZE 64
 
 # define WIN_WIDTH 1024
@@ -67,5 +70,6 @@
 # define GRAY 0x5c5c5c
 # define BLUE 0x1b4382
 # define GREEN 0x006262
+# define PINK 0xFF00FF
 
 #endif

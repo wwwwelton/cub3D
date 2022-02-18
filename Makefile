@@ -62,6 +62,9 @@ BONUS_FILES	=		cub3d_bonus.c \
 					draw_crosshair_bonus.c \
 					draw_bonus.c \
 					draw_utils_bonus.c \
+					draw_sprites_bonus.c \
+					draw_sprites_init_bonus.c \
+					draw_sprites_utils_bonus.c \
 					draw_wall_bonus.c \
 					draw_wall_utils_bonus.c \
 					game_loop_bonus.c \
@@ -70,6 +73,9 @@ BONUS_FILES	=		cub3d_bonus.c \
 					raycaster_init_bonus.c \
 					raycaster_utils_bonus.c \
 					raycaster_utils_direction_bonus.c \
+					sprite_init_bonus.c \
+					sprite_update_bonus.c \
+					sprite_utils_bonus.c \
 					utils_map_bonus.c \
 					utils_map_value_bonus.c \
 					validate_bonus.c \
@@ -131,6 +137,7 @@ VPATH			=	sources sources/draw sources/validation sources/keys \
 					sources_bonus/keys sources_bonus/graphics \
 					sources_bonus/utils sources_bonus/init \
 					sources_bonus/raycaster sources_bonus/mouse \
+					sources_bonus/sprite \
 
 HEADER_BONUS	=	$(BONUS_DIR)/cub3d_bonus.h
 

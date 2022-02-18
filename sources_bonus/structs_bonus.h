@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 17:16:54 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/15 23:12:35 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/18 19:55:31 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,10 +109,42 @@ typedef struct s_frame
 	int		cycle;
 }	t_frame;
 
+typedef struct s_sprite
+{
+	float	x;
+	float	y;
+	float	distance;
+	float	angle;
+	t_bool	visible;
+	int		texture;
+}	t_sprite;
+
+typedef struct s_sprite_data
+{
+	float		height;
+	float		width;
+	float		top_y;
+	float		bottom_y;
+	float		left_x;
+	float		right_x;
+	float		dist_proj_plane;
+	int			win_height;
+	int			texture;
+	int			pixel_color;
+	int			texture_offset_y;
+	int			texture_offset_x;
+	float		pixel_width;
+	float		pixel_height;
+	int			distance_from_top;
+	float		distance;
+}	t_sprite_data;
+
 typedef struct s_data
 {
 	int			state;
 	int			mouse_lock;
+	int			num_sprites;
+	int			num_visible_sprites;
 	t_bool		game_running;
 	char		**map;
 	char		**devmap;
@@ -122,6 +154,8 @@ typedef struct s_data
 	t_params	params;
 	t_player	player;
 	t_ray		rays[NUM_RAYS];
+	t_sprite	sprites[NUM_SPRITES];
+	t_sprite	visible_sprites[NUM_SPRITES];
 	t_frame		frame;
 }	t_data;
 

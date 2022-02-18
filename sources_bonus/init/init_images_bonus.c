@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/16 18:47:33 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/18 00:06:52 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,5 +52,13 @@ t_bool	init_fps_textures(t_data *data)
 	init_xpm(data, &data->img[FPS_7], PATHFPS7, &valid);
 	init_xpm(data, &data->img[FPS_8], PATHFPS8, &valid);
 	init_xpm(data, &data->img[FPS_9], PATHFPS9, &valid);
+	return (valid);
+}
+
+t_bool	init_sprite_textures(t_data *data)
+{
+	static t_bool	valid = true;
+
+	init_xpm(data, &data->img[SPT_ARMOR], PATHARMOR, &valid);
 	return (valid);
 }
