@@ -3,14 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   validate_map_inner_bonus.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
+/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 04:59:34 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/15 00:25:38 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/18 22:15:07 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
+
+t_bool	is_char_adjacent_to_set(char **map, int x, int y, char *set)
+{
+	int	i;
+
+	i = -1;
+	while (set[++i])
+	{
+		if (is_char_adjacent_to(map, x, y, set[i]))
+			return (true);
+	}
+	return (false);
+}
 
 int	check_end(char **map, int x, int y, char c)
 {
@@ -37,7 +50,8 @@ void	initial_map_cleanup(char **map)
 			&& (is_char_adjacent_to(map, i, j, 'E') == false
 			&& is_char_adjacent_to(map, i, j, 'W') == false
 			&& is_char_adjacent_to(map, i, j, 'S') == false
-			&& is_char_adjacent_to(map, i, j, 'N') == false))
+			&& is_char_adjacent_to(map, i, j, 'N') == false
+			&& is_char_adjacent_to_set(map, i, j, VALID_SPRITE) == false))
 				map[i][j] = ' ';
 		}
 		j = -1;
