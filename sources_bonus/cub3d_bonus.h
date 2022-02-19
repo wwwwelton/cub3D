@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 09:06:24 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/19 04:20:43 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/19 19:05:13 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,5 +128,8 @@ float	get_sprite_dist(t_sprite sprite, t_data *data);
 float	get_angle_sprite_player(t_sprite sprite, t_data *data);
 int		get_sprite_texture(int id);
 void	animate_sprites(t_data *data);
+t_bool	is_sprite_collidable(int id);
+t_bool	is_sprite_hittable(int id);
+t_bool	is_sprite_animated(int id);
 
 #endif
