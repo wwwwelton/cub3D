@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   textures_bonus.h                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
+/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 06:16:42 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/18 00:09:49 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/18 21:14:54 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,10 @@
 # define PATHDOOR "assets/images/door.xpm"
 
 # define PATHARMOR "assets/images/sprites/armor.xpm"
+# define PATHBARREL "assets/images/sprites/barrel.xpm"
+# define PATHGUARD "assets/images/sprites/guard.xpm"
+# define PATHLIGHT "assets/images/sprites/light.xpm"
+# define PATHTABLE "assets/images/sprites/table.xpm"
 
 # define TEX_WIDTH 64
 # define TEX_HEIGHT 64
@@ -84,6 +88,10 @@ typedef enum e_tex
 	FPS_8,
 	FPS_9,
 	SPT_ARMOR,
+	SPT_BARREL,
+	SPT_GUARD,
+	SPT_LIGHT,
+	SPT_TABLE,
 	TEX_NB
 }	t_tex;
 

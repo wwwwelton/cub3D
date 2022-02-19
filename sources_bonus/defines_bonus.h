@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   defines_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
+/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 17:18:00 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/18 19:11:04 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/18 21:17:42 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,10 @@
 # define INNER '@'
 # define FILLER '#'
 # define VALID_PLAYER "NSEWP"
-# define VALID_MAP "01DH"
+# define VALID_MAP "01DHabcdef"
 # define VALID_ID "NSEWCFDH\n"
-# define VALID_MAP_CHARS "01 NSEWDH\n"
+# define VALID_MAP_CHARS "01 NSEWDHabcdef\n"
+# define VALID_SPRITE "abcdef"
 # define VALID_WALLS "!@D"
 
 # define FRAME_DELAY 500

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_images_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
+/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/18 00:06:52 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/18 21:16:24 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,5 +60,9 @@ t_bool	init_sprite_textures(t_data *data)
 	static t_bool	valid = true;
 
 	init_xpm(data, &data->img[SPT_ARMOR], PATHARMOR, &valid);
+	init_xpm(data, &data->img[SPT_BARREL], PATHBARREL, &valid);
+	init_xpm(data, &data->img[SPT_GUARD], PATHGUARD, &valid);
+	init_xpm(data, &data->img[SPT_TABLE], PATHTABLE, &valid);
+	init_xpm(data, &data->img[SPT_LIGHT], PATHLIGHT, &valid);
 	return (valid);
 }
