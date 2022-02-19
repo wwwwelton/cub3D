@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/16 18:29:57 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/19 03:14:41 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ static void	render_floor(int x, t_wall_data *wall, t_data *data)
 {
 	int	y;
 
-	y = -1;
 	y = wall->bottom_y - 1;
 	while (++y < WIN_HEIGHT)
 		pixel_put(&data->img[FRAME], x, y, data->params.floorcolor);
