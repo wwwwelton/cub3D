@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 06:16:42 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/19 03:26:43 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/19 04:17:18 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,10 @@
 # define PATHGUARD "assets/images/sprites/guard.xpm"
 # define PATHTABLEL "assets/images/sprites/table_lamp.xpm"
 # define PATHTABLE "assets/images/sprites/table.xpm"
+
+# define PATHGUARD1 "assets/images/sprites/animated/guard1.xpm"
+# define PATHGUARD2 "assets/images/sprites/animated/guard2.xpm"
+# define PATHGUARD3 "assets/images/sprites/animated/guard3.xpm"
 
 # define TEX_WIDTH 64
 # define TEX_HEIGHT 64
@@ -90,6 +94,9 @@ typedef enum e_tex
 	SPT_ARMOR,
 	SPT_BARREL,
 	SPT_GUARD,
+	SPT_GUARD1,
+	SPT_GUARD2,
+	SPT_GUARD3,
 	SPT_TABLE,
 	SPT_TABLEL,
 	TEX_NB
