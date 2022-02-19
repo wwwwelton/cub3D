@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/18 22:17:27 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/19 03:40:11 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,5 +64,5 @@ void	init_data(t_data *data)
 	init_sprite_textures(data);
 	if (init_xpm_textures(data) == false)
 		exit_game(data);
-	init_sprites(data, data->map, -1, -1);
+	init_sprites(data->map, data);
 }

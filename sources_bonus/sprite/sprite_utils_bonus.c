@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/18 22:53:06 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/19 03:53:31 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,4 +65,19 @@ int	map_has_sprite_at(float x, float y, t_data *data)
 		return (false);
 	}
 	return (ftex_is_in_set(data->map[map_y][map_x], VALID_SPRITE));
+}
+
+int	get_sprite_texture(int id)
+{
+	if (id == ARMOR)
+		return (SPT_ARMOR);
+	if (id == BARREL)
+		return (SPT_BARREL);
+	if (id == GUARD)
+		return (SPT_GUARD);
+	if (id == TABLE)
+		return (SPT_TABLE);
+	if (id == TABLEL)
+		return (SPT_TABLEL);
+	return (0);
 }

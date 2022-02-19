@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   defines_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 17:18:00 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/18 21:17:42 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/19 03:52:00 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,12 @@
 # define VALID_MAP_CHARS "01 NSEWDHabcdef\n"
 # define VALID_SPRITE "abcdef"
 # define VALID_WALLS "!@D"
+
+# define ARMOR 'a'
+# define BARREL 'b'
+# define GUARD 'c'
+# define TABLE 'd'
+# define TABLEL 'e'
 
 # define FRAME_DELAY 500
 
