@@ -49,6 +49,7 @@ BONUS_FILES	=		cub3d_bonus.c \
 					init_fps_bonus.c \
 					init_images_bonus.c \
 					init_utils_bonus.c \
+					init_sprites_bonus.c \
 					graphics_utils_bonus.c \
 					graphics_fill_bonus.c \
 					graphics_alpha_layer_bonus.c \
