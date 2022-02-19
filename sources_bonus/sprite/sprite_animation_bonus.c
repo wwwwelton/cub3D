@@ -1,20 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sprite_update_bonus.c                              :+:      :+:    :+:   */
+/*   sprite_animation_bonus.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/19 04:20:37 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/19 04:31:23 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
 
-void	sprite_update(t_data *data)
+static void	animate_guard(int index, t_sprite *sprite, t_data *data)
 {
-	init_visible_sprites(data);
-	sort_visible_sprites(data->visible_sprites, data->num_visible_sprites);
-	animate_sprites(data);
+	if (sprite->frame == 0)
+		sprite->texture = SPT_GUARD1;
+	if (sprite->frame == 1)
+		sprite->texture = SPT_GUARD2;
+	if (sprite->frame == 2)
+		sprite->texture = SPT_GUARD3;
+	sprite->frame = (data->frame.cycle + index) % 3;
+}
+
+void	animate_sprites(t_data *data)
+{
+	int	i;
+
+	i = -1;
+	while (++i < data->num_sprites)
+	{
+		if (data->sprites[i].id == GUARD)
+			animate_guard(i, &data->sprites[i], data);
+	}
 }
