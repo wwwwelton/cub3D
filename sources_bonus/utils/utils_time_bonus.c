@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/27 08:14:33 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/16 02:22:31 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/19 03:19:32 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ void	sync_time(t_data *data)
 		current_time = timestamp();
 	data->frame.delta_time = clock() - old_time;
 	fps_calc = (1.0 / data->frame.delta_time) * CLOCKS_PER_SEC;
-	data->frame.cycle++;
 	data->frame.cycle = (data->frame.cycle % 30);
 	data->frame.delta_time = data->frame.delta_time / 1000.0f;
 	old_time = clock();
@@ -41,6 +40,7 @@ void	sync_time(t_data *data)
 		current_time = timestamp();
 		fps = fps_calc;
 		fps_to_str(fps, data->frame.fps);
+		data->frame.cycle++;
 	}
 	data->frame.delta_time = data->frame.delta_time / 30;
 }
