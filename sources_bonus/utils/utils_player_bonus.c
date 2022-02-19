@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/17 03:17:03 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/18 22:55:11 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,8 @@ static void	move_player(float move_step, float side_step, t_data *data)
 	new_player_y = player->y + sin(player->rot_angle) * move_step;
 	new_player_x = new_player_x - sin(-player->rot_angle) * side_step;
 	new_player_y = new_player_y - cos(-player->rot_angle) * side_step;
-	if (!map_has_wall_at(new_player_x, new_player_y, data))
+	if (!map_has_wall_at(new_player_x, new_player_y, data)
+		&& !map_has_sprite_at(new_player_x, new_player_y, data))
 	{
 		player->x = new_player_x;
 		player->y = new_player_y;

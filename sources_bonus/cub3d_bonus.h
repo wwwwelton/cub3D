@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 09:06:24 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/18 22:17:42 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/18 22:54:02 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,6 +122,7 @@ long	timestamp(void);
 //sprite
 void	init_visible_sprites(t_data *data);
 void	sort_visible_sprites(t_sprite *visible_sprites, int num_sprites);
+int		map_has_sprite_at(float x, float y, t_data *data);
 void	init_sprites(t_data *data, char **map, int i, int j);
 float	get_sprite_dist(t_sprite sprite, t_data *data);
 float	get_angle_sprite_player(t_sprite sprite, t_data *data);
