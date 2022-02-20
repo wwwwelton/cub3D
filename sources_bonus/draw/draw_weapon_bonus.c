@@ -1,33 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   graphics_copy_layer_bonus.c                        :+:      :+:    :+:   */
+/*   draw_weapon_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/05 05:36:24 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/20 00:55:51 by wleite           ###   ########.fr       */
+/*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
+/*   Updated: 2022/02/20 00:56:23 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
 
-void	copy_layer(t_img *from, t_img *to, int x, int y)
+void	draw_weapon(t_data *data)
 {
-	int	i;
-	int	j;
+	int		x;
+	int		y;
+	t_img	*image;
 
-	i = -1;
-	j = -1;
-	while (++j < from->height && j < WIN_HEIGHT)
-	{
-		while (++i < from->width && i < WIN_WIDTH)
-		{
-			if (from->dump[i + j * from->size_l / 4] != BLACK
-				&& from->dump[i + j * from->size_l / 4] != PINK)
-				to->dump[x + i + ((y + j) * to->size_l / 4)]
-					= from->dump[i + j * from->size_l / 4];
-		}
-		i = -1;
-	}
+	image = resize_image(&data->img[data->player.weapon], 6, data);
+	x = middle_x(*image);
+	y = WIN_HEIGHT - image->height;
+	copy_layer(image, &data->img[WEAPON], x, y);
+	mlx_destroy_image(data->mlx.mlx_ptr, image->img_ptr);
+	free(image);
 }

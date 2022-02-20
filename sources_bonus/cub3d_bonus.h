@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 09:06:24 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/19 22:01:52 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/20 00:50:40 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,7 @@ t_bool	ftex_is_in_set(char c, char *set);
 void	ftex_tr(char *str, char *del, char *ret);
 void	tr_matrix(char **matrix, char *del, char *replace);
 void	free_matrix(char **matrix);
+void	destroy_resized_image(t_img	*image, t_data *data);
 void	pixel_put(t_img *img, int x, int y, int color);
 t_bool	print_error(char *error);
 int		count_commas(char *str);

@@ -18,6 +18,7 @@ static void	reinit_images(t_data *data)
 	mlx_destroy_image(data->mlx.mlx_ptr, data->img[FRAME].img_ptr);
 	mlx_destroy_image(data->mlx.mlx_ptr, data->img[SPRITE].img_ptr);
 	mlx_destroy_image(data->mlx.mlx_ptr, data->img[MAP].img_ptr);
+	mlx_destroy_image(data->mlx.mlx_ptr, data->img[WEAPON].img_ptr);
 	mlx_destroy_image(data->mlx.mlx_ptr, data->img[FPS].img_ptr);
 	init_img(data, &data->img[SCREEN], WIN_WIDTH, WIN_HEIGHT);
 	init_img(data, &data->img[FRAME], WIN_WIDTH, WIN_HEIGHT);
@@ -35,6 +36,7 @@ void	draw_game(t_data *data)
 	draw_wall(data);
 	draw_map(data, data->map, -1, -1);
 	draw_sprites(data);
+	draw_weapon(data);
 	draw_crosshair(data);
 	draw_fps(data);
 	copy_layer(&data->img[FRAME], &data->img[SCREEN], 0, 0);

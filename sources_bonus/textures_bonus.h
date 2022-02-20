@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 06:16:42 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/19 22:02:50 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/19 22:11:23 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,11 @@
 # define PATHHUDBLOCK "assets/images/hud_block.xpm"
 # define PATHNOIMAGE "assets/images/no_image.xpm"
 
-# define PATHWEAPON1 "assets/images/weapon1.xpm"
-# define PATHWEAPON2 "assets/images/weapon2.xpm"
-# define PATHWEAPON3 "assets/images/weapon3.xpm"
-# define PATHWEAPON4 "assets/images/weapon4.xpm"
-# define PATHWEAPON5 "assets/images/weapon5.xpm"
+# define PATHWEAPON1 "assets/images/weapon/weapon1.xpm"
+# define PATHWEAPON2 "assets/images/weapon/weapon2.xpm"
+# define PATHWEAPON3 "assets/images/weapon/weapon3.xpm"
+# define PATHWEAPON4 "assets/images/weapon/weapon4.xpm"
+# define PATHWEAPON5 "assets/images/weapon/weapon5.xpm"
 
 # define PATHFPS0 "assets/images/fps/0.xpm"
 # define PATHFPS1 "assets/images/fps/1.xpm"

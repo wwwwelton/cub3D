@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/15 00:25:38 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/20 00:54:39 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,4 +47,30 @@ int	blend_colors(int color1, int color2, float alpha1, float alpha2)
 	change_color_intensity(&color1, alpha1);
 	change_color_intensity(&color2, alpha2);
 	return (color1 + color2);
+}
+
+t_img	*resize_image(t_img *image_to_scale, int scale, t_data *data)
+{
+	int		count_w;
+	int		count_h;
+	int		img_width;
+	int		img_height;
+	t_img	*result;
+
+	img_width = image_to_scale->width * scale;
+	img_height = image_to_scale->height * scale;
+	result = malloc(sizeof(t_img));
+	init_img(data, result, img_width, img_height);
+	count_h = -1;
+	while (++count_h <= img_height)
+	{
+		count_w = -1;
+		while (++count_w <= img_width)
+		{
+			result->dump[(count_h * img_width) + count_w]
+				= image_to_scale->dump[((count_h / scale)
+					* image_to_scale->width) + (count_w / scale)];
+		}
+	}
+	return (result);
 }

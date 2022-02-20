@@ -60,6 +60,7 @@ BONUS_FILES	=		cub3d_bonus.c \
 					draw_map_bonus.c \
 					draw_menu_bonus.c \
 					draw_fps_bonus.c \
+					draw_weapon_bonus.c \
 					draw_crosshair_bonus.c \
 					draw_bonus.c \
 					draw_utils_bonus.c \
@@ -203,7 +204,7 @@ runb:
 				make bonus && clear && ./$(NAME_BONUS) assets/maps/minimap.cub
 
 runvb:
-				make bonus && clear && valgrind ./$(NAME_BONUS) assets/maps/minimap.cub
+				make bonus && clear && valgrind --leak-check=full ./$(NAME_BONUS) assets/maps/minimap.cub
 
 re:				fclean all
 

@@ -6,11 +6,17 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 19:36:18 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/15 00:25:38 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/20 00:50:21 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
+
+void	destroy_resized_image(t_img	*image, t_data *data)
+{
+	mlx_destroy_image(data->mlx.mlx_ptr, image->img_ptr);
+	free(image);
+}
 
 void	free_matrix(char **matrix)
 {

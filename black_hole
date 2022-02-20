@@ -284,3 +284,33 @@ static void	mouse_handler_y(int y, int mid_x, int mid_y, t_data *data)
 	}
 }
 //mouse turbo_trox
+
+
+//resize
+void	draw_weapon(t_data *data)
+{
+	int		scale;
+	t_img	*result;
+
+	// x = middle_x(data->img[data->player.weapon]);
+	// y = WIN_HEIGHT - data->img[data->player.weapon].height;
+	// copy_layer(&data->img[data->player.weapon], &data->img[WEAPON], x, y);
+	int		count_w;
+	int		count_h;
+
+	(void)result;
+	result = resize_image(data->img[WEAPON], 4, data);
+	mlx_destroy_image(data->mlx.mlx_ptr, result->img_ptr);
+	scale = 5;
+	count_h = -1;
+	while (++count_h <= TEX_HEIGHT * scale)
+	{
+		count_w = -1;
+		while (++count_w <= TEX_WIDTH * scale)
+		{
+			data->img[WEAPON].dump[(count_h * WIN_WIDTH) + count_w]
+				= data->img[WEAPON_5].dump[((count_h / scale) * TEX_WIDTH) + (count_w / scale)];
+		}
+	}
+}
+//resize

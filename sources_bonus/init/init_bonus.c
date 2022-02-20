@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/20 00:49:39 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/20 00:59:10 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,9 @@ static void	init_player(t_data *data)
 	data->player.turn_speed = 3 * (PI / 180);
 	data->player.look_speed = 35;
 	data->player.action_door = false;
+	data->player.weapon = WEAPON_1;
+	data->player.action_shoot = 0;
+	data->player.frame = 0;
 }
 
 static void	init_images(t_data *data)
