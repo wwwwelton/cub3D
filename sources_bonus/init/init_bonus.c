@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/19 03:40:11 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/19 22:02:27 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ static void	init_images(t_data *data)
 	init_img(data, &data->img[SPRITE], WIN_WIDTH, WIN_HEIGHT);
 	init_img(data, &data->img[MAP], WIN_WIDTH, WIN_HEIGHT);
 	init_img(data, &data->img[FPS], WIN_WIDTH, WIN_HEIGHT);
+	init_img(data, &data->img[WEAPON], WIN_WIDTH, WIN_HEIGHT);
 }
 
 void	init_data(t_data *data)
@@ -59,10 +60,11 @@ void	init_data(t_data *data)
 	init_menu(data);
 	init_player(data);
 	init_fps(data);
+	init_sprites(data->map, data);
 	init_images(data);
 	init_fps_textures(data);
 	init_sprite_textures(data);
+	init_weapon_textures(data);
 	if (init_xpm_textures(data) == false)
 		exit_game(data);
-	init_sprites(data->map, data);
 }

@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/19 04:17:05 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/19 22:00:20 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,18 @@ t_bool	init_fps_textures(t_data *data)
 	init_xpm(data, &data->img[FPS_7], PATHFPS7, &valid);
 	init_xpm(data, &data->img[FPS_8], PATHFPS8, &valid);
 	init_xpm(data, &data->img[FPS_9], PATHFPS9, &valid);
+	return (valid);
+}
+
+t_bool	init_weapon_textures(t_data *data)
+{
+	static t_bool	valid = true;
+
+	init_xpm(data, &data->img[WEAPON_1], PATHWEAPON1, &valid);
+	init_xpm(data, &data->img[WEAPON_2], PATHWEAPON2, &valid);
+	init_xpm(data, &data->img[WEAPON_3], PATHWEAPON3, &valid);
+	init_xpm(data, &data->img[WEAPON_4], PATHWEAPON4, &valid);
+	init_xpm(data, &data->img[WEAPON_5], PATHWEAPON5, &valid);
 	return (valid);
 }
 

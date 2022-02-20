@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 06:16:42 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/19 04:17:18 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/19 22:02:50 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,16 +29,22 @@
 # define PATHHUDBLOCK "assets/images/hud_block.xpm"
 # define PATHNOIMAGE "assets/images/no_image.xpm"
 
-# define PATHFPS0 "assets/images/fps_numbers/0.xpm"
-# define PATHFPS1 "assets/images/fps_numbers/1.xpm"
-# define PATHFPS2 "assets/images/fps_numbers/2.xpm"
-# define PATHFPS3 "assets/images/fps_numbers/3.xpm"
-# define PATHFPS4 "assets/images/fps_numbers/4.xpm"
-# define PATHFPS5 "assets/images/fps_numbers/5.xpm"
-# define PATHFPS6 "assets/images/fps_numbers/6.xpm"
-# define PATHFPS7 "assets/images/fps_numbers/7.xpm"
-# define PATHFPS8 "assets/images/fps_numbers/8.xpm"
-# define PATHFPS9 "assets/images/fps_numbers/9.xpm"
+# define PATHWEAPON1 "assets/images/weapon1.xpm"
+# define PATHWEAPON2 "assets/images/weapon2.xpm"
+# define PATHWEAPON3 "assets/images/weapon3.xpm"
+# define PATHWEAPON4 "assets/images/weapon4.xpm"
+# define PATHWEAPON5 "assets/images/weapon5.xpm"
+
+# define PATHFPS0 "assets/images/fps/0.xpm"
+# define PATHFPS1 "assets/images/fps/1.xpm"
+# define PATHFPS2 "assets/images/fps/2.xpm"
+# define PATHFPS3 "assets/images/fps/3.xpm"
+# define PATHFPS4 "assets/images/fps/4.xpm"
+# define PATHFPS5 "assets/images/fps/5.xpm"
+# define PATHFPS6 "assets/images/fps/6.xpm"
+# define PATHFPS7 "assets/images/fps/7.xpm"
+# define PATHFPS8 "assets/images/fps/8.xpm"
+# define PATHFPS9 "assets/images/fps/9.xpm"
 
 # define PATHDOOR "assets/images/door.xpm"
 
@@ -61,6 +67,7 @@ typedef enum e_tex
 	MAP,
 	FRAME,
 	SPRITE,
+	WEAPON,
 	TEX_NO,
 	TEX_EA,
 	TEX_SO,
@@ -91,6 +98,11 @@ typedef enum e_tex
 	FPS_7,
 	FPS_8,
 	FPS_9,
+	WEAPON_1,
+	WEAPON_2,
+	WEAPON_3,
+	WEAPON_4,
+	WEAPON_5,
 	SPT_ARMOR,
 	SPT_BARREL,
 	SPT_GUARD,

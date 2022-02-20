@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 09:06:24 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/19 21:23:24 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/19 22:01:52 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ void	init_img(t_data *data, t_img *img, int width, int heigth);
 void	init_xpm(t_data *data, t_img *img, char *image_path, t_bool *valid);
 t_bool	init_fps_textures(t_data *data);
 t_bool	init_sprite_textures(t_data *data);
+t_bool	init_weapon_textures(t_data *data);
 t_bool	init_xpm_textures(t_data *data);
 void	init_fps(t_data *data);
 int		exit_game(t_data *data);

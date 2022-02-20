@@ -23,6 +23,7 @@ static void	reinit_images(t_data *data)
 	init_img(data, &data->img[FRAME], WIN_WIDTH, WIN_HEIGHT);
 	init_img(data, &data->img[SPRITE], WIN_WIDTH, WIN_HEIGHT);
 	init_img(data, &data->img[MAP], WIN_WIDTH, WIN_HEIGHT);
+	init_img(data, &data->img[WEAPON], WIN_WIDTH, WIN_HEIGHT);
 	init_img(data, &data->img[FPS], WIN_WIDTH, WIN_HEIGHT);
 }
 
@@ -39,6 +40,7 @@ void	draw_game(t_data *data)
 	copy_layer(&data->img[FRAME], &data->img[SCREEN], 0, 0);
 	copy_layer(&data->img[SPRITE], &data->img[SCREEN], 0, 0);
 	alpha_layer(&data->img[MAP], &data->img[SCREEN], layer_vars(0, 0), 0.7);
+	copy_layer(&data->img[WEAPON], &data->img[SCREEN], 0, 0);
 	copy_layer(&data->img[FPS], &data->img[SCREEN], 0, 0);
 	mlx_put_image_to_window(mlx->mlx_ptr, mlx->win, data->img->img_ptr, 0, 0);
 	reinit_images(data);
