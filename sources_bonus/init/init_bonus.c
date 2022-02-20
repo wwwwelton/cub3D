@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
+/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/19 22:02:27 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/20 00:49:39 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void	init_menu(t_data *data)
 	data->menu.main = 0;
 	data->menu.options = 0;
 	data->menu.game = 0;
-	data->menu.opt_mouses = 3;
+	data->menu.opt_mouses = 2;
 	data->menu.opt_rots = 2;
 	data->menu.opt_moves = 1;
 	data->mouse_lock = 1;
