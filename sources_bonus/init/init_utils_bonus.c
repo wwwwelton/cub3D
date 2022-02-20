@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_utils_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/15 21:18:53 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/20 00:07:35 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ void	init_img(t_data *data, t_img *img, int width, int heigth)
 
 	mlx = &data->mlx;
 	img->img_ptr = mlx_new_image(mlx->mlx_ptr, width, heigth);
-	img->height = WIN_HEIGHT;
-	img->width = WIN_WIDTH;
+	img->height = heigth;
+	img->width = width;
 	img->dump = (int *)
 		mlx_get_data_addr(img->img_ptr, &img->bpp, &img->size_l, &img->endian);
 }
