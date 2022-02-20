@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/19 18:56:22 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/19 21:07:26 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,4 +65,25 @@ int	map_has_sprite_at(float x, float y, t_data *data)
 		return (false);
 	}
 	return (ftex_is_in_set(data->map[map_y][map_x], VALID_SPRITE));
+}
+
+int	has_sprite_collision_at(float x, float y, t_data *data)
+{
+	int			n;
+	int			i;
+	int			j;
+	t_sprite	*sprite;
+
+	if (!map_has_sprite_at(x, y, data))
+		return (false);
+	i = floor(y / TILE_SIZE);
+	j = floor(x / TILE_SIZE);
+	n = -1;
+	while (++n < data->num_visible_sprites)
+	{
+		sprite = &data->visible_sprites[n];
+		if (sprite->i == i && sprite->j == j && sprite->collidable)
+			return (true);
+	}
+	return (false);
 }

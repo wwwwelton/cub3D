@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 17:18:00 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/19 18:59:01 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/19 21:09:08 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@
 # define VALID_SPRITE "abcdef"
 # define VALID_WALLS "!@D"
 
-# define COLLID_SPRITE "bcdef"
+# define COLLID_SPRITE "abcdef"
 # define ANIMATED_SPRITE "c"
 # define HITTABLE_SPRITE "c"
 

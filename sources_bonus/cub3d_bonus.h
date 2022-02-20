@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 09:06:24 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/19 19:05:13 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/19 20:20:01 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,6 +123,7 @@ long	timestamp(void);
 void	init_visible_sprites(t_data *data);
 void	sort_visible_sprites(t_sprite *visible_sprites, int num_sprites);
 int		map_has_sprite_at(float x, float y, t_data *data);
+int		has_sprite_collision_at(float x, float y, t_data *data);
 void	init_sprites(char **map, t_data *data);
 float	get_sprite_dist(t_sprite sprite, t_data *data);
 float	get_angle_sprite_player(t_sprite sprite, t_data *data);
