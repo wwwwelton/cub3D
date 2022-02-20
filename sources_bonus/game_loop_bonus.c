@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 19:36:18 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/19 21:23:39 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/20 01:12:15 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ int	game_loop(t_data *data)
 		draw_menu(data);
 	if (data->state == GAME)
 	{
-		check_mouse_visibility(data);
 		update_player(data);
 		update_player_matrix(data);
 		update_sprites(data);

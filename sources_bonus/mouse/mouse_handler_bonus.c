@@ -6,19 +6,11 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/19 09:22:26 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/17 22:15:01 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/20 01:12:21 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
-
-void	check_mouse_visibility(t_data *data)
-{
-	if (data->mouse_lock == false)
-		mlx_mouse_show(data->mlx.mlx_ptr, data->mlx.win);
-	else
-		mlx_mouse_hide(data->mlx.mlx_ptr, data->mlx.win);
-}
 
 static void	mouse_handler_x(int x, int mid_x, int mid_y, t_data *data)
 {

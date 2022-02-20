@@ -204,7 +204,7 @@ runb:
 				make bonus && clear && ./$(NAME_BONUS) assets/maps/minimap.cub
 
 runvb:
-				make bonus && clear && valgrind --leak-check=full ./$(NAME_BONUS) assets/maps/minimap.cub
+				make bonus && clear && valgrind --leak-check=full --show-leak-kinds=all ./$(NAME_BONUS) assets/maps/minimap.cub
 
 re:				fclean all
 
