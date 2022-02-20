@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 19:36:18 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/18 16:45:31 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/19 21:23:39 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,9 @@ int	game_loop(t_data *data)
 		check_mouse_visibility(data);
 		update_player(data);
 		update_player_matrix(data);
+		update_sprites(data);
+		update_animations(data);
 		cast_all_rays(data);
-		sprite_update(data);
 		draw_game(data);
 	}
 	if (data->state == OPTIONS)

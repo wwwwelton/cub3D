@@ -76,7 +76,6 @@ BONUS_FILES	=		cub3d_bonus.c \
 					raycaster_utils_direction_bonus.c \
 					sprite_init_bonus.c \
 					sprite_update_bonus.c \
-					sprite_animation_bonus.c \
 					sprite_utils_bonus.c \
 					sprite_utils2_bonus.c \
 					utils_map_bonus.c \
@@ -92,6 +91,7 @@ BONUS_FILES	=		cub3d_bonus.c \
 					validate_utils2_bonus.c \
 					utils_player_bonus.c \
 					utils_player_aux_bonus.c \
+					utils_animation_bonus.c \
 					utils_tr_bonus.c \
 					utils_strerase_bonus.c \
 					utils_time_bonus.c \

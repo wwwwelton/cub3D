@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/19 04:31:23 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/19 21:23:39 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static void	animate_guard(int index, t_sprite *sprite, t_data *data)
 	sprite->frame = (data->frame.cycle + index) % 3;
 }
 
-void	animate_sprites(t_data *data)
+void	update_animations(t_data *data)
 {
 	int	i;
 

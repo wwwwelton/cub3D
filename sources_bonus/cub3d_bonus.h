@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 09:06:24 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/19 20:20:01 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/19 21:23:24 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,8 @@ int		exit_game(t_data *data);
 int		game_loop(t_data *data);
 void	update_player(t_data *data);
 void	update_player_matrix(t_data *data);
-void	sprite_update(t_data *data);
+void	update_sprites(t_data *data);
+void	update_animations(t_data *data);
 
 //validation
 t_bool	argument_validation(t_data *data, int argc, char **argv);
@@ -128,7 +129,6 @@ void	init_sprites(char **map, t_data *data);
 float	get_sprite_dist(t_sprite sprite, t_data *data);
 float	get_angle_sprite_player(t_sprite sprite, t_data *data);
 int		get_sprite_texture(int id);
-void	animate_sprites(t_data *data);
 t_bool	is_sprite_collidable(int id);
 t_bool	is_sprite_hittable(int id);
 t_bool	is_sprite_animated(int id);
