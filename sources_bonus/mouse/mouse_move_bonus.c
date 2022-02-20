@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mouse_handler_bonus.c                              :+:      :+:    :+:   */
+/*   mouse_move_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/19 09:22:26 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/20 01:12:21 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/20 10:29:27 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
 
-static void	mouse_handler_x(int x, int mid_x, int mid_y, t_data *data)
+static void	mouse_move_x(int x, int mid_x, int mid_y, t_data *data)
 {
 	static int	new_x;
 	int			delta;
@@ -34,7 +34,7 @@ static void	mouse_handler_x(int x, int mid_x, int mid_y, t_data *data)
 	}
 }
 
-static void	mouse_handler_y(int y, int mid_x, int mid_y, t_data *data)
+static void	mouse_move_y(int y, int mid_x, int mid_y, t_data *data)
 {
 	static int	new_y;
 
@@ -46,7 +46,7 @@ static void	mouse_handler_y(int y, int mid_x, int mid_y, t_data *data)
 	}
 }
 
-int	mouse_handler(int x, int y, t_data *data)
+int	mouse_move(int x, int y, t_data *data)
 {
 	int	mid_x;
 	int	mid_y;
@@ -55,7 +55,7 @@ int	mouse_handler(int x, int y, t_data *data)
 		return (0);
 	mid_x = WIN_WIDTH / 2;
 	mid_y = WIN_HEIGHT / 2;
-	mouse_handler_x(x, mid_x, mid_y, data);
-	mouse_handler_y(y, mid_x, mid_y, data);
+	mouse_move_x(x, mid_x, mid_y, data);
+	mouse_move_y(y, mid_x, mid_y, data);
 	return (0);
 }
