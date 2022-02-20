@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   validate_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
+/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 15:33:46 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/15 00:25:38 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/20 00:39:37 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,8 @@ static void	initialize_params(t_params *params)
 
 t_bool	validation(t_data *data, int argc, char **argv)
 {
+	if (WIN_WIDTH < 1024 || WIN_HEIGHT < 768)
+		return (print_error(E_RESINVAL));
 	initialize_params(&data->params);
 	if (!argument_validation(data, argc, argv))
 		return (validation_failed(&data->params, NULL));

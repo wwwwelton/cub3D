@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 00:19:05 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/02 06:39:57 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/20 00:40:27 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,6 @@
 # define E_RGBDUP "Error\nDuplicate color identifiers\n"
 
 # define E_IDINVAL "Error\n%s: Invalid identifier: %s\n"
+# define E_RESINVAL "Error\nResolution below minimum of 1024x768\n"
 
 #endif
