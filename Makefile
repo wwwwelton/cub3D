@@ -55,6 +55,7 @@ BONUS_FILES	=		cub3d_bonus.c \
 					graphics_alpha_layer_bonus.c \
 					graphics_copy_layer_bonus.c \
 					mouse_handler_bonus.c \
+					mouse_keys_bonus.c \
 					print_map_bonus.c \
 					cleanup_bonus.c \
 					draw_map_bonus.c \
