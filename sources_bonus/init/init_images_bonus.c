@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/22 03:38:22 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/22 04:37:36 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,10 +71,12 @@ t_bool	init_sprite_textures(t_data *data)
 
 	init_xpm(data, &data->img[SPT_ARMOR], PATHARMOR, &valid);
 	init_xpm(data, &data->img[SPT_BARREL], PATHBARREL, &valid);
-	init_xpm(data, &data->img[SPT_GUARD], PATHGUARD, &valid);
 	init_xpm(data, &data->img[SPT_GUARD1], PATHGUARD1, &valid);
 	init_xpm(data, &data->img[SPT_GUARD2], PATHGUARD2, &valid);
 	init_xpm(data, &data->img[SPT_GUARD3], PATHGUARD3, &valid);
+	init_xpm(data, &data->img[SPT_GUARD4], PATHGUARD4, &valid);
+	init_xpm(data, &data->img[SPT_GUARD5], PATHGUARD5, &valid);
+	init_xpm(data, &data->img[SPT_GUARD6], PATHGUARD6, &valid);
 	init_xpm(data, &data->img[SPT_TABLE], PATHTABLE, &valid);
 	init_xpm(data, &data->img[SPT_TABLEL], PATHTABLEL, &valid);
 	init_xpm(data, &data->img[SPT_MUT1], PATHMUT1, &valid);

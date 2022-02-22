@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 06:16:42 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/22 03:37:19 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/22 04:37:09 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,13 +48,15 @@
 
 # define PATHARMOR "assets/images/sprites/armor.xpm"
 # define PATHBARREL "assets/images/sprites/barrel.xpm"
-# define PATHGUARD "assets/images/sprites/guard.xpm"
 # define PATHTABLEL "assets/images/sprites/table_lamp.xpm"
 # define PATHTABLE "assets/images/sprites/table.xpm"
 
 # define PATHGUARD1 "assets/images/sprites/animated/guard1.xpm"
 # define PATHGUARD2 "assets/images/sprites/animated/guard2.xpm"
 # define PATHGUARD3 "assets/images/sprites/animated/guard3.xpm"
+# define PATHGUARD4 "assets/images/sprites/animated/guard4.xpm"
+# define PATHGUARD5 "assets/images/sprites/animated/guard5.xpm"
+# define PATHGUARD6 "assets/images/sprites/animated/guard6.xpm"
 
 # define PATHMUT1 "assets/images/sprites/animated/mutant1.xpm"
 # define PATHMUT2 "assets/images/sprites/animated/mutant2.xpm"
@@ -107,10 +109,12 @@ typedef enum e_tex
 	WEAPON_3,
 	SPT_ARMOR,
 	SPT_BARREL,
-	SPT_GUARD,
 	SPT_GUARD1,
 	SPT_GUARD2,
 	SPT_GUARD3,
+	SPT_GUARD4,
+	SPT_GUARD5,
+	SPT_GUARD6,
 	SPT_MUT1,
 	SPT_MUT2,
 	SPT_MUT3,

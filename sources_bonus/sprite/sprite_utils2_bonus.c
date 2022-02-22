@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/22 03:44:50 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/22 04:37:57 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	get_sprite_texture(int id)
 	if (id == BARREL)
 		return (SPT_BARREL);
 	if (id == GUARD)
-		return (SPT_GUARD);
+		return (SPT_GUARD1);
 	if (id == TABLE)
 		return (SPT_TABLE);
 	if (id == TABLEL)
