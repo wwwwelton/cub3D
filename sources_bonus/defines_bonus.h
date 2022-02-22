@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 17:18:00 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/19 21:09:08 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/20 10:55:12 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@
 # define TABLEL 'e'
 
 # define FRAME_DELAY 500
+# define ANIMATION_DELAY 100
 
 # define NUM_SPRITES 50
 # define EPSILON 0.2

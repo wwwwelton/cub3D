@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 06:16:42 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/19 22:11:23 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/21 21:40:49 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,6 @@
 # define PATHWEAPON1 "assets/images/weapon/weapon1.xpm"
 # define PATHWEAPON2 "assets/images/weapon/weapon2.xpm"
 # define PATHWEAPON3 "assets/images/weapon/weapon3.xpm"
-# define PATHWEAPON4 "assets/images/weapon/weapon4.xpm"
-# define PATHWEAPON5 "assets/images/weapon/weapon5.xpm"
 
 # define PATHFPS0 "assets/images/fps/0.xpm"
 # define PATHFPS1 "assets/images/fps/1.xpm"
@@ -101,8 +99,6 @@ typedef enum e_tex
 	WEAPON_1,
 	WEAPON_2,
 	WEAPON_3,
-	WEAPON_4,
-	WEAPON_5,
 	SPT_ARMOR,
 	SPT_BARREL,
 	SPT_GUARD,
