@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/22 02:30:48 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/22 03:44:50 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ int	get_sprite_texture(int id)
 		return (SPT_TABLE);
 	if (id == TABLEL)
 		return (SPT_TABLEL);
+	if (id == MUTANT)
+		return (SPT_MUT1);
 	return (0);
 }
 

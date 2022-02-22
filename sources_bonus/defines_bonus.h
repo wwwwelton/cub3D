@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 17:18:00 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/22 02:32:51 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/22 03:43:53 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,18 +38,19 @@
 # define VALID_PLAYER "NSEWP"
 # define VALID_MAP "01DHabcdef"
 # define VALID_ID "NSEWCFDH\n"
-# define VALID_MAP_CHARS "01 NSEWDHabcdef\n"
-# define VALID_SPRITE "abcdef"
+# define VALID_MAP_CHARS "01 NSEWDHabcdefm\n"
+# define VALID_SPRITE "abcdefm"
 # define VALID_WALLS "!@D"
 
-# define COLLID_SPRITE "abcdef"
-# define ANIMATED_SPRITE "c"
+# define COLLID_SPRITE "abcdefm"
+# define ANIMATED_SPRITE "cm"
 
 # define ARMOR 'a'
 # define BARREL 'b'
 # define GUARD 'c'
 # define TABLE 'd'
 # define TABLEL 'e'
+# define MUTANT 'm'
 
 # define FRAME_DELAY 500
 # define ANIMATION_DELAY 100
