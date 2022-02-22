@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/22 02:53:24 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/22 05:14:53 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,11 @@ float	get_angle_sprite_player(t_sprite sprite, t_data *data)
 
 	ret = data->player.rot_angle - atan2(sprite.y - data->player.y,
 			sprite.x - data->player.x);
-	return (ret);
+	if (ret > PI)
+		ret -= TWO_PI;
+	if (ret < -PI)
+		ret += TWO_PI;
+	return (fabs(ret));
 }
 
 int	map_has_sprite_at(float x, float y, t_data *data)

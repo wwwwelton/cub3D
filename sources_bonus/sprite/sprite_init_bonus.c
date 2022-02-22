@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/22 02:09:07 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/22 05:18:17 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,6 @@ void	init_visible_sprites(t_data *data)
 	while (++i < data->num_sprites)
 	{
 		angle_sprite_player = get_angle_sprite_player(data->sprites[i], data);
-		if (angle_sprite_player > PI)
-			angle_sprite_player -= TWO_PI;
-		if (angle_sprite_player < -PI)
-			angle_sprite_player += TWO_PI;
-		angle_sprite_player = fabs(angle_sprite_player);
 		if (angle_sprite_player < (FOV_ANGLE / 2) + EPSILON)
 		{
 			data->sprites[i].visible = true;
