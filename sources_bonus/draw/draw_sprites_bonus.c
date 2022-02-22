@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/18 20:11:36 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/22 17:18:36 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static void	render_sprite(t_sprite_data *sprite, t_data *data)
 					sprite);
 			if (FOG_DIST && sprite->distance > FOG_DIST)
 				change_sprite_color_intensity(sprite);
-			if (sprite->distance < data->rays[x].distance
+			if (x >= 0 && sprite->distance < data->rays[x].distance
 				&& sprite->pixel_color != PINK)
 				pixel_put(&data->img[SPRITE], x, y, sprite->pixel_color);
 		}
