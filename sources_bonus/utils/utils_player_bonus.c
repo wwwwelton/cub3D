@@ -6,33 +6,18 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/22 02:58:08 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/22 06:00:37 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
 
-void	update_player_matrix(t_data *data)
+static void	check_player_hitted(t_data *data)
 {
-	t_xy	xy;
-	int		player_x;
-	int		player_y;
-
-	xy = get_coordinates(data->map, 0, 0);
-	player_x = data->player.x / TILE_SIZE;
-	player_y = data->player.y / TILE_SIZE;
-	if ((xy.x != player_x || xy.y != player_y)
-		&& player_x < map_height(data) - 1
-		&& player_x >= 0 && player_y >= 0
-		&& player_y < map_width(data))
+	if (data->player.hitted)
 	{
-		if (data->map[player_y][player_x] == '0')
-		{
-			data->map[xy.x][xy.y] = '0';
-			data->map[player_y][player_x] = 'P';
-			printf(CLEAR);
-			print_colored_map(data->map);
-		}
+		data->player.life--;
+		data->player.hitted = 0;
 	}
 }
 
@@ -122,5 +107,6 @@ void	update_player(t_data *data)
 		decrease_step(&move_step, &side_step);
 	open_door(data);
 	bullet_calculation(data);
+	check_player_hitted(data);
 	move_player(move_step, side_step, data);
 }

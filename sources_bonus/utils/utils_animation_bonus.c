@@ -6,23 +6,45 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/22 05:00:09 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/22 06:08:45 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
 
+static int	guard_hit_player(t_sprite *sprite, t_data *data)
+{
+	t_bool	hit;
+
+	hit = 0;
+	if (sprite->in_range && !sprite->hitted)
+	{
+		if (sprite->frame == 0)
+			sprite->texture = SPT_GUARD2;
+		if (sprite->frame == 1)
+		{
+			sprite->texture = SPT_GUARD3;
+			sprite->frame = -1;
+			hit = 1;
+		}
+		if (data->frame.cycle % 4 == 0)
+			sprite->frame++;
+		sprite->frame = sprite->frame % 2;
+		return (hit);
+	}
+	return (hit);
+}
+
 static void	animate_guard(t_sprite *sprite, t_data *data)
 {
-	if (sprite->in_range && !sprite->hitted)
+	if (!sprite->in_range && !sprite->hitted)
 		sprite->texture = SPT_GUARD2;
-	if (sprite->hitted)
+	if (guard_hit_player(sprite, data))
+		data->player.hitted = 1;
+	if (sprite->hitted && sprite->collidable)
 	{
 		if (sprite->frame > 2)
-		{
 			sprite->collidable = 0;
-			return ;
-		}
 		if (sprite->frame == 0)
 			sprite->texture = SPT_GUARD4;
 		if (sprite->frame == 1)
@@ -38,13 +60,10 @@ static void	animate_mutant(t_sprite *sprite, t_data *data)
 {
 	if (sprite->in_range && !sprite->hitted)
 		sprite->texture = SPT_MUT2;
-	if (sprite->hitted)
+	if (sprite->hitted && sprite->collidable)
 	{
 		if (sprite->frame > 2)
-		{
 			sprite->collidable = 0;
-			return ;
-		}
 		if (sprite->frame == 0)
 			sprite->texture = SPT_MUT3;
 		if (sprite->frame == 1)

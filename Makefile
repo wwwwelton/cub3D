@@ -93,7 +93,8 @@ BONUS_FILES	=		cub3d_bonus.c \
 					validate_utils_bonus.c \
 					validate_utils2_bonus.c \
 					utils_player_bonus.c \
-					utils_player_aux_bonus.c \
+					utils_player2_bonus.c \
+					utils_player3_bonus.c \
 					utils_animation_bonus.c \
 					utils_tr_bonus.c \
 					utils_strerase_bonus.c \

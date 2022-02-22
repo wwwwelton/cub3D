@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 17:16:54 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/22 02:52:36 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/22 05:56:55 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ typedef struct s_player
 	float	height;
 	t_bool	action_door;
 	t_bool	action_shoot;
+	t_bool	hitted;
 	int		turn_dir;
 	int		walk_dir;
 	int		side_dir;
@@ -85,6 +86,7 @@ typedef struct s_player
 	float	look_speed;
 	int		weapon;
 	int		frame;
+	int		life;
 }	t_player;
 
 typedef struct s_map
