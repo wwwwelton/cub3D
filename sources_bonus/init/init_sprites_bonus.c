@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 21:23:27 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/22 17:13:53 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/22 19:08:42 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,12 @@ static void	fill_sprite_data(int i, int j, t_sprite *sprite, t_data *data)
 	sprite->y = i * TILE_SIZE + (TILE_SIZE / 2);
 	sprite->id = get_map_value_at(i, j, data);
 	sprite->texture = get_sprite_texture(sprite->id);
+	sprite->tex_index = sprite->texture - 1;
 	sprite->animated = is_sprite_animated(sprite->id);
 	sprite->collidable = is_sprite_collidable(sprite->id);
+	sprite->action_dist = get_sprite_action_dist(sprite->id);
 	sprite->hitted = 0;
-	sprite->in_range = 0;
+	sprite->visited = 0;
 	sprite->i = i;
 	sprite->j = j;
 	sprite->frame = 0;

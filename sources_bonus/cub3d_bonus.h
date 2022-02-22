@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 09:06:24 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/22 02:40:40 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/22 18:50:49 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,10 +130,10 @@ int		has_sprite_collision_at(float x, float y, t_data *data);
 void	init_sprites(char **map, t_data *data);
 void	hit_sprite_at_pos(float x, float y, t_data *data);
 float	get_sprite_dist(t_sprite sprite, t_data *data);
+int		get_sprite_action_dist(int id);
 float	get_angle_sprite_player(t_sprite sprite, t_data *data);
 int		get_sprite_texture(int id);
 t_bool	is_sprite_collidable(int id);
 t_bool	is_sprite_animated(int id);
-t_bool	check_sprite_range(t_sprite sprite);
 
 #endif

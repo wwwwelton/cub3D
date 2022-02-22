@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 06:16:42 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/22 04:37:09 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/22 17:37:36 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@
 # define PATHMUT3 "assets/images/sprites/animated/mutant3.xpm"
 # define PATHMUT4 "assets/images/sprites/animated/mutant4.xpm"
 # define PATHMUT5 "assets/images/sprites/animated/mutant5.xpm"
+# define PATHMUT6 "assets/images/sprites/animated/mutant6.xpm"
 
 # define TEX_WIDTH 64
 # define TEX_HEIGHT 64
@@ -120,6 +121,7 @@ typedef enum e_tex
 	SPT_MUT3,
 	SPT_MUT4,
 	SPT_MUT5,
+	SPT_MUT6,
 	SPT_TABLE,
 	SPT_TABLEL,
 	TEX_NB

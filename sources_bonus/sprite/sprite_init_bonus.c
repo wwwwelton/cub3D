@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/22 05:18:17 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/22 19:00:02 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ void	init_visible_sprites(t_data *data)
 			data->sprites[i].visible = true;
 			data->sprites[i].angle = angle_sprite_player;
 			data->sprites[i].distance = get_sprite_dist(data->sprites[i], data);
-			data->sprites[i].in_range = check_sprite_range(data->sprites[i]);
 			data->visible_sprites[data->num_visible_sprites] = data->sprites[i];
 			data->num_visible_sprites++;
 		}

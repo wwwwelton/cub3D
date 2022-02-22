@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/22 04:37:36 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/22 17:37:51 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,5 +84,6 @@ t_bool	init_sprite_textures(t_data *data)
 	init_xpm(data, &data->img[SPT_MUT3], PATHMUT3, &valid);
 	init_xpm(data, &data->img[SPT_MUT4], PATHMUT4, &valid);
 	init_xpm(data, &data->img[SPT_MUT5], PATHMUT5, &valid);
+	init_xpm(data, &data->img[SPT_MUT6], PATHMUT6, &valid);
 	return (valid);
 }
