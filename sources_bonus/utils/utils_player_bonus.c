@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/19 21:05:39 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/22 02:58:08 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ static void	open_door(t_data *data)
 
 	step = 0;
 	player = &data->player;
-	while (step < ACTION_DIST)
+	while (step <= DOOR_DIST)
 	{
 		new_player_x = player->x + cos(player->rot_angle) * step;
 		new_player_y = player->y + sin(player->rot_angle) * step;
@@ -74,9 +74,33 @@ static void	open_door(t_data *data)
 			set_map_value_at_pos(new_player_x, new_player_y, 'H', data);
 			break ;
 		}
-		step += 10;
+		step += 50;
 	}
 	data->player.action_door = false;
+}
+
+static void	bullet_calculation(t_data *data)
+{
+	int			step;
+	float		bullet_x;
+	float		bullet_y;
+	t_player	*player;
+
+	if (!data->player.action_shoot)
+		return ;
+	step = 0;
+	player = &data->player;
+	while (step <= SHOT_DIST)
+	{
+		bullet_x = player->x + cos(player->rot_angle) * step;
+		bullet_y = player->y + sin(player->rot_angle) * step;
+		if (map_has_sprite_at(bullet_x, bullet_y, data))
+		{
+			hit_sprite_at_pos(bullet_x, bullet_y, data);
+			break ;
+		}
+		step += 50;
+	}
 }
 
 void	update_player(t_data *data)
@@ -97,5 +121,6 @@ void	update_player(t_data *data)
 	if (move_step && side_step)
 		decrease_step(&move_step, &side_step);
 	open_door(data);
+	bullet_calculation(data);
 	move_player(move_step, side_step, data);
 }

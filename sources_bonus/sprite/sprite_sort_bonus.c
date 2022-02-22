@@ -1,43 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sprite_utils2_bonus.c                              :+:      :+:    :+:   */
+/*   sprite_sort_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/22 02:30:48 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/22 02:38:15 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
 
-int	get_sprite_texture(int id)
+void	sort_visible_sprites(t_sprite *visible_sprites, int num_sprites)
 {
-	if (id == ARMOR)
-		return (SPT_ARMOR);
-	if (id == BARREL)
-		return (SPT_BARREL);
-	if (id == GUARD)
-		return (SPT_GUARD);
-	if (id == TABLE)
-		return (SPT_TABLE);
-	if (id == TABLEL)
-		return (SPT_TABLEL);
-	return (0);
-}
+	int			i;
+	int			j;
+	t_sprite	temp;
 
-t_bool	is_sprite_collidable(int id)
-{
-	return (ftex_is_in_set(id, COLLID_SPRITE));
-}
-
-t_bool	is_sprite_animated(int id)
-{
-	return (ftex_is_in_set(id, ANIMATED_SPRITE));
-}
-
-t_bool	check_sprite_range(t_sprite sprite)
-{
-	return (sprite.distance < SPRITE_RANGE);
+	i = -1;
+	while (++i < num_sprites)
+	{
+		j = -1;
+		while (++j < num_sprites)
+		{
+			if (visible_sprites[i].distance > visible_sprites[j].distance)
+			{
+				temp = visible_sprites[i];
+				visible_sprites[i] = visible_sprites[j];
+				visible_sprites[j] = temp;
+			}
+		}
+	}
 }

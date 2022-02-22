@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/19 21:07:26 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/22 02:53:24 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,28 +28,6 @@ float	get_angle_sprite_player(t_sprite sprite, t_data *data)
 	ret = data->player.rot_angle - atan2(sprite.y - data->player.y,
 			sprite.x - data->player.x);
 	return (ret);
-}
-
-void	sort_visible_sprites(t_sprite *visible_sprites, int num_sprites)
-{
-	int			i;
-	int			j;
-	t_sprite	temp;
-
-	i = -1;
-	while (++i < num_sprites)
-	{
-		j = -1;
-		while (++j < num_sprites)
-		{
-			if (visible_sprites[i].distance > visible_sprites[j].distance)
-			{
-				temp = visible_sprites[i];
-				visible_sprites[i] = visible_sprites[j];
-				visible_sprites[j] = temp;
-			}
-		}
-	}
 }
 
 int	map_has_sprite_at(float x, float y, t_data *data)
@@ -86,4 +64,22 @@ int	has_sprite_collision_at(float x, float y, t_data *data)
 			return (true);
 	}
 	return (false);
+}
+
+void	hit_sprite_at_pos(float x, float y, t_data *data)
+{
+	int			n;
+	int			i;
+	int			j;
+	t_sprite	*sprite;
+
+	i = floor(y / TILE_SIZE);
+	j = floor(x / TILE_SIZE);
+	n = -1;
+	while (++n < data->num_visible_sprites)
+	{
+		sprite = &data->visible_sprites[n];
+		if (sprite->i == i && sprite->j == j)
+			data->sprites[sprite->index].hitted = true;
+	}
 }

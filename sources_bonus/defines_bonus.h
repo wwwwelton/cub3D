@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 17:18:00 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/20 10:55:12 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/22 02:32:51 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@
 
 # define COLLID_SPRITE "abcdef"
 # define ANIMATED_SPRITE "c"
-# define HITTABLE_SPRITE "c"
 
 # define ARMOR 'a'
 # define BARREL 'b'
@@ -69,7 +68,9 @@
 # define FOG_DIST 400
 # define FOG_SIDE 0.7
 
-# define ACTION_DIST 150
+# define DOOR_DIST 150
+# define SHOT_DIST 550
+# define SPRITE_RANGE 350
 
 # define PLAYER_SIZE TILE_SIZE
 # define VIEW_ANGLE 400

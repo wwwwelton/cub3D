@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 17:16:54 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/19 23:21:41 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/22 02:52:36 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,14 +119,16 @@ typedef struct s_sprite
 	float	distance;
 	float	angle;
 	t_bool	visible;
+	int		index;
 	int		id;
 	int		texture;
 	int		i;
 	int		j;
 	int		frame;
-	t_bool	collidable;
-	t_bool	hittable;
 	t_bool	animated;
+	t_bool	collidable;
+	t_bool	hitted;
+	t_bool	in_range;
 }	t_sprite;
 
 typedef struct s_sprite_data

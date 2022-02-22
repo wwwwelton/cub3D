@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/21 21:41:38 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/22 02:55:02 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,13 @@
 
 static void	animate_guard(t_sprite *sprite, t_data *data)
 {
+	if (sprite->hitted)
+	{
+		sprite->texture = SPT_GUARD2;
+	}
+	return ;
+	if (sprite->in_range)
+		sprite->texture = SPT_GUARD3;
 	if (sprite->frame == 0)
 		sprite->texture = SPT_GUARD1;
 	if (sprite->frame == 1)

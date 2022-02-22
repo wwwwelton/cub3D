@@ -77,6 +77,7 @@ BONUS_FILES	=		cub3d_bonus.c \
 					raycaster_utils_bonus.c \
 					raycaster_utils_direction_bonus.c \
 					sprite_init_bonus.c \
+					sprite_sort_bonus.c \
 					sprite_update_bonus.c \
 					sprite_utils_bonus.c \
 					sprite_utils2_bonus.c \
