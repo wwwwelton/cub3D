@@ -2,7 +2,7 @@
 static char *mutant3[] = {
 /* columns rows colors chars-per-pixel */
 "64 64 28 1 ",
-"  c #020202",
+"  c #090909",
 ". c gray11",
 "X c #28200C",
 "o c #202020",
