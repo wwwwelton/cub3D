@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/20 00:54:39 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/23 18:29:32 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int	blend_colors(int color1, int color2, float alpha1, float alpha2)
 	return (color1 + color2);
 }
 
-t_img	*resize_image(t_img *image_to_scale, int scale, t_data *data)
+t_img	*resize_image(t_img *image_to_scale, float scale, t_data *data)
 {
 	int		count_w;
 	int		count_h;
@@ -68,8 +68,8 @@ t_img	*resize_image(t_img *image_to_scale, int scale, t_data *data)
 		while (++count_w <= img_width)
 		{
 			result->dump[(count_h * img_width) + count_w]
-				= image_to_scale->dump[((count_h / scale)
-					* image_to_scale->width) + (count_w / scale)];
+				= image_to_scale->dump[((int)(count_h / scale)
+					* image_to_scale->width) + (int)(count_w / scale)];
 		}
 	}
 	return (result);
