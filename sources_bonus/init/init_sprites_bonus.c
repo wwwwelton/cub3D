@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 21:23:27 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/22 19:08:42 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/23 17:16:49 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ static void	fill_sprite_data(int i, int j, t_sprite *sprite, t_data *data)
 	sprite->action_dist = get_sprite_action_dist(sprite->id);
 	sprite->hitted = 0;
 	sprite->visited = 0;
+	sprite->distance = FLT_MAX;
 	sprite->i = i;
 	sprite->j = j;
 	sprite->frame = 0;
