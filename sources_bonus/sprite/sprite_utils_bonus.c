@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/22 05:14:53 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/23 15:03:41 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,19 +19,6 @@ float	get_sprite_dist(t_sprite sprite, t_data *data)
 	ret = distance_between_points(sprite.x,
 			sprite.y, data->player.x, data->player.y);
 	return (ret);
-}
-
-float	get_angle_sprite_player(t_sprite sprite, t_data *data)
-{
-	float	ret;
-
-	ret = data->player.rot_angle - atan2(sprite.y - data->player.y,
-			sprite.x - data->player.x);
-	if (ret > PI)
-		ret -= TWO_PI;
-	if (ret < -PI)
-		ret += TWO_PI;
-	return (fabs(ret));
 }
 
 int	map_has_sprite_at(float x, float y, t_data *data)
@@ -65,6 +52,28 @@ int	has_sprite_collision_at(float x, float y, t_data *data)
 	{
 		sprite = &data->visible_sprites[n];
 		if (sprite->i == i && sprite->j == j && sprite->collidable)
+			return (true);
+	}
+	return (false);
+}
+
+int	has_sprite_hittable_at(float x, float y, t_data *data)
+{
+	int			n;
+	int			i;
+	int			j;
+	t_sprite	*sprite;
+
+	if (!map_has_sprite_at(x, y, data))
+		return (false);
+	i = floor(y / TILE_SIZE);
+	j = floor(x / TILE_SIZE);
+	n = -1;
+	while (++n < data->num_visible_sprites)
+	{
+		sprite = &data->visible_sprites[n];
+		if (sprite->i == i && sprite->j == j
+			&& sprite->collidable && !sprite->hitted)
 			return (true);
 	}
 	return (false);

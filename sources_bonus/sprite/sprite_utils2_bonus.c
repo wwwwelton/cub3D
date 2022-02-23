@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/22 19:12:08 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/23 15:01:57 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,19 @@ int	get_sprite_texture(int id)
 	if (id == MUTANT)
 		return (SPT_MUT1);
 	return (0);
+}
+
+float	get_angle_sprite_player(t_sprite sprite, t_data *data)
+{
+	float	ret;
+
+	ret = data->player.rot_angle - atan2(sprite.y - data->player.y,
+			sprite.x - data->player.x);
+	if (ret > PI)
+		ret -= TWO_PI;
+	if (ret < -PI)
+		ret += TWO_PI;
+	return (fabs(ret));
 }
 
 int	get_sprite_action_dist(int id)
