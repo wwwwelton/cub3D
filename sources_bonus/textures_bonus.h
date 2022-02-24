@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 06:16:42 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/22 17:37:36 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/24 03:36:38 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@
 # define PATHFPS9 "assets/images/fps/9.xpm"
 
 # define PATHDOOR "assets/images/door.xpm"
+# define PATHDOORSIDE "assets/images/door_side.xpm"
 
 # define PATHARMOR "assets/images/sprites/armor.xpm"
 # define PATHBARREL "assets/images/sprites/barrel.xpm"
@@ -80,6 +81,7 @@ typedef enum e_tex
 	TEX_SO,
 	TEX_WE,
 	TEX_DOOR,
+	TEX_DOOR_SIDE,
 	MEN_LOGO,
 	MEN_BG,
 	MEN_START,

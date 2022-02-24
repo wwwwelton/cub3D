@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/16 18:47:57 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/24 03:35:05 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,18 @@ int	get_wall_texture(t_ray ray)
 {
 	if (ray.texture == 'D')
 		return (TEX_DOOR);
+	if (!ray.was_hit_vertical && is_ray_facing_up(ray.ray_angle)
+		&& ray.texture == 'G')
+		return (TEX_DOOR_SIDE);
+	if (!ray.was_hit_vertical && is_ray_facing_down(ray.ray_angle)
+		&& ray.texture == 'F')
+		return (TEX_DOOR_SIDE);
+	if (ray.was_hit_vertical && is_ray_facing_left(ray.ray_angle)
+		&& ray.texture == 'Z')
+		return (TEX_DOOR_SIDE);
+	if (ray.was_hit_vertical && is_ray_facing_right(ray.ray_angle)
+		&& ray.texture == 'Y')
+		return (TEX_DOOR_SIDE);
 	if (!ray.was_hit_vertical && is_ray_facing_up(ray.ray_angle))
 		return (TEX_NO);
 	if (!ray.was_hit_vertical && is_ray_facing_down(ray.ray_angle))
