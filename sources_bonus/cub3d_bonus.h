@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 09:06:24 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/23 15:04:03 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/24 02:58:56 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,5 +136,8 @@ float	get_angle_sprite_player(t_sprite sprite, t_data *data);
 int		get_sprite_texture(int id);
 t_bool	is_sprite_collidable(int id);
 t_bool	is_sprite_animated(int id);
+
+//doors
+void	replace_wall_next_door(t_data *data);
 
 #endif

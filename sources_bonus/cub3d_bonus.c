@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/20 10:29:26 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/24 02:36:57 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ int	main(int argc, char **argv)
 		exit (EXIT_FAILURE);
 	data.state = MENU;
 	init_data(&data);
+	replace_wall_next_door(&data);
 	mlx_hook(data.mlx.win, 2, 1L << 0, key_press, &data);
 	mlx_hook(data.mlx.win, 3, 1L << 1, key_release, &data);
 	mlx_hook(data.mlx.win, 4, 1L << 2, mouse_key_press, &data);

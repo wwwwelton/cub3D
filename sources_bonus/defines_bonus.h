@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 17:18:00 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/22 03:43:53 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/24 03:15:52 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,8 @@
 # define VALID_ID "NSEWCFDH\n"
 # define VALID_MAP_CHARS "01 NSEWDHabcdefm\n"
 # define VALID_SPRITE "abcdefm"
-# define VALID_WALLS "!@D"
+# define VALID_WALLS "!@DGFZY"
+# define VALID_DOOR_WALLS "GFZY"
 
 # define COLLID_SPRITE "abcdefm"
 # define ANIMATED_SPRITE "cm"
@@ -51,6 +52,12 @@
 # define TABLE 'd'
 # define TABLEL 'e'
 # define MUTANT 'm'
+# define DOOR 'D'
+
+# define DOOR_WALL1 'G'
+# define DOOR_WALL2 'F'
+# define DOOR_WALL3 'Z'
+# define DOOR_WALL4 'Y'
 
 # define FRAME_DELAY 500
 # define ANIMATION_DELAY 100
