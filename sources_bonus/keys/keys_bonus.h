@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 06:15:57 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/15 20:42:53 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/24 15:47:11 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@
 # define KEY_N_ENTER 65421
 # define KEY_CTRL 65507
 # define KEY_R_CTRL 65508
+# define KEY_L_SHIFT 65505
 
 # define KEY_UP 65362
 # define KEY_LEFT 65361

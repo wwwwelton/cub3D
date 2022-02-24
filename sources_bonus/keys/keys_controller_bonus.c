@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/16 18:31:15 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/24 15:49:09 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,10 @@ static void	main_game(int key, t_data *data, int event_type)
 		keys_enter(data);
 	else if (key == KEY_E)
 		keys_actions(key, data);
+	else if (key == KEY_L_SHIFT && event_type == K_PRESS)
+		data->player.action_shoot = true;
+	else if (key == KEY_L_SHIFT && event_type == K_RELEASE)
+		data->player.action_shoot = false;
 	else
 		keys_wasd(key, data, event_type);
 }
