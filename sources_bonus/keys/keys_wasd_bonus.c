@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/19 09:22:26 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/15 00:25:39 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/24 19:28:03 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ static void	keys_press_wasd(int key, t_data *data)
 		data->player.look_dir = -1;
 	if (key == KEY_CTRL || key == KEY_R_CTRL)
 		data->mouse_lock = !data->mouse_lock;
+	if (key == KEY_E)
+		open_close_door(data);
 }
 
 static void	keys_release_wasd(int key, t_data *data)

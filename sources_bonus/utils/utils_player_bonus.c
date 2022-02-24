@@ -6,11 +6,38 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/23 15:02:37 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/24 19:27:52 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
+
+void	open_close_door(t_data *data)
+{
+	int			step;
+	float		new_player_x;
+	float		new_player_y;
+	t_player	*player;
+
+	step = 0;
+	player = &data->player;
+	while (step <= DOOR_DIST)
+	{
+		new_player_x = player->x + cos(player->rot_angle) * step;
+		new_player_y = player->y + sin(player->rot_angle) * step;
+		if (get_map_value_at_pos(new_player_x, new_player_y, data) == 'D')
+		{
+			set_map_value_at_pos(new_player_x, new_player_y, 'H', data);
+			break ;
+		}
+		if (get_map_value_at_pos(new_player_x, new_player_y, data) == 'H')
+		{
+			set_map_value_at_pos(new_player_x, new_player_y, 'D', data);
+			break ;
+		}
+		step += 50;
+	}
+}
 
 static void	check_player_hitted(t_data *data)
 {
@@ -38,30 +65,6 @@ static void	move_player(float move_step, float side_step, t_data *data)
 		player->x = new_player_x;
 		player->y = new_player_y;
 	}
-}
-
-static void	open_door(t_data *data)
-{
-	int			step;
-	float		new_player_x;
-	float		new_player_y;
-	t_player	*player;
-
-	step = 0;
-	player = &data->player;
-	while (step <= DOOR_DIST)
-	{
-		new_player_x = player->x + cos(player->rot_angle) * step;
-		new_player_y = player->y + sin(player->rot_angle) * step;
-		if (get_map_value_at_pos(new_player_x, new_player_y, data) == 'D'
-			&& data->player.action_door == true)
-		{
-			set_map_value_at_pos(new_player_x, new_player_y, 'H', data);
-			break ;
-		}
-		step += 50;
-	}
-	data->player.action_door = false;
 }
 
 static void	bullet_calculation(t_data *data)
@@ -105,7 +108,6 @@ void	update_player(t_data *data)
 	side_step = player->side_dir * player->walk_speed * delta_time;
 	if (move_step && side_step)
 		decrease_step(&move_step, &side_step);
-	open_door(data);
 	bullet_calculation(data);
 	check_player_hitted(data);
 	move_player(move_step, side_step, data);

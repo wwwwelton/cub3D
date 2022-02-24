@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   keys_bonus.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 06:15:57 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/24 15:47:11 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/24 19:31:11 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@
 int		screen_controller(int key, t_data *data, int event_type);
 void	keys_wasd(int key, t_data *data, int event_type);
 void	keys_menu_wasd(int key, t_data *data);
-void	keys_actions(int key, t_data *data);
 
 //keys
 int		key_press(int key, t_data *data);

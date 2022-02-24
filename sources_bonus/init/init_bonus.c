@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/22 05:57:12 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/24 18:29:42 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ static void	init_player(t_data *data)
 	data->player.walk_speed = 10;
 	data->player.turn_speed = 3 * (PI / 180);
 	data->player.look_speed = 35;
-	data->player.action_door = false;
 	data->player.weapon = WEAPON_1;
 	data->player.action_shoot = 0;
 	data->player.frame = 0;
