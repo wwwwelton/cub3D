@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/25 03:13:28 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/25 17:19:28 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,8 @@ static void	bullet_calculation(t_data *data)
 	{
 		bullet_x = player->x + cos(player->rot_angle) * step;
 		bullet_y = player->y + sin(player->rot_angle) * step;
+		if (map_has_wall_at(bullet_x, bullet_y, data))
+			return ;
 		if (has_sprite_hittable_at(bullet_x, bullet_y, data))
 		{
 			hit_sprite_at_pos(bullet_x, bullet_y, data);
