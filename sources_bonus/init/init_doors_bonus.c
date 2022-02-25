@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/24 03:16:18 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/25 17:30:17 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,17 @@ static void	replace_wall_by_doorside(int i, int j, t_data *data)
 		set_map_value_at(i + 1, j, DOOR_WALL2, data);
 		return ;
 	}
-	if (ftex_is_in_set(data->map[i][j - 1], VALID_WALLS)
+	else if (ftex_is_in_set(data->map[i][j - 1], VALID_WALLS)
 		&& ftex_is_in_set(data->map[i][j + 1], VALID_WALLS))
 	{
 		set_map_value_at(i, j - 1, DOOR_WALL3, data);
 		set_map_value_at(i, j + 1, DOOR_WALL4, data);
 		return ;
+	}
+	else
+	{
+		printf(E_DOORINVAL);
+		exit_game(data);
 	}
 }
 

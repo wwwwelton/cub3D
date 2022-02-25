@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   errors_bonus.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 00:19:05 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/20 00:40:34 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/25 17:29:43 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,6 @@
 
 # define E_IDINVAL "Error\n%s: Invalid identifier: %s\n"
 # define E_RESINVAL "Error\nResolution below minimum of 1024x768\n"
+# define E_DOORINVAL "Error\nDoor is not surrounded by walls\n"
 
 #endif
