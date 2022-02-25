@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   defines_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 17:18:00 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/24 15:41:15 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/25 03:08:27 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,6 @@
 # define WIN_HEIGHT 800
 
 # define NUM_RAYS WIN_WIDTH
-# define FLT_MAX 3.40282346638528859812e+38F
 # define FOV_ANGLE 1.0472
 # define FOG_DIST 400
 # define FOG_SIDE 0.7

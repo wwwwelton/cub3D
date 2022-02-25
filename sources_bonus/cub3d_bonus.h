@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 09:06:24 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/24 19:28:01 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/25 03:08:36 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdio.h>
 # include <string.h>
 # include <math.h>
+# include <float.h>
 # include <fcntl.h>
 # include "defines_bonus.h"
 # include "errors_bonus.h"

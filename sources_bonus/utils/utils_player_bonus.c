@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/24 19:27:52 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/25 03:13:28 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	open_close_door(t_data *data)
 			set_map_value_at_pos(new_player_x, new_player_y, 'D', data);
 			break ;
 		}
-		step += 50;
+		step += 10;
 	}
 }
 
@@ -87,7 +87,7 @@ static void	bullet_calculation(t_data *data)
 			hit_sprite_at_pos(bullet_x, bullet_y, data);
 			break ;
 		}
-		step += 50;
+		step += 10;
 	}
 }
 
