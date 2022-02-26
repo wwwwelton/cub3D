@@ -13,7 +13,6 @@ SOURCES_FILES	=	cub3d.c \
 					print_map.c \
 					cleanup.c \
 					draw_menu.c \
-					draw_crosshair.c \
 					draw.c \
 					draw_utils.c \
 					draw_wall.c \

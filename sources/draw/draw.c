@@ -24,7 +24,6 @@ void	draw_game(t_data *data)
 
 	mlx = &data->mlx;
 	draw_wall(data);
-	draw_crosshair(data);
 	copy_layer(&data->img[FRAME], &data->img[SCREEN], 0, 0);
 	mlx_put_image_to_window(mlx->mlx_ptr, mlx->win, data->img->img_ptr, 0, 0);
 	reinit_images(data);

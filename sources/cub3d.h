@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 09:06:24 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/26 19:31:32 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/26 20:55:23 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,6 @@ float	set_player_direction(char c);
 void	set_player_position(t_data *data, char **map);
 void	decrease_step(float *move_step, float *side_step);
 void	lock_view_angle(float *view_angle);
-void	draw_crosshair(t_data *data);
 
 //utils
 char	*ftex_strerase(char *str, char *set);
