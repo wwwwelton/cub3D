@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 06:16:42 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/26 19:58:31 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/26 20:34:30 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # define PATHSTART "assets/images/game_start.xpm"
 # define PATHOPTION "assets/images/options.xpm"
 # define PATHARROW "assets/images/seta.xpm"
-# define PATHSENSI "assets/images/mouse_speed.xpm"
+# define PATHSENSI "assets/images/vertical_speed.xpm"
 # define PATHMSPD "assets/images/move_speed.xpm"
 # define PATHRSPD "assets/images/rotation_speed.xpm"
 # define PATHBACK "assets/images/back_to_menu.xpm"
