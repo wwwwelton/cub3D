@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/14 23:44:17 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/26 19:30:25 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static void	keys_enter(t_data *data)
 	if (data->state == MENU && data->menu.main == 1)
 		data->state = OPTIONS;
 	else if (data->state == MENU && data->menu.main == 2)
-		exit_game(data);
+		exit_game(data, EXIT_SUCCESS);
 	else if (data->state == MENU && data->menu.main == 0)
 	{
 		data->game_running = true;
@@ -54,7 +54,7 @@ static void	main_menu(int key, t_data *data)
 static void	main_game(int key, t_data *data, int event_type)
 {
 	if (key == KEY_Q || key == KEY_ESC)
-		exit_game(data);
+		exit_game(data, EXIT_SUCCESS);
 	else if ((key == KEY_ENTER || key == KEY_N_ENTER) && event_type == K_PRESS)
 		keys_enter(data);
 	else
@@ -66,7 +66,7 @@ int	screen_controller(int key, t_data *data, int event_type)
 	if (event_type == K_PRESS)
 	{
 		if (key == KEY_Q || key == KEY_ESC)
-			exit_game(data);
+			exit_game(data, EXIT_SUCCESS);
 		else if (data->state == GAME)
 			main_game(key, data, K_PRESS);
 		else if (data->state == MENU)

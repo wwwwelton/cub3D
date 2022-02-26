@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
+/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 09:06:24 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/25 03:08:36 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/26 19:27:59 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,8 @@ t_bool	init_sprite_textures(t_data *data);
 t_bool	init_weapon_textures(t_data *data);
 t_bool	init_xpm_textures(t_data *data);
 void	init_fps(t_data *data);
-int		exit_game(t_data *data);
+void	exit_game(t_data *data, int code);
+int		exit_x_notify(t_data *data);
 
 //loop
 int		game_loop(t_data *data);

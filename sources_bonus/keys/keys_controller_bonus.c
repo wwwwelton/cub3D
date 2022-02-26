@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   keys_controller_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
+/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/24 19:33:59 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/26 19:21:58 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static void	keys_enter(t_data *data)
 	if (data->state == MENU && data->menu.main == 1)
 		data->state = OPTIONS;
 	else if (data->state == MENU && data->menu.main == 2)
-		exit_game(data);
+		exit_game(data, EXIT_SUCCESS);
 	else if (data->state == MENU && data->menu.main == 0)
 	{
 		data->game_running = true;

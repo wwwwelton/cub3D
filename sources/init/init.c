@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/20 00:48:39 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/26 19:29:56 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,5 +83,5 @@ void	init_data(t_data *data)
 	init_player(data);
 	init_images(data);
 	if (init_xpm_textures(data) == false)
-		exit_game(data);
+		exit_game(data, EXIT_FAILURE);
 }

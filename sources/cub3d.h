@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 09:06:24 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/15 21:14:52 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/26 19:31:32 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,8 @@ void	init_data(t_data *data);
 t_bool	validation(t_data *data, int argc, char **argv);
 void	init_img(t_data *data, t_img *img, int width, int heigth);
 void	init_xpm(t_data *data, t_img *img, char *image_path, t_bool *valid);
-int		exit_game(t_data *data);
+void	exit_game(t_data *data, int code);
+int		exit_x_notify(t_data *data);
 
 //loop
 int		game_loop(t_data *data);
