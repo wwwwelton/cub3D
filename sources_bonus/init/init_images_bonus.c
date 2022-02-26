@@ -6,11 +6,23 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/24 03:37:30 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/26 19:56:06 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
+
+t_bool	init_wall_textures(t_data *data)
+{
+	static t_bool	valid = true;
+
+	init_xpm(data, &data->img[TEX_BBLOCK], PATHBBLOCK, &valid);
+	init_xpm(data, &data->img[TEX_RBLOCK], PATHRBLOCK, &valid);
+	init_xpm(data, &data->img[TEX_PBLOCK], PATHPBLOCK, &valid);
+	init_xpm(data, &data->img[TEX_JBLOCK], PATHJBLOCK, &valid);
+	init_xpm(data, &data->img[TEX_WBLOCK], PATHWBLOCK, &valid);
+	return (valid);
+}
 
 t_bool	init_xpm_textures(t_data *data)
 {
@@ -72,14 +84,18 @@ t_bool	init_sprite_textures(t_data *data)
 
 	init_xpm(data, &data->img[SPT_ARMOR], PATHARMOR, &valid);
 	init_xpm(data, &data->img[SPT_BARREL], PATHBARREL, &valid);
+	init_xpm(data, &data->img[SPT_DRUM], PATHDRUM, &valid);
+	init_xpm(data, &data->img[SPT_MINITREE], PATHMINITREE, &valid);
+	init_xpm(data, &data->img[SPT_PILLAR], PATHPILLAR, &valid);
+	init_xpm(data, &data->img[SPT_SKULL], PATHSKULL, &valid);
+	init_xpm(data, &data->img[SPT_TABLE], PATHTABLE, &valid);
+	init_xpm(data, &data->img[SPT_TABLEL], PATHTABLEL, &valid);
 	init_xpm(data, &data->img[SPT_GUARD1], PATHGUARD1, &valid);
 	init_xpm(data, &data->img[SPT_GUARD2], PATHGUARD2, &valid);
 	init_xpm(data, &data->img[SPT_GUARD3], PATHGUARD3, &valid);
 	init_xpm(data, &data->img[SPT_GUARD4], PATHGUARD4, &valid);
 	init_xpm(data, &data->img[SPT_GUARD5], PATHGUARD5, &valid);
 	init_xpm(data, &data->img[SPT_GUARD6], PATHGUARD6, &valid);
-	init_xpm(data, &data->img[SPT_TABLE], PATHTABLE, &valid);
-	init_xpm(data, &data->img[SPT_TABLEL], PATHTABLEL, &valid);
 	init_xpm(data, &data->img[SPT_MUT1], PATHMUT1, &valid);
 	init_xpm(data, &data->img[SPT_MUT2], PATHMUT2, &valid);
 	init_xpm(data, &data->img[SPT_MUT3], PATHMUT3, &valid);

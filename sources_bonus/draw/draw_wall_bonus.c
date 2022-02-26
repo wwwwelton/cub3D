@@ -6,11 +6,24 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/19 03:14:41 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/26 20:09:16 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
+
+static void	init_wall_data(t_wall_data *wall, t_player player)
+{
+	wall->height = 0;
+	wall->top_y = 0;
+	wall->bottom_y = 0;
+	wall->pixel_color = 0;
+	wall->texture_offset_x = 0;
+	wall->texture_offset_y = 0;
+	wall->distance_from_top = 0;
+	wall->dist_proj_plane = (WIN_WIDTH / 2) / tan(FOV_ANGLE / 2);
+	wall->win_height = WIN_HEIGHT + player.view_angle;
+}
 
 static void	render_ceil(int x, t_wall_data *wall, t_data *data)
 {

@@ -6,41 +6,45 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/24 03:35:05 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/26 20:15:03 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
 
-void	init_wall_data(t_wall_data *wall, t_player player)
+static int	is_door_side(t_ray ray)
 {
-	wall->height = 0;
-	wall->top_y = 0;
-	wall->bottom_y = 0;
-	wall->pixel_color = 0;
-	wall->texture_offset_x = 0;
-	wall->texture_offset_y = 0;
-	wall->distance_from_top = 0;
-	wall->dist_proj_plane = (WIN_WIDTH / 2) / tan(FOV_ANGLE / 2);
-	wall->win_height = WIN_HEIGHT + player.view_angle;
+	if (!ray.was_hit_vertical && is_ray_facing_up(ray.ray_angle)
+		&& ray.texture == 'G')
+		return (true);
+	if (!ray.was_hit_vertical && is_ray_facing_down(ray.ray_angle)
+		&& ray.texture == 'F')
+		return (true);
+	if (ray.was_hit_vertical && is_ray_facing_left(ray.ray_angle)
+		&& ray.texture == 'Z')
+		return (true);
+	if (ray.was_hit_vertical && is_ray_facing_right(ray.ray_angle)
+		&& ray.texture == 'Y')
+		return (true);
+	return (false);
 }
 
 int	get_wall_texture(t_ray ray)
 {
-	if (ray.texture == 'D')
+	if (ray.texture == DOOR)
 		return (TEX_DOOR);
-	if (!ray.was_hit_vertical && is_ray_facing_up(ray.ray_angle)
-		&& ray.texture == 'G')
+	if (is_door_side(ray))
 		return (TEX_DOOR_SIDE);
-	if (!ray.was_hit_vertical && is_ray_facing_down(ray.ray_angle)
-		&& ray.texture == 'F')
-		return (TEX_DOOR_SIDE);
-	if (ray.was_hit_vertical && is_ray_facing_left(ray.ray_angle)
-		&& ray.texture == 'Z')
-		return (TEX_DOOR_SIDE);
-	if (ray.was_hit_vertical && is_ray_facing_right(ray.ray_angle)
-		&& ray.texture == 'Y')
-		return (TEX_DOOR_SIDE);
+	if (ray.texture == BBLOCK)
+		return (TEX_BBLOCK);
+	if (ray.texture == RBLOCK)
+		return (TEX_RBLOCK);
+	if (ray.texture == PBLOCK)
+		return (TEX_PBLOCK);
+	if (ray.texture == JBLOCK)
+		return (TEX_JBLOCK);
+	if (ray.texture == WBLOCK)
+		return (TEX_WBLOCK);
 	if (!ray.was_hit_vertical && is_ray_facing_up(ray.ray_angle))
 		return (TEX_NO);
 	if (!ray.was_hit_vertical && is_ray_facing_down(ray.ray_angle))

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/26 19:21:37 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/26 19:56:45 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ void	init_data(t_data *data)
 	init_images(data);
 	init_fps_textures(data);
 	init_sprite_textures(data);
+	init_wall_textures(data);
 	init_weapon_textures(data);
 	if (init_xpm_textures(data) == false)
 		exit_game(data, EXIT_FAILURE);

@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/23 15:01:57 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/26 19:47:30 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,20 @@ int	get_sprite_texture(int id)
 		return (SPT_ARMOR);
 	if (id == BARREL)
 		return (SPT_BARREL);
-	if (id == GUARD)
-		return (SPT_GUARD1);
+	if (id == DRUM)
+		return (SPT_DRUM);
+	if (id == MINITREE)
+		return (SPT_MINITREE);
+	if (id == PILLAR)
+		return (SPT_PILLAR);
+	if (id == SKULL)
+		return (SPT_SKULL);
 	if (id == TABLE)
 		return (SPT_TABLE);
 	if (id == TABLEL)
 		return (SPT_TABLEL);
+	if (id == GUARD)
+		return (SPT_GUARD1);
 	if (id == MUTANT)
 		return (SPT_MUT1);
 	return (0);

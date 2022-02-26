@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 21:59:34 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/19 22:16:03 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/26 20:09:25 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ void	draw_map(t_data *data, char **map, int x, int y);
 
 //wall
 void	draw_wall(t_data *data);
-void	init_wall_data(t_wall_data *wall, t_player player);
 int		get_wall_texture(t_ray ray);
 int		get_wall_pixel_color(t_img texture, t_wall_data *wall);
 void	check_inverse_offset_x(t_ray ray, int *texture_offset_x);

@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 06:16:42 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/24 03:36:38 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/26 19:58:31 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,18 @@
 
 # define PATHARMOR "assets/images/sprites/armor.xpm"
 # define PATHBARREL "assets/images/sprites/barrel.xpm"
+# define PATHDRUM "assets/images/sprites/drum.xpm"
+# define PATHMINITREE "assets/images/sprites/mini_tree.xpm"
+# define PATHPILLAR "assets/images/sprites/pillar.xpm"
+# define PATHSKULL "assets/images/sprites/skull.xpm"
 # define PATHTABLEL "assets/images/sprites/table_lamp.xpm"
 # define PATHTABLE "assets/images/sprites/table.xpm"
+
+# define PATHBBLOCK "assets/images/blue_block.xpm"
+# define PATHRBLOCK "assets/images/red_block.xpm"
+# define PATHPBLOCK "assets/images/purple_block.xpm"
+# define PATHJBLOCK "assets/images/joao.xpm"
+# define PATHWBLOCK "assets/images/welton.xpm"
 
 # define PATHGUARD1 "assets/images/sprites/animated/guard1.xpm"
 # define PATHGUARD2 "assets/images/sprites/animated/guard2.xpm"
@@ -80,6 +90,11 @@ typedef enum e_tex
 	TEX_EA,
 	TEX_SO,
 	TEX_WE,
+	TEX_BBLOCK,
+	TEX_RBLOCK,
+	TEX_PBLOCK,
+	TEX_JBLOCK,
+	TEX_WBLOCK,
 	TEX_DOOR,
 	TEX_DOOR_SIDE,
 	MEN_LOGO,
@@ -112,6 +127,12 @@ typedef enum e_tex
 	WEAPON_3,
 	SPT_ARMOR,
 	SPT_BARREL,
+	SPT_DRUM,
+	SPT_MINITREE,
+	SPT_PILLAR,
+	SPT_SKULL,
+	SPT_TABLE,
+	SPT_TABLEL,
 	SPT_GUARD1,
 	SPT_GUARD2,
 	SPT_GUARD3,
@@ -124,8 +145,6 @@ typedef enum e_tex
 	SPT_MUT4,
 	SPT_MUT5,
 	SPT_MUT6,
-	SPT_TABLE,
-	SPT_TABLEL,
 	TEX_NB
 }	t_tex;
 
