@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/26 19:56:06 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/27 18:01:05 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ t_bool	init_wall_textures(t_data *data)
 	init_xpm(data, &data->img[TEX_PBLOCK], PATHPBLOCK, &valid);
 	init_xpm(data, &data->img[TEX_JBLOCK], PATHJBLOCK, &valid);
 	init_xpm(data, &data->img[TEX_WBLOCK], PATHWBLOCK, &valid);
+	init_xpm(data, &data->img[TEX_TBLOCK], PATHTBLOCK, &valid);
 	return (valid);
 }
 

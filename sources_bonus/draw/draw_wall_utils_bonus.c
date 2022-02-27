@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/26 20:15:03 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/27 18:00:22 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ int	get_wall_texture(t_ray ray)
 		return (TEX_JBLOCK);
 	if (ray.texture == WBLOCK)
 		return (TEX_WBLOCK);
+	if (ray.texture == TBLOCK)
+		return (TEX_TBLOCK);
 	if (!ray.was_hit_vertical && is_ray_facing_up(ray.ray_angle))
 		return (TEX_NO);
 	if (!ray.was_hit_vertical && is_ray_facing_down(ray.ray_angle))

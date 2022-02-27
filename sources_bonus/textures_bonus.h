@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 06:16:42 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/26 20:34:30 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/27 17:49:38 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@
 # define PATHPBLOCK "assets/images/purple_block.xpm"
 # define PATHJBLOCK "assets/images/joao.xpm"
 # define PATHWBLOCK "assets/images/welton.xpm"
+# define PATHTBLOCK "assets/images/brick_block.xpm"
 
 # define PATHGUARD1 "assets/images/sprites/animated/guard1.xpm"
 # define PATHGUARD2 "assets/images/sprites/animated/guard2.xpm"
@@ -95,6 +96,7 @@ typedef enum e_tex
 	TEX_PBLOCK,
 	TEX_JBLOCK,
 	TEX_WBLOCK,
+	TEX_TBLOCK,
 	TEX_DOOR,
 	TEX_DOOR_SIDE,
 	MEN_LOGO,

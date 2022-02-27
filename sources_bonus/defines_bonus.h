@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   defines_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 17:18:00 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/27 17:12:04 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/27 17:54:58 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,12 @@
 # define INNER '@'
 # define FILLER '#'
 # define VALID_PLAYER "NSEWP"
-# define VALID_MAP "0123456DHabcdefghmn"
+# define VALID_MAP "01234567DHabcdefghmn"
 # define VALID_ID "NSEWCFDH\n"
-# define VALID_MAP_CHARS "0123456 NSEWDHabcdefghmn\n"
+# define VALID_MAP_CHARS "01234567 NSEWDHabcdefghmn\n"
 # define VALID_SPRITE "abcdefghmn"
 # define SSPRITE "abcdefghmn"
-# define VALID_WALLS "!@23456DGFZY"
+# define VALID_WALLS "!@234567DGFZY"
 # define VALID_DOOR_WALLS "GFZY"
 
 # define COLLID_SPRITE "abcdeghmn"
@@ -71,6 +71,7 @@
 # define PBLOCK '4'
 # define JBLOCK '5'
 # define WBLOCK '6'
+# define TBLOCK '7'
 
 # define FRAME_DELAY 500
 # define ANIMATION_DELAY 100
