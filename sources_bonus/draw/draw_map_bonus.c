@@ -3,21 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   draw_map_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
+/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/17 03:16:44 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/27 17:12:07 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
 
-static void	init_draw_map(t_data *data, int *height, int *len, t_xy *pl)
+static void	init_draw_map(t_data *data, t_xy *pl)
 {
 	t_fill	vars;
 
-	*height = map_height(data);
-	*len = map_width(data);
+	data->h = map_height(data);
+	data->l = map_width(data);
 	*pl = get_coordinates(data->map, 0, 0);
 	vars = fillparams(503, 55, 10 * 23 + 2, 10 * 23 + 2);
 	vars.x = WIN_HEIGHT - 271;
@@ -33,18 +33,18 @@ void	draw_map(t_data *data, char **map, int x, int y)
 {
 	t_xy	pl;
 	t_fill	vars;
-	int		len;
-	int		height;
 
-	init_draw_map(data, &height, &len, &pl);
+	init_draw_map(data, &pl);
 	while (++x < 21)
 	{
 		while (++y < 21)
 		{
 			vars = fillparams(WIN_HEIGHT - 270 + 11 * x, 50 + 11 * y, 10, 10);
 			if (pl.x + x - 10 < 0 || pl.y + y - 10 < 0
-				|| pl.x + x - 9 > height || pl.y + y - 9 > len)
+				|| pl.x + x - 9 > data->h || pl.y + y - 9 > data->l)
 				fill(&data->img[MAP], vars, GRAY);
+			else if (ftex_is_in_set(map[pl.x + x - 10][pl.y + y - 10], SSPRITE))
+				fill(&data->img[MAP], vars, RED);
 			else if (ftex_is_in_set(map[pl.x + x - 10][pl.y + y - 10], "@! "))
 				fill(&data->img[MAP], vars, BLUE);
 			else if (ftex_is_in_set(map[pl.x + x - 10][pl.y + y - 10], "DH"))

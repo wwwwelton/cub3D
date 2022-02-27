@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   defines_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
+/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 17:18:00 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/26 20:14:17 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/27 17:12:04 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@
 # define VALID_ID "NSEWCFDH\n"
 # define VALID_MAP_CHARS "0123456 NSEWDHabcdefghmn\n"
 # define VALID_SPRITE "abcdefghmn"
+# define SSPRITE "abcdefghmn"
 # define VALID_WALLS "!@23456DGFZY"
 # define VALID_DOOR_WALLS "GFZY"
 

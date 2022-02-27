@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   graphics_bonus.h                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
+/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 05:46:11 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/23 17:55:43 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/27 16:59:15 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ typedef struct s_fill
 	int	y;
 	int	xlen;
 	int	ylen;
+	int	len;
+	int	height;
 }	t_fill;
 
 typedef struct s_menu_elem
