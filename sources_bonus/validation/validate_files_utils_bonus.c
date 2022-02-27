@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   validate_files_utils_bonus.c                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
+/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/19 01:48:47 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/15 00:25:38 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/27 13:32:29 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ t_bool	is_first_character_invalid(int fd, char **tmp)
 t_bool	validation_failed(t_params *params, char **map)
 {
 	if (map)
-		print_colored_map(map);
+		print_colored_map(map, -1, -1);
 	free_matrix(map);
 	free(params->north);
 	free(params->south);

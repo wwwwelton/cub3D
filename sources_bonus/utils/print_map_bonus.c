@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 15:17:47 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/16 18:16:26 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/27 13:40:58 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,21 +35,20 @@ void	print_map(char **map)
 	}
 }
 
-void	print_colored_map(char **map)
+void	print_colored_map(char **map, int i, int j)
 {
-	int	i;
-	int	j;
-
-	i = -1;
-	j = -1;
 	while (map[++i])
 	{
 		while (map[i][++j])
 		{
 			if (map[i][j] == OUTER)
 				printf("\e[42m%c\e[0m", map[i][j]);
-			else if (map[i][j] == INNER)
+			else if (ftex_is_in_set(map[i][j], VALID_SPRITE))
+				printf("\e[43m%c\e[0m", map[i][j]);
+			else if (ftex_is_in_set(map[i][j], "@56"))
 				printf("\e[44m%c\e[0m", map[i][j]);
+			else if (ftex_is_in_set(map[i][j], "ZYGF"))
+				printf("\e[44m@\e[0m");
 			else if (ftex_is_in_set(map[i][j], VALID_PLAYER))
 				printf("\e[46m%c\e[0m", map[i][j]);
 			else if (map[i][j] == ' ')

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
+/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 09:06:24 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/26 19:56:19 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/27 13:32:40 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ t_bool	is_char_adjacent_to_set(char **map, int x, int y, char *set);
 
 //debug
 void	print_map(char **map);
-void	print_colored_map(char **map);
+void	print_colored_map(char **map, int i, int j);
 
 //player
 char	get_player_direction(char **map);

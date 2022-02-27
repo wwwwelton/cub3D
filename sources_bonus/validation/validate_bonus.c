@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 15:33:46 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/20 00:39:37 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/27 13:32:22 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,6 @@ t_bool	validation(t_data *data, int argc, char **argv)
 		return (validation_failed(&data->params, data->map));
 	data->devmap = fetch_map_array(open(argv[1], O_RDONLY));
 	initial_map_cleanup(data->devmap);
-	print_colored_map(data->map);
+	print_colored_map(data->map, -1, -1);
 	return (true);
 }

@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/25 16:58:01 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/27 13:32:16 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	update_player_matrix(t_data *data)
 			data->map[xy.x][xy.y] = '0';
 			data->map[player_y][player_x] = 'P';
 			printf(CLEAR);
-			print_colored_map(data->map);
+			print_colored_map(data->map, -1, -1);
 		}
 	}
 }
