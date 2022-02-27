@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/27 13:32:16 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/27 17:28:27 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,10 @@
 
 void	update_player_matrix(t_data *data)
 {
-	t_xy	xy;
-	int		player_x;
-	int		player_y;
+	static char	old = '0';
+	t_xy		xy;
+	int			player_x;
+	int			player_y;
 
 	xy = get_coordinates(data->map, 0, 0);
 	player_x = data->player.x / TILE_SIZE;
@@ -26,9 +27,10 @@ void	update_player_matrix(t_data *data)
 		&& player_x >= 0 && player_y >= 0
 		&& player_x < map_width(data))
 	{
-		if (data->map[player_y][player_x] == '0')
+		if (!ftex_is_in_set(data->map[player_y][player_x], VALID_WALLS))
 		{
-			data->map[xy.x][xy.y] = '0';
+			data->map[xy.x][xy.y] = old;
+			old = data->map[player_y][player_x];
 			data->map[player_y][player_x] = 'P';
 			printf(CLEAR);
 			print_colored_map(data->map, -1, -1);
