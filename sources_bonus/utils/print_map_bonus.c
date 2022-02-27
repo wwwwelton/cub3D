@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 15:17:47 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/27 13:40:58 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/27 19:09:50 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	print_colored_map(char **map, int i, int j)
 		{
 			if (map[i][j] == OUTER)
 				printf("\e[42m%c\e[0m", map[i][j]);
-			else if (ftex_is_in_set(map[i][j], VALID_SPRITE))
+			else if (ftex_is_in_set(map[i][j], "nm"))
 				printf("\e[43m%c\e[0m", map[i][j]);
 			else if (ftex_is_in_set(map[i][j], "@56"))
 				printf("\e[44m%c\e[0m", map[i][j]);

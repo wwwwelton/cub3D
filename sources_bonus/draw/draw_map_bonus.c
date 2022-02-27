@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/27 17:12:07 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/27 19:08:00 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,12 +43,12 @@ void	draw_map(t_data *data, char **map, int x, int y)
 			if (pl.x + x - 10 < 0 || pl.y + y - 10 < 0
 				|| pl.x + x - 9 > data->h || pl.y + y - 9 > data->l)
 				fill(&data->img[MAP], vars, GRAY);
-			else if (ftex_is_in_set(map[pl.x + x - 10][pl.y + y - 10], SSPRITE))
+			else if (ftex_is_in_set(map[pl.x + x - 10][pl.y + y - 10], "mn"))
 				fill(&data->img[MAP], vars, RED);
+			else if (ftex_is_in_set(map[pl.x + x - 10][pl.y + y - 10], SSPRITE))
+				fill(&data->img[MAP], vars, GREEN);
 			else if (ftex_is_in_set(map[pl.x + x - 10][pl.y + y - 10], "@! "))
 				fill(&data->img[MAP], vars, BLUE);
-			else if (ftex_is_in_set(map[pl.x + x - 10][pl.y + y - 10], "DH"))
-				fill(&data->img[MAP], vars, GREEN);
 			else if (ftex_is_in_set(map[pl.x + x - 10][pl.y + y - 10], "NSEWP"))
 				fill(&data->img[MAP], vars, YELLOW);
 			else

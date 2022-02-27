@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   defines_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
+/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 17:18:00 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/27 17:54:58 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/27 19:11:39 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@
 # define VALID_ID "NSEWCFDH\n"
 # define VALID_MAP_CHARS "01234567 NSEWDHabcdefghmn\n"
 # define VALID_SPRITE "abcdefghmn"
-# define SSPRITE "abcdefghmn"
+# define SSPRITE "abcdefghmnD"
 # define VALID_WALLS "!@234567DGFZY"
 # define VALID_DOOR_WALLS "GFZY"
 
@@ -76,7 +76,7 @@
 # define FRAME_DELAY 500
 # define ANIMATION_DELAY 100
 
-# define NUM_SPRITES 50
+# define NUM_SPRITES 100
 # define EPSILON 0.2
 
 # define TILE_SIZE 64
@@ -91,7 +91,7 @@
 
 # define DOOR_DIST 150
 # define SHOT_DIST 550
-# define SPRITE_RANGE 350
+# define SPRITE_RANGE 550
 
 # define PLAYER_SIZE TILE_SIZE
 # define VIEW_ANGLE 400
