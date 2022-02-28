@@ -6,7 +6,7 @@
 /*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/22 19:09:17 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/28 20:01:00 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,11 @@ static void	animate_enemy(t_sprite *sprite, t_data *data)
 		sprite->texture = sprite->tex_index + 2;
 	if (enemy_hit_player(sprite, data))
 		data->player.hitted = 1;
-	if (sprite->hitted && sprite->collidable)
+	if (sprite->hitted && sprite->animated)
 	{
+		sprite->collidable = 0;
 		if (sprite->frame > 2)
-			sprite->collidable = 0;
+			sprite->animated = false;
 		if (sprite->frame == 0)
 			sprite->texture = sprite->tex_index + 4;
 		if (sprite->frame == 1)
