@@ -158,7 +158,7 @@ NAME_BONUS		=	cub3D_bonus
 CC				=	gcc
 RM				=	rm -rf
 
-CFLAGS			=	-Wall -Wextra -Werror -g3
+CFLAGS			=	-Wall -Wextra -Werror -O3
 LDFLAGS			=	-lXext -lX11 -lm
 
 $(OBJ_DIR)/%.o:	%.c $(HEADERS) $(HEADERS_BONUS)

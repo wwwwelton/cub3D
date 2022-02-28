@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   defines_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 17:18:00 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/28 19:12:35 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/28 19:37:05 by wleite           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@
 # define FRAME_DELAY 500
 # define ANIMATION_DELAY 100
 
-# define NUM_SPRITES 100
+# define NUM_SPRITES 500
 # define EPSILON 0.2
 
 # define TILE_SIZE 64
