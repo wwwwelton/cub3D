@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_map_value_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wleite <wleite@student.42sp.org.br>        +#+  +:+       +#+        */
+/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/17 05:12:15 by wleite           ###   ########.fr       */
+/*   Updated: 2022/02/28 19:12:35 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	map_has_wall_at(float x, float y, t_data *data)
 	{
 		return (false);
 	}
-	return (ftex_is_in_set(data->map[map_y][map_x], VALID_WALLS));
+	return (ftex_is_in_set(data->map[map_y][map_x], WALLS));
 }
 
 char	get_map_value_at(int i, int j, t_data *data)

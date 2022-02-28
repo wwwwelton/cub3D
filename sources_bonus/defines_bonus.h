@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 17:18:00 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/02/27 19:11:39 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/28 19:12:35 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@
 # define VALID_MAP_CHARS "01234567 NSEWDHabcdefghmn\n"
 # define VALID_SPRITE "abcdefghmn"
 # define SSPRITE "abcdefghmnD"
-# define VALID_WALLS "!@234567DGFZY"
+# define WALLS "!@234567DGFZY"
 # define VALID_DOOR_WALLS "GFZY"
 
 # define COLLID_SPRITE "abcdeghmn"

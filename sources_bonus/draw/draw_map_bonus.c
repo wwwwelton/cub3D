@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 23:07:01 by wleite            #+#    #+#             */
-/*   Updated: 2022/02/27 19:08:00 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/02/28 19:12:35 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	draw_map(t_data *data, char **map, int x, int y)
 				fill(&data->img[MAP], vars, RED);
 			else if (ftex_is_in_set(map[pl.x + x - 10][pl.y + y - 10], SSPRITE))
 				fill(&data->img[MAP], vars, GREEN);
-			else if (ftex_is_in_set(map[pl.x + x - 10][pl.y + y - 10], "@! "))
+			else if (ftex_is_in_set(map[pl.x + x - 10][pl.y + y - 10], WALLS))
 				fill(&data->img[MAP], vars, BLUE);
 			else if (ftex_is_in_set(map[pl.x + x - 10][pl.y + y - 10], "NSEWP"))
 				fill(&data->img[MAP], vars, YELLOW);
