@@ -196,18 +196,6 @@ fclean:			clean
 				$(MAKE) -C $(LIBFT_PATH) fclean
 				$(RM) $(NAME) $(NAME_BONUS)
 
-run:
-				make && clear && ./$(NAME) assets/maps/minimap.cub
-
-runv:
-				make && clear && valgrind ./$(NAME) assets/maps/minimap.cub
-
-runb:
-				make bonus && clear && ./$(NAME_BONUS) assets/maps/minimap.cub
-
-runvb:
-				make bonus && clear && valgrind --leak-check=full --show-leak-kinds=all ./$(NAME_BONUS) assets/maps/minimap.cub
-
 re:				fclean all
 
 .PHONY:			all clean fclean re libft minilibx bonus
