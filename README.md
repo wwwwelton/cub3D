@@ -2,7 +2,7 @@
 This is the second graphic project at [42](42sp.org.br), our first RayCaster with miniLibX.
 
 ### What is cub3D?
-Cub3D is a team project at [42](42sp.org.br) that requires us to create a "3D" game with miniLibX. This project is inspired by the world-famous eponymous 90's game, which was the first FPS ever. It will enable you to explore ray-casting. Your goal will be to make a dynamic view inside a maze, in which you'll have to find your way.
+Cub3D is a team project at [42](42sp.org.br) that requires us to create a "3D" game engine with [miniLibX](https://github.com/42Paris/minilibx-linux). This project is inspired by the world-famous eponymous 90's game [Wolfenstein 3D](https://pt.wikipedia.org/wiki/Wolfenstein_3D), which was the first [FPS](https://en.wikipedia.org/wiki/First-person_shooter#:~:text=First%2Dperson%20shooter%20(FPS),in%20a%20three%2Ddimensional%20space.) ever. The objective of this project was to deep into the mathematical concepts behind the [ray-casting algorithm](https://en.wikipedia.org/wiki/Ray_casting), such as calculations of distances, height of walls, sprites and field of view using [trigonometry](https://en.wikipedia.org/wiki/Trigonometry).
 
 ### Gameplay
 ![alt text](./images/so_long_gameplay.gif)
@@ -23,21 +23,18 @@ Cub3D is a team project at [42](42sp.org.br) that requires us to create a "3D" g
 ## Getting started
 **Follow the steps below**
 ```bash
-# Requirements: GNU Readline Library
-# To install the readline library, open the terminal window and write
-sudo apt-get install libreadline-dev
+# Requirements: X11 miscellaneous extensions library and Utility functions from BSD
+# To install the dependencies, open the terminal window and write
+sudo apt-get install libxext-dev libbsd-dev
 
 # Clone the project and access the folder
 git clone https://github.com/wwwwelton/cub3D && cd cub3D/
 
 # Run make so you can build the game
-make
-
-# Run make with bonus if you want to build game with enemies and animations
 make bonus
 
 # Run the game with the map as an argument
-./cub3D assets/maps/mandatory/mandatory.cub
+./cub3D assets/maps/bonus/dust2.cub
 
 # Clean output objects with
 make fclean
@@ -47,8 +44,11 @@ make fclean
 
 **Game Controller Keys**
 
-**Move:** W, A, S, D or Arrow keys
-**Exit:** Q or ESC
+**Move player:** W, A, S, D
+**Move camera:** 🡡, 🡠, 🡣, 🡢
+**Interact:** E
+**Shoot:** Left shift or left mouse button
+**Menu:** ESC
 
 ## Updating
 
