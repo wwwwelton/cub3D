@@ -45,11 +45,7 @@ make fclean
 
 **Game Controller Keys**
 
-**Move player:** W, A, S, D
-**Move camera:** 🡡, 🡠, 🡣, 🡢
-**Interact:** E
-**Shoot:** Left shift or left mouse button
-**Menu:** ESC
+**Move player:** W, A, S, D<br />**Move camera:** 🡡, 🡠, 🡣, 🡢<br />**Interact:** E<br />**Shoot:** Left shift or left mouse button<br />**Menu:** ESC<br />
 
 ## Updating
 
