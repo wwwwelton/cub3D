@@ -2,7 +2,7 @@
 This is the second graphic project at [42](42sp.org.br), our first RayCaster with miniLibX.
 
 ### What is cub3D?
-Cub3D is a team project at [42](42sp.org.br) that requires us to create a "3D" game engine with [miniLibX](https://github.com/42Paris/minilibx-linux). This project is inspired by the world-famous eponymous 90's game [Wolfenstein 3D](https://pt.wikipedia.org/wiki/Wolfenstein_3D), which was the first [FPS](https://en.wikipedia.org/wiki/First-person_shooter#:~:text=First%2Dperson%20shooter%20(FPS),in%20a%20three%2Ddimensional%20space.) ever. The objective of this project was to deep into the mathematical concepts behind the [ray-casting algorithm](https://en.wikipedia.org/wiki/Ray_casting), such as calculations of distances, height of walls, sprites and field of view using [trigonometry](https://en.wikipedia.org/wiki/Trigonometry).
+Cub3D is a team project at [42](42sp.org.br) that asks us to create a "3D" game engine with [miniLibX](https://github.com/42Paris/minilibx-linux). This project is inspired by the world-famous 90's game [Wolfenstein 3D](https://pt.wikipedia.org/wiki/Wolfenstein_3D), which was the first [FPS](https://en.wikipedia.org/wiki/First-person_shooter#:~:text=First%2Dperson%20shooter%20(FPS),in%20a%20three%2Ddimensional%20space.) ever. The objective of this project is to deep dive into the mathematical concepts behind the [ray-casting algorithm](https://en.wikipedia.org/wiki/Ray_casting) such as calculating distances, height, sprite locations and field of view to create a projection using primarily [trigonometry](https://en.wikipedia.org/wiki/Trigonometry).
 
 ### Gameplay
 ![alt text](./images/so_long_gameplay.gif)
@@ -60,4 +60,4 @@ This project is licensed under the GNU General Public License v3.0 - see the [LI
 
 ---
 
-Made by Welton Leite 👋 [See my linkedin](https://www.linkedin.com/in/welton-leite-b3492985/)
+João Rodriguez 👋 [See my Github](https://github.com/VLN37)<br />Welton Leite 👋 [See my linkedin](https://www.linkedin.com/in/welton-leite-b3492985/)
