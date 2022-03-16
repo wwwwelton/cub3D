@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 23:24:23 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/01/18 23:56:31 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/03/16 15:30:27 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static t_bool	is_map_name_valid(t_data *data, char *mapname)
 	dot = ft_strrchr(mapname, '.');
 	if (!dot)
 		return (false);
-	if (ft_strncmp(dot, ".cub", ft_strlen(dot)) || ft_strncmp(".cub", dot, 3))
+	if (ft_strncmp(dot, ".cub", ft_strlen(dot)) || ft_strncmp(".cub", dot, 4))
 	{
 		printf(E_MAPINVAL2, mapname);
 		return (false);
